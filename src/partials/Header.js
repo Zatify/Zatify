@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const menuItems = [
   { label: 'TRANG CHỦ', active: true },
   { label: 'VỀ ZATIFY' },
@@ -14,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-<header className="bg-white rounded-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 absolute top-6 left-0 right-0 z-50">
+<header className="bg-white rounded-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 absolute top-6 left-0 right-0 z-10">
         {/* Logo */}
         <div className="flex items-center space-x-6">
           <button className="hidden 1.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">

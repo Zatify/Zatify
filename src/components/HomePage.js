@@ -4,25 +4,26 @@ const HomePage = () => {
   return (
     <div className="w-full min-h-screen font-sans">
       {/* Hero Section */}
-      <section className=" pt-56 px-2 md:px-6 pb-6  mx-auto w-full bg-gray-100 rounded-bl-3xl rounded-br-3xl">
-        <div className="flex flex-col justify-center  md:flex-row w-full">
+      <section className="relative pt-56 px-2 sm:px-4 md:px-6 xl:px-6 pb-6 mx-auto w-full bg-gray-100 rounded-bl-3xl rounded-br-3xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-20 rounded-bl-3xl rounded-br-3xl pointer-events-none"></div>
+        <div className="relative flex flex-col justify-center xl:flex-row md:flex-row sm:flex-col w-full">
           {/* Left: Title */}
-          <div className="md:w-[50%] flex flex-col justify-start md:justify-center">
-            <h1 className="text-6xl md:text-8xl leading-tight text-black mb-2 md:mb-0 font-roboto font-light" style={{ lineHeight: 1.08 }}>
+          <div className="xl:w-[50%] md:w-[60%] sm:w-full flex flex-col justify-start xl:justify-center md:justify-center sm:justify-start">
+            <h1 className="text-5xl sm:text-6xl w-auto xl:text-8xl md:text-7xl  leading-tight text-black mb-2 xl:mb-0 md:mb-1 sm:mb-2 md:ml-8 font-roboto font-light" style={{ lineHeight: 1.08 }}>
               Kinh doanh vượt trội
               trong thời đại số với
-              <span className="block text-6xl md:text-8xl font-light bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent mt-2 font-roboto">
+              <span className="block text-6xl xl:text-8xl md:text-7xl sm:text-5xl font-light bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent mt-2 font-roboto">
                 ZALO ZNS
               </span>
             </h1>
           </div>
           {/* Right: Description & CTA */}
-          <div className="md:w-[30%] flex flex-col items-center justify-start md:justify-center mt-6 md:mt-0">
-            <div className=" flex flex-col items-start bg-opacity-80 p-6 md:p-8 max-w-md w-full md:w-auto">
-              <p className="mb-6 text-gray-700 text-base text-left font-manrope">
+          <div className="xl:w-[30%] md:w-[40%] sm:w-full flex flex-col items-center justify-start xl:justify-center md:justify-center sm:justify-start mt-6 xl:mt-0 md:mt-2 sm:mt-4">
+            <div className="flex flex-col items-start bg-opacity-80 p-6 xl:p-8 md:p-6 sm:p-4 max-w-md w-full xl:w-auto md:w-full sm:w-full">
+              <p className="mb-6 sm:text-[16px] text-[14px]  text-gray-700 text-base text-left font-manrope">
                 Giải pháp tin nhắn chăm sóc khách hàng tự động một cách tiết kiệm và hiệu quả
               </p>
-              <button className="bg-red-400 hover:bg-red-300 text-white font-semibold py-3 px-7 rounded-lg shadow-md transition flex items-center gap-2 text-base float-right font-manrope">
+              <button className="bg-red-400 hover:bg-red-300 text-white font-semibold py-3 px-7 rounded-lg shadow-md transition flex items-center gap-2 text-base float-right font-manrope sm:text-[16px] text-[14px]">
                 Khám phá ngay
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +40,8 @@ const HomePage = () => {
           </div>
         </div>
         {/* Banner */}
-        <div className="relative mt-16 rounded-[32px] overflow-hidden bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] h-[320px] md:h-[600px] flex items-end px-0 md:px-10 py-0 md:py-8 w-full">
-          <span className="absolute left-10 bottom-10 text-white text-[70px] md:text-[120px] font-extrabold leading-none select-none opacity-90 z-10" style={{ letterSpacing: '-0.04em' }}>
+        <div className="relative mt-16 rounded-[32px] overflow-hidden bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] h-[320px] xl:h-[600px] md:h-[480px] sm:h-[360px] flex items-end px-0 xl:px-10 md:px-6 sm:px-4 py-0 xl:py-8 md:py-6 sm:py-4 w-full">
+          <span className="absolute left-10 bottom-10 text-white text-[120px] sm:text-[180px] md:text-[220px] xl:text-[260px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
             Zatify
           </span>
           <div className="absolute bottom-8 right-10 flex flex-col items-end z-20">
