@@ -28,7 +28,7 @@ const StickyHeader = () => {
             >
                 {/* Logo */}
                 <div className="flex items-center space-x-6">
-                    <button className="hidden 1.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <svg
                             className="w-6 h-6 text-gray-700"
                             fill="none"
@@ -50,7 +50,7 @@ const StickyHeader = () => {
                 </div>
 
                 {/* Navigation */}
-                <nav className="hidden 1.5xl:flex space-x-10 text-sm font-semibold text-gray-800">
+                <nav className="hidden 0.5xl:flex space-x-2 text-sm font-semibold text-gray-800">
                     {menuItems.map((item) => (
                         <a
                             key={item.label}
@@ -95,7 +95,7 @@ const StickyHeader = () => {
                 </nav>
 
                 {/* Nút search + login */}
-                <div className="hidden 1.5xl:flex items-center space-x-6">
+                <div className="hidden 0.5xl:flex items-center space-x-6">
                     <button className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <svg
                             className="w-5 h-5 text-gray-700"
@@ -117,7 +117,7 @@ const StickyHeader = () => {
 
                 {/* Nút menu hamburger */}
                 <button
-                    className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-auto 1.5xl:hidden"
+                    className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-auto 0.5xl:hidden"
                     onClick={() => setSidebarOpen(true)}
                 >
                     <svg

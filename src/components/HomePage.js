@@ -8,8 +8,8 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-20 rounded-bl-3xl rounded-br-3xl pointer-events-none"></div>
         <div className="relative flex flex-col justify-center xl:flex-row md:flex-row sm:flex-col w-full">
           {/* Left: Title */}
-          <div className="xl:w-[50%] md:w-[60%] sm:w-full flex flex-col justify-start xl:justify-center md:justify-center sm:justify-start">
-            <h1 className="text-5xl sm:text-6xl w-auto xl:text-8xl md:text-7xl  leading-tight text-black mb-2 xl:mb-0 md:mb-1 sm:mb-2 md:ml-8 font-roboto font-light" style={{ lineHeight: 1.08 }}>
+          <div className="2xl:w-[50%] xl:w-[55%] md:w-[50%] sm:w-full flex flex-col justify-start xl:justify-center md:justify-center sm:justify-start">
+            <h1 className="text-5xl sm:text-6xl w-auto 2xl:text-8xl xl:text-7xl  leading-tight text-black mb-2 xl:mb-0 md:mb-1 sm:mb-2 md:ml-8 font-roboto font-light" style={{ lineHeight: 1.08 }}>
               Kinh doanh vượt trội
               trong thời đại số với
               <span className="block text-6xl xl:text-8xl md:text-7xl sm:text-5xl font-light bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent mt-2 font-roboto">
@@ -44,26 +44,25 @@ const HomePage = () => {
           <span className="absolute left-10 bottom-10 text-white text-[120px] sm:text-[180px] md:text-[220px] xl:text-[260px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
             Zatify
           </span>
-          <div className="absolute bottom-8 right-10 flex flex-col items-end z-20">
-            <div className="text-white text-xs text-left leading-snug mb-3 opacity-90">
-              Bước đột phá
-              trong việc
-              CSKH cho 
-              doanh nghiệp
+          <div className="absolute right-0 bottom-0 flex flex-col items-end z-20">
+            <div className="text-white text-xs text-right mb-2 mr-6 opacity-80">
+              Bước đột phá trong việc CSKH cho doanh nghiệp
             </div>
-            <div className="bg-white bg-opacity-80 rounded-full px-5 py-2 flex items-center gap-2 cursor-pointer hover:bg-opacity-100 transition shadow">
+            <button
+              className="flex items-center opacity-75 gap-2 bg-gray-100  rounded-tl-3xl px-24 py-10 shadow-md text-black font-medium text-base hover:bg-gray-100 transition"
+            >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-black"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
                 fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+                className="text-black"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-6.518-3.75A1 1 0 007 8.25v7.5a1 1 0 001.234.97l6.518-1.87a1 1 0 000-1.82z" />
+                <circle cx="9" cy="9" r="8" stroke="#E5E7EB" strokeWidth="1.5" />
+                <polygon points="7,6 13,9 7,12" fill="black" />
               </svg>
-              <span className="text-sm text-black font-medium">Xem video</span>
-            </div>
+              Xem video
+            </button>
           </div>
           {/* Hiệu ứng dots */}
           <div className="absolute inset-0 pointer-events-none z-0">
@@ -87,19 +86,71 @@ const HomePage = () => {
       </section>
 
       {/* Explore Services Section */}
-      <section className="mt-20 px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold max-w-3xl leading-snug">
-          Khám phá các dịch vụ của Zatify ngay để nắm bắt được toàn bộ{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">
-            Hệ sinh thái Zalo
-          </span>
-        </h2>
-        {/* Logos */}
-        <div className="mt-8 flex flex-wrap items-center gap-8 opacity-50">
-          <img src="/logos/nd2.png" alt="ND2" className="h-10" />
-          <img src="/logos/metriks.png" alt="Metriks" className="h-10" />
-          <img src="/logos/quo.png" alt="Quo Legal Firm" className="h-10" />
-          <img src="/logos/mnmize.png" alt="Mnmize Interior" className="h-10" />
+      <section className="relative mt-20 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] bg-white overflow-hidden">
+        <div className="absolute inset-0 w-[40%] bg-gradient-to-r from-[#bcaaff] via-[#fff] to-[#fff] opacity-5 rounded-bl-3xl rounded-br-3xl pointer-events-none"></div>
+        {/* Pattern bên trái */}
+        <div className="absolute left-0 top-0 h-full w-1/3 pointer-events-none select-none z-0 flex items-center">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 400 420"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-full w-full"
+            style={{ opacity: 0.18 }}
+          >
+            <defs>
+              <linearGradient id="xGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#bcaaff" />
+                <stop offset="100%" stopColor="#7ec8e3" />
+              </linearGradient>
+            </defs>
+            {[
+              { x: 20, y: 70, size: 90, opacity: 10 },
+              { x: 110, y: 40, size: 70, opacity: 5 },
+              { x: 60, y: 160, size: 100, opacity: 5 },
+              { x: 180, y: 120, size: 80, opacity: 0.7 },
+              { x: 80, y: 270, size: 110, opacity: 0.5 },
+              { x: 210, y: 220, size: 85, opacity: 10 },
+              { x: 30, y: 350, size: 95, opacity: 0.4 },
+              { x: 160, y: 320, size: 75, opacity: 15 },
+              { x: 260, y: 80, size: 60, opacity: 0.5 },
+              { x: 320, y: 200, size: 100, opacity: 0.7 },
+              { x: 300, y: 340, size: 80, opacity: 0.5 },
+              { x: 220, y: 370, size: 60, opacity: 5 },
+            ].map((item, idx) => (
+              <text
+                key={idx}
+                x={item.x}
+                y={item.y}
+                fontSize={item.size}
+                fontFamily="Arial, Helvetica, sans-serif"
+                fontWeight="bold"
+                fill="none"
+                stroke="url(#xGradient)"
+                strokeWidth="2"
+                opacity={item.opacity}
+              >
+                X
+              </text>
+            ))}
+          </svg>
+        </div>
+        {/* Nội dung chính */}
+        <div className="relative z-10 flex flex-col items-center w-full">
+          <h2 className="text-[40px] sm:text-[56px] md:text-[64px] xl:text-[72px] font-light leading-tight text-center font-roboto mb-10 max-w-5xl">
+            Khám phá các dịch vụ của Zatify ngay để nắm bắt được toàn bộ{' '}
+            <span className="bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent font-normal">
+              Hệ sinh thái Zalo
+            </span>
+          </h2>
+          {/* Logos */}
+          <div className="flex flex-row items-center justify-center gap-12 mt-2 opacity-80">
+            <img src="/logos/nd2.png" alt="ND2" className="h-10 grayscale" />
+            <img src="/logos/metriks.png" alt="Metriks" className="h-10 grayscale" />
+            <img src="/logos/quo.png" alt="Quo Legal Firm" className="h-10 grayscale" />
+            <img src="/logos/mnmize.png" alt="Mnmize Interior" className="h-10 grayscale" />
+          </div>
         </div>
       </section>
 

@@ -18,7 +18,7 @@ const Header = () => {
 <header className="bg-white rounded-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 absolute top-6 left-0 right-0 z-10">
         {/* Logo */}
         <div className="flex items-center space-x-6">
-          <button className="hidden 1.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             <svg
               className="w-6 h-6 text-gray-700"
               fill="none"
@@ -41,7 +41,7 @@ const Header = () => {
 
         {/* Navigation - Ẩn khi nhỏ hơn 1280px */}
         {/* Navigation - Ẩn khi nhỏ hơn 1280px */}
-        <nav className="hidden 1.5xl:flex space-x-10 text-sm font-semibold text-gray-800">
+        <nav className="hidden 0.5xl:flex space-x-4 text-sm font-semibold text-gray-800">
           {menuItems.map((item) => (
             <a
               key={item.label}
@@ -86,7 +86,7 @@ const Header = () => {
         </nav>
 
         {/* Nút search + login - Ẩn khi nhỏ hơn 1280px */}
-        <div className="hidden 1.5xl:flex items-center space-x-6">
+        <div className="hidden 0.5xl:flex items-center space-x-6">
           <button className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             <svg
               className="w-5 h-5 text-gray-700"
@@ -108,7 +108,7 @@ const Header = () => {
 
         {/* Nút menu hamburger */}
         <button
-          className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-auto 1.5xl:hidden"
+          className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-auto 0.5xl:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <svg
