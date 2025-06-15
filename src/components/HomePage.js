@@ -49,7 +49,7 @@ const HomePage = () => {
               Bước đột phá trong việc CSKH cho doanh nghiệp
             </div>
             <button
-              className="flex items-center opacity-75 gap-2 bg-gray-100  rounded-tl-3xl px-24 py-10 shadow-md text-black font-medium text-base hover:bg-gray-100 transition"
+              className="flex items-center opacity-75 gap-2 bg-gray-100  rounded-tl-3xl px-4 py-6 0.5xl:px-24 0.5xl:py-10 shadow-md text-black font-medium text-base hover:bg-gray-100 transition"
             >
               <svg
                 width="18"
@@ -87,7 +87,7 @@ const HomePage = () => {
 
       {/* Explore Services Section */}
       <section className="relative mt-20 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] bg-white overflow-hidden">
-        <div className="absolute inset-0 w-[40%] bg-gradient-to-r from-[#bcaaff] via-[#fff] to-[#fff] opacity-5 rounded-bl-3xl rounded-br-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 w-[20%] bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 rounded-bl-3xl rounded-br-3xl pointer-events-none"></div>
         {/* Pattern bên trái */}
         <div className="absolute left-0 top-0 h-full w-1/3 pointer-events-none select-none z-0 flex items-center">
           <svg
@@ -106,18 +106,18 @@ const HomePage = () => {
               </linearGradient>
             </defs>
             {[
-              { x: 20, y: 70, size: 90, opacity: 10 },
-              { x: 110, y: 40, size: 70, opacity: 5 },
+              { x: 0, y: 70, size: 90, opacity: 10 },
+              { x: 110, y: 80, size: 70, opacity: 5 },
               { x: 60, y: 160, size: 100, opacity: 5 },
               { x: 180, y: 120, size: 80, opacity: 0.7 },
               { x: 80, y: 270, size: 110, opacity: 0.5 },
               { x: 210, y: 220, size: 85, opacity: 10 },
               { x: 30, y: 350, size: 95, opacity: 0.4 },
               { x: 160, y: 320, size: 75, opacity: 15 },
-              { x: 260, y: 80, size: 60, opacity: 0.5 },
-              { x: 320, y: 200, size: 100, opacity: 0.7 },
-              { x: 300, y: 340, size: 80, opacity: 0.5 },
-              { x: 220, y: 370, size: 60, opacity: 5 },
+              { x: 150, y: 80, size: 60, opacity: 0.5 },
+              { x: 260, y: 200, size: 100, opacity: 0.7 },
+              { x: 200, y: 340, size: 80, opacity: 0.5 },
+              { x: 20, y: 370, size: 60, opacity: 5 },
             ].map((item, idx) => (
               <text
                 key={idx}
