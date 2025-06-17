@@ -1,0 +1,51 @@
+=======
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper';
+
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+          {/* Logos */}
+          <div className="flex flex-row items-center justify-center gap-12 mt-2 opacity-80">
+            <img src="svg/logos/zalozns.jpg" alt="Zalo ZNS" className="h-20" />
+            <img src="svg/logos/zaloaccout.jpg" alt="Zalo Offical Account" className="h-20" />
+            <img src="svg/logos/zaloads.jpg" alt="Zalo ADS" className="h-20" />
+            <img src="svg/logos/miniapp.jpg" alt="Zalo Miniapp" className="h-20" />
+          </div>
+=======
+          {/* Logos */}
+          <div className="hidden sm:flex flex-row items-center justify-center gap-12 mt-2 opacity-80">
+            {[
+              { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
+              { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
+              { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
+              { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
+            ].map((logo) => (
+              <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-20" />
+            ))}
+          </div>
+          <div className="sm:hidden w-full">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              loop={true}
+              className="w-full"
+            >
+              {[
+                { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
+                { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
+                { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
+                { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
+              ].map((logo) => (
+                <SwiperSlide key={logo.alt} className="flex justify-center">
+                  <img src={logo.src} alt={logo.alt} className="h-20" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>

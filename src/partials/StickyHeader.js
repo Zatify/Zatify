@@ -45,7 +45,7 @@ const StickyHeader = () => {
                         </svg>
                     </button>
                     <div className="font-extrabold text-xl text-gray-900 select-none">
-                        AIE2RO
+                        ZATIFY
                     </div>
                 </div>
 
