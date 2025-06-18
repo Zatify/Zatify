@@ -91,20 +91,6 @@ const Header = () => {
 
         {/* Nút search + login - Ẩn khi nhỏ hơn 1280px */}
         <div className="hidden 0.5xl:flex items-center space-x-6">
-          <button className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <svg
-              className="w-5 h-5 text-gray-700"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button>
           <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
             Log in
           </button>
@@ -236,8 +222,9 @@ const Header = () => {
 
       {/* Contact Sidebar */}
       <div
-        className={`fixed top-0 left-0 rounded-3xl h-full w-[350px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : 'translate-x-[-100%]'
+        className={`fixed rounded-3xl h-[calc(100%-32px)] w-[350px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[366px]'
           }`}
+        style={{ top: 16, left: 16, bottom: 16 }}
       >
         <div className="flex items-center justify-between px-6 pt-6">
           <div className="text-white font-bold text-lg select-none">AIERO</div>
