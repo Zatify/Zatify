@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-<header className="bg-white rounded-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 absolute top-6 left-0 right-0 z-10">
+      <header className="bg-white rounded-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 absolute top-6 left-0 right-0 z-10">
         {/* Logo */}
         <div className="flex items-center space-x-6">
           <button
@@ -222,68 +222,82 @@ const Header = () => {
 
       {/* Contact Sidebar */}
       <div
-        className={`fixed rounded-3xl h-[calc(100%-32px)] w-[350px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[366px]'
+        className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
           }`}
         style={{ top: 16, left: 16, bottom: 16 }}
       >
-        <div className="flex items-center justify-between px-6 pt-6">
-          <div className="text-white font-bold text-lg select-none">AIERO</div>
-          <button
-            className="p-2"
-            aria-label="Close"
-            onClick={() => setContactSidebarOpen(false)}
+        {/* Thanh Close dọc */}
+        <button
+          className="flex flex-col items-center justify-center h-full w-16 rounded-3xl shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 group transition-all duration-200 absolute -right-[70px] top-0"
+          aria-label="Close"
+          onClick={() => setContactSidebarOpen(false)}
+          style={{
+            border: 'none',
+            minWidth: 0,
+            padding: 0,
+            backgroundImage: 'url("svg/close.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transform: 'rotate(180deg)',
+          }}
+        >
+          {/* SVG chữ X */}
+          <svg
+            className="w-5 h-5 text-white mb-1 group-hover:text-cyan-400 transition"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
           >
-            <svg
-              className="w-7 h-7 text-white"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-        <div className="px-6 pt-6 space-y-6">
-          <div>
-            <div className="uppercase text-xs font-semibold tracking-widest text-gray-400 mb-2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+          <span
+            className="text-xs text-white group-hover:text-cyan-400 tracking-widest font-semibold"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.1em',
+              marginTop: '2px',
+              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+            }}
+          >
+            Close
+          </span>
+        </button>
+        <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
+          {/* Logo và thông tin liên hệ */}
+
+          <div className="text-white text-3xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
+            ZATIFY
+          </div>
+          <div className='flex flex-col h-[40%] w-[90%] pl-10 mb-20'>
+            <div className="uppercase text-xs font-semibold tracking-widest text-gray-400 mb-2 font-manrope">
               LIÊN HỆ
             </div>
-            <div className="text-sm font-semibold leading-relaxed">
-              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận<br />
+            <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
+              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
               Quận 7, TP.HCM
             </div>
-          </div>
-          <div>
-            <div className="text-sm font-semibold leading-relaxed">
+            <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
               0389 603 339<br />
               0919 676 808
             </div>
-          </div>
-          <div>
-            <a href="mailto:Sales@zatify.com.vn" className="underline text-sm font-semibold leading-relaxed">
+            <a href="mailto:Sales@zatify.com.vn" className="underline text-md font-semibold leading-relaxed font-manrope">
               Sales@zatify.com.vn
             </a>
+            <div className="flex justify-center mt-24 font-manrope">
+              <button className="w-48 py-3 rounded-full text-md border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                Liên hệ ngay
+              </button>
+            </div>
           </div>
-          <button className="w-full mt-6 py-3 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
-            Liên hệ ngay
-          </button>
-          <div className="flex justify-center space-x-6 mt-8">
-            <a href="#" aria-label="Facebook" className="text-white hover:text-cyan-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg>
-            </a>
-            <a href="#" aria-label="X" className="text-white hover:text-cyan-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14.86 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" className="text-white hover:text-cyan-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 3a2 2 0 110 4 2 2 0 010-4z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube" className="text-white hover:text-cyan-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-1.604-.11-8.07-.11-8.07-.11s-6.466 0-8.07.11A3.374 3.374 0 001 6.565v10.87a3.374 3.374 0 001.475 2.98c1.604.11 8.07.11 8.07.11s6.466 0 8.07-.11a3.374 3.374 0 001.475-2.98V6.565a3.374 3.374 0 00-1.475-2.98zM10 15.568v-7.136l6 3.568-6 3.568z"/></svg>
-            </a>
+          {/* Icon mạng xã hội */}
+          <div className="flex justify-center space-x-6">
           </div>
         </div>
       </div>

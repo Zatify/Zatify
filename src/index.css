@@ -59,3 +59,12 @@
   opacity: 1;
   background: #4f46e5; /* Indigo-600 */
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

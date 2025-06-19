@@ -12,6 +12,8 @@ const menuItems = [
 const StickyHeader = () => {
     const [show, setShow] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
+
 
     useEffect(() => {
         const onScroll = () => {
@@ -24,11 +26,13 @@ const StickyHeader = () => {
     return (
         <>
             <header
-                className={`bg-white rounded-b-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${show ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`bg-white rounded-b-2xl px-8 py-8 flex items-center justify-between shadow-sm mx-4 fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${show ? 'translate-y-0' : '-translate-y-full'}`}
             >
                 {/* Logo */}
                 <div className="flex items-center space-x-6">
-                    <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        onClick={() => setContactSidebarOpen(true)}
+                    >
                         <svg
                             className="w-6 h-6 text-gray-700"
                             fill="none"
@@ -139,7 +143,7 @@ const StickyHeader = () => {
             {/* Overlay */}
             {sidebarOpen && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-40 z-40"
+                    className="fixed inset-0 bg-black bg-opacity-40 z-50"
                     onClick={() => setSidebarOpen(false)}
                 ></div>
             )}
@@ -227,6 +231,95 @@ const StickyHeader = () => {
                     <button className="px-20 py-4 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
                         Log in
                     </button>
+                </div>
+            </div>
+            {/* Contact Sidebar Overlay */}
+            {contactSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-40 z-40"
+                    onClick={() => setContactSidebarOpen(false)}
+                ></div>
+            )}
+
+            {/* Contact Sidebar */}
+            <div
+                className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
+                    }`}
+                style={{ top: 16, left: 16, bottom: 16 }}
+            >
+                {/* Thanh Close dọc */}
+                <button
+                    className="flex flex-col items-center justify-center h-full w-16 rounded-3xl shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 group transition-all duration-200 absolute -right-[70px] top-0"
+                    aria-label="Close"
+                    onClick={() => setContactSidebarOpen(false)}
+                    style={{
+                        border: 'none',
+                        minWidth: 0,
+                        padding: 0,
+                        backgroundImage: 'url("svg/close.jpg")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        transform: 'rotate(180deg)',
+                    }}
+                >
+                    {/* SVG chữ X */}
+                    <svg
+                        className="w-5 h-5 text-white mb-1 group-hover:text-cyan-400 transition"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                    <span
+                        className="text-xs text-white group-hover:text-cyan-400 tracking-widest font-semibold"
+                        style={{
+                            writingMode: 'vertical-rl',
+                            textOrientation: 'mixed',
+                            letterSpacing: '0.1em',
+                            marginTop: '2px',
+                            textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+                        }}
+                    >
+                        Close
+                    </span>
+                </button>
+                <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
+                    {/* Logo và thông tin liên hệ */}
+
+                    <div className="text-white text-3xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
+                        ZATIFY
+                    </div>
+                    <div className='flex flex-col h-[40%] w-[90%] pl-10 mb-20'>
+                        <div className="uppercase text-xs font-semibold tracking-widest text-gray-400 mb-2 font-manrope">
+                            LIÊN HỆ
+                        </div>
+                        <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
+                            1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
+                            Quận 7, TP.HCM
+                        </div>
+                        <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
+                            0389 603 339<br />
+                            0919 676 808
+                        </div>
+                        <a href="mailto:Sales@zatify.com.vn" className="underline text-md font-semibold leading-relaxed font-manrope">
+                            Sales@zatify.com.vn
+                        </a>
+                        <div className="flex justify-center mt-24 font-manrope">
+                            <button className="w-48 py-3 rounded-full text-md border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                                Liên hệ ngay
+                            </button>
+                        </div>
+                    </div>
+                    {/* Icon mạng xã hội */}
+                    <div className="flex justify-center space-x-6">
+                    </div>
                 </div>
             </div>
         </>

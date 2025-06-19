@@ -123,30 +123,30 @@ const HomePage = () => {
               <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-20" />
             ))}
           </div>
-              <div className="sm:hidden w-full">
-                <div className="swiper-container-wrapper">
-                  <Swiper
-                    modules={[Pagination]}
-                    spaceBetween={20}
-                    slidesPerView={1}
-                    pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
-                    loop={true}
-                    className="w-full"
-                  > 
-                    {[ 
-                      { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
-                      { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
-                      { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
-                      { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
-                    ].map((logo) => (
+          <div className="sm:hidden w-full">
+            <div className="swiper-container-wrapper">
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={20}
+                slidesPerView={1}
+                pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
+                loop={true}
+                className="w-full"
+              >
+                {[
+                  { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
+                  { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
+                  { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
+                  { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
+                ].map((logo) => (
                   <SwiperSlide key={logo.alt} className="flex justify-center items-center w-full">
                     <img src={logo.src} alt={logo.alt} className="h-20 mx-auto" />
                   </SwiperSlide>
-                    ))}
-                  </Swiper>
-                  <div className="custom-swiper-pagination"></div>
-                </div>
-              </div>
+                ))}
+              </Swiper>
+              <div className="custom-swiper-pagination"></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -240,7 +240,7 @@ const HomePage = () => {
                 y="40"
                 width="140"
                 height="80"
-                opacity="0.8"/>
+                opacity="0.8" />
             </svg>
           </div>
 
@@ -295,6 +295,16 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+<section className="labelrunning w-full h-[115px] overflow-hidden flex items-center relative">
+  <div className="marquee flex whitespace-nowrap" style={{ animation: 'marquee 15s linear infinite' }}>
+    <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
+      / Neural Networks in shaping the future of technology.
+    </span>
+    <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
+      / Neural Networks in shaping the future of technology.
+    </span>
+  </div>
+</section>
     </div>
   );
 };
