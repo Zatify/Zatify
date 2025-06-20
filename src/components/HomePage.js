@@ -526,6 +526,109 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="w-full flex flex-col items-center mt-32 mb-24">
+        <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
+          <div className="flex flex-row justify-between items-center w-full mb-12">
+            <div>
+              <h2 className="mt-4 text-4xl sm:text-6xl font-roboto font-light leading-tight text-black">
+                Exploring the world of<br />
+                artificial intelligence<br />
+                with Aiero blogging
+              </h2>
+            </div>
+            <div className="gradient-border rounded-md inline-block p-[1px]">
+              <button className="text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+                More acticles
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col 0.5xl:flex-row gap-8 w-full justify-center">
+            {/* Blog Card 1 */}
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full 0.5xl:w-[422px] 0.5xl:h-[557px] flex flex-col relative group">
+              <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
+                <img
+                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/autodrive-autonomous-vehicle-navigation-fi-640x478.jpg"
+                  alt="AI Blog 1"
+                  className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
+                  style={{ willChange: 'transform' }}
+                />
+                {/* Date and holes */}
+                <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
+                  <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
+                  <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
+                    2 Jan 2025 / andrew
+                  </div>
+                  <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
+                {/* ...existing code... */}
+                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How can I get started with Artificial Intelligence for my business?</h3>
+                <div className="text-xs text-gray-400 mt-auto">/ AI Aiero / Technology /</div>
+              </div>
+            </div>
+            {/* Blog Card 2 */}
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full md:w-[422px] md:h-[557px] flex flex-col relative group">
+              <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
+                <img
+                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/robot-1-min-640x478.jpg"
+                  alt="AI Blog 2"
+                  className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
+                  style={{ willChange: 'transform' }}
+                />
+                {/* Date and holes */}
+                <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
+                  <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
+                  <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
+                    25 Dec 2024 / andrew
+                  </div>
+                  <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
+                {/* ...existing code... */}
+                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">AI and Robotics: Advancing Automation and Human-Robot Collaboration</h3>
+                <div className="text-xs text-gray-400 mt-auto">/ AI / Neural Networks /</div>
+              </div>
+            </div>
+            {/* Blog Card 3 */}
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full md:w-[422px] md:h-[557px] flex flex-col relative group">
+              <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
+                <img
+                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/is-artificial-intelligence-accessible-640x478.jpg"
+                  alt="AI Blog 3"
+                  className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
+                  style={{ willChange: 'transform' }}
+                />
+                {/* Date and holes */}
+                <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
+                  <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
+                  <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
+                    25 Dec 2024 / andrew
+                  </div>
+                  <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
+                {/* ...existing code... */}
+                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How Natural Language Processing is revolutionizing Text Analysis</h3>
+                <div className="text-xs text-gray-400 mt-auto">/ AI Services / AI Solutions /</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
