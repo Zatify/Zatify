@@ -12,6 +12,21 @@
     mask-repeat: no-repeat;
   }
 
+  .mask-rounded-hole-testimonial-left {
+    mask-image: radial-gradient(circle at 3px 3px, transparent 69%, black 51%);
+    -webkit-mask-image: radial-gradient(circle at 3px 3px, transparent 69%, black 51%);
+    mask-size: 90% 90%;
+    mask-repeat: no-repeat;
+  }
+
+.mask-rounded-hole-testimonial-right {
+  mask-image: radial-gradient(circle at calc(100% - 3px) 3px, transparent 69%, black 51%);
+  -webkit-mask-image: radial-gradient(circle at calc(100% - 3px) 3px, transparent 69%, black 51%);
+  mask-size: 90% 90%;
+  mask-repeat: no-repeat;
+}
+
+
   .mask-rounded-hole-card {
     mask-image: radial-gradient(circle at 2px 2px, transparent 70%, black 51%);
     -webkit-mask-image: radial-gradient(circle at 2px 2px, transparent 70%, black 51%);
@@ -27,8 +42,25 @@
         calc(100% - 62px) 100%,
         0 100%);
   }
+
+  /* New gradient border class */
+.gradient-border {
+  background: linear-gradient(to right, #7c3aed, #3b82f6);
+  border-radius: 0.75rem; /* tương ứng với Tailwind: rounded-md */
+  display: inline-block;
+  padding: 1px; /* độ dày viền */
 }
 
+}
+
+.outlined-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px white;
+  text-stroke: 1.5px white;
+  font-weight: 700;
+  font-size: 7rem; /* Adjust size as needed */
+  line-height: 1;
+ }
 /* Added styles for Swiper pagination positioning */
 .swiper-container-wrapper {
   position: relative;
