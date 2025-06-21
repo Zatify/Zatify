@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const menuItems = [
   { label: 'TRANG CHỦ', active: true },
   { label: 'VỀ ZATIFY' },
@@ -296,8 +295,9 @@ const Header = () => {
               </button>
             </div>
           </div>
-          {/* Icon mạng xã hội */}
-          <div className="flex justify-center space-x-6">
+          {/* Sidepanel */}
+          <div className="flex justify-center space-x-6 w-full h-[20%]">
+            <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
           </div>
         </div>
       </div>

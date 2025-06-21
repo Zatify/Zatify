@@ -202,7 +202,7 @@ const HomePage = () => {
         <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start mb-6 mx-auto">
           <h3 className="text-3xl 0.5xl:text-7xl font-light font-roboto">Các dịch vụ của Zatify</h3>
           <div className="gradient-border rounded-md inline-block p-[1px]">
-            <button className="text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+            <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
               Khám phá thêm
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -508,7 +508,7 @@ const HomePage = () => {
           </div>
           <div className="mt-10">
             <div className="gradient-border rounded-md inline-block p-[1px]">
-              <button className="text-sm bg-gray-100 rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+              <button className="justify-center text-sm bg-gray-100 rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
                 Explore more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -538,7 +538,7 @@ const HomePage = () => {
               </h2>
             </div>
             <div className="gradient-border rounded-md inline-block p-[1px]">
-              <button className="text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+              <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
                 More acticles
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
