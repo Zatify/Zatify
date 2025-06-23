@@ -43,6 +43,7 @@
         0 100%);
   }
 
+  
   /* New gradient border class */
 .gradient-border {
   background: linear-gradient(to right, #7c3aed, #3b82f6);
@@ -99,4 +100,31 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+
+
+
+
+/* SERVICEPAGE  */
+
+.mask-rounded-hole-service-bl {
+  mask-image: radial-gradient(circle at calc(100% - 3px) 3px, transparent 67%, black 51%);
+  -webkit-mask-image: radial-gradient(circle at calc(100% - 3px) 3px, transparent 67%, black 51%);
+  mask-size: 70% 70%;
+  mask-repeat: no-repeat;
+}
+
+.mask-rounded-hole-service-tl {
+  mask-image: radial-gradient(circle at calc(100% - 3px) calc(100% - 3px), transparent 67%, black 51%);
+  -webkit-mask-image: radial-gradient(circle at calc(100% - 3px) calc(100% - 3px), transparent 67%, black 51%);
+  mask-size: 70% 70%;
+  mask-repeat: no-repeat;
+}
+
+.mask-rounded-hole-service-br {
+  mask-image: radial-gradient(circle at 3px 3px, transparent 67%, black 51%);
+  -webkit-mask-image: radial-gradient(circle at 3px 3px, transparent 67%, black 51%);
+  mask-size: 70% 70%;
+  mask-repeat: no-repeat;
 }

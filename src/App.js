@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "./Layout/MainLayout";
-import Header from "./partials/Header";
 import HomePage from "./components/HomePage";
+import ServicePage from "./components/ServicePage";
 
 
 
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/service" element={<ServicePage />} />
         </Route>
       </Routes>
     </div>

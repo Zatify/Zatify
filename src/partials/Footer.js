@@ -63,7 +63,7 @@ const Footer = () => {
                 className="w-full border h-[200px] border-gray-300 rounded-md px-4 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
               <div className="gradient-border rounded-md inline-block p-[1px]">
-                <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+                <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
                   Send Message
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const Footer = () => {
           It’s blow your mind!<br />Meet Neural Networks
         </div>
         <div className="gradient-border rounded-md inline-block p-[1px]">
-          <button className="justify-center text-sm text-white bg-[#18191b] rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+          <button className="justify-center text-sm text-white bg-[#18191b] rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-whitezzzzzzzzz transition flex items-center gap-1 w-[160px] h-[50px]">
             Get a Quote
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Bottom Section */}
-      <div className="rounded-t-3xl h-auto 0.5xl:h-[50vh] items-center overflow-hidden max-w-7xl mx-auto px-10 py-10 flex flex-col md:flex-row justify-between items-start gap-10 relative z-10">
+      <div className="rounded-t-3xl h-auto 0.5xl:h-[50vh] items-center overflow-hidden max-w-7xl mx-auto px-10 py-10 flex flex-col md:flex-row justify-between gap-10 relative z-10">
         {/* Left: Logo, social, since, copyright */}
         <div className="flex-1 min-w-[260px] relative z-10 flex flex-col items-start justify-start">
           <div className="font-bold text-2xl tracking-wide mb-2 mt-2">AIERO</div>
@@ -112,7 +112,7 @@ const Footer = () => {
           <p className="text-xs text-gray-300 mb-4"><span className="text-cyan-200">©<a href="#" className="underline">Aiero</a> 2025.</span> All rights reserved.</p>
         </div>
         {/* Right: Menus and links */}
-        <div className="flex-1 flex flex-col md:flex-row justify-end gap-20 text-sm relative z-10 mt-8 md:mt-0">
+        <div className="flex-1 flex flex-col md:flex-row md:justify-end gap-20 text-sm relative z-10 mt-8 md:mt-0">
           <div>
             <h4 className="font-semibold mb-3">Company</h4>
             <ul className="space-y-2">

@@ -145,7 +145,7 @@ const HomePage = () => {
       </section>
 
       {/* Explore Services Section */}
-      <section className="relative mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] bg-white overflow-hidden">
+      <section className="relative mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-white overflow-hidden">
         <div className="absolute inset-0 w-[0%] 0.5xl:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
         {/* Pattern bên trái */}
         <div className="absolute left-[-140px] top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 flex items-center">
@@ -202,7 +202,7 @@ const HomePage = () => {
         <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start mb-6 mx-auto">
           <h3 className="text-3xl 0.5xl:text-7xl font-light font-roboto">Các dịch vụ của Zatify</h3>
           <div className="gradient-border rounded-md inline-block p-[1px]">
-            <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+            <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
               Khám phá thêm
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -220,10 +220,10 @@ const HomePage = () => {
         </div>
         <div className=" flex flex-col 0.5xl:flex-row justify-center gap-6 ">
           {/* Card 1 */}
-          <div className="md:col-span-2 md:row-span-2 col-span-full relative 0.5xl:h-[568px] h-[378px] w-[456px]">
+          <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] w-[456px]">
             <div
               className="rounded-3xl overflow-hidden cursor-pointer group bg-cover bg-center h-full"
-              style={{ backgroundImage: "url('/images/zaloofficalaccout.jpg')" }}
+              style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
             >
               <div className="absolute inset-0 p-6 flex flex-col justify-end rounded-3xl">
                 <h4 className="text-white text-xl font-semibold mb-2">Zalo Official Account - ZOA</h4>
@@ -297,21 +297,13 @@ const HomePage = () => {
           {/* Card 3 */}
           <div className="md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col h-[568px] w-[456px]">
             {/* Top part */}
-            <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3]">
-              <svg
-                className="absolute bottom-16 left-72 w-32 h-32 opacity-30"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="100" cy="100" r="90" stroke="#7ec8e3" strokeWidth="2" />
-                <circle cx="100" cy="100" r="75" stroke="#7ec8e3" strokeWidth="2" />
-                <circle cx="100" cy="100" r="60" stroke="#7ec8e3" strokeWidth="2" />
-                <circle cx="100" cy="100" r="45" stroke="#7ec8e3" strokeWidth="2" />
-                <circle cx="100" cy="100" r="30" stroke="#7ec8e3" strokeWidth="2" />
-                <circle cx="100" cy="100" r="15" stroke="#7ec8e3" strokeWidth="2" />
-              </svg>
-              <h4 className="text-black text-xl font-semibold mb-2">Zalo Ads</h4>
+            <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3] flex items-center justify-center">
+              <h4 className=" text-black text-xl font-semibold mb-2 absolute left-20 top-4 -translate-x-1/2">Zalo Ads</h4>
+              <img
+                src="https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/Group-18418.png"
+                alt="Zalo Ads"
+                className="absolute top-0 right-0 max-h-32  w-auto object-contain "
+              />
             </div>
             {/* Bottom part */}
             <div className=" rounded-3xl p-6 flex flex-col justify-between flex-[0.7] relative text-white">
@@ -508,7 +500,7 @@ const HomePage = () => {
           </div>
           <div className="mt-10">
             <div className="gradient-border rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-gray-100 rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+              <button className="justify-center text-sm bg-gray-100 rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white  transition flex items-center gap-1 w-[160px] h-[50px]">
                 Explore more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -529,7 +521,7 @@ const HomePage = () => {
       {/* Blog Section */}
       <section className="w-full flex flex-col items-center mt-32 mb-24">
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
-          <div className="flex flex-row justify-between items-center w-full mb-12">
+          <div className="flex flex-col 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
             <div>
               <h2 className="mt-4 text-4xl sm:text-6xl font-roboto font-light leading-tight text-black">
                 Exploring the world of<br />
@@ -538,7 +530,7 @@ const HomePage = () => {
               </h2>
             </div>
             <div className="gradient-border rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gray-100 transition flex items-center gap-1 w-[160px] h-[50px]">
+              <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
                 More acticles
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
