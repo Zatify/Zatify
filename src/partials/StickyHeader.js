@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useMenu } from '../contexts/MenuContext';
 
 const menuItems = [
-    { label: 'TRANG CHỦ', active: true },
-    { label: 'VỀ ZATIFY' },
-    { label: 'DỊCH VỤ' },
-    { label: 'BẢNG GIÁ' },
-    { label: 'TIN TỨC' },
-    { label: 'LIÊN HỆ' },
+    { label: 'TRANG CHỦ', path: '/' },
+    { label: 'VỀ ZATIFY', path: '/about' },
+    { label: 'DỊCH VỤ', path: '/service' },
+    { label: 'BẢNG GIÁ', path: '/bang-gia' },
+    { label: 'TIN TỨC', path: '/tin-tuc' },
+    { label: 'LIÊN HỆ', path: '/lien-he' },
 ];
 
 const StickyHeader = () => {
     const [show, setShow] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
-
+    const { activeIndex, setActiveIndex } = useMenu();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const onScroll = () => {
@@ -30,7 +33,7 @@ const StickyHeader = () => {
             >
                 {/* Logo */}
                 <div className="flex items-center space-x-6">
-                    <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    <button className="hidden 0.5xl:inline-flex p-2 rounded-md hover:bg-gray-100 "
                         onClick={() => setContactSidebarOpen(true)}
                     >
                         <svg
@@ -55,15 +58,20 @@ const StickyHeader = () => {
 
                 {/* Navigation */}
                 <nav className="hidden 0.5xl:flex space-x-2 text-sm font-semibold text-gray-800">
-                    {menuItems.map((item) => (
+                    {menuItems.map((item, idx) => (
                         <a
                             key={item.label}
                             href="#"
-                            aria-current={item.active ? 'page' : undefined}
-                            className={`group relative px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500
-                                ${item.active ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'}
+                            aria-current={activeIndex === idx ? 'page' : undefined}
+                            className={`group relative px-3 py-2 rounded-md 
+                                ${activeIndex === idx ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'}
                             `}
                             style={{ display: 'flex', alignItems: 'center' }}
+                            onClick={e => {
+                                e.preventDefault();
+                                setActiveIndex(idx);
+                                navigate(item.path);
+                            }}
                         >
                             <span
                                 className="relative inline-block overflow-hidden align-middle"
@@ -86,7 +94,7 @@ const StickyHeader = () => {
                             <svg
                                 className="inline-block w-3 h-3 ml-1 -mt-0.5"
                                 fill="none"
-                                stroke={item.active ? 'white' : 'currentColor'}
+                                stroke={activeIndex === idx ? 'white' : 'currentColor'}
                                 strokeWidth="2"
                                 viewBox="0 0 24 24"
                                 strokeLinecap="round"
@@ -100,7 +108,7 @@ const StickyHeader = () => {
 
                 {/* Nút search + login */}
                 <div className="hidden 0.5xl:flex items-center space-x-6">
-                    <button className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button className="p-2 rounded-md hover:bg-gray-100">
                         <svg
                             className="w-5 h-5 text-gray-700"
                             fill="none"
@@ -114,14 +122,14 @@ const StickyHeader = () => {
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
                     </button>
-                    <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                    <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50">
                         Log in
                     </button>
                 </div>
 
                 {/* Nút menu hamburger */}
                 <button
-                    className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-auto 0.5xl:hidden"
+                    className="p-2 rounded-md hover:bg-gray-100 ml-auto 0.5xl:hidden"
                     onClick={() => setSidebarOpen(true)}
                 >
                     <svg
@@ -188,32 +196,37 @@ const StickyHeader = () => {
                     </button>
                 </div>
                 <nav className="flex flex-col px-12 pt-8 space-y-2">
-                    {menuItems.map((item) => (
+                    {menuItems.map((item, idx) => (
                         <a
                             key={item.label}
                             href="#"
-                            className={`flex items-center justify-between text-base font-semibold py-2 ${item.active
+                            className={`flex items-center justify-between text-base font-semibold py-2 ${activeIndex === idx
                                 ? 'text-cyan-500'
                                 : 'text-gray-900 hover:text-cyan-500'
                                 }`}
                             style={{
                                 letterSpacing: '0.02em',
                             }}
-                            onClick={() => setSidebarOpen(false)}
+                            onClick={e => {
+                                e.preventDefault();
+                                setActiveIndex(idx);
+                                setSidebarOpen(false);
+                                navigate(item.path);
+                            }}
                         >
                             <span
-                                className={`${item.active ? 'font-bold' : ''
+                                className={`${activeIndex === idx ? 'font-bold' : ''
                                     }`}
                                 style={{
                                     fontFamily: 'inherit',
                                     fontSize: '16px',
-                                    textTransform: item.active ? 'uppercase' : 'none',
+                                    textTransform: activeIndex === idx ? 'uppercase' : 'none',
                                 }}
                             >
                                 {item.label}
                             </span>
                             <svg
-                                className={`w-3 h-3 ml-2 ${item.active ? 'text-cyan-500' : 'text-gray-400'
+                                className={`w-3 h-3 ml-2 ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
                                     }`}
                                 fill="none"
                                 stroke="currentColor"
@@ -228,7 +241,7 @@ const StickyHeader = () => {
                     ))}
                 </nav>
                 <div className="px-12 pt-8">
-                    <button className="px-20 py-4 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                    <button className="px-20 py-4 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50">
                         Log in
                     </button>
                 </div>
@@ -249,14 +262,14 @@ const StickyHeader = () => {
             >
                 {/* Thanh Close dọc */}
                 <button
-                    className="flex flex-col items-center justify-center h-full w-16 rounded-3xl shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 group transition-all duration-200 absolute -right-[70px] top-0"
+                    className="flex flex-col items-center justify-center h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
                     aria-label="Close"
                     onClick={() => setContactSidebarOpen(false)}
                     style={{
                         border: 'none',
                         minWidth: 0,
                         padding: 0,
-                        backgroundImage: 'url("svg/close.jpg")',
+                        backgroundImage: 'url("svg/thanhdoc/sidebarcontact.jpg")',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',

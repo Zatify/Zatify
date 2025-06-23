@@ -16,7 +16,7 @@ const ServicePage = () => {
                 <div
                     className="relative rounded-3xl 0.5xl:rounded-tr-3xl 0.5xl:rounded-none w-full h-[280px] md:h-[480px] lg:h-[540px] flex items-center justify-center overflow-hidden"
                     style={{
-                        backgroundImage: 'url(https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/typography-bg-min.jpg)',
+                        backgroundImage: 'url(svg/background/bg-service.jpg)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
@@ -77,7 +77,7 @@ const ServicePage = () => {
                     <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[500px] h-[378px] w-[456px]">
                         <div
                             className="rounded-3xl overflow-hidden cursor-pointer group bg-cover bg-center h-full"
-                            style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
+                            style={{ backgroundImage: "url('svg/sphere.jpg ')" }}
                         >
                             <div className="absolute inset-0 p-6 flex flex-col justify-end rounded-3xl">
                                 <h4 className="text-white text-xl font-semibold mb-2">Zalo Official Account - ZOA</h4>
@@ -324,7 +324,7 @@ const ServicePage = () => {
                             </div>
                         </div>
                         {/* Vertical bar 1 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/abstract-geometric-wavy-min.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/basic.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     </div>
                     {/* Card 2 */}
                     <div className="flex flex-row gap-3  h-[555px]">
@@ -345,7 +345,7 @@ const ServicePage = () => {
                                 </button>
                             </div>                        </div>
                         {/* Vertical bar 2 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/abstract-3d-rendering-geometric-surface-2-min.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/premium.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     </div>
                     {/* Card 3 */}
                     <div className="flex flex-row gap-3  h-[555px]">
@@ -366,7 +366,7 @@ const ServicePage = () => {
                             </div>
                         </div>
                         {/* Vertical bar 3 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/structure-with-wavy-blue-elements-min.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/unlimited.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     </div>
                 </div>
             </section>
