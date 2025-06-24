@@ -3,6 +3,10 @@ import { MenuProvider } from "./contexts/MenuContext";
 import MainLayout from "./Layout/MainLayout";
 import HomePage from "./components/HomePage";
 import ServicePage from "./components/ServicePage";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import CreativeTeam from "./components/CreativeTeam";
+import TeamMemberDetail from "./components/TeamMemberDetail";
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/service" element={<ServicePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/create-team" element={<CreativeTeam />} />
+            <Route path="/brandon-adams" element={<TeamMemberDetail />} />
           </Route>
         </Routes>
       </div>

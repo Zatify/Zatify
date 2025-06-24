@@ -8,7 +8,7 @@ const menuItems = [
   { label: 'DỊCH VỤ', path: '/service' },
   { label: 'BẢNG GIÁ', path: '/bang-gia' },
   { label: 'TIN TỨC', path: '/tin-tuc' },
-  { label: 'LIÊN HỆ', path: '/lien-he' },
+  { label: 'LIÊN HỆ', path: '/contact' },
 ];
 
 const Header = () => {
