@@ -28,6 +28,11 @@ export const MenuProvider = ({ children }) => {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
+  // Scroll to top when activeIndex changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeIndex]);
+
   return (
     <MenuContext.Provider value={{ activeIndex, setActiveIndex }}>
       {children}

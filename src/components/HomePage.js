@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,6 +12,7 @@ const HomePage = () => {
   // State để lưu index của thẻ details đang mở
   const [openDetail, setOpenDetail] = useState(null);
   const contentRefs = React.useRef([]); // Ref array for content divs
+  const navigate = useNavigate();
 
   // Danh sách câu hỏi/đáp án FAQ
   const faqList = [
@@ -239,7 +241,10 @@ const HomePage = () => {
               {/* Circle div bottom-left */}
               <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/service-single');
+              }}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -262,7 +267,10 @@ const HomePage = () => {
               {/* Circle div bottom-left */}
               <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/service-single');
+              }}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -322,7 +330,10 @@ const HomePage = () => {
                 {/* Circle div bottom-left */}
                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate('/service-single');
+                }}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
@@ -565,7 +576,6 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                {/* ...existing code... */}
                 <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How can I get started with Artificial Intelligence for my business?</h3>
                 <div className="text-xs text-gray-400 mt-auto">/ AI Aiero / Technology /</div>
               </div>
@@ -589,7 +599,6 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                {/* ...existing code... */}
                 <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">AI and Robotics: Advancing Automation and Human-Robot Collaboration</h3>
                 <div className="text-xs text-gray-400 mt-auto">/ AI / Neural Networks /</div>
               </div>
@@ -613,7 +622,6 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                {/* ...existing code... */}
                 <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How Natural Language Processing is revolutionizing Text Analysis</h3>
                 <div className="text-xs text-gray-400 mt-auto">/ AI Services / AI Solutions /</div>
               </div>

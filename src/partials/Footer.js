@@ -1,86 +1,92 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
+
   return (
     <footer className="bg-[#18191b] text-white rounded-3xl m-4 h-auto overflow-hidden relative">
       {/* Background SVG - đặt absolute cho toàn bộ footer */}
       <img src="/svg/bg-opacity.svg" alt="bg" className="absolute top-[60%] inset-0 w-full h-full object-cover pointer-events-none select-none" style={{zIndex:0}} />
       {/* Top Section */}
-      <div className="flex flex-col items-center md:flex-row justify-between gap-0 px-10 py-14 max-w-7xl h-auto 0.5xl:h-[90vh] mx-auto relative z-10">
-        {/* Left: Contact Info */}
-        <div className="flex-1 min-w-[320px]">
-          <h2 className="text-4xl md:text-6xl leading-tight mb-4 font-roboto">
-            We are always ready<br />to help you and<br />answer your<br />questions
-          </h2>
-          <p className="text-[16px] mt-10 text-white mb-8 max-w-md font-manrope">
-            Pacific hake false trevally queen parrotfish black prickleback mosshead warbonnet sweeper! Greenling sleeper.
-          </p>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-10 text-sm max-w-lg mt-16">
-            <div>
-              <h3 className="font-manrope font-semibold text-[17px] mb-2">Call Center</h3>
-              <div className="text-[15px] mt-6 font-manrope mb-4">
-                <p>0389 603 339</p>
-                <p>0919 676 808</p>
+      {!isContactPage && (
+        <div className="flex flex-col items-center md:flex-row justify-between gap-0 px-10 py-14 max-w-7xl h-auto 0.5xl:h-[110vh] lg:h-[90vh] mx-auto relative z-10">
+          {/* Left: Contact Info */}
+          <div className="flex-1 min-w-[320px]">
+            <h2 className="text-4xl md:text-6xl leading-tight mb-4 font-roboto">
+              We are always ready<br />to help you and<br />answer your<br />questions
+            </h2>
+            <p className="text-[16px] mt-10 text-white mb-8 max-w-md font-manrope">
+              Pacific hake false trevally queen parrotfish black prickleback mosshead warbonnet sweeper! Greenling sleeper.
+            </p>
+            <div className="grid grid-cols-2 gap-y-6 gap-x-10 text-sm max-w-lg mt-16">
+              <div>
+                <h3 className="font-manrope font-semibold text-[17px] mb-2">Call Center</h3>
+                <div className="text-[15px] mt-6 font-manrope mb-4">
+                  <p>0389 603 339</p>
+                  <p>0919 676 808</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 className="font-semibold font-manrope mb-2 text-[17px]">Our Location</h3>
-              <div className="text-[15px] mt-6 font-manrope mb-4">
-                <p>1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM</p>
+              <div>
+                <h3 className="font-semibold font-manrope mb-2 text-[17px]">Our Location</h3>
+                <div className="text-[15px] mt-6 font-manrope mb-4">
+                  <p>1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 className="font-semibold font-manrope mb-2 text-[17px]">Email</h3>
-              <div className="text-[15px] mt-6 font-manrope mb-4">
-                <a href="mailto:aiero@mail.co" className="underline hover:text-cyan-400 transition">Sales@zatify.com.vn</a>
+              <div>
+                <h3 className="font-semibold font-manrope mb-2 text-[17px]">Email</h3>
+                <div className="text-[15px] mt-6 font-manrope mb-4">
+                  <a href="mailto:aiero@mail.co" className="underline hover:text-cyan-400 transition">Sales@zatify.com.vn</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* Right: Contact Form */}
-        <div className="flex-1 flex h-[600px] justify-center max-w-2xl">
-          <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg shadow-lg">
-            <h3 className="font-bold text-lg mb-6 text-gray-900">Get in Touch</h3>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Full name"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <input
-                type="text"
-                placeholder="Subject"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <textarea
-                placeholder="Message"
-                rows="4"
-                className="w-full border h-[200px] border-gray-300 rounded-md px-4 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <div className="gradient-border rounded-md inline-block p-[1px]">
-                <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                  Send Message
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </form>
+          {/* Right: Contact Form */}
+          <div className="flex-1 flex h-[600px] justify-center max-w-2xl">
+            <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg shadow-lg">
+              <h3 className="font-bold text-lg mb-6 text-gray-900">Get in Touch</h3>
+              <form className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <textarea
+                  placeholder="Message"
+                  rows="4"
+                  className="w-full border h-[200px] border-gray-300 rounded-md px-4 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <div className="gradient-border rounded-md inline-block p-[1px]">
+                  <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                    Send Message
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {/* Middle Section: Slogan */}
       <div className="max-w-7xl border-b border-gray-300 h-[30vh] mx-4 0.5xl:mx-auto flex flex-col 0.5xl:flex-row items-start 0.5xl:items-center justify-around 0.5xl:justify-between relative z-10">
         <div className="text-4xl md:text-7xl mb-2 bg-gradient-to-r from-cyan-300  to-blue-500 text-transparent bg-clip-text select-none font-roboto">

@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import CreativeTeam from "./components/CreativeTeam";
 import TeamMemberDetail from "./components/TeamMemberDetail";
+import ServiceSingle from "./components/ServiceSingle";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/create-team" element={<CreativeTeam />} />
             <Route path="/member-detail" element={<TeamMemberDetail />} />
+            <Route path="/service-single" element={<ServiceSingle />} />
           </Route>
         </Routes>
       </div>

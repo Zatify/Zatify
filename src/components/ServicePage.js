@@ -3,8 +3,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 
 const ServicePage = () => {
+    const navigate = useNavigate();
 
     return (
         <div className="relative w-full min-h-screen font-sans">
@@ -93,7 +95,13 @@ const ServicePage = () => {
                             {/* Circle div bottom-left */}
                             <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+                            <div
+                                className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer"
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                    navigate('/service-single');
+                                }}
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
@@ -116,7 +124,13 @@ const ServicePage = () => {
                             {/* Circle div bottom-left */}
                             <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+                            <div
+                                className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer"
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                    navigate('/service-single');
+                                }}
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
@@ -176,7 +190,13 @@ const ServicePage = () => {
                                 {/* Circle div bottom-left */}
                                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer">
+                                <div
+                                    className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer"
+                                    onClick={() => {
+                                        window.scrollTo(0, 0);
+                                        navigate('/service-single');
+                                    }}
+                                >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
