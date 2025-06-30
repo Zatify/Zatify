@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMenu } from '../contexts/MenuContext';
 
 const menuItems = [
     { label: 'TRANG CHỦ', path: '/' },
     { label: 'VỀ ZATIFY', path: '/about' },
-    { label: 'DỊCH VỤ', path: '/service' },
-    { label: 'BẢNG GIÁ', path: '/bang-gia' },
+    { 
+        label: 'DỊCH VỤ',
+        dropdown: [
+            { label: 'Service', path: '/service' },
+            { label: 'Service Single', path: '/service-single' }
+        ]
+    },
+    { label: 'BẢNG GIÁ', path: '/pricing' },
     { label: 'TIN TỨC', path: '/tin-tuc' },
     { label: 'LIÊN HỆ', path: '/contact' },
 ];
@@ -15,15 +21,36 @@ const StickyHeader = () => {
     const [show, setShow] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownTimeoutRef = useRef(null);
     const { activeIndex, setActiveIndex } = useMenu();
     const navigate = useNavigate();
 
     useEffect(() => {
         const onScroll = () => {
-            setShow(window.scrollY > 120); // chỉnh lại nếu cần
+            setShow(window.scrollY > 120);
         };
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    // Dropdown handlers
+    const handleDropdownEnter = () => {
+        if (dropdownTimeoutRef.current) {
+            clearTimeout(dropdownTimeoutRef.current);
+            dropdownTimeoutRef.current = null;
+        }
+        setDropdownOpen(true);
+    };
+    const handleDropdownLeave = () => {
+        dropdownTimeoutRef.current = setTimeout(() => {
+            setDropdownOpen(false);
+        }, 800);
+    };
+    React.useEffect(() => {
+        return () => {
+            if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+        };
     }, []);
 
     return (
@@ -59,50 +86,124 @@ const StickyHeader = () => {
                 {/* Navigation */}
                 <nav className="hidden 0.5xl:flex space-x-2 text-sm font-semibold text-gray-800">
                     {menuItems.map((item, idx) => (
-                        <a
-                            key={item.label}
-                            href="#"
-                            aria-current={activeIndex === idx ? 'page' : undefined}
-                            className={`group relative px-3 py-2 rounded-md 
-                                ${activeIndex === idx ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'}
-                            `}
-                            style={{ display: 'flex', alignItems: 'center' }}
-                            onClick={e => {
-                                e.preventDefault();
-                                setActiveIndex(idx);
-                                navigate(item.path);
-                            }}
-                        >
-                            <span
-                                className="relative inline-block overflow-hidden align-middle"
-                                style={{ height: 24, width: 'max-content', minWidth: 80, position: 'relative' }}
+                        item.dropdown ? (
+                            <div
+                                key={item.label}
+                                className="relative group"
+                                onMouseEnter={handleDropdownEnter}
+                                onMouseLeave={handleDropdownLeave}
+                                tabIndex={-1}
                             >
                                 <span
-                                    className="block absolute left-0 top-0 w-full transition-transform duration-300 group-hover:-translate-y-6"
-                                    style={{ lineHeight: '24px', height: 24 }}
+                                    className={`group px-3 py-2 rounded-md flex items-center cursor-pointer select-none
+                                        ${activeIndex === idx ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'}
+                                    `}
+                                    style={{ height: 40, display: 'flex', alignItems: 'center' }}
+                                    tabIndex={-1}
+                                    onClick={e => e.preventDefault()}
+                                    onMouseDown={e => e.preventDefault()}
                                 >
-                                    {item.label}
+                                    <span
+                                        className="relative inline-block overflow-hidden align-middle"
+                                        style={{ height: 24, width: 'max-content', minWidth: 80, position: 'relative' }}
+                                    >
+                                        <span
+                                            className="block absolute left-0 top-0 w-full transition-transform duration-300 group-hover:-translate-y-6"
+                                            style={{ lineHeight: '24px', height: 24 }}
+                                        >
+                                            {item.label}
+                                        </span>
+                                        <span
+                                            className="block absolute left-0 top-0 w-full transition-transform duration-300 translate-y-6 group-hover:translate-y-0"
+                                            aria-hidden="true"
+                                            style={{ lineHeight: '24px', height: 24 }}
+                                        >
+                                            {item.label}
+                                        </span>
+                                    </span>
+                                    <svg
+                                        className="inline-block w-3 h-3 ml-1 -mt-0.5"
+                                        fill="none"
+                                        stroke={activeIndex === idx ? 'white' : 'currentColor'}
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
                                 </span>
-                                <span
-                                    className="block absolute left-0 top-0 w-full transition-transform duration-300 translate-y-6 group-hover:translate-y-0"
-                                    aria-hidden="true"
-                                    style={{ lineHeight: '24px', height: 24 }}
-                                >
-                                    {item.label}
-                                </span>
-                            </span>
-                            <svg
-                                className="inline-block w-3 h-3 ml-1 -mt-0.5"
-                                fill="none"
-                                stroke={activeIndex === idx ? 'white' : 'currentColor'}
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                                {dropdownOpen && (
+                                    <div
+                                        className="absolute left-0 top-full mt-2 w-48 bg-gray-900 rounded-lg z-20 py-2"
+                                        onMouseEnter={handleDropdownEnter}
+                                        onMouseLeave={handleDropdownLeave}
+                                    >
+                                        {item.dropdown.map((sub, subIdx) => (
+                                            <a
+                                                key={sub.label}
+                                                href="#"
+                                                className="block px-4 py-2 text-white hover:text-cyan-400"
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    setActiveIndex(idx);
+                                                    setDropdownOpen(false);
+                                                    navigate(sub.path);
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                }}
+                                            >
+                                                {sub.label}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <a
+                                key={item.label}
+                                href="#"
+                                aria-current={activeIndex === idx ? 'page' : undefined}
+                                className={`group relative px-3 py-2 rounded-md 
+                                    ${activeIndex === idx ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'}
+                                `}
+                                style={{ display: 'flex', alignItems: 'center' }}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setActiveIndex(idx);
+                                    navigate(item.path);
+                                }}
                             >
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </a>
+                                <span
+                                    className="relative inline-block overflow-hidden align-middle"
+                                    style={{ height: 24, width: 'max-content', minWidth: 80, position: 'relative' }}
+                                >
+                                    <span
+                                        className="block absolute left-0 top-0 w-full transition-transform duration-300 group-hover:-translate-y-6"
+                                        style={{ lineHeight: '24px', height: 24 }}
+                                    >
+                                        {item.label}
+                                    </span>
+                                    <span
+                                        className="block absolute left-0 top-0 w-full transition-transform duration-300 translate-y-6 group-hover:translate-y-0"
+                                        aria-hidden="true"
+                                        style={{ lineHeight: '24px', height: 24 }}
+                                    >
+                                        {item.label}
+                                    </span>
+                                </span>
+                                <svg
+                                    className="inline-block w-3 h-3 ml-1 -mt-0.5"
+                                    fill="none"
+                                    stroke={activeIndex === idx ? 'white' : 'currentColor'}
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </a>
+                        )
                     ))}
                 </nav>
 

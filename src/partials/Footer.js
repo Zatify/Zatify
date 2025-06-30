@@ -8,7 +8,9 @@ const Footer = () => {
   return (
     <footer className="bg-[#18191b] text-white rounded-3xl m-4 h-auto overflow-hidden relative">
       {/* Background SVG - đặt absolute cho toàn bộ footer */}
-      <img src="/svg/bg-opacity.svg" alt="bg" className="absolute top-[60%] inset-0 w-full h-full object-cover pointer-events-none select-none" style={{zIndex:0}} />
+      {!isContactPage && (
+        <img src="/svg/bg-opacity.svg" alt="bg" className="absolute top-[60%] inset-0 w-full h-full object-cover pointer-events-none select-none" style={{zIndex:0}} />
+      )}
       {/* Top Section */}
       {!isContactPage && (
         <div className="flex flex-col items-center md:flex-row justify-between gap-0 px-10 py-14 max-w-7xl h-auto 0.5xl:h-[110vh] lg:h-[90vh] mx-auto relative z-10">

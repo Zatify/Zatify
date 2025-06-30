@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import CreativeTeam from "./components/CreativeTeam";
 import TeamMemberDetail from "./components/TeamMemberDetail";
 import ServiceSingle from "./components/ServiceSingle";
+import Pricingplans from "./components/Pricingplans";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/create-team" element={<CreativeTeam />} />
             <Route path="/member-detail" element={<TeamMemberDetail />} />
             <Route path="/service-single" element={<ServiceSingle />} />
+            <Route path="/pricing" element={<Pricingplans />} />
           </Route>
         </Routes>
       </div>

@@ -337,8 +337,8 @@ const ServicePage = () => {
                                 <li>1 Gb workspace</li>
                             </ul>
                             <div className="text-4xl font-bold mb-8">Free</div>
-                            <div className="gradient-border rounded-md inline-block p-[1px]">
-                                <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                            <div className="rounded-md inline-block p-[1px]">
+                                <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
                                     Get started<span className="ml-1">→</span>
                                 </button>
                             </div>
@@ -379,8 +379,8 @@ const ServicePage = () => {
                                 <li>100 Gb workspace</li>
                             </ul>
                             <div className="text-4xl text-white font-bold mb-8">$199<span className="text-lg font-normal">/mo</span></div>
-                            <div className="gradient-border rounded-md inline-block p-[1px]">
-                                <button className="justify-center text-sm text-white bg-[#3ed6c5]  rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                            <div className="rounded-md inline-block p-[1px]">
+                                <button className="justify-center text-sm bg-[#3ed6c5] border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
                                     Get started<span className="ml-1">→</span>
                                 </button>
                             </div>
