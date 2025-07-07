@@ -4,7 +4,13 @@ import { useMenu } from '../contexts/MenuContext';
 
 const menuItems = [
   { label: 'TRANG CHỦ', path: '/' },
-  { label: 'VỀ ZATIFY', path: '/about' },
+  {
+    label: 'VỀ ZATIFY',
+    dropdown: [
+      { label: 'Project Grid', path: '/project-grid' },
+      { label: 'About', path: '/about' }
+    ]
+  },
   {
     label: 'DỊCH VỤ',
     dropdown: [
@@ -13,35 +19,34 @@ const menuItems = [
     ]
   },
   { label: 'BẢNG GIÁ', path: '/pricing' },
-  { label: 'TIN TỨC', path: '/tin-tuc' },
+  { label: 'TIN TỨC', path: '/blog-grid' },
   { label: 'LIÊN HỆ', path: '/contact' },
 ];
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownTimeoutRef = React.useRef(null); // Thêm ref cho timeout
+  const [openDropdownIdx, setOpenDropdownIdx] = useState(null); // Đổi từ dropdownOpen sang openDropdownIdx
+  const dropdownTimeoutRef = React.useRef(null);
   const { activeIndex, setActiveIndex } = useMenu();
   const navigate = useNavigate();
 
-  // Hàm mở dropdown và clear timeout nếu có
-  const handleDropdownEnter = () => {
+  // Hàm mở dropdown cho từng item
+  const handleDropdownEnter = (idx) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
     }
-    setDropdownOpen(true);
+    setOpenDropdownIdx(idx);
   };
 
   // Hàm bắt đầu timeout đóng dropdown
   const handleDropdownLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
-      setDropdownOpen(false);
+      setOpenDropdownIdx(null);
     }, 800);
   };
 
-  // Nếu unmount thì clear timeout
   React.useEffect(() => {
     return () => {
       if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
@@ -84,7 +89,7 @@ const Header = () => {
               <div
                 key={item.label}
                 className="relative group"
-                onMouseEnter={handleDropdownEnter}
+                onMouseEnter={() => handleDropdownEnter(idx)}
                 onMouseLeave={handleDropdownLeave}
                 tabIndex={-1}
               >
@@ -129,10 +134,10 @@ const Header = () => {
                   </svg>
                 </span>
                 {/* Dropdown menu */}
-                {dropdownOpen && (
+                {openDropdownIdx === idx && (
                   <div
                     className="absolute left-0 top-full mt-2 w-48 bg-gray-900 rounded-lg z-20 py-2"
-                    onMouseEnter={handleDropdownEnter}
+                    onMouseEnter={() => handleDropdownEnter(idx)}
                     onMouseLeave={handleDropdownLeave}
                   >
                     {item.dropdown.map((sub, subIdx) => (
@@ -143,7 +148,7 @@ const Header = () => {
                         onClick={e => {
                           e.preventDefault();
                           setActiveIndex(idx);
-                          setDropdownOpen(false);
+                          setOpenDropdownIdx(null);
                           navigate(sub.path);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}

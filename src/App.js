@@ -9,6 +9,8 @@ import CreativeTeam from "./components/CreativeTeam";
 import TeamMemberDetail from "./components/TeamMemberDetail";
 import ServiceSingle from "./components/ServiceSingle";
 import Pricingplans from "./components/Pricingplans";
+import Projectsgrid from "./components/Projectsgrid";
+import BlogGrid from "./components/BlogGrid";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/member-detail" element={<TeamMemberDetail />} />
             <Route path="/service-single" element={<ServiceSingle />} />
             <Route path="/pricing" element={<Pricingplans />} />
+            <Route path="/project-grid" element={<Projectsgrid />} />
+            <Route path="/blog-grid" element={<BlogGrid />} />
           </Route>
         </Routes>
       </div>
