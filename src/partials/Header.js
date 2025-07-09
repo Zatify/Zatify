@@ -14,7 +14,7 @@ const menuItems = [
   {
     label: 'DỊCH VỤ',
     dropdown: [
-      { label: 'Service', path: '/service' },
+      { label: 'Tổng quan', path: '/service' },
       { label: 'Service Single', path: '/service-single' }
     ]
   },

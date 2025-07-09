@@ -13,61 +13,61 @@ const Footer = () => {
       )}
       {/* Top Section */}
       {!isContactPage && (
-        <div className="flex flex-col items-center md:flex-row justify-between gap-0 px-10 py-14 max-w-7xl h-auto 0.5xl:h-[110vh] lg:h-[90vh] mx-auto relative z-10">
+        <div className="flex flex-col items-center md:flex-row justify-between gap-20 2xl:gap-28 px-10 py-14 2xl:px-0 max-w-7xl h-auto 0.5xl:h-[90vh] 2xl:h-[110vh] mx-auto relative z-10">
           {/* Left: Contact Info */}
-          <div className="flex-1 min-w-[320px]">
-            <h2 className="text-4xl md:text-6xl leading-tight mb-4 font-roboto">
-              We are always ready<br />to help you and<br />answer your<br />questions
+          <div className="min-w-[320px] max-w-[500px] 2xl:max-w-[700px]">
+            <h2 className="text-4xl md:text-6xl 2xl:text-7xl leading-tight mb-4 font-roboto">
+              We are always ready to help you and answer your questions
             </h2>
-            <p className="text-[16px] mt-10 text-white mb-8 max-w-md font-manrope">
+            <p className="text-[16px] 2xl:text-[20px] mt-10 text-white mb-8 max-w-md font-manrope">
               Pacific hake false trevally queen parrotfish black prickleback mosshead warbonnet sweeper! Greenling sleeper.
             </p>
             <div className="grid grid-cols-2 gap-y-6 gap-x-10 text-sm max-w-lg mt-16">
               <div>
-                <h3 className="font-manrope font-semibold text-[17px] mb-2">Call Center</h3>
-                <div className="text-[15px] mt-6 font-manrope mb-4">
+                <h3 className="font-manrope font-semibold text-[17px] 2xl:text-[21px] mb-2">Call Center</h3>
+                <div className="text-[15px] 2xl:text-[18px] leading-normal mt-6 font-manrope mb-4">
                   <p>0389 603 339</p>
                   <p>0919 676 808</p>
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold font-manrope mb-2 text-[17px]">Our Location</h3>
-                <div className="text-[15px] mt-6 font-manrope mb-4">
+                <h3 className="font-semibold font-manrope mb-2 text-[17px] 2xl:text-[21px]">Our Location</h3>
+                <div className="text-[15px] 2xl:text-[18px] leading-normal mt-6 font-manrope mb-4">
                   <p>1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM</p>
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold font-manrope mb-2 text-[17px]">Email</h3>
-                <div className="text-[15px] mt-6 font-manrope mb-4">
+                <h3 className="font-semibold font-manrope mb-2 text-[17px] 2xl:text-[21px]">Email</h3>
+                <div className="text-[15px] 2xl:text-[18px] mt-6 font-manrope mb-4">
                   <a href="mailto:aiero@mail.co" className="underline hover:text-cyan-400 transition">Sales@zatify.com.vn</a>
                 </div>
               </div>
             </div>
           </div>
           {/* Right: Contact Form */}
-          <div className="flex-1 flex h-[600px] justify-center max-w-2xl">
-            <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg shadow-lg">
-              <h3 className="font-bold text-lg mb-6 text-gray-900">Get in Touch</h3>
+          <div className=" flex h-[600px] 2xl:h-[700px] justify-center 2xl:min-w-[600px]">
+            <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg 2xl:max-w-xl shadow-lg">
+              <h3 className="text-3xl md:text-4xl 2xl:text-5xl  leading-tight mb-4 font-roboto text-gray-900">Get in Touch</h3>
               <form className="space-y-4">
                 <input
                   type="text"
                   placeholder="Full name"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
                 />
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
                 />
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
                 />
                 <textarea
                   placeholder="Message"
                   rows="4"
-                  className="w-full border h-[200px] border-gray-300 rounded-md px-4 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
                 />
                 <div className="gradient-border rounded-md inline-block p-[1px]">
                   <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">

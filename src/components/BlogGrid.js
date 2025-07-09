@@ -149,7 +149,7 @@ const BlogGrid = () => {
                     {/* Circle div top-left */}
                     <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
                     <div className="justify-center items-center w-64 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-                        <span className="text-sm mb-1">Home / Services</span>
+                        <span className="text-sm mb-1">Home / Blog Grid</span>
                     </div>
 
 
