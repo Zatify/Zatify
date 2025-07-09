@@ -13,9 +13,9 @@ const Footer = () => {
       )}
       {/* Top Section */}
       {!isContactPage && (
-        <div className="flex flex-col items-center md:flex-row justify-between gap-20 2xl:gap-28 px-10 py-14 2xl:px-0 max-w-7xl h-auto 0.5xl:h-[90vh] 2xl:h-[110vh] mx-auto relative z-10">
+        <div className="flex flex-col items-center md:flex-row justify-between gap-20 2xl:gap-28 px-4 py-14 2xl:px-0 max-w-7xl h-auto 0.5xl:h-[110vh] 2xl:h-[120vh] mx-auto relative z-10">
           {/* Left: Contact Info */}
-          <div className="min-w-[320px] max-w-[500px] 2xl:max-w-[700px]">
+          <div className="min-w-[320px] max-w-[650px] 2xl:max-w-[700px]">
             <h2 className="text-4xl md:text-6xl 2xl:text-7xl leading-tight mb-4 font-roboto">
               We are always ready to help you and answer your questions
             </h2>
