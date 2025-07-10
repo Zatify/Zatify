@@ -5,14 +5,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { useNavigate } from 'react-router-dom';
-
-
+import { useMenu } from '../contexts/MenuContext'; // Thêm dòng này gần useNavigate
 
 const HomePage = () => {
   // State để lưu index của thẻ details đang mở
   const [openDetail, setOpenDetail] = useState(null);
   const contentRefs = React.useRef([]); // Ref array for content divs
   const navigate = useNavigate();
+  const { setActiveIndex } = useMenu(); // Thêm dòng này gần useNavigate
 
   // Danh sách câu hỏi/đáp án FAQ
   const faqList = [
@@ -204,7 +204,12 @@ const HomePage = () => {
         <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start mb-6 mx-auto">
           <h3 className="text-3xl 0.5xl:text-7xl font-light font-roboto">Các dịch vụ của Zatify</h3>
             <div className="rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
+              <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+                onClick={() => {
+                  setActiveIndex(2); // 2 là index của "DỊCH VỤ"
+                  navigate('/service');
+                }}
+              >
                 Khám phá thêm<span className="ml-1">→</span>
               </button>
             </div>
