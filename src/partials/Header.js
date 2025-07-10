@@ -352,7 +352,7 @@ const Header = () => {
       >
         {/* Thanh Close dọc */}
         <button
-          className="flex flex-col items-center justify-center h-full w-16 rounded-3xl shadow-lg  group transition-all duration-200 absolute -right-[70px] top-0"
+          className="flex flex-col items-center justify-start h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
           aria-label="Close"
           onClick={() => setContactSidebarOpen(false)}
           style={{
@@ -363,12 +363,11 @@ const Header = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            transform: 'rotate(180deg)',
           }}
         >
           {/* SVG chữ X */}
           <svg
-            className="w-5 h-5 text-white mb-1 group-hover:text-cyan-400 transition"
+            className="w-5 h-5 text-white mb-1 mt-10 group-hover:text-cyan-400 transition"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -381,12 +380,12 @@ const Header = () => {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
           <span
-            className="text-xs text-white group-hover:text-cyan-400 tracking-widest font-semibold"
+            className=" text-white group-hover:text-cyan-400 tracking-widest font-semibold"
             style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
               letterSpacing: '0.1em',
-              marginTop: '2px',
+              padding: '0.5rem 0',
               textShadow: '0 1px 4px rgba(0,0,0,0.7)',
             }}
           >
@@ -396,26 +395,26 @@ const Header = () => {
         <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
           {/* Logo và thông tin liên hệ */}
 
-          <div className="text-white text-3xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
+          <div className="text-white text-3xl 2xl:text-4xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
             ZATIFY
           </div>
-          <div className='flex flex-col h-[40%] w-[90%] pl-10 mb-20'>
-            <div className="uppercase text-xs font-semibold tracking-widest text-gray-400 mb-2 font-manrope">
+          <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
+            <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
               LIÊN HỆ
             </div>
-            <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
+            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
               1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
               Quận 7, TP.HCM
             </div>
-            <div className="text-md font-semibold leading-relaxed mb-4 font-manrope">
+            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
               0389 603 339<br />
               0919 676 808
             </div>
-            <a href="mailto:Sales@zatify.com.vn" className="underline text-md font-semibold leading-relaxed font-manrope">
+            <a href="mailto:Sales@zatify.com.vn" className="underline text-md 2xl:text-lg font-semibold leading-relaxed font-manrope">
               Sales@zatify.com.vn
             </a>
-            <div className="flex justify-center mt-24 font-manrope">
-              <button className="w-48 py-3 rounded-full text-md border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
+            <div className="flex justify-center mt-20 font-manrope">
+              <button className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
                 Liên hệ ngay
               </button>
             </div>
