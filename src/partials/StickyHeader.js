@@ -7,11 +7,11 @@ const menuItems = [
     {
         label: 'VỀ ZATIFY',
         dropdown: [
-            { label: 'Project Grid', path: '/project-grid' },
-            { label: 'About', path: '/about' }
+            { label: 'About', path: '/about' },
+            { label: 'Project Grid', path: '/project-grid' }
         ]
     },
-    { 
+    {
         label: 'DỊCH VỤ',
         dropdown: [
             { label: 'Tổng quan', path: '/service' },
@@ -437,10 +437,10 @@ const StickyHeader = () => {
                             </button>
                         </div>
                     </div>
-          {/* Sidepanel */}
-          <div className="flex justify-center space-x-6 w-full h-[20%]">
-            <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
-          </div>
+                    {/* Sidepanel */}
+                    <div className="flex justify-center space-x-6 w-full h-[20%]">
+                        <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
+                    </div>
                 </div>
             </div>
         </>

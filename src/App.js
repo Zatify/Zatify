@@ -11,6 +11,7 @@ import ServiceSingle from "./components/ServiceSingle";
 import Pricingplans from "./components/Pricingplans";
 import Projectsgrid from "./components/Projectsgrid";
 import BlogGrid from "./components/BlogGrid";
+import ProjectDetail from "./components/ProjectDetail";
 
 function App() {
   return (
@@ -23,11 +24,12 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/create-team" element={<CreativeTeam />} />
-            <Route path="/member-detail" element={<TeamMemberDetail />} />
+            <Route path="/team/:memberId" element={<TeamMemberDetail />} />
             <Route path="/service-single" element={<ServiceSingle />} />
             <Route path="/pricing" element={<Pricingplans />} />
             <Route path="/project-grid" element={<Projectsgrid />} />
             <Route path="/blog-grid" element={<BlogGrid />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
           </Route>
         </Routes>
       </div>

@@ -136,7 +136,7 @@ const Projectsgrid = () => {
           {/* Vertical Neural text */}
           <div className="absolute right-24 bottom-5 items-center hidden md:block">
             <span
-              className="font-roboto select-none"
+              className="font-sans select-none"
               style={{
                 writingMode: 'vertical-rl',
                 textOrientation: 'mixed',
@@ -184,8 +184,9 @@ const Projectsgrid = () => {
         {showCards.map((card, idx) => (
           <div
             key={idx}
-            className="rounded-3xl overflow-hidden relative min-h-[500px] flex flex-col justify-end p-8 group font-roboto"
+            className="rounded-3xl overflow-hidden relative min-h-[500px] flex flex-col justify-end p-8 group font-roboto cursor-pointer"
             style={{ backgroundColor: card.color || undefined }}
+            onClick={() => window.location.href = "/project/" + (start + idx)}
           >
             <div
               className="absolute inset-0 w-full h-full bg-cover bg-center z-0 transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
@@ -209,13 +210,7 @@ const Projectsgrid = () => {
             {/* Content container for description and button, hidden until hover */}
             <div className={`flex flex-col gap-2 w-full transition-all duration-500 absolute left-0 bottom-8 px-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto`}>
               <p className={`${card.descClass} text-base mb-2`}>{card.desc}</p>
-              <a
-                href="#"
-                className={`${card.descClass} text-base underline underline-offset-4 flex items-center gap-2`}
-                style={{ boxShadow: 'none', border: 'none', outline: 'none', background: 'none', padding: 0, borderRadius: 0 }}
-              >
-                Explore more <span aria-hidden>→</span>
-              </a>
+              {/* Explore more button removed */}
             </div>
           </div>
         ))}

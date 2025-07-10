@@ -1,3 +1,5 @@
+
+import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -5,6 +7,31 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 const CreativeTeam = () => {
+
+  // Animated counter for 250+
+  const [count, setCount] = useState(1);
+  const requestRef = useRef();
+
+  useEffect(() => {
+    let start = 1;
+    let end = 250;
+    let duration = 1800; // ms
+    let startTime = null;
+
+    function animateCounter(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const current = Math.floor(progress * (end - start) + start);
+      setCount(current);
+      if (progress < 1) {
+        requestRef.current = requestAnimationFrame(animateCounter);
+      } else {
+        setCount(end);
+      }
+    }
+    requestRef.current = requestAnimationFrame(animateCounter);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, []);
 
   return (
     <div className="relative w-full min-h-screen font-sans">
@@ -78,7 +105,7 @@ const CreativeTeam = () => {
           </div>
           <div className="md:w-1/3 flex flex-col items-center md:items-end">
             <div className="text-[90px] md:text-[120px] font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 text-transparent bg-clip-text leading-none" style={{ WebkitTextStroke: '2px #b3b3ff' }}>
-              250+
+              {count}+
             </div>
             <div className="text-xl font-medium text-black mt-2">Awesome team members</div>
           </div>
@@ -368,7 +395,7 @@ const CreativeTeam = () => {
             Discover what our clients have to say about our AI solutions
           </h2>
           <div>
-            <p className="outlined-text mb-1">250+</p>
+            <p className="outlined-text mb-1">{count}+</p>
             <p className="text-lg text-white">Happy clients</p>
           </div>
         </div>
