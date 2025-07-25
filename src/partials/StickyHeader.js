@@ -8,14 +8,18 @@ const menuItems = [
         label: 'VỀ ZATIFY',
         dropdown: [
             { label: 'About', path: '/about' },
-            { label: 'Project Grid', path: '/project-grid' }
+            { label: 'Project Grid', path: '/project-grid' },
+            { label: 'FAQ', path: '/faq' }
         ]
     },
     {
         label: 'DỊCH VỤ',
         dropdown: [
             { label: 'Tổng quan', path: '/service' },
-            { label: 'Service Single', path: '/service-single' }
+            { label: 'Zalo Official Account', path: '/zalo-oficial-account' },
+            { label: 'Zalo Notification Service', path: '/zalo-notification-service' },
+            { label: 'Zalo Ads', path: '/zalo-ads' },
+            { label: 'Zalo Mini App', path: '/zalo-mini-app' }
         ]
     },
     { label: 'BẢNG GIÁ', path: '/pricing' },
@@ -28,6 +32,7 @@ const StickyHeader = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
     const [openDropdownIdx, setOpenDropdownIdx] = useState(null); // Đổi từ dropdownOpen sang openDropdownIdx
+    const [sidebarDropdownIdx, setSidebarDropdownIdx] = useState(null); // Thêm state cho sidebar dropdown
     const dropdownTimeoutRef = useRef(null);
     const { activeIndex, setActiveIndex } = useMenu();
     const navigate = useNavigate();
@@ -304,47 +309,103 @@ const StickyHeader = () => {
                 </div>
                 <nav className="flex flex-col px-12 pt-8 space-y-2">
                     {menuItems.map((item, idx) => (
-                        <a
-                            key={item.label}
-                            href="#"
-                            className={`flex items-center justify-between text-base font-semibold py-2 ${activeIndex === idx
-                                ? 'text-cyan-500'
-                                : 'text-gray-900 hover:text-cyan-500'
-                                }`}
-                            style={{
-                                letterSpacing: '0.02em',
-                            }}
-                            onClick={e => {
-                                e.preventDefault();
-                                setActiveIndex(idx);
-                                setSidebarOpen(false);
-                                navigate(item.path);
-                            }}
-                        >
-                            <span
-                                className={`${activeIndex === idx ? 'font-bold' : ''
+                        item.dropdown ? (
+                            <div key={item.label} className="flex flex-col">
+                                <button
+                                    className={`flex items-center justify-between text-base font-semibold py-2 w-full text-left ${activeIndex === idx
+                                        ? 'text-cyan-500'
+                                        : 'text-gray-900 hover:text-cyan-500'
+                                        }`}
+                                    style={{
+                                        letterSpacing: '0.02em',
+                                        fontFamily: 'inherit',
+                                        fontSize: '16px',
+                                        textTransform: activeIndex === idx ? 'uppercase' : 'none',
+                                    }}
+                                    onClick={() =>
+                                        setSidebarDropdownIdx(sidebarDropdownIdx === idx ? null : idx)
+                                    }
+                                >
+                                    <span className={activeIndex === idx ? 'font-bold' : ''}>
+                                        {item.label}
+                                    </span>
+                                    <svg
+                                        className={`w-3 h-3 ml-2 transition-transform duration-200 ${sidebarDropdownIdx === idx ? 'rotate-180' : ''} ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
+                                            }`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                {sidebarDropdownIdx === idx && (
+                                    <div className="pl-4 flex flex-col space-y-1">
+                                        {item.dropdown.map((sub, subIdx) => (
+                                            <button
+                                                key={sub.label}
+                                                className="text-left text-gray-700 hover:text-cyan-500 py-1 px-2 rounded transition"
+                                                style={{ fontSize: '15px' }}
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    setActiveIndex(idx);
+                                                    setSidebarOpen(false);
+                                                    setSidebarDropdownIdx(null);
+                                                    navigate(sub.path);
+                                                }}
+                                            >
+                                                {sub.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <a
+                                key={item.label}
+                                href="#"
+                                className={`flex items-center justify-between text-base font-semibold py-2 ${activeIndex === idx
+                                    ? 'text-cyan-500'
+                                    : 'text-gray-900 hover:text-cyan-500'
                                     }`}
                                 style={{
-                                    fontFamily: 'inherit',
-                                    fontSize: '16px',
-                                    textTransform: activeIndex === idx ? 'uppercase' : 'none',
+                                    letterSpacing: '0.02em',
+                                }}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setActiveIndex(idx);
+                                    setSidebarOpen(false);
+                                    navigate(item.path);
                                 }}
                             >
-                                {item.label}
-                            </span>
-                            <svg
-                                className={`w-3 h-3 ml-2 ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
-                                    }`}
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </a>
+                                <span
+                                    className={`${activeIndex === idx ? 'font-bold' : ''
+                                        }`}
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: '16px',
+                                        textTransform: activeIndex === idx ? 'uppercase' : 'none',
+                                    }}
+                                >
+                                    {item.label}
+                                </span>
+                                <svg
+                                    className={`w-3 h-3 ml-2 ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
+                                        }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </a>
+                        )
                     ))}
                 </nav>
                 <div className="px-12 pt-8">
@@ -361,87 +422,87 @@ const StickyHeader = () => {
                 ></div>
             )}
 
-      {/* Contact Sidebar */}
-      <div
-        className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
-          }`}
-        style={{ top: 16, left: 16, bottom: 16 }}
-      >
-        {/* Thanh Close dọc */}
-        <button
-          className="flex flex-col items-center justify-start h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
-          aria-label="Close"
-          onClick={() => setContactSidebarOpen(false)}
-          style={{
-            border: 'none',
-            minWidth: 0,
-            padding: 0,
-            backgroundImage: 'url("svg/thanhdoc/sidebarcontact.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          {/* SVG chữ X */}
-          <svg
-            className="w-5 h-5 text-white mb-1 mt-10 group-hover:text-cyan-400 transition"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-          <span
-            className=" text-white group-hover:text-cyan-400 tracking-widest font-semibold"
-            style={{
-              writingMode: 'vertical-rl',
-              textOrientation: 'mixed',
-              letterSpacing: '0.1em',
-              padding: '0.5rem 0',
-              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
-            }}
-          >
-            Close
-          </span>
-        </button>
-        <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
-          {/* Logo và thông tin liên hệ */}
+            {/* Contact Sidebar */}
+            <div
+                className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
+                    }`}
+                style={{ top: 16, left: 16, bottom: 16 }}
+            >
+                {/* Thanh Close dọc */}
+                <button
+                    className="flex flex-col items-center justify-start h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
+                    aria-label="Close"
+                    onClick={() => setContactSidebarOpen(false)}
+                    style={{
+                        border: 'none',
+                        minWidth: 0,
+                        padding: 0,
+                        backgroundImage: 'url("svg/thanhdoc/sidebarcontact.jpg")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                    }}
+                >
+                    {/* SVG chữ X */}
+                    <svg
+                        className="w-5 h-5 text-white mb-1 mt-10 group-hover:text-cyan-400 transition"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                    <span
+                        className=" text-white group-hover:text-cyan-400 tracking-widest font-semibold"
+                        style={{
+                            writingMode: 'vertical-rl',
+                            textOrientation: 'mixed',
+                            letterSpacing: '0.1em',
+                            padding: '0.5rem 0',
+                            textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+                        }}
+                    >
+                        Close
+                    </span>
+                </button>
+                <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
+                    {/* Logo và thông tin liên hệ */}
 
-          <div className="text-white text-3xl 2xl:text-4xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
-            ZATIFY
-          </div>
-          <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
-            <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
-              LIÊN HỆ
+                    <div className="text-white text-3xl 2xl:text-4xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
+                        ZATIFY
+                    </div>
+                    <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
+                        <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
+                            LIÊN HỆ
+                        </div>
+                        <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
+                            1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
+                            Quận 7, TP.HCM
+                        </div>
+                        <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
+                            0389 603 339<br />
+                            0919 676 808
+                        </div>
+                        <a href="mailto:Sales@zatify.com.vn" className="underline text-md 2xl:text-lg font-semibold leading-relaxed font-manrope">
+                            Sales@zatify.com.vn
+                        </a>
+                        <div className="flex justify-center mt-20 font-manrope">
+                            <button className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
+                                Liên hệ ngay
+                            </button>
+                        </div>
+                    </div>
+                    {/* Sidepanel */}
+                    <div className="flex justify-center space-x-6 w-full h-[20%]">
+                        <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
+                    </div>
+                </div>
             </div>
-            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
-              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
-              Quận 7, TP.HCM
-            </div>
-            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
-              0389 603 339<br />
-              0919 676 808
-            </div>
-            <a href="mailto:Sales@zatify.com.vn" className="underline text-md 2xl:text-lg font-semibold leading-relaxed font-manrope">
-              Sales@zatify.com.vn
-            </a>
-            <div className="flex justify-center mt-20 font-manrope">
-              <button className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
-                Liên hệ ngay
-              </button>
-            </div>
-          </div>
-          {/* Sidepanel */}
-          <div className="flex justify-center space-x-6 w-full h-[20%]">
-            <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
-          </div>
-        </div>
-      </div>
         </>
     );
 };

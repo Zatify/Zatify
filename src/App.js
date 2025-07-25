@@ -7,11 +7,16 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import CreativeTeam from "./components/CreativeTeam";
 import TeamMemberDetail from "./components/TeamMemberDetail";
-import ServiceSingle from "./components/ServiceSingle";
 import Pricingplans from "./components/Pricingplans";
 import Projectsgrid from "./components/Projectsgrid";
 import BlogGrid from "./components/BlogGrid";
 import ProjectDetail from "./components/ProjectDetail";
+import ZaloMiniApp from "./components/ZaloMiniApp";
+import ZaloOfficialAccout from "./components/ZOA";
+import ZaloNotificationService from "./components/ZNS";
+import ZaloAds from "./components/ZaloAds";
+import ZaloOfficialAccount from "./components/ZOA";
+import FAQ from "./components/FAQ";
 
 function App() {
   return (
@@ -25,11 +30,16 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/create-team" element={<CreativeTeam />} />
             <Route path="/team/:memberId" element={<TeamMemberDetail />} />
-            <Route path="/service-single" element={<ServiceSingle />} />
             <Route path="/pricing" element={<Pricingplans />} />
             <Route path="/project-grid" element={<Projectsgrid />} />
             <Route path="/blog-grid" element={<BlogGrid />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
+            {/* Dịch vụ  */}
+            <Route path="/zalo-mini-app" element={<ZaloMiniApp />} />
+            <Route path="/zalo-oficial-account" element={<ZaloOfficialAccount/>} />
+            <Route path="/zalo-notification-service" element={<ZaloNotificationService/>} />
+            <Route path="/zalo-ads" element={<ZaloAds />} />
+            <Route path="/faq" element={<FAQ />} />
           </Route>
         </Routes>
       </div>

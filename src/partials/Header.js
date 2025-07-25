@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMenu } from '../contexts/MenuContext';
 
@@ -8,14 +8,18 @@ const menuItems = [
     label: 'VỀ ZATIFY',
     dropdown: [
       { label: 'About', path: '/about' },
-      { label: 'Project Grid', path: '/project-grid' }
+      { label: 'Project Grid', path: '/project-grid' },
+      { label: 'FAQ', path: '/faq' }
     ]
   },
   {
     label: 'DỊCH VỤ',
     dropdown: [
       { label: 'Tổng quan', path: '/service' },
-      { label: 'Service Single', path: '/service-single' }
+      { label: 'Zalo Official Account', path: '/zalo-oficial-account' },
+      { label: 'Zalo Notification Service', path: '/zalo-notification-service' },
+      { label: 'Zalo Ads', path: '/zalo-ads' },
+      { label: 'Zalo Mini App', path: '/zalo-mini-app' }
     ]
   },
   { label: 'BẢNG GIÁ', path: '/pricing' },
@@ -24,12 +28,14 @@ const menuItems = [
 ];
 
 const Header = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
-  const [openDropdownIdx, setOpenDropdownIdx] = useState(null); // Đổi từ dropdownOpen sang openDropdownIdx
-  const dropdownTimeoutRef = React.useRef(null);
-  const { activeIndex, setActiveIndex } = useMenu();
-  const navigate = useNavigate();
+    const [show, setShow] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
+    const [openDropdownIdx, setOpenDropdownIdx] = useState(null); // Đổi từ dropdownOpen sang openDropdownIdx
+    const [sidebarDropdownIdx, setSidebarDropdownIdx] = useState(null); // Thêm state cho sidebar dropdown
+    const dropdownTimeoutRef = useRef(null);
+    const { activeIndex, setActiveIndex } = useMenu();
+    const navigate = useNavigate();
 
   // Hàm mở dropdown cho từng item
   const handleDropdownEnter = (idx) => {
@@ -245,96 +251,151 @@ const Header = () => {
       )}
 
       {/* Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-[350px] bg-white z-50 shadow-2xl transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        style={{ borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}
-      >
-        <div className="flex items-center justify-end px-8 pt-8">
-          <button className="mr-4" aria-label="Search">
-            <svg
-              className="w-6 h-6 text-gray-700"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+           <div
+                className={`fixed top-0 right-0 h-full w-[350px] bg-white z-50 shadow transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                style={{ borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}
             >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button>
-          <button
-            className="p-2"
-            aria-label="Close"
-            onClick={() => setSidebarOpen(false)}
-          >
-            <svg
-              className="w-7 h-7 text-gray-700"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-        <nav className="flex flex-col px-12 pt-8 space-y-2">
-          {menuItems.map((item, idx) => (
-            <a
-              key={item.label}
-              href="#"
-              className={`flex items-center justify-between text-base font-semibold py-2 ${activeIndex === idx
-                ? 'text-cyan-500'
-                : 'text-gray-900 hover:text-cyan-500'
-                }`}
-              style={{
-                letterSpacing: '0.02em',
-              }}
-              onClick={e => {
-                e.preventDefault();
-                setActiveIndex(idx);
-                setSidebarOpen(false);
-                navigate(item.path);
-              }}
-            >
-              <span
-                className={`${activeIndex === idx ? 'font-bold' : ''
-                  }`}
-                style={{
-                  fontFamily: 'inherit',
-                  fontSize: '16px',
-                  textTransform: activeIndex === idx ? 'uppercase' : 'none',
-                }}
-              >
-                {item.label}
-              </span>
-              <svg
-                className={`w-3 h-3 ml-2 ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
-                  }`}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </a>
-          ))}
-        </nav>
-        <div className="px-12 pt-8">
-          <button className="px-20 py-4 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
-            Log in
-          </button>
-        </div>
-      </div>
+                <div className="flex items-center justify-end px-8 pt-8">
+                    <button className="mr-4" aria-label="Search">
+                        <svg
+                            className="w-6 h-6 text-gray-700"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+                    <button
+                        className="p-2"
+                        aria-label="Close"
+                        onClick={() => setSidebarOpen(false)}
+                    >
+                        <svg
+                            className="w-7 h-7 text-gray-700"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+                <nav className="flex flex-col px-12 pt-8 space-y-2">
+                    {menuItems.map((item, idx) => (
+                        item.dropdown ? (
+                            <div key={item.label} className="flex flex-col">
+                                <button
+                                    className={`flex items-center justify-between text-base font-semibold py-2 w-full text-left ${activeIndex === idx
+                                        ? 'text-cyan-500'
+                                        : 'text-gray-900 hover:text-cyan-500'
+                                        }`}
+                                    style={{
+                                        letterSpacing: '0.02em',
+                                        fontFamily: 'inherit',
+                                        fontSize: '16px',
+                                        textTransform: activeIndex === idx ? 'uppercase' : 'none',
+                                    }}
+                                    onClick={() =>
+                                        setSidebarDropdownIdx(sidebarDropdownIdx === idx ? null : idx)
+                                    }
+                                >
+                                    <span className={activeIndex === idx ? 'font-bold' : ''}>
+                                        {item.label}
+                                    </span>
+                                    <svg
+                                        className={`w-3 h-3 ml-2 transition-transform duration-200 ${sidebarDropdownIdx === idx ? 'rotate-180' : ''} ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
+                                            }`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                {sidebarDropdownIdx === idx && (
+                                    <div className="pl-4 flex flex-col space-y-1">
+                                        {item.dropdown.map((sub, subIdx) => (
+                                            <button
+                                                key={sub.label}
+                                                className="text-left text-gray-700 hover:text-cyan-500 py-1 px-2 rounded transition"
+                                                style={{ fontSize: '15px' }}
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    setActiveIndex(idx);
+                                                    setSidebarOpen(false);
+                                                    setSidebarDropdownIdx(null);
+                                                    navigate(sub.path);
+                                                }}
+                                            >
+                                                {sub.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <a
+                                key={item.label}
+                                href="#"
+                                className={`flex items-center justify-between text-base font-semibold py-2 ${activeIndex === idx
+                                    ? 'text-cyan-500'
+                                    : 'text-gray-900 hover:text-cyan-500'
+                                    }`}
+                                style={{
+                                    letterSpacing: '0.02em',
+                                }}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setActiveIndex(idx);
+                                    setSidebarOpen(false);
+                                    navigate(item.path);
+                                }}
+                            >
+                                <span
+                                    className={`${activeIndex === idx ? 'font-bold' : ''
+                                        }`}
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: '16px',
+                                        textTransform: activeIndex === idx ? 'uppercase' : 'none',
+                                    }}
+                                >
+                                    {item.label}
+                                </span>
+                                <svg
+                                    className={`w-3 h-3 ml-2 ${activeIndex === idx ? 'text-cyan-500' : 'text-gray-400'
+                                        }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </a>
+                        )
+                    ))}
+                </nav>
+                <div className="px-12 pt-8">
+                    <button className="px-20 py-4 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50">
+                        Log in
+                    </button>
+                </div>
+            </div>
 
       {/* Contact Sidebar Overlay */}
       {contactSidebarOpen && (

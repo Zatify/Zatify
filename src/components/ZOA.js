@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const ServiceSingle = () => {
+const ZaloOfficialAccount = () => {
     // State để lưu index của thẻ details đang mở
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]); // Ref array for content divs
@@ -63,7 +63,7 @@ const ServiceSingle = () => {
                         backgroundPosition: 'center',
                     }}
                 >
-                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal max-w-5xl leading-none text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Artificial Intelligence (AI) systems</h1>
+                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal max-w-5xl leading-none text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Zalo Official Accout</h1>
                     {/* Vertical Neural text */}
                     <div className="absolute right-24 bottom-5 items-center hidden md:block">
                         <span
@@ -307,4 +307,4 @@ const ServiceSingle = () => {
     )
 }
 
-export default ServiceSingle;
+export default ZaloOfficialAccount;

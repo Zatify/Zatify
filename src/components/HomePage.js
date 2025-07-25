@@ -215,9 +215,10 @@ const HomePage = () => {
             </div>
 
         </div>
-        <div className=" flex flex-col 0.5xl:flex-row justify-center gap-6 ">
+        <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
           {/* Card 1 */}
-          <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] w-[456px]">
+          <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] 
+            w-full sm:w-[456px] ml-0 sm:ml-0">
             <div
               className="rounded-3xl overflow-hidden cursor-pointer group bg-cover bg-center h-full"
               style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
@@ -237,8 +238,9 @@ const HomePage = () => {
               <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
               <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                setActiveIndex(2);
                 window.scrollTo(0, 0);
-                navigate('/service-single');
+                navigate('/zalo-oficial-account');
               }}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -248,7 +250,8 @@ const HomePage = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between 0.5xl:h-[568px] h-[378px] w-[456px]">
+          <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between 0.5xl:h-[568px] h-[378px] 
+            w-full sm:w-[456px] ml-0 sm:ml-0">
             <div>
               <h4 className="text-white text-xl font-semibold mb-4">Zalo Notification Service ZNS</h4>
               <p className="text-white text-sm mb-4">
@@ -263,8 +266,9 @@ const HomePage = () => {
               <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
               <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                setActiveIndex(2);
                 window.scrollTo(0, 0);
-                navigate('/service-single');
+                navigate('/zalo-notification-service');
               }}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -298,7 +302,26 @@ const HomePage = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col h-[568px] w-[456px]">
+          <div className="md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col h-[568px] 
+            w-full sm:w-[456px] ml-0 sm:ml-0"
+            onClick={() => {
+              setActiveIndex(2);
+              window.scrollTo(0, 0);
+              navigate('/zalo-ads');
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Xem chi tiết Zalo Ads"
+            onKeyUp={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setActiveIndex(2);
+                window.scrollTo(0, 0);
+                navigate('/zalo-ads');
+              }
+            }}
+            style={{ outline: 'none' }}
+          >
             {/* Top part */}
             <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3] flex items-center justify-center">
               <h4 className=" text-black text-xl font-semibold mb-2 absolute left-20 top-4 -translate-x-1/2">Zalo Ads</h4>
@@ -307,6 +330,25 @@ const HomePage = () => {
                 alt="Zalo Ads"
                 className="absolute top-0 right-0 max-h-32  w-auto object-contain "
               />
+              {/* Button điều hướng thêm ở đây */}
+              <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
+                {/* Circle div top-right */}
+                <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
+
+                {/* Circle div bottom-left */}
+                <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
+
+                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e => {
+                  e.stopPropagation();
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-ads');
+                }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             {/* Bottom part */}
             <div className=" rounded-3xl p-6 flex flex-col justify-between flex-[0.7] relative text-white">
@@ -326,8 +368,9 @@ const HomePage = () => {
                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
                 <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                  setActiveIndex(2);
                   window.scrollTo(0, 0);
-                  navigate('/service-single');
+                  navigate('/zalo-mini-app');
                 }}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
