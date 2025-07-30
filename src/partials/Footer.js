@@ -111,19 +111,24 @@ const Footer = () => {
         </div>
       </div>
       {/* Bottom Section */}
-      <div className="rounded-t-3xl h-auto 0.5xl:h-[50vh] items-center overflow-hidden max-w-7xl mx-auto px-10 py-10 flex flex-col md:flex-row justify-between gap-10 relative z-10">
+      <div className="rounded-t-3xl h-auto 0.5xl:h-[50vh] overflow-hidden max-w-7xl mx-auto px-10 py-10 flex flex-col md:flex-row md:justify-between gap-10 relative z-10 items-start">
         {/* Left: Logo, social, since, copyright */}
         <div className="flex-1 min-w-[260px] relative z-10 flex flex-col items-start justify-start">
           <div className="font-bold text-2xl tracking-wide mb-2 mt-2">AIERO</div>
           {/* Social icons nếu cần */}
-          <div className="text-[14vw] 0.5xl:text-[7vw] font-bold  text-transparent bg-clip-text mb-6 select-none leading-none whitespace-nowrap" style={{WebkitTextStroke:'2px #5f5fff', color:'transparent'}}>since 2024</div>
+          <div
+            className="text-[15vw] sm:text-[15vw] md:text-[8vw] lg:text-[9vw] 0.5xl:text-[7vw] font-bold text-transparent bg-clip-text mb-6 select-none leading-none whitespace-nowrap"
+            style={{ WebkitTextStroke: '2px #5f5fff', color: 'transparent' }}
+          >
+            since 2024
+          </div>
           <p className="text-xs text-gray-300 mb-4"><span className="text-cyan-200">©<a href="#" className="underline">Aiero</a> 2025.</span> All rights reserved.</p>
         </div>
         {/* Right: Menus and links */}
-        <div className="flex-1 flex flex-col md:flex-row md:justify-end gap-20 text-sm relative z-10 mt-8 md:mt-0">
+        <div className="flex-1 flex flex-col pl-10 items-start justify-start sm:flex-row sm:items-start sm:justify-end gap-20 text-sm relative z-10 mt-8 md:mt-0 self-start">
           <div>
-            <h4 className="font-semibold mb-3">Company</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Company</h4>
+            <ul className="space-y-2 text-base md:text-lg 2xl:text-xl">
               <li><a href="#" className="hover:underline">About</a></li>
               <li><a href="#" className="hover:underline">Expertise</a></li>
               <li><a href="#" className="hover:underline">Sustainability</a></li>
@@ -133,8 +138,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-3">Services</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Services</h4>
+            <ul className="space-y-2 text-base md:text-lg 2xl:text-xl">
               <li><a href="#" className="hover:underline">Air Freight</a></li>
               <li><a href="#" className="hover:underline">Sea Freight</a></li>
               <li><a href="#" className="hover:underline">Land Transport</a></li>

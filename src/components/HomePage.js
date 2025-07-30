@@ -57,7 +57,7 @@ const HomePage = () => {
   }, [openDetail]);
 
   return (
-    <div className="w-full min-h-screen font-sans">
+    <div className="w-full min-h-screen font-sans overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative pt-56 px-2 sm:px-4 md:px-6 xl:px-6 pb-6 mx-auto w-full bg-gray-100 rounded-bl-3xl rounded-br-3xl">
         <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-40 rounded-bl-3xl rounded-br-3xl pointer-events-none" />
@@ -574,9 +574,9 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col 0.5xl:flex-row gap-8 w-full justify-center">
+          <div className="flex flex-col 0.5xl:flex-row gap-8 w-full justify-center px-4  ">
             {/* Blog Card 1 */}
-            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full 0.5xl:w-[422px] 0.5xl:h-[557px] flex flex-col relative group">
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
                   src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/autodrive-autonomous-vehicle-navigation-fi-640x478.jpg"
@@ -599,7 +599,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* Blog Card 2 */}
-            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full md:w-[422px] md:h-[557px] flex flex-col relative group">
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
                   src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/robot-1-min-640x478.jpg"
@@ -622,7 +622,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* Blog Card 3 */}
-            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full md:w-[422px] md:h-[557px] flex flex-col relative group">
+            <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
                   src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/is-artificial-intelligence-accessible-640x478.jpg"

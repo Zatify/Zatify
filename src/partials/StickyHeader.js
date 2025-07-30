@@ -8,8 +8,7 @@ const menuItems = [
         label: 'VỀ ZATIFY',
         dropdown: [
             { label: 'About', path: '/about' },
-            { label: 'Project Grid', path: '/project-grid' },
-            { label: 'FAQ', path: '/faq' }
+            { label: 'Project Grid', path: '/project-grid' }
         ]
     },
     {
@@ -23,7 +22,13 @@ const menuItems = [
         ]
     },
     { label: 'BẢNG GIÁ', path: '/pricing' },
-    { label: 'TIN TỨC', path: '/blog-grid' },
+    {
+        label: 'TIN TỨC',
+        dropdown: [
+            { label: 'FAQ', path: '/faq' },
+            { label: 'Blog grid', path: '/blog-grid' }
+        ]
+    },
     { label: 'LIÊN HỆ', path: '/contact' },
 ];
 
