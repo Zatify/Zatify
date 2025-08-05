@@ -453,9 +453,13 @@ const Header = () => {
         </button>
         <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
           {/* Logo và thông tin liên hệ */}
-
-          <div className="text-white text-3xl 2xl:text-4xl font-black tracking-widest select-none mt-10 ml-10 font-roboto">
-            ZATIFY
+          <div className="mt-10 ml-10">
+            <img
+              src="/images/logoZ.jpg"
+              alt="ZATIFY Logo"
+              className="h-12 w-auto select-none"
+              style={{ objectFit: 'contain' }}
+            />
           </div>
           <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
             <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
@@ -473,7 +477,14 @@ const Header = () => {
               Sales@zatify.com.vn
             </a>
             <div className="flex justify-center mt-20 font-manrope">
-              <button className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
+              <button
+                className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 "
+                onClick={() => {
+                  setActiveIndex(menuItems.length - 1); // index của 'LIÊN HỆ'
+                  setContactSidebarOpen(false); // Ẩn contact sidebar
+                  navigate('/contact');
+                }}
+              >
                 Liên hệ ngay
               </button>
             </div>
