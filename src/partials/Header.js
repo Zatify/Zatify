@@ -88,11 +88,15 @@ const Header = () => {
               <rect x="3" y="14" width="7" height="7" />
             </svg>
           </button>
-          <div className="font-extrabold text-xl text-gray-900 select-none">
-            ZATIFY
+          <div className="flex items-center h-10">
+            <img
+              src="/images/logoZ.jpg"
+              alt="ZATIFY Logo"
+              className="h-full w-auto max-h-20 select-none"
+              style={{ objectFit: 'contain' }}
+            />
           </div>
         </div>
-
         {/* Navigation - Ẩn khi nhỏ hơn 1280px */}
         <nav className="hidden 0.5xl:flex space-x-4 text-sm font-semibold text-gray-800">
           {menuItems.map((item, idx) => (
@@ -110,7 +114,6 @@ const Header = () => {
                   `}
                   style={{ height: 40, display: 'flex', alignItems: 'center' }}
                   tabIndex={-1}
-                  // Không cho focus/click
                   onClick={e => e.preventDefault()}
                   onMouseDown={e => e.preventDefault()}
                 >
@@ -132,6 +135,7 @@ const Header = () => {
                       {item.label}
                     </span>
                   </span>
+                  {/* Chỉ hiện mũi tên nếu có dropdown */}
                   <svg
                     className="inline-block w-3 h-3 ml-1 -mt-0.5"
                     fill="none"
@@ -203,17 +207,6 @@ const Header = () => {
                     {item.label}
                   </span>
                 </span>
-                <svg
-                  className="inline-block w-3 h-3 ml-1 -mt-0.5"
-                  fill="none"
-                  stroke={activeIndex === idx ? 'white' : 'currentColor'}
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
               </a>
             )
           ))}
@@ -222,7 +215,7 @@ const Header = () => {
         {/* Nút search + login - Ẩn khi nhỏ hơn 1280px */}
         <div className="hidden 0.5xl:flex items-center space-x-6">
           <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
-            Log in
+            Đăng nhập
           </button>
         </div>
 

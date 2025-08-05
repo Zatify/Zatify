@@ -94,8 +94,13 @@ const StickyHeader = () => {
                             <rect x="3" y="14" width="7" height="7" />
                         </svg>
                     </button>
-                    <div className="font-extrabold text-xl text-gray-900 select-none">
-                        ZATIFY
+                    <div className="flex items-center h-10">
+                        <img
+                            src="/images/logoZ.jpg"
+                            alt="ZATIFY Logo"
+                            className="h-full w-auto max-h-20 select-none"
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                 </div>
 
@@ -137,6 +142,7 @@ const StickyHeader = () => {
                                             {item.label}
                                         </span>
                                     </span>
+                                    {/* Chỉ hiện mũi tên nếu có dropdown */}
                                     <svg
                                         className="inline-block w-3 h-3 ml-1 -mt-0.5"
                                         fill="none"
@@ -207,17 +213,6 @@ const StickyHeader = () => {
                                         {item.label}
                                     </span>
                                 </span>
-                                <svg
-                                    className="inline-block w-3 h-3 ml-1 -mt-0.5"
-                                    fill="none"
-                                    stroke={activeIndex === idx ? 'white' : 'currentColor'}
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <polyline points="6 9 12 15 18 9" />
-                                </svg>
                             </a>
                         )
                     ))}
@@ -225,22 +220,8 @@ const StickyHeader = () => {
 
                 {/* Nút search + login */}
                 <div className="hidden 0.5xl:flex items-center space-x-6">
-                    <button className="p-2 rounded-md hover:bg-gray-100">
-                        <svg
-                            className="w-5 h-5 text-gray-700"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <circle cx="11" cy="11" r="7" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                    </button>
                     <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50">
-                        Log in
+                        Đăng nhập
                     </button>
                 </div>
 
