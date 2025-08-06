@@ -78,7 +78,13 @@ const HomePage = () => {
               <p className="mb-6 sm:text-[16px] text-[14px]  text-gray-700 text-base text-left font-manrope">
                 Giải pháp tin nhắn chăm sóc khách hàng tự động một cách tiết kiệm và hiệu quả
               </p>
-              <button className="bg-red-400 hover:bg-red-300 text-white font-semibold py-3 px-7 rounded-lg shadow-md transition flex items-center gap-2 text-base float-right font-manrope sm:text-[16px] text-[14px]">
+              <button
+                className="bg-red-400 hover:bg-red-300 text-white font-semibold py-3 px-7 rounded-lg shadow-md transition flex items-center gap-2 text-base float-right font-manrope sm:text-[16px] text-[14px]"
+                onClick={() => {
+                  setActiveIndex(2); // 2 là index của "DỊCH VỤ"
+                  navigate('/service');
+                }}
+              >
                 Khám phá ngay
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,21 +101,39 @@ const HomePage = () => {
           </div>
         </div>
         {/* Banner */}
-        <div className="relative mt-16 rounded-[32px] overflow-hidden bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] h-[320px] xl:h-[600px] md:h-[480px] sm:h-[360px] flex items-end px-0 xl:px-10 md:px-6 sm:px-4 py-0 xl:py-8 md:py-6 sm:py-4 w-full">
-          <span className="absolute left-10 bottom-10 text-white text-[120px] sm:text-[180px] md:text-[220px] xl:text-[260px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
+        <div
+          className="relative mt-16 rounded-[32px] overflow-hidden h-[320px] xl:h-[600px] md:h-[480px] sm:h-[360px] flex items-end px-0 xl:px-10 md:px-6 sm:px-4 py-0 xl:py-8 md:py-6 sm:py-4 w-full"
+          style={{
+            backgroundImage: "url('/images/homepage.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          <span className="absolute left-10 bottom-0 text-white text-[120px] sm:text-[180px] md:text-[240px] xl:text-[280px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
             Zatify
           </span>
           <div className="absolute right-0 bottom-0 flex flex-col items-end z-20">
-            <div className="text-white  text-sm text-left 0.5xl:mr-10 mr-2 opacity-80 w-28 0.5xl:w-40">
+            <div className="text-white                 
+            text-sm
+                xl:text-xl
+                lg:text-lg
+                md:text-base
+                sm:text-sm
+                text-left 0.5xl:mr-10 mr-2 opacity-80 w-28 xl:w-60">
               Bước đột phá trong việc CSKH cho doanh nghiệp
             </div>
 
             <button
-              className="relative flex items-center gap-2 bg-gray-100 rounded-tl-3xl px-4 py-6 0.5xl:px-24 0.5xl:py-10 shadow-md text-black font-medium text-base hover:bg-gray-100 transition"
+              className="relative flex items-center gap-2 bg-gray-100 rounded-tl-3xl px-4 py-6 0.5xl:px-24 0.5xl:py-10 shadow-md text-black font-medium
+                text-sm
+                xl:text-xl
+                lg:text-lg
+                md:text-base
+                sm:text-sm
+                hover:bg-gray-100 transition"
             >
               {/* Circle div top-right */}
               <div class="absolute top-[-32px] right-0 w-8 h-8 bg-gray-100 mask-rounded-hole"></div>
-
               {/* Circle div bottom-left */}
               <div class="absolute bottom-0 left-[-32px]  w-8 h-8 bg-gray-100 mask-rounded-hole"></div>
               <svg
@@ -203,16 +227,16 @@ const HomePage = () => {
       <section className="mt-32 px-6 max-w-full mx-auto mb-20">
         <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start mb-6 mx-auto">
           <h3 className="text-3xl 0.5xl:text-7xl font-light font-roboto">Các dịch vụ của Zatify</h3>
-            <div className="rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
-                onClick={() => {
-                  setActiveIndex(2); // 2 là index của "DỊCH VỤ"
-                  navigate('/service');
-                }}
-              >
-                Khám phá thêm<span className="ml-1">→</span>
-              </button>
-            </div>
+          <div className="rounded-md inline-block p-[1px]">
+            <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+              onClick={() => {
+                setActiveIndex(2); // 2 là index của "DỊCH VỤ"
+                navigate('/service');
+              }}
+            >
+              Khám phá thêm<span className="ml-1">→</span>
+            </button>
+          </div>
 
         </div>
         <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
