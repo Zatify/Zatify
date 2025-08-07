@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,24 +13,73 @@ const HomePage = () => {
   const contentRefs = React.useRef([]); // Ref array for content divs
   const navigate = useNavigate();
   const { setActiveIndex } = useMenu(); // Thêm dòng này gần useNavigate
+  const h3Ref = useRef(null);
+  const [animateH3, setAnimateH3] = useState(false);
+
+  // Thêm hiệu ứng cho heading "Ưu điểm của Zatify"
+  const h2Ref = useRef(null);
+  const [animateH2, setAnimateH2] = useState(false);
+
+  // Thêm hiệu ứng cho heading "Khám phá các dự án tiêu biểu của Zatify"
+  const h2BlogRef = useRef(null);
+  const [animateH2Blog, setAnimateH2Blog] = useState(false);
+
+  // Testimonial data
+  const testimonials = [
+    {
+      id: 1,
+      quote: "Dịch vụ hỗ trợ thật sự tuyệt vời! Phản hồi nhanh chóng, tận tình và giải quyết vấn đề rất chuyên nghiệp.",
+      author: "Công ty Bạn uống tôi lái",
+      logo: "/images/logokhachhang/butl.jpg"
+    },
+    {
+      id: 2,
+      quote: "Hỗ trợ dịch vụ nhanh gọn và nhiệt tình! Mình rất ấn tượng với sự tận tâm và chuyên nghiệp của đội ngũ, giải quyết vấn đề cực kỳ hiệu quả!",
+      author: "Bảo hiểm Phú hưng",
+      logo: "/images/logokhachhang/bhph.jpg"
+    },
+    {
+      id: 3,
+      quote: "Dịch vụ không chỉ nhanh và tận tình mà giá cả còn tốt hơn mình mong đợi! Đội ngũ hỗ trợ chuyên nghiệp, mình rất hài lòng!",
+      author: "Mgol",
+      logo: "/images/logokhachhang/mgol.jpg"
+    }
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Danh sách câu hỏi/đáp án FAQ
   const faqList = [
     {
-      question: "What is Artificial Intelligence?",
-      answer: "Machine Learning is a subset of AI that focuses on developing algorithms and models that allow computers to learn from data and improve their performance over time. It plays a crucial role in enabling AI systems to recognize patterns, make predictions, and adapt to new information.",
+      question: "Làm thế nào để đăng ký tài khoản Zatify?",
+      answer: "Để bắt đầu sử dụng dịch vụ Zatify bạn cần truy cập vào app.zatify.com.vn, bấm Đăng ký sau đó nhập thông tin tài khoản chi tiết vào để tạo tài khoản.",
     },
     {
-      question: "How does Machine Learning relate to Artificial Intelligence?",
-      answer: "Machine Learning is a subset of AI that focuses on developing algorithms and models that allow computers to learn from data and improve their performance over time. It plays a crucial role in enabling AI systems to recognize patterns, make predictions, and adapt to new information.",
+      question: "	Zalo Notification Service (ZNS) là gì?",
+      answer: (
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            Zalo Notification Service (ZNS) là giải pháp gửi thông báo từ Zalo Official Account (OA) của doanh nghiệp tới khách hàng trên nền tảng Zalo.
+          </li>
+          <li>
+            Nâng cao hiệu quả tương tác với khả năng cá nhân hóa nội dung thông tin đa dạng và đẹp mắt.
+          </li>
+          <li>
+            Tối ưu hóa vận hành với hệ thống kết nối hoàn toàn thông qua openAPI.
+          </li>
+          <li>
+            Tiết kiệm chi phí với chính sách giá linh hoạt.
+          </li>
+        </ul>
+      ),
     },
     {
-      question: "Is Artificial Intelligence replacing human jobs?",
-      answer: "Machine Learning is a subset of AI that focuses on developing algorithms and models that allow computers to learn from data and improve their performance over time. It plays a crucial role in enabling AI systems to recognize patterns, make predictions, and adapt to new information.",
+      question: "	ZNS tính phí như thế nào?",
+      answer: "ZNS tính phí dựa trên số lệnh được xử lý thành công trong khoảng thời gian cam kết. Nếu xử lý thất bại (thông báo ZNS không đến máy người nhận) hoặc xử lý thành công nhưng không nằm trong thời gian cam kết thì sẽ không tính phí.",
     },
     {
-      question: "What are the different types of Artificial Intelligence?",
-      answer: "Machine Learning is a subset of AI that focuses on developing algorithms and models that allow computers to learn from data and improve their performance over time. It plays a crucial role in enabling AI systems to recognize patterns, make predictions, and adapt to new information.",
+      question: "ZNS có thể gửi đến khách hàng không sử dụng Zalo hay không?",
+      answer: "Không, ZNS chỉ được gửi đến nhóm khách hàng có sử dụng Zalo.",
     },
   ];
 
@@ -55,6 +104,66 @@ const HomePage = () => {
       el.style.maxHeight = el.scrollHeight + 'px';
     }
   }, [openDetail]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!h3Ref.current) return;
+      const rect = h3Ref.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        setAnimateH3(true);
+      }
+      if (h2Ref.current) {
+        const rect2 = h2Ref.current.getBoundingClientRect();
+        if (rect2.top < window.innerHeight - 80) {
+          setAnimateH2(true);
+        }
+      }
+      if (h2BlogRef.current) {
+        const rectBlog = h2BlogRef.current.getBoundingClientRect();
+        if (rectBlog.top < window.innerHeight - 80) {
+          setAnimateH2Blog(true);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Animated counter for "250+"
+  const [clientCount, setClientCount] = useState(0);
+  const overviewRef = useRef(null);
+  const [overviewInView, setOverviewInView] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (overviewRef.current) {
+        const rect = overviewRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          setOverviewInView(true);
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    let frame;
+    if (overviewInView && clientCount < 250) {
+      frame = setInterval(() => {
+        setClientCount(prev => {
+          if (prev >= 250) {
+            clearInterval(frame);
+            return 250;
+          }
+          return prev + 5;
+        });
+      }, 12);
+    }
+    return () => clearInterval(frame);
+  }, [overviewInView, clientCount]);
 
   return (
     <div className="w-full min-h-screen font-sans overflow-x-hidden">
@@ -225,19 +334,49 @@ const HomePage = () => {
 
       {/* Services Cards Section */}
       <section className="mt-32 px-6 max-w-full mx-auto mb-20">
-        <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start mb-6 mx-auto">
-          <h3 className="text-3xl 0.5xl:text-7xl font-light font-roboto">Các dịch vụ của Zatify</h3>
-          <div className="rounded-md inline-block p-[1px]">
+        <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start sm:items-center mb-6 mx-auto min-h-[120px]">
+          <div className="flex flex-col flex-1 justify-center items-start w-full">
+            <h3
+              ref={h3Ref}
+              className="text-3xl 0.5xl:text-7xl font-light font-roboto flex"
+              style={{
+                overflow: 'visible',
+                lineHeight: '1.2',
+                minHeight: '1em',
+              }}
+            >
+              {"Các dịch vụ của Zatify".split('').map((char, idx) => (
+                <span
+                  key={idx}
+                  className={`inline-block transition-all duration-500 ease-out
+                    ${animateH3
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'}
+                  `}
+                  style={{
+                    transitionDelay: `${idx * 50}ms`,
+                    display: 'inline-block',
+                    lineHeight: '1.2',
+                  }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+            </h3>
+            <div className="mt-2 text-base text-gray-700 font-manrope">
+              {/* Subtitle hoặc mô tả cho dịch vụ của Zatify */}
+            </div>
+          </div>
+          <div className="rounded-md p-[1px] flex items-center h-full mt-4 sm:mt-0">
             <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
               onClick={() => {
-                setActiveIndex(2); // 2 là index của "DỊCH VỤ"
+                setActiveIndex(2);
                 navigate('/service');
               }}
             >
               Khám phá thêm<span className="ml-1">→</span>
             </button>
           </div>
-
         </div>
         <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
           {/* Card 1 */}
@@ -413,10 +552,10 @@ const HomePage = () => {
       <section className="labelrunning w-full h-[115px] overflow-hidden flex items-center relative">
         <div className="marquee flex whitespace-nowrap" style={{ animation: 'marquee 15s linear infinite' }}>
           <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
-            / Neural Networks in shaping the future of technology.
+            / Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
           </span>
           <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
-            / Neural Networks in shaping the future of technology.
+            / Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
           </span>
         </div>
       </section>
@@ -426,11 +565,29 @@ const HomePage = () => {
 
       <section className="relative 0.5xl:mt-20 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
         <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-48 rounded-bl-3xl rounded-br-3xl pointer-events-none opacity-60" />
-        {/* Heading */}
-        <h2 className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800">
-          The unique selling<br />
-          points &amp; advantages<br />
-          of our service
+        {/* Heading với hiệu ứng từng ký tự */}
+        <h2
+          ref={h2Ref}
+          className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+          style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+        >
+          {"Ưu điểm của Zatify".split('').map((char, idx) => (
+            <span
+              key={idx}
+              className={`inline-block transition-all duration-500 ease-out
+                ${animateH2
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-8'}
+              `}
+              style={{
+                transitionDelay: `${idx * 50}ms`,
+                display: 'inline-block',
+                lineHeight: '1.2',
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
         </h2>
 
         {/* Features grid */}
@@ -439,37 +596,34 @@ const HomePage = () => {
           {/* Feature 1 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
             <span className="material-icons-outlined text-indigo-500 text-4xl">integration_instructions</span>
-            <h3 className="text-[20px] font-semibold font-manrope">AI Technology</h3>
+            <h3 className="text-[20px] font-semibold font-manrope">Hệ sinh thái Zalo</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
-              Emphasize the expertise and knowledge of your team in developing and implementing neural networks
-            </p>
+              Tối ưu hóa tiềm năng kinh doanh từ hệ sinh thái hơn 100 triệu người dùng và hạ tầng công nghệ của Zalo.            </p>
           </article>
 
           {/* Feature 2 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
             <span className="material-icons-outlined text-indigo-500 text-4xl">grid_view</span>
-            <h3 className="text-[20px] font-semibold font-manrope">Tailored solutions</h3>
+            <h3 className="text-[20px] font-semibold font-manrope">Giải pháp toàn diện</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
-              Mention your ability to customize solutions based on specific business requirements
+              Thiết kế giải pháp công nghệ phù hợp với chiến lược kinh doanh của riêng bạn từ nền tảng sản phẩm đa dạng.
             </p>
           </article>
 
           {/* Feature 3 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
             <span className="material-icons-outlined text-indigo-500 text-4xl">smart_display</span>
-            <h3 className="text-[20px] font-semibold font-manrope">Cutting-edge technology</h3>
+            <h3 className="text-[20px] font-semibold font-manrope">	Sẵn sàng hỗ trợ</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
-              Highlight your use of the latest tools and techniques in neural network development
-            </p>
+              Triển khai nhanh chóng và vận hành hiệu quả với đội ngũ chăm sóc khách hàng chuyên nghiệp.            </p>
           </article>
 
           {/* Feature 4 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
             <span className="material-icons-outlined text-indigo-500 text-4xl">shield</span>
-            <h3 className="text-[20px] font-semibold font-manrope">Modern development</h3>
+            <h3 className="text-[20px] font-semibold font-manrope">Bảo mật thông tin</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
-              Showcase successful case studies or client testimonials that demonstrate the effectiveness of your services
-            </p>
+              Ứng dụng công nghệ hiện đại vào từng sản phẩm với tiêu chuẩn bảo mật cao.            </p>
           </article>
 
         </div>
@@ -478,17 +632,19 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <section className="relative z-50 flex p-6 flex-col md:mt-24 md:flex-row gap-6 rounded-3xl h-auto overflow-hidden">
         {/* Left Card - Testimonial */}
-        <div className="relative bg-[#1f1f1f] rounded-3xl text-gray-300 p-10 md:w-[60%] md:h-[790px] h-[472px] flex flex-col justify-around items-center">
+        <div className="relative bg-[#1f1f1f] rounded-3xl text-gray-300 p-10 md:w-[60%] md:h-[650px] 2xl:h-[780px] h-[472px] flex flex-col justify-around items-center">
           <div className='0.5xl:w-[80%] mb-10 0.5xl:mb-0'>
+            <img 
+              src={testimonials[currentTestimonial].logo} 
+              alt="Client Logo" 
+              className=" h-16 rounded-lg mb-4 object-cover"
+            />
             <div className="text-4xl text-white ">❝</div>
             <p className="text-[18px] 0.5xl:text-2xl text-white leading-relaxed font-roboto">
-              Working with Aiero has been a game-changer for our business. Their AI
-              solutions have revolutionized our operations, enabling us to automate
-              repetitive tasks and make data-driven decisions with ease. We couldn't
-              be happier with the results."
+              {testimonials[currentTestimonial].quote}
             </p>
             <p className=" text-[14px] 0.5xl:text-[16px] w-[80%] font-manrope mt-10 0.5:mt-20">
-              - John Anderson, CEO of XYZ Company
+              - {testimonials[currentTestimonial].author}
             </p>
           </div>
           {/* Arrows */}
@@ -498,23 +654,36 @@ const HomePage = () => {
 
             {/* Circle div bottom-left */}
             <div class="absolute bottom-[-4px] left-[-28px]  w-8 h-8 bg-white mask-rounded-hole-testimonial-left"></div>
-            <button className="w-12 h-12 flex items-center justify-center rounded-l-[32px] rounded-r-none font-thin text-black text-[30px] bg-white hover:text-cyan-400">
+            <button
+              className="w-12 h-12 flex items-center justify-center rounded-l-[32px] rounded-r-none font-thin text-black text-[30px] bg-white hover:text-cyan-400"
+              onClick={() => setCurrentTestimonial(prev =>
+                prev === 0 ? testimonials.length - 1 : prev - 1
+              )}
+            >
               ←
             </button>
-            <button className="w-12 h-12 flex items-center justify-center rounded-r-[32px] rounded-l-none font-thin text-black text-[30px] bg-white hover:text-cyan-400">
+            <button
+              className="w-12 h-12 flex items-center justify-center rounded-r-[32px] rounded-l-none font-thin text-black text-[30px] bg-white hover:text-cyan-400"
+              onClick={() => setCurrentTestimonial(prev =>
+                prev === testimonials.length - 1 ? 0 : prev + 1
+              )}
+            >
               →
             </button>
           </div>
         </div>
 
         {/* Right Card - Overview */}
-        <div className="text-white p-10 md:w-[40%] rounded-3xl md:h-[790px] h-[472px] flex flex-col justify-around"
-          style={{ backgroundImage: "url('/svg/Testimonial.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div
+          ref={overviewRef}
+          className="text-white p-10 md:w-[40%] rounded-3xl md:h-[650px] 2xl:h-[780px] h-[472px] flex flex-col justify-around"
+          style={{ backgroundImage: "url('/svg/Testimonial.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
           <h2 className="0.5xl:text-6xl text-4xl leading-snug mb-8 font-roboto">
-            Discover what our clients have to say about our AI solutions
+            Số lượng khách hàng lớn đã tin tưởng và sử dụng dich vụ của Zatify
           </h2>
           <div>
-            <p className="outlined-text mb-1">250+</p>
+            <p className="outlined-text mb-1">{clientCount}+</p>
             <p className="text-lg text-white">Happy clients</p>
           </div>
         </div>
@@ -529,7 +698,8 @@ const HomePage = () => {
         {/* right section  */}
         <div className="relative max-w-4xl w-full h-full flex-[0.7]">
           <h2 className="text-4xl 0.5xl:text-6xl font-light mb-10 font-roboto leading-tight">
-            Everything you need <br /> to know about
+            Bạn thắc mắc, <br />
+            tôi giải đáp
           </h2>
           <div className="space-y-6">
             {faqList.map((faq, idx) => (
@@ -564,37 +734,65 @@ const HomePage = () => {
                     willChange: 'max-height, opacity, transform',
                   }}
                 >
-                  <p className="mt-3 text-gray-700 text-base leading-relaxed font=manrope">
+                  <div className="mt-3 text-gray-700 text-base leading-relaxed font-manrope">
                     {faq.answer}
-                  </p>
+                  </div>
                 </div>
               </details>
             ))}
           </div>
           <div className="mt-10">
             <div className="rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-gray-100 border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
-                Explore more<span className="ml-1">→</span>
+              <button
+                className="justify-center text-sm bg-gray-100 border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+                onClick={() => {
+                  setActiveIndex(4); // 4 là index của "Tin tức"
+                  navigate('/faq');
+                }}
+              >
+                Vẫn còn thắc mắc<span className="ml-1">→</span>
               </button>
             </div>
           </div>
         </div>
       </section>
-
       {/* Blog Section */}
       <section className="w-full flex flex-col items-center mt-32 mb-24">
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
-          <div className="flex flex-col 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
-            <div>
-              <h2 className="mt-4 text-4xl sm:text-6xl font-roboto font-light leading-tight text-black">
-                Exploring the world of<br />
-                artificial intelligence<br />
-                with Aiero blogging
+          <div className="flex flex-col px-4 xl:px-2 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
+            <div className='w-full xl:w-[50%]'>
+              <h2
+                ref={h2BlogRef}
+                className="mt-4 text-4xl sm:text-6xl font-roboto font-light leading-tight text-black flex flex-wrap"
+                style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+              >
+                {"Khám phá các dự án tiêu biểu của Zatify".split(' ').map((word, wIdx, arr) => (
+                  <span key={wIdx} className="mr-2">
+                    {word.split('').map((char, idx) => (
+                      <span
+                        key={wIdx + '-' + idx}
+                        className={`inline-block transition-all duration-500 ease-out
+                          ${animateH2Blog
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-0 translate-y-8'}
+                        `}
+                        style={{
+                          transitionDelay: `${(wIdx * word.length + idx) * 18}ms`, // delay đều hơn, không bị khựng
+                          display: 'inline-block',
+                          lineHeight: '1.2',
+                        }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                    {wIdx < arr.length - 1 ? <span>&nbsp;</span> : null}
+                  </span>
+                ))}
               </h2>
             </div>
             <div className="rounded-md inline-block p-[1px]">
               <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
-                More acticles<span className="ml-1">→</span>
+                Các dự án khác<span className="ml-1">→</span>
               </button>
             </div>
           </div>
