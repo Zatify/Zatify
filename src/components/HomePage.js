@@ -218,7 +218,7 @@ const HomePage = () => {
             backgroundPosition: 'center'
           }}
         >
-          <span className="absolute left-10 bottom-0 text-white text-[120px] sm:text-[180px] md:text-[240px] xl:text-[280px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
+          <span className="absolute left-10 bottom-4 text-white text-[120px] sm:text-[180px] md:text-[240px] xl:text-[280px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
             Zatify
           </span>
           <div className="absolute right-0 bottom-0 flex flex-col items-end z-20">
@@ -387,8 +387,15 @@ const HomePage = () => {
               style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
             >
               <div className="absolute inset-0 p-6 flex flex-col justify-end rounded-3xl">
-                <h4 className="text-white text-xl font-semibold mb-2">Zalo Official Account - ZOA</h4>
-                <p className="text-white text-sm w-[90%] mb-8">
+                <h4
+                  style={{ textDecorationThickness: '2px' }}
+                  className="text-white text-xl md:text-2xl xl:text-3xl font-semibold mb-6 cursor-pointer hover:underline underline-offset-8 transition-all duration-300"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    window.scrollTo(0, 0);
+                    navigate('/zalo-oficial-account');
+                  }}>Zalo Official Account - ZOA</h4>
+                <p className="text-white text-sm md:text-base xl:text-lg w-[90%] mb-8">
                   Dịch vụ gửi thông báo chăm sóc khách hàng đến số điện thoại khách hàng trên Zalo
                 </p>
               </div>
@@ -416,8 +423,15 @@ const HomePage = () => {
           <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between 0.5xl:h-[568px] h-[378px] 
             w-full sm:w-[456px] ml-0 sm:ml-0">
             <div>
-              <h4 className="text-white text-xl font-semibold mb-4">Zalo Notification Service ZNS</h4>
-              <p className="text-white text-sm mb-4">
+              <h4
+                style={{ textDecorationThickness: '2px' }}
+                className="text-white text-xl md:text-2xl xl:text-3xl hover:underline  underline-offset-8 font-semibold mt-8 mb-6"
+                onClick={() => {
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-notification-service');
+                }}>Zalo Notification Service ZNS</h4>
+              <p className="text-white text-sm md:text-base xl:text-lg mb-4">
                 Tài khoản chính thức của doanh nghiệp trên nền tảng Zalo, giúp doanh nghiệp kết nối và tương tác với người dùng Zalo
               </p>
             </div>
@@ -439,28 +453,35 @@ const HomePage = () => {
               </div>
             </div>
             {/* Replace globe SVG with dotted circles and 3 X letters */}
-            <svg className="absolute bottom-6 left-2 w-72 h-40 opacity-80" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Dotted circles pattern */}
+            <svg className="absolute bottom-0 left-2 w-full h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.6" fill="#FFFFFF">
-                {Array.from({ length: 6 }).map((_, row) =>
-                  Array.from({ length: 8 }).map((_, col) => (
+                {[
+                  6, 8, 10, 12, 12, 12, 12, 12, 12, 10, 8, 6
+                ].map((dotsPerRow, rowIndex) => {
+                  const spacing = 30;
+                  const startX = 70 - (dotsPerRow * spacing) / 2;
+                  const centerY = 70;
+                  const radiusY = 55;
+                  const y = centerY - 55 + (rowIndex * 30);
+                  return Array.from({ length: dotsPerRow }).map((_, colIndex) => (
                     <circle
-                      key={row + '-' + col}
-                      cx={10 + col * 18}
-                      cy={10 + row * 18}
+                      key={`${rowIndex}-${colIndex}`}
+                      cx={startX + colIndex * spacing}
+                      cy={y}
                       r="2"
                     />
-                  ))
-                )}
+                  ));
+                })}
               </g>
+              {/* Circular/diamond dotted pattern with equal spacing */}
               {/* 3 X letters replaced with image */}
               <image
                 href="/svg/3x.png"
-                x="0"
-                y="40"
-                width="140"
-                height="80"
-                opacity="0.8" />
+                x="-80"
+                y="52"
+                width="240"
+                height="100"
+              />
             </svg>
           </div>
 
@@ -487,7 +508,14 @@ const HomePage = () => {
           >
             {/* Top part */}
             <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3] flex items-center justify-center">
-              <h4 className=" text-black text-xl font-semibold mb-2 absolute left-20 top-4 -translate-x-1/2">Zalo Ads</h4>
+              <h4
+                style={{ textDecorationThickness: '2px' }}
+                className=" text-black text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mb-2 mt-6 absolute left-20 top-4 -translate-x-1/2"
+                onClick={() => {
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-ads');
+                }}>Zalo Ads</h4>
               <img
                 src="https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/Group-18418.png"
                 alt="Zalo Ads"
@@ -518,8 +546,15 @@ const HomePage = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-80 rounded-bl-3xl rounded-3xl pointer-events-none"></div>
 
               <div className="relative z-10">
-                <h4 className="text-xl font-semibold mb-2">Zalo Mini App</h4>
-                <p>
+                <h4
+                  style={{ textDecorationThickness: '2px' }}
+                  className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mt-8 mb-6"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    window.scrollTo(0, 0);
+                    navigate('/zalo-mini-app');
+                  }}>Zalo Mini App</h4>
+                <p className="text-white text-sm md:text-base xl:text-lg mb-4">
                   Những App nhỏ chạy trực tiếp trên nền tảng Zalo, một giải pháp hiệu quả dành cho doanh nghiệp.
                 </p>
               </div>
@@ -634,9 +669,9 @@ const HomePage = () => {
         {/* Left Card - Testimonial */}
         <div className="relative bg-[#1f1f1f] rounded-3xl text-gray-300 p-10 md:w-[60%] md:h-[650px] 2xl:h-[780px] h-[472px] flex flex-col justify-around items-center">
           <div className='0.5xl:w-[80%] mb-10 0.5xl:mb-0'>
-            <img 
-              src={testimonials[currentTestimonial].logo} 
-              alt="Client Logo" 
+            <img
+              src={testimonials[currentTestimonial].logo}
+              alt="Client Logo"
               className=" h-16 rounded-lg mb-4 object-cover"
             />
             <div className="text-4xl text-white ">❝</div>
