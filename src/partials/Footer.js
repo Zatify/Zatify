@@ -1,15 +1,18 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useMenu } from '../contexts/MenuContext';
 
 const Footer = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { setActiveIndex } = useMenu();
   const isContactPage = location.pathname === '/contact';
 
   return (
     <footer className="bg-[#18191b] text-white rounded-3xl m-4 h-auto overflow-hidden relative">
       {/* Background SVG - đặt absolute cho toàn bộ footer */}
       {!isContactPage && (
-        <img src="/svg/bg-opacity.svg" alt="bg" className="absolute top-[60%] inset-0 w-full h-full object-cover pointer-events-none select-none" style={{zIndex:0}} />
+        <img src="/svg/bg-opacity.svg" alt="bg" className="absolute top-[60%] inset-0 w-full h-full object-cover pointer-events-none select-none" style={{ zIndex: 0 }} />
       )}
       {/* Top Section */}
       {!isContactPage && (
@@ -109,32 +112,115 @@ const Footer = () => {
         {/* Right: Menus and links */}
         <div className="flex-1 flex flex-col pl-10 items-start justify-start sm:flex-row sm:items-start sm:justify-end gap-20 text-sm relative z-10 mt-8 md:mt-0 self-start">
           <div>
-            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Company</h4>
+            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Công ty</h4>
             <ul className="space-y-2 text-base md:text-lg 2xl:text-xl">
-              <li><a href="#" className="hover:underline">About</a></li>
-              <li><a href="#" className="hover:underline">Expertise</a></li>
-              <li><a href="#" className="hover:underline">Sustainability</a></li>
-              <li><a href="#" className="hover:underline">News & Media</a></li>
-              <li><a href="#" className="hover:underline">Case Studies</a></li>
-              <li><a href="#" className="hover:underline">Contacts</a></li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(1);
+                    navigate('/about');
+                  }}
+                >
+                  Về Zatify
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(1);
+                    navigate('/project-grid');
+                  }}
+                >
+                  Dự án
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(4);
+                    navigate('/blog-grid');
+                  }}
+                >
+                  Tin tức
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(4);
+                    navigate('/faq');
+                  }}
+                >
+                  FAQ
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(5);
+                    navigate('/contact');
+                  }}
+                >
+                  Liên hệ
+                </button>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Services</h4>
+            <h4 className="font-semibold text-base md:text-lg 2xl:text-xl mb-3">Dịch vụ</h4>
             <ul className="space-y-2 text-base md:text-lg 2xl:text-xl">
-              <li><a href="#" className="hover:underline">Air Freight</a></li>
-              <li><a href="#" className="hover:underline">Sea Freight</a></li>
-              <li><a href="#" className="hover:underline">Land Transport</a></li>
-              <li><a href="#" className="hover:underline">Groupage</a></li>
-              <li><a href="#" className="hover:underline">Consultancy</a></li>
-              <li><a href="#" className="hover:underline">Value Added Services</a></li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    navigate('/zalo-notification-service');
+                  }}
+                >
+                  ZNS
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    navigate('/zalo-ads');
+                  }}
+                >
+                  Zalo Ads
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    navigate('/zalo-mini-app');
+                  }}
+                >
+                  Mini app
+                </button>
+              </li>
+              <li>
+                <button
+                  className="hover:underline bg-transparent border-none p-0 m-0 text-left cursor-pointer"
+                  onClick={() => {
+                    setActiveIndex(3);
+                    navigate('/pricing');
+                  }}
+                >
+                  Bảng giá
+                </button>
+              </li>
+              <li><a href="#" className="hover:underline">Cẩm nang</a></li>
             </ul>
           </div>
-        </div>
-        {/* Bottom links */}
-        <div className="absolute bottom-4 right-10 text-xs text-gray-300 z-10">
-          <a href="#" className="hover:underline mr-2">Terms of use</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
         </div>
       </div>
     </footer>

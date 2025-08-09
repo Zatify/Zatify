@@ -7,8 +7,8 @@ const menuItems = [
   {
     label: 'VỀ ZATIFY',
     dropdown: [
-      { label: 'About', path: '/about' },
-      { label: 'Project Grid', path: '/project-grid' }
+      { label: 'Giới thiệu', path: '/about' },
+      { label: 'Dự án', path: '/project-grid' }
     ]
   },
   {
