@@ -218,7 +218,7 @@ const HomePage = () => {
             backgroundPosition: 'center'
           }}
         >
-          <span className="absolute left-10 bottom-4 text-white text-[120px] sm:text-[180px] md:text-[240px] xl:text-[280px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
+          <span className="absolute left-10 bottom-[-42px] text-white text-[120px] sm:text-[180px] md:text-[240px] xl:text-[280px] font-extrabold leading-none select-none opacity-90 z-10 font-roboto" style={{ letterSpacing: '-0.04em' }}>
             Zatify
           </span>
           <div className="absolute right-0 bottom-0 flex flex-col items-end z-20">
@@ -587,10 +587,10 @@ const HomePage = () => {
       <section className="labelrunning w-full h-[115px] overflow-hidden flex items-center relative">
         <div className="marquee flex whitespace-nowrap" style={{ animation: 'marquee 15s linear infinite' }}>
           <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
-            / Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
+             Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
           </span>
           <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">
-            / Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
+             Zatify – Trao sức mạnh cho doanh nghiệp, kiến tạo trải nghiệm khách hàng đỉnh cao, lan tỏa sản phẩm mới vươn xa!
           </span>
         </div>
       </section>
@@ -719,7 +719,7 @@ const HomePage = () => {
           </h2>
           <div>
             <p className="outlined-text mb-1">{clientCount}+</p>
-            <p className="text-lg text-white">Happy clients</p>
+            <p className="text-lg text-white">Khách hàng hài lòng</p>
           </div>
         </div>
       </section>
