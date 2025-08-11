@@ -49,10 +49,30 @@ const About = () => {
     };
   }, []);
 
+  // Hiệu ứng từng ký tự cho tiêu đề
+  const [animateTitle, setAnimateTitle] = React.useState(false);
+  const titleRef = React.useRef(null);
+
+  React.useEffect(() => {
+    // Trigger hiệu ứng khi tiêu đề vào viewport
+    function onScrollTitle() {
+      if (!titleRef.current) return;
+      const rect = titleRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setAnimateTitle(true);
+        window.removeEventListener('scroll', onScrollTitle);
+      }
+    }
+    window.addEventListener('scroll', onScrollTitle);
+    onScrollTitle();
+    return () => window.removeEventListener('scroll', onScrollTitle);
+  }, []);
+
   return (
     <div className="relative w-full min-h-screen font-sans">      <div style={{ height: '6rem' }} />
       {/* Hero Section */}
       <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-0 rounded-bl-3xl rounded-br-3xl pointer-events-none" />
+            <img src="/svg/about-us-gradient.svg" alt="Background opacity effect" className="absolute  inset-0 top-[180vh] rounded-bl-3xl rounded-br-3xl pointer-events-none" />
 
       <section className="relative p-4 top-10 w-full max-w-full mx-auto " style={{ zIndex: 1 }}>
         <div
@@ -125,8 +145,50 @@ const About = () => {
           Zatify
         </span>
         <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 z-10">
-          <h1 className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl max-w-[600px] 0.5xl:max-w-[65%]">
-            Định hình tương lai số hóa trên nền tảng Zalo
+          <h1
+            ref={titleRef}
+            className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl max-w-[600px] 0.5xl:max-w-[65%]"
+            style={{
+              overflow: 'visible',
+              lineHeight: '1.2',
+              minHeight: '1em',
+              wordBreak: 'break-word',
+              whiteSpace: 'normal',
+              display: 'block',
+            }}
+          >
+            {
+              // Tách theo từ và giữ dấu cách
+              "Định hình tương lai số hóa trên nền tảng Zalo"
+                .split(/(\s+)/)
+                .map((wordOrSpace, wordIdx) =>
+                  wordOrSpace.trim() === "" ? (
+                    // Nếu là dấu cách, render luôn
+                    <span key={`space-${wordIdx}`}>{wordOrSpace}</span>
+                  ) : (
+                    // Nếu là từ, map từng ký tự
+                    <span key={`word-${wordIdx}`} style={{ display: 'inline-block' }}>
+                      {wordOrSpace.split('').map((char, idx) => (
+                        <span
+                          key={idx}
+                          className={`inline-block transition-all duration-500 ease-out
+                            ${animateTitle
+                              ? 'opacity-100 translate-y-0'
+                              : 'opacity-0 translate-y-8'}
+                          `}
+                          style={{
+                            transitionDelay: `${(wordIdx * 10 + idx) * 15}ms`,
+                            display: 'inline-block',
+                            lineHeight: '1.2',
+                          }}
+                        >
+                          {char}
+                        </span>
+                      ))}
+                    </span>
+                  )
+                )
+            }
           </h1>
           <img
             src="/images/logoZ.jpg"
@@ -301,7 +363,7 @@ const About = () => {
         </div>
       </div>
       {/* Explore Services Section */}
-      <section className="relative mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-white overflow-hidden">
+      <section className="relative z-0 mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-none overflow-hidden">
         <div className="absolute inset-0 w-[0%] 0.5xl:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
         {/* Pattern bên trái */}
         <div className="absolute left-[-140px] top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 flex items-center">
