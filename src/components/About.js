@@ -13,7 +13,7 @@ const About = () => {
       const el = document.getElementById('animated-number');
       if (!el) return;
       let start = 1;
-      const end = 500;
+      const end = 250;
       const duration = 1200;
       const startTime = performance.now();
       function update(now) {
@@ -69,10 +69,11 @@ const About = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen font-sans">      <div style={{ height: '6rem' }} />
+    <div className="relative w-full min-h-screen font-sans">
+      <div style={{ height: '6rem' }} />
       {/* Hero Section */}
       <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-0 rounded-bl-3xl rounded-br-3xl pointer-events-none" />
-            <img src="/svg/about-us-gradient.svg" alt="Background opacity effect" className="absolute  inset-0 top-[180vh] rounded-bl-3xl rounded-br-3xl pointer-events-none" />
+      <img src="/svg/about-us-gradient.svg" alt="Background opacity effect" className="absolute  inset-0 top-[270vh] md:top-[180vh] 2xl:top-[130vh] rounded-bl-3xl rounded-br-3xl pointer-events-none" />
 
       <section className="relative p-4 top-10 w-full max-w-full mx-auto " style={{ zIndex: 1 }}>
         <div
@@ -83,7 +84,7 @@ const About = () => {
             backgroundPosition: 'center',
           }}
         >
-          <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Về Zatify</h1>
+          <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Giới thiệu</h1>
           {/* Vertical Neural text */}
           <div className="absolute right-24 bottom-5 items-center hidden md:block">
             <span
@@ -108,7 +109,7 @@ const About = () => {
           {/* Circle div top-left */}
           <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
           <div className="justify-center items-center w-64 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-            <span className="text-sm mb-1">Về Zatify / Về Zatify</span>
+            <span className="text-sm mb-1">Về Zatify / Giới thiệu</span>
           </div>
           {/* Decoration-tl */}
           {/* Circle div top-right */}
@@ -193,9 +194,7 @@ const About = () => {
           <img
             src="/images/logoZ.jpg"
             alt="Zatify logo"
-            className="hidden lg:block w-[150px] h-[50px] object-contain"
-            width="150"
-            height="50"
+            className="hidden lg:block w-auto h-16 object-contain"
           />
         </div>
         <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-end mt-10 gap-6 z-10">
@@ -253,18 +252,18 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <div className="flex flex-col md:flex-row max-w-[1901px] mx-auto p-6 gap-6 min-h-[595px] mt-16">
+      <div className="flex flex-col md:flex-row max-w-[1901px] mx-auto p-6 gap-6 min-h-[595px] 2xl:min-h-[720px] mt-16">
         {/* Left black panel */}
         <div className="bg-[#1d1d1d] rounded-2xl flex flex-col justify-center px-12 md:px-16 md:w-1/3 min-h-[595px] text-white relative">
           <div className="pb-10">
-            <h1 className="text-4xl font-semibold mb-6 leading-tight">Sứ mệnh của ZATIFY</h1>
-            <p className="text-sm font-normal leading-relaxed mb-6">
+            <h1 className="text-4xl 2xl:text-5xl font-semibold mb-6 2xl:mb-10 leading-tight">Sứ mệnh của ZATIFY</h1>
+            <p className="text-sm 2xl:text-lg font-normal leading-relaxed mb-6">
               ZATIFY cam kết đồng hành cùng doanh nghiệp trong hành trình chuyển đổi số, thông qua nền tảng Zalo với các giải pháp toàn diện như ZNS, Zalo OA, Zalo Ads, Mini App và Survey.
             </p>
-            <p className="text-sm font-normal leading-relaxed mb-6">
+            <p className="text-sm 2xl:text-lg font-normal leading-relaxed mb-6">
               Chúng tôi mang đến trải nghiệm cá nhân hóa cho người dùng cuối, tối ưu hiệu quả marketing và dịch vụ khách hàng cho doanh nghiệp Việt.
             </p>
-            <p className="text-sm font-normal leading-relaxed">
+            <p className="text-sm 2xl:text-lg font-normal leading-relaxed">
               Sứ mệnh của ZATIFY là giúp khách hàng xây dựng kết nối mạnh mẽ, đúng người – đúng thời điểm – đúng kênh, trên một nền tảng số duy nhất.
             </p>
           </div>
@@ -282,11 +281,10 @@ const About = () => {
           />
         </div>
         {/* Right panel with image and text */}
-        <div className="relative rounded-2xl md:w-2/3 overflow-hidden flex flex-col justify-between" style={{ minHeight: '595px' }}>
+        <div className="relative rounded-2xl md:w-2/3 overflow-hidden flex flex-col justify-between min-h-[595px] 2xl:min-h-[720px]">
           <img
             alt="Contact background"
-            className="object-cover rounded-2xl"
-            style={{ width: 1228.67, height: 595 }}
+            className="object-cover rounded-2xl min-h-[595px] w-full h-full"
             src="/svg/background/contact.jpg"
           />
           <div className="absolute bottom-24 left-8 max-w-[60%] text-white text-xl md:text-2xl 2xl:text-3xl font-normal leading-snug">
@@ -414,6 +412,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Chan duong phat triển của Zatify */}
 
     </div>
   );

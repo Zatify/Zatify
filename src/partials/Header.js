@@ -17,7 +17,7 @@ const menuItems = [
       { label: 'Tổng quan', path: '/service' },
       { label: 'Zalo Official Account', path: '/zalo-oficial-account' },
       { label: 'Zalo Notification Service', path: '/zalo-notification-service' },
-      { label: 'Zalo Ads', path: '/zalo-ads' },
+      { label: 'Zalo Ads và Survey', path: '/zalo-ads' },
       { label: 'Zalo Mini App', path: '/zalo-mini-app' }
     ]
   },
@@ -88,7 +88,7 @@ const Header = () => {
               <rect x="3" y="14" width="7" height="7" />
             </svg>
           </button>
-          <div className="flex items-center h-10">
+          <div className="flex items-center -my-8 h-16">
             <img
               src="/images/logoZ.jpg"
               alt="ZATIFY Logo"
@@ -451,23 +451,22 @@ const Header = () => {
             Close
           </span>
         </button>
-        <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
+        <div className="flex flex-col h-full justify-between items-center px-8 pt-8 pb-6">
           {/* Logo và thông tin liên hệ */}
-          <div className="mt-10 ml-10">
+          <div className="mt-10">
             <img
               src="/images/logoZ.jpg"
               alt="ZATIFY Logo"
-              className="h-12 w-auto select-none"
+              className="h-16 w-auto select-none"
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
+          <div className='flex flex-col items-center h-[40%] w-[90%] gap-2 2xl:gap-4 mb-16 2xl:mb-10'>
             <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
               LIÊN HỆ
             </div>
-            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
-              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
-              Quận 7, TP.HCM
+            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope flex items-center justify-center text-center">
+              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM
             </div>
             <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
               0389 603 339<br />

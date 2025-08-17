@@ -17,7 +17,7 @@ const menuItems = [
             { label: 'Tổng quan', path: '/service' },
             { label: 'Zalo Official Account', path: '/zalo-oficial-account' },
             { label: 'Zalo Notification Service', path: '/zalo-notification-service' },
-            { label: 'Zalo Ads', path: '/zalo-ads' },
+            { label: 'Zalo Ads và Survey', path: '/zalo-ads' },
             { label: 'Zalo Mini App', path: '/zalo-mini-app' }
         ]
     },
@@ -94,7 +94,7 @@ const StickyHeader = () => {
                             <rect x="3" y="14" width="7" height="7" />
                         </svg>
                     </button>
-                    <div className="flex items-center h-10">
+                    <div className="flex items-center -my-8 h-16">
                         <img
                             src="/images/logoZ.jpg"
                             alt="ZATIFY Logo"
@@ -400,107 +400,105 @@ const StickyHeader = () => {
                     </button>
                 </div>
             </div>
-            {/* Contact Sidebar Overlay */}
-            {contactSidebarOpen && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-40 z-40"
-                    onClick={() => setContactSidebarOpen(false)}
-                ></div>
-            )}
+      {/* Contact Sidebar Overlay */}
+      {contactSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          onClick={() => setContactSidebarOpen(false)}
+        ></div>
+      )}
 
-            {/* Contact Sidebar */}
-            <div
-                className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
-                    }`}
-                style={{ top: 16, left: 16, bottom: 16 }}
-            >
-                {/* Thanh Close dọc */}
-                <button
-                    className="flex flex-col items-center justify-start h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
-                    aria-label="Close"
-                    onClick={() => setContactSidebarOpen(false)}
-                    style={{
-                        border: 'none',
-                        minWidth: 0,
-                        padding: 0,
-                        backgroundImage: 'url("svg/thanhdoc/sidebarcontact.jpg")',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                    }}
-                >
-                    {/* SVG chữ X */}
-                    <svg
-                        className="w-5 h-5 text-white mb-1 mt-10 group-hover:text-cyan-400 transition"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
-                    >
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                    <span
-                        className=" text-white group-hover:text-cyan-400 tracking-widest font-semibold"
-                        style={{
-                            writingMode: 'vertical-rl',
-                            textOrientation: 'mixed',
-                            letterSpacing: '0.1em',
-                            padding: '0.5rem 0',
-                            textShadow: '0 1px 4px rgba(0,0,0,0.7)',
-                        }}
-                    >
-                        Close
-                    </span>
-                </button>
-                <div className="flex flex-col h-full justify-between px-8 pt-8 pb-6">
-                    {/* Logo và thông tin liên hệ */}
-
-                    <div className="mt-10 ml-10">
-                        <img
-                            src="/images/logoZ.jpg"
-                            alt="ZATIFY Logo"
-                            className="h-12 w-auto select-none"
-                            style={{ objectFit: 'contain' }}
-                        />
-                    </div>
-                    <div className='flex flex-col h-[40%] w-[90%] gap-2 2xl:gap-4 pl-10 mb-16 2xl:mb-10'>
-                        <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
-                            LIÊN HỆ
-                        </div>
-                        <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
-                            1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận
-                            Quận 7, TP.HCM
-                        </div>
-                        <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
-                            0389 603 339<br />
-                            0919 676 808
-                        </div>
-                        <a href="mailto:Sales@zatify.com.vn" className="underline text-md 2xl:text-lg font-semibold leading-relaxed font-manrope">
-                            Sales@zatify.com.vn
-                        </a>
-                        <div className="flex justify-center mt-20 font-manrope">
-                            <button
-                                className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 "
-                                onClick={() => {
-                                    setActiveIndex(menuItems.length - 1); // index của 'LIÊN HỆ'
-                                    setContactSidebarOpen(false); // Ẩn contact sidebar
-                                    navigate('/contact');
-                                }}
-                            >
-                                Liên hệ ngay
-                            </button>
-                        </div>
-                    </div>
-                    {/* Sidepanel */}
-                    <div className="flex justify-center space-x-6 w-full h-[20%]">
-                        <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
-                    </div>
-                </div>
+      {/* Contact Sidebar */}
+      <div
+        className={`fixed rounded-3xl h-[calc(100%-32px)] w-[390px] bg-gradient-to-b from-[#1f2120] via-[#1f2120] to-[#233634] text-white z-50 shadow-2xl transition-transform duration-300 ${contactSidebarOpen ? 'translate-x-0' : '-translate-x-[480px]'
+          }`}
+        style={{ top: 16, left: 16, bottom: 16 }}
+      >
+        {/* Thanh Close dọc */}
+        <button
+          className="flex flex-col items-center justify-start h-full w-16 rounded-3xl shadow-lg group transition-all duration-200 absolute -right-[70px] top-0"
+          aria-label="Close"
+          onClick={() => setContactSidebarOpen(false)}
+          style={{
+            border: 'none',
+            minWidth: 0,
+            padding: 0,
+            backgroundImage: 'url("svg/thanhdoc/sidebarcontact.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {/* SVG chữ X */}
+          <svg
+            className="w-5 h-5 text-white mb-1 mt-10 group-hover:text-cyan-400 transition"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))' }}
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+          <span
+            className=" text-white group-hover:text-cyan-400 tracking-widest font-semibold"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.1em',
+              padding: '0.5rem 0',
+              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+            }}
+          >
+            Close
+          </span>
+        </button>
+        <div className="flex flex-col h-full justify-between items-center px-8 pt-8 pb-6">
+          {/* Logo và thông tin liên hệ */}
+          <div className="mt-10">
+            <img
+              src="/images/logoZ.jpg"
+              alt="ZATIFY Logo"
+              className="h-16 w-auto select-none"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+          <div className='flex flex-col items-center h-[40%] w-[90%] gap-2 2xl:gap-4 mb-16 2xl:mb-10'>
+            <div className="uppercase text-sm 2xl:text-lg font-bold tracking-widest text-gray-400 mb-2 font-manrope">
+              LIÊN HỆ
             </div>
+            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope flex items-center justify-center text-center">
+              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM
+            </div>
+            <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
+              0389 603 339<br />
+              0919 676 808
+            </div>
+            <a href="mailto:Sales@zatify.com.vn" className="underline text-md 2xl:text-lg font-semibold leading-relaxed font-manrope">
+              Sales@zatify.com.vn
+            </a>
+            <div className="flex justify-center mt-20 font-manrope">
+              <button
+                className="w-48 py-3 rounded-full text-md 2xl:text-lg border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 "
+                onClick={() => {
+                  setActiveIndex(menuItems.length - 1); // index của 'LIÊN HỆ'
+                  setContactSidebarOpen(false); // Ẩn contact sidebar
+                  navigate('/contact');
+                }}
+              >
+                Liên hệ ngay
+              </button>
+            </div>
+          </div>
+          {/* Sidepanel */}
+          <div className="flex justify-center space-x-6 w-full h-[20%]">
+            <img src="/svg/sidepanel-bg.png" alt="sidepanel" className="w-auto h-auto relative z-50 top-6 opacity-80" />
+          </div>
+        </div>
+      </div>
         </>
     );
 };

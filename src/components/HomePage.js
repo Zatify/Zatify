@@ -779,7 +779,7 @@ const HomePage = () => {
           <div className="mt-10">
             <div className="rounded-md inline-block p-[1px]">
               <button
-                className="justify-center text-sm bg-gray-100 border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+                className="justify-center text-sm bg-gray-100 border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[175px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
                 onClick={() => {
                   setActiveIndex(4); // 4 là index của "Tin tức"
                   navigate('/faq');
@@ -904,6 +904,10 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+
+
+
     </div>
   );
 };
