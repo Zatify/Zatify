@@ -150,7 +150,7 @@ const ServicePage = () => {
             </section>
 
             {/* Services Cards Section */}
-            <section className="2xl:mt-72 md:mt-56 mt-40 px-6 max-w-full mx-auto mb-20">
+            <section className="2xl:mt-56 md:mt-40 mt-20 px-6 max-w-full mx-auto mb-20">
                 <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
                     {/* Card 1 */}
                     <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] 
@@ -381,7 +381,7 @@ const ServicePage = () => {
                     {/* Top row - 3 features */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-12 mb-12">
                         {/* Feature 1 */}
-                        <article className="flex flex-col items-start space-y-8 max-w-xs">
+                        <article className="flex flex-col items-start space-y-4 max-w-xs">
                             <img
                                 src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/benefic_4.svg"
                                 alt="Integration"
@@ -392,7 +392,7 @@ const ServicePage = () => {
                         </article>
 
                         {/* Feature 2 */}
-                        <article className="flex flex-col items-start space-y-8 max-w-xs">
+                        <article className="flex flex-col items-start space-y-4 max-w-xs">
                             <img src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/benefic_1.svg"
                                 alt="Security"
                                 className="w-10 h-10 text-indigo-500 mx-auto"
@@ -403,7 +403,7 @@ const ServicePage = () => {
                         </article>
 
                         {/* Feature 3 */}
-                        <article className="flex flex-col items-start space-y-8 max-w-xs">
+                        <article className="flex flex-col items-start space-y-4 max-w-xs">
                             <img src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/benefic_3.svg"
                                 alt="Cost"
                                 className="w-10 h-10 text-indigo-500 mx-auto  "
@@ -653,76 +653,6 @@ const ServicePage = () => {
                 </div>
             </section>
 
-            {/* Timeline Section */}
-            <section className="relative w-full py-16 bg-white">
-                {/* Tiêu đề */}
-                <h1 className="text-3xl md:text-5xl xl:text-7xl font-normal leading-tight mb-8 font-roboto text-center ">
-                    Chặng đường phát triển
-                </h1>
-
-                {/* Logo và đoạn mô tả */}
-                <div className="flex flex-col items-center mb-12 px-6">
-                    <img
-                        src="/images/logoZ.jpg" // đổi đường dẫn logo cho phù hợp
-                        alt="ASC"
-                        className="h-12 mb-4"
-                    />
-                    <p className="text-center max-w-4xl text-gray-700">
-                        ASC đảm bảo với khách hàng và đối tác của mình rằng các tiêu chuẩn cao về
-                        dịch vụ và sản phẩm xuất sắc mà họ mong đợi sẽ được tiếp nối và cải thiện
-                        hơn nữa khi tích hợp vào các hoạt động toàn cầu của Vela Software -
-                        Constellation Software.
-                    </p>
-                </div>
-
-                {/* Timeline */}
-                <div className="relative max-w-6xl mx-auto">
-                    {/* Đường chấm chấm ngang */}
-                    <div className="absolute top-10 left-0 right-0 border-t-2 border-dashed border-gray-300"></div>
-
-                    {/* Các mốc thời gian */}
-                    <div className="grid grid-cols-3 gap-6 relative">
-                        {/* 2023 */}
-                        <div className="flex flex-col items-center text-center">
-                            <div
-                                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-                            >
-                                <img src="/images/timeline/icon-2023.png" alt="icon" className="w-full h-full" />
-                            </div>
-                            <h3 className="mt-4 font-bold text-lg">2023</h3>
-                            <p className="text-gray-600 text-sm max-w-[220px]">
-                                Thành lập Công ty TNHH 3NS – tiền thân của Zatify
-                            </p>
-                        </div>
-
-                        {/* 2024 */}
-                        <div className="flex flex-col items-center text-center">
-                            <div
-                                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-                            >
-                                <img src="/images/timeline/icon-2024.png" alt="icon" className="w-full h-full" />
-                            </div>
-                            <h3 className="mt-4 font-bold text-lg">2024</h3>
-                            <p className="text-gray-600 text-sm max-w-[220px]">
-                                Đổi tên thành Công ty TNHH Zatify
-                            </p>
-                        </div>
-
-                        {/* 2025 */}
-                        <div className="flex flex-col items-center text-center">
-                            <div
-                                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-                            >
-                                <img src="/images/timeline/icon-2025.png" alt="icon" className="w-full h-full" />
-                            </div>
-                            <h3 className="mt-4 font-bold text-lg">2025</h3>
-                            <p className="text-gray-600 text-sm max-w-[220px]">
-                                Đón nhận thêm thành viên ban quản trị – mở rộng quy mô công ty
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
 
 

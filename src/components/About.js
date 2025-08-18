@@ -413,7 +413,75 @@ const About = () => {
         </div>
       </section>
 
-      {/* Chan duong phat triển của Zatify */}
+      {/* Timeline Section */}
+      <section className="relative w-full py-16 bg-white">
+        {/* Tiêu đề */}
+        <h1 className="text-3xl md:text-5xl xl:text-7xl font-normal leading-tight mb-8 font-roboto text-center ">
+          Chặng đường phát triển
+        </h1>
+
+        {/* Logo và đoạn mô tả */}
+        <div className="flex flex-col items-center mb-12 px-6">
+          <img
+            src="/images/logoZ.jpg" 
+            alt="Zatify"
+            className="h-20 w-20 mb-4"
+          />
+          <p className="text-center max-w-5xl text-gray-700 font-manrope text-base md:text-lg leading-relaxed">
+            Zatify luôn nỗ lực phát triển các giải pháp công nghệ số tiên tiến, từ Zalo Notification Service, Zalo Ads, Zalo Mini App đến các nền tảng web và ứng dụng di động, nhằm mang lại trải nghiệm tối ưu và giá trị bền vững cho khách hàng và đối tác.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Đường chấm chấm ngang */}
+          <div className="absolute top-14 left-0 right-0 border-t-2 border-dashed border-gray-300"></div>
+
+          {/* Các mốc thời gian */}
+          <div className="grid grid-cols-3 gap-6 relative">
+            {/* 2023 */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
+              >
+                <img src="/images/timeline/icon-2023.png" alt="icon" className="w-full h-full" />
+              </div>
+              <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2023</h3>
+              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[220px]">
+                Thành lập Công ty TNHH 3NS – tiền thân của Zatify
+              </p>
+            </div>
+
+            {/* 2024 */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
+              >
+                <img src="/images/timeline/icon-2024.png" alt="icon" className="w-full h-full" />
+              </div>
+              <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2024</h3>
+              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[220px]">
+                Đổi tên thành Công ty TNHH Zatify
+              </p>
+            </div>
+
+            {/* 2025 */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
+              >
+                <img src="/images/timeline/icon-2025.png" alt="icon" className="w-full h-full" />
+              </div>
+              <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2025</h3>
+              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[280px]">
+                Đón nhận thêm thành viên ban quản trị – mở rộng quy mô công ty
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Khach hang cua Zatify */}
 
     </div>
   );
