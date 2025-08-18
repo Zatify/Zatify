@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -52,6 +52,8 @@ const About = () => {
   // Hiệu ứng từng ký tự cho tiêu đề
   const [animateTitle, setAnimateTitle] = React.useState(false);
   const titleRef = React.useRef(null);
+  const h2Ref = useRef(null);
+  const [animateH2, setAnimateH2] = useState(false);
 
   React.useEffect(() => {
     // Trigger hiệu ứng khi tiêu đề vào viewport
@@ -67,6 +69,36 @@ const About = () => {
     onScrollTitle();
     return () => window.removeEventListener('scroll', onScrollTitle);
   }, []);
+
+  // Fixed useEffect for h2 "Ưu điểm của Zatify"
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setAnimateH2(true);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    if (h2Ref.current) {
+      observer.observe(h2Ref.current);
+    }
+
+    return () => {
+      if (h2Ref.current) {
+        observer.unobserve(h2Ref.current);
+      }
+    };
+  }, []);
+
 
   return (
     <div className="relative w-full min-h-screen font-sans">
@@ -423,7 +455,7 @@ const About = () => {
         {/* Logo và đoạn mô tả */}
         <div className="flex flex-col items-center mb-12 px-6">
           <img
-            src="/images/logoZ.jpg" 
+            src="/images/logoZ.jpg"
             alt="Zatify"
             className="h-20 w-20 mb-4"
           />
@@ -481,7 +513,127 @@ const About = () => {
         </div>
       </section>
 
-      {/* Khach hang cua Zatify */}
+
+
+{/* Customer of Zatify */}
+<section className="relative 0.5xl:mt-10 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+  <img
+    src="/svg/bg-opacity.svg"
+    alt="Background opacity effect"
+    className="absolute inset-0 top-6 rounded-bl-3xl rounded-br-3xl pointer-events-none opacity-100 hidden sm:block"
+  />
+
+  {/* Tiêu đề */}
+  <h2
+    ref={h2Ref}
+    className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+  >
+    {"Khách hàng của Zatify".split('').map((char, idx) => (
+      <span
+        key={idx}
+        className={`inline-block transition-all duration-500 ease-out
+          ${animateH2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+        style={{
+          transitionDelay: `${idx * 50}ms`,
+          display: 'inline-block',
+          lineHeight: '1.2',
+        }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </span>
+    ))}
+  </h2>
+
+  {/* Desktop: Grid layout */}
+  <div className="hidden lg:grid lg:grid-cols-6 lg:gap-10">
+    {[
+      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 1' },
+      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 2' },
+      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 3' },
+      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 4' },
+      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 5' },
+      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 6' },
+      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 7' },
+      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 8' },
+      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 9' },
+      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 10' },
+      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 11' },
+      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 12' }
+    ].map((logo, index) => (
+      <div key={index} className="flex items-center justify-center">
+        <img src={logo.src} alt={logo.alt} className="h-16 w-auto" />
+      </div>
+    ))}
+  </div>
+
+  {/* Mobile: Swiper layout */}
+  <div className="lg:hidden">
+    <Swiper
+      modules={[Pagination]}
+      spaceBetween={20}
+      slidesPerView={1}
+      pagination={{ clickable: true, el: '.custom-pagination' }} // 👈 dùng container ngoài
+      loop={true}
+      className="my-swiper"
+      breakpoints={{
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+      }}
+    >
+      {/* Slide 1: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[0, 1, 2, 3, 4, 5].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img
+                src={[
+                  'svg/logos/miniapp.jpg',
+                  'svg/logos/zaloaccout.jpg',
+                  'svg/logos/zaloads.jpg',
+                  'svg/logos/zalozns.jpg',
+                  'svg/logos/miniapp.jpg',
+                  'svg/logos/zaloaccout.jpg'
+                ][index]}
+                alt={`Logo ${index + 1}`}
+                className="h-12 w-auto"
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 2: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[6, 7, 8, 9, 10, 11].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img
+                src={[
+                  'svg/logos/zaloads.jpg',
+                  'svg/logos/zalozns.jpg',
+                  'svg/logos/miniapp.jpg',
+                  'svg/logos/zaloaccout.jpg',
+                  'svg/logos/zaloads.jpg',
+                  'svg/logos/zalozns.jpg'
+                ][index - 6]}
+                alt={`Logo ${index + 1}`}
+                className="h-12 w-auto"
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+    </Swiper>
+
+    {/*  Pagination dots*/}
+    <div className="custom-pagination mt-6 flex justify-center"></div>
+  </div>
+</section>
+
 
     </div>
   );

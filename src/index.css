@@ -128,3 +128,14 @@
   mask-size: 70% 70%;
   mask-repeat: no-repeat;
 }
+
+
+.custom-pagination .swiper-pagination-bullet {
+  background: #000;
+  opacity: 0.5;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #4f46e5; 
+}
