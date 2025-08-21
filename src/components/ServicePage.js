@@ -90,7 +90,7 @@ const ServicePage = () => {
                         backgroundPosition: 'center',
                     }}
                 >
-                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Dịch vụ</h1>
+                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Tổng quan</h1>
                     {/* Vertical Neural text */}
                     <div className="absolute right-24 bottom-5 items-center hidden md:block">
                         <span
@@ -117,7 +117,7 @@ const ServicePage = () => {
                     {/* Circle div top-left */}
                     <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
                     <div className="justify-center items-center w-64 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-                        <span className="text-sm mb-1">Trang chủ / Dịch vụ</span>
+                        <span className="text-sm mb-1">Dịch vụ / Tổng quan</span>
                     </div>
 
 
@@ -544,7 +544,7 @@ const ServicePage = () => {
                                 <li>Không tích hợp API.</li>
                             </ul>
                             <div className="text-4xl font-bold mb-8">10.000đ</div>
-                            <div className="rounded-md inline-block p-[1px]">
+                            <div className="rounded-md mt-8 inline-block p-[1px]">
                                 <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
                                     Get started<span className="ml-1">→</span>
                                 </button>
@@ -623,7 +623,7 @@ const ServicePage = () => {
                             { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
                             { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
                         ].map((logo) => (
-                            <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-20" />
+                            <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-10" />
                         ))}
                     </div>
                     <div className="sm:hidden w-full">
@@ -643,7 +643,7 @@ const ServicePage = () => {
                                     { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
                                 ].map((logo) => (
                                     <SwiperSlide key={logo.alt} className="flex justify-center items-center w-full">
-                                        <img src={logo.src} alt={logo.alt} className="h-20 mx-auto" />
+                                        <img src={logo.src} alt={logo.alt} className="h-10 mx-auto" />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>

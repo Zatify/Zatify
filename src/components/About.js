@@ -415,7 +415,7 @@ const About = () => {
               { src: 'svg/logos/zaloads.jpg', alt: 'Zalo ADS' },
               { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
             ].map((logo) => (
-              <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-20" />
+              <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-10" />
             ))}
           </div>
           <div className="sm:hidden w-full">
@@ -435,7 +435,7 @@ const About = () => {
                   { src: 'svg/logos/miniapp.jpg', alt: 'Zalo Miniapp' },
                 ].map((logo) => (
                   <SwiperSlide key={logo.alt} className="flex justify-center items-center w-full">
-                    <img src={logo.src} alt={logo.alt} className="h-20 mx-auto" />
+                    <img src={logo.src} alt={logo.alt} className="h-10 mx-auto" />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -546,26 +546,75 @@ const About = () => {
     ))}
   </h2>
 
-  {/* Desktop: Grid layout */}
-  <div className="hidden lg:grid lg:grid-cols-6 lg:gap-10">
-    {[
-      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 1' },
-      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 2' },
-      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 3' },
-      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 4' },
-      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 5' },
-      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 6' },
-      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 7' },
-      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 8' },
-      { src: 'svg/logos/miniapp.jpg', alt: 'Logo 9' },
-      { src: 'svg/logos/zaloaccout.jpg', alt: 'Logo 10' },
-      { src: 'svg/logos/zaloads.jpg', alt: 'Logo 11' },
-      { src: 'svg/logos/zalozns.jpg', alt: 'Logo 12' }
-    ].map((logo, index) => (
-      <div key={index} className="flex items-center justify-center">
-        <img src={logo.src} alt={logo.alt} className="h-16 w-auto" />
-      </div>
-    ))}
+  {/* Desktop: Swiper layout */}
+  <div className="hidden lg:block">
+    <Swiper
+      modules={[Pagination]}
+      spaceBetween={30}
+      slidesPerView={1}
+      pagination={{ clickable: true, el: '.custom-pagination-desktop' }}
+      loop={true}
+      className="my-swiper-desktop"
+    >
+      {/* Slide 1: 12 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-6 gap-8">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-16 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/miniapp.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 2: 12 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-6 gap-8">
+          {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-16 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zaloaccout.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 3: 12 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-6 gap-8">
+          {[25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-16 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zaloads.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+    </Swiper>
+
+    {/* Pagination dots for desktop */}
+    <div className="custom-pagination-desktop mt-8 flex justify-center space-x-4">
+      <div className="swiper-pagination-desktop"></div>
+    </div>
   </div>
 
   {/* Mobile: Swiper layout */}
@@ -574,7 +623,7 @@ const About = () => {
       modules={[Pagination]}
       spaceBetween={20}
       slidesPerView={1}
-      pagination={{ clickable: true, el: '.custom-pagination' }} // 👈 dùng container ngoài
+      pagination={{ clickable: true, el: '.custom-pagination-mobile' }} // 👈 dùng container ngoài
       loop={true}
       className="my-swiper"
       breakpoints={{
@@ -587,19 +636,15 @@ const About = () => {
       {/* Slide 1: 6 logos */}
       <SwiperSlide>
         <div className="grid grid-cols-3 gap-4">
-          {[0, 1, 2, 3, 4, 5].map(index => (
+          {[1, 2, 3, 4, 5, 6].map(index => (
             <div key={index} className="flex items-center justify-center">
-              <img
-                src={[
-                  'svg/logos/miniapp.jpg',
-                  'svg/logos/zaloaccout.jpg',
-                  'svg/logos/zaloads.jpg',
-                  'svg/logos/zalozns.jpg',
-                  'svg/logos/miniapp.jpg',
-                  'svg/logos/zaloaccout.jpg'
-                ][index]}
-                alt={`Logo ${index + 1}`}
-                className="h-12 w-auto"
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/miniapp.jpg';
+                }}
               />
             </div>
           ))}
@@ -609,19 +654,87 @@ const About = () => {
       {/* Slide 2: 6 logos */}
       <SwiperSlide>
         <div className="grid grid-cols-3 gap-4">
-          {[6, 7, 8, 9, 10, 11].map(index => (
+          {[7, 8, 9, 10, 11, 12].map(index => (
             <div key={index} className="flex items-center justify-center">
-              <img
-                src={[
-                  'svg/logos/zaloads.jpg',
-                  'svg/logos/zalozns.jpg',
-                  'svg/logos/miniapp.jpg',
-                  'svg/logos/zaloaccout.jpg',
-                  'svg/logos/zaloads.jpg',
-                  'svg/logos/zalozns.jpg'
-                ][index - 6]}
-                alt={`Logo ${index + 1}`}
-                className="h-12 w-auto"
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zaloaccout.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 3: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[13, 14, 15, 16, 17, 18].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zaloads.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 4: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[19, 20, 21, 22, 23, 24].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zalozns.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 5: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[25, 26, 27, 28, 29, 30].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/miniapp.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </SwiperSlide>
+
+      {/* Slide 6: 6 logos */}
+      <SwiperSlide>
+        <div className="grid grid-cols-3 gap-4">
+          {[31, 32, 33, 34, 35, 36].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
+                alt={`Khách hàng ${index}`} 
+                className="h-12 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  e.target.src = '/svg/logos/zaloaccout.jpg';
+                }}
               />
             </div>
           ))}
@@ -630,7 +743,7 @@ const About = () => {
     </Swiper>
 
     {/*  Pagination dots*/}
-    <div className="custom-pagination mt-6 flex justify-center"></div>
+    <div className="custom-pagination-mobile mt-6 flex justify-center"></div>
   </div>
 </section>
 
