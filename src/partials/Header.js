@@ -42,6 +42,23 @@ const Header = () => {
     const { activeIndex, setActiveIndex } = useMenu();
     const navigate = useNavigate();
 
+    // Khi component mount, set activeIndex dựa vào pathname hiện tại
+    useEffect(() => {
+        const pathname = window.location.pathname;
+        let foundIdx = null;
+        menuItems.forEach((item, idx) => {
+            if (item.path && item.path === pathname) {
+                foundIdx = idx;
+            } else if (item.dropdown) {
+                if (item.dropdown.some(sub => sub.path === pathname)) {
+                    foundIdx = idx;
+                }
+            }
+        });
+        if (foundIdx !== null) setActiveIndex(foundIdx);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
   // Hàm mở dropdown cho từng item
   const handleDropdownEnter = (idx) => {
     if (dropdownTimeoutRef.current) {
@@ -162,7 +179,7 @@ const Header = () => {
                         className="block px-4 py-2 text-white hover:text-cyan-400"
                         onClick={e => {
                           e.preventDefault();
-                          setActiveIndex(idx);
+                          setActiveIndex(idx); // set index cha
                           setOpenDropdownIdx(null);
                           navigate(sub.path);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -331,7 +348,7 @@ const Header = () => {
                                                 style={{ fontSize: '15px' }}
                                                 onClick={e => {
                                                     e.preventDefault();
-                                                    setActiveIndex(idx);
+                                                    setActiveIndex(idx); // set index cha
                                                     setSidebarOpen(false);
                                                     setSidebarDropdownIdx(null);
                                                     navigate(sub.path);
