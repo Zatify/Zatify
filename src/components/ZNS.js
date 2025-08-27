@@ -271,27 +271,47 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* Main layout section */}
-            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-10">
+            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52  gap-10">
+                {/* Sidebar left */}
                 {/* Sidebar left */}
                 <aside className="service-single-sidebar w-full md:w-1/4 flex flex-col gap-6 hidden md:flex">
                     {/* Service list */}
-                    <div className=" service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-center items-center 0.5xl:h-[340px]">
-                        <ul className="space-y-6 text-gray-600 font-semibold font-manrope text-[20px]">
-                            <li className="cursor-pointer hover:text-blue-600">Network Integration</li>
-                            <li className="cursor-pointer hover:text-blue-600">Deep learning solutions</li>
-                            <li className="cursor-pointer hover:text-blue-600">Transfer learning</li>
-                            <li className="cursor-pointer hover:text-blue-600">Model evaluation</li>
-                            <li className="cursor-pointer hover:text-blue-600">Real-time prediction</li>
+                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
+                        <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
+                            {[
+                                "Zalo Official Account",
+                                "Zalo Mini App",
+                                "Zalo Notification Service",
+                                "Zalo Ads",
+                            ].map((item, index) => (
+                                <li
+                                    key={index}
+                                    className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
+                                >
+                                    {/* Icon mũi tên */}
+                                    <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
+                                        ↗
+                                    </span>
+                                    {/* Text */}
+                                    <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
+                                        {item}
+                                    </span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Brochure */}
-                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center  0.5xl:h-[340px]">
+                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]">
                         <div className="mb-4">
-                            <h3 className="text-[40px] leading-none my-4 font-roboto">Services brochure</h3>
+                            <h3 className="text-[40px] leading-none my-4 font-roboto">ZATIFY brochure</h3>
                         </div>
                         <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
-                            <button className="justify-center text-sm text-black bg-purple-400 rounded-[0.65rem] px-4 py-2 hover:bg-purple-600 hover:text-white text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                            <a
+                                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
+                                download
+                                className="justify-center text-sm bg-purple-400 rounded-[0.65rem] px-4 py-2 hover:bg-purple-600 hover:text-white text-white transition flex items-center gap-1 w-[160px] h-[50px]"
+                            >
                                 Download
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -303,15 +323,16 @@ const ZaloNotificationService = () => {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
+
 
                     {/* AI Consulting */}
                     <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
-                            <h3 className="text-3xl font-roboto mb-2">AI Strategy and Consulting</h3>
-                            <p className="font-manrope">Provide expert guidance on developing an AI strategy</p>
+                            <h3 className="text-3xl font-roboto mb-2">Tăng cường nhận diện thương hiệu</h3>
+                            <p className="font-manrope">Cho phép doanh nghiệp cải thiện đáng kể khả năng tương tác với khách hàng</p>
                         </div>
                     </div>
                 </aside>
@@ -372,9 +393,9 @@ const ZaloNotificationService = () => {
 
                     {/* Animated phones + icons section */}
 
-                    <section className="sec_intro w-[105%] md:h-[91vh] bg-[#f5f8ff] py-12 pb-24 md:pb-0 md:py-20 relative overflow-hidden">
+                    <section className="sec_intro w-[105%] md:h-[91vh] xl:h-[114vh] bg-[#f5f8ff] py-12 pb-24 md:pb-0 md:py-20 relative overflow-hidden">
                         <div className="container max-w-[1440px] relative z-10">
-                            <div className="content_main flex flex-col md:flex-row items-center justify-between relative z-20">
+                            <div className="content_main flex flex-col md:flex-row items-center mt-14 justify-between relative z-20">
 
                                 {/* Phones + Icons cluster */}
                                 <div className="ani_images relative flex-1 flex items-center justify-center">
@@ -775,16 +796,16 @@ const ZaloNotificationService = () => {
                     <div className="flex gap-2 sm:gap-8 items-center border-b border-[#e0e7ef]">
                         {[
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-2xl">ZNS Giao dịch</span>,
-                                icon: <FontAwesomeIcon icon={faFileInvoiceDollar} className="text-base sm:text-lg md:text-xl xl:text-2xl" />,
+                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Giao dịch</span>,
+                                icon: <FontAwesomeIcon icon={faFileInvoiceDollar} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-2xl">ZNS Chăm sóc khách hàng</span>,
-                                icon: <FontAwesomeIcon icon={faPhone} className="text-base sm:text-lg md:text-xl xl:text-2xl" />,
+                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Chăm sóc khách hàng</span>,
+                                icon: <FontAwesomeIcon icon={faPhone} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-2xl">ZNS Khuyến mãi</span>,
-                                icon: <FontAwesomeIcon icon={faGift} className="text-base sm:text-lg md:text-xl xl:text-2xl" />,
+                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Khuyến mãi</span>,
+                                icon: <FontAwesomeIcon icon={faGift} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                         ].map((tab, i) => (
                             <button
@@ -809,7 +830,7 @@ const ZaloNotificationService = () => {
                             znsTemplates[znsTab].map((tpl, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex-shrink-0 flex flex-col items-center w-[180px] xl:w-[235px] 2xl:w-[298px]"
+                                    className="flex-shrink-0 flex flex-col items-center w-[180px] xl:w-[298px] 2xl:w-[320px]"
                                 >
                                     <img
                                         src={tpl.image}
