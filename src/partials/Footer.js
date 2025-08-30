@@ -96,7 +96,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Bottom Section */}
-      <div className="rounded-t-3xl h-auto 0.5xl:h-[50vh] overflow-hidden max-w-7xl mx-auto py-10 flex flex-col md:flex-row md:justify-between gap-10 relative z-10 items-start">
+      <div className="rounded-t-3xl px-6 xl:px-0 h-auto 0.5xl:h-[50vh] overflow-hidden max-w-7xl mx-auto py-10 flex flex-col md:flex-row md:justify-between gap-10 relative z-10 items-start">
         {/* Left: Logo, social, since, copyright */}
         <div className="flex-1 min-w-[260px] relative z-10 flex flex-col items-start justify-start">
           <div className="font-bold text-2xl tracking-wide mb-2 mt-2">ZATIFY</div>

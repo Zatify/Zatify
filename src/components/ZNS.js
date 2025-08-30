@@ -274,10 +274,10 @@ const ZaloNotificationService = () => {
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52  gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
-                <aside className="service-single-sidebar w-full md:w-1/4 flex flex-col gap-6 hidden md:flex">
+                <aside className="service-single-sidebar w-full md:w-1/4 flex-col gap-6 hidden md:flex">
                     {/* Service list */}
-                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
-                        <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
+                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px] 2xl:h-[400px]">
+                        <ul className="space-y-8 text-gray-500 font-manrope text-[20px]">
                             {[
                                 "Zalo Official Account",
                                 "Zalo Mini App",
@@ -302,7 +302,7 @@ const ZaloNotificationService = () => {
                     </div>
 
                     {/* Brochure */}
-                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]">
+                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px] 2xl:h-[400px]">
                         <div className="mb-4">
                             <h3 className="text-[40px] leading-none my-4 font-roboto">ZATIFY brochure</h3>
                         </div>
@@ -329,7 +329,7 @@ const ZaloNotificationService = () => {
 
 
                     {/* AI Consulting */}
-                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px] 2xl:h-[400px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
                             <h3 className="text-3xl font-roboto mb-2">Tăng cường nhận diện thương hiệu</h3>
                             <p className="font-manrope">Cho phép doanh nghiệp cải thiện đáng kể khả năng tương tác với khách hàng</p>
@@ -343,7 +343,7 @@ const ZaloNotificationService = () => {
                     <article className="main-content w-full">
                         <h1
                             ref={titleRef}
-                            className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl max-w-[600px] 0.5xl:max-w-[100%]"
+                            className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl pl-6 md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
                             style={{
                                 overflow: 'visible',
                                 lineHeight: '1.2',
@@ -386,15 +386,14 @@ const ZaloNotificationService = () => {
                                     )
                             }
                         </h1>
-                        <p className="font-manrope max-w-full mb-6 leading-relaxed">
+                        <p className="font-manrope max-w-full pl-6 md:pl-0 mb-6 mt-4 leading-relaxed">
                             Zalo Notification Service (ZNS) là dịch vụ gửi thông báo chăm sóc khách hàng tới các số điện thoại đang sử dụng Zalo
                         </p>
                     </article>
 
                     {/* Animated phones + icons section */}
-
-                    <section className="sec_intro w-[105%] md:h-[91vh] xl:h-[114vh] bg-[#f5f8ff] py-12 pb-24 md:pb-0 md:py-20 relative overflow-hidden">
-                        <div className="container max-w-[1440px] relative z-10">
+                    <section className="sec_intro w-[100%] xl:w-[104%] h-[70vh] xl:h-[114vh] 2xl:h-[105vh] bg-[#f5f8ff] py-12 pb-24 md:pb-0 md:py-20 relative overflow-hidden">
+                        <div className="container max-w-[1440px] top-[-10vh] sm:top-0 relative z-10">
                             <div className="content_main flex flex-col md:flex-row items-center mt-14 justify-between relative z-20">
 
                                 {/* Phones + Icons cluster */}
@@ -584,7 +583,7 @@ const ZaloNotificationService = () => {
                                         </div>
 
                                         {/* Icons bar for mobile */}
-                                        <div className="ani absolute bottom-[10vh] left-0 w-full flex items-center justify-center md:hidden">
+                                        <div className="ani absolute bottom-[15vh] left-0 w-full flex items-center justify-center md:hidden">
                                             <div className="wrap relative flex flex-col left-[2%] justify-between items-center w-[calc(100%-3rem)] max-w-[340px]">
                                                 {/* Item 1 */}
                                                 <div className="item w-full relative flex items-center justify-center h-[7vh]">
@@ -796,15 +795,15 @@ const ZaloNotificationService = () => {
                     <div className="flex gap-2 sm:gap-8 items-center border-b border-[#e0e7ef]">
                         {[
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Giao dịch</span>,
+                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Giao dịch</span>,
                                 icon: <FontAwesomeIcon icon={faFileInvoiceDollar} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Chăm sóc khách hàng</span>,
+                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Chăm sóc khách hàng</span>,
                                 icon: <FontAwesomeIcon icon={faPhone} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                             {
-                                label: <span className="text-xs sm:text-sm md:text-lg xl:text-xl">ZNS Khuyến mãi</span>,
+                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Khuyến mãi</span>,
                                 icon: <FontAwesomeIcon icon={faGift} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
                             },
                         ].map((tab, i) => (
@@ -830,7 +829,7 @@ const ZaloNotificationService = () => {
                             znsTemplates[znsTab].map((tpl, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex-shrink-0 flex flex-col items-center w-[180px] xl:w-[298px] 2xl:w-[320px]"
+                                    className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[298px] 2xl:w-[298px]"
                                 >
                                     <img
                                         src={tpl.image}
@@ -852,7 +851,7 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* ZNS Section */}
-            <section className="relative flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
+            <section className="relative flex-grow max-w-full sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
                 <img
                     src="/svg/bg-opacity.svg"
                     alt="Background opacity effect"
@@ -862,95 +861,96 @@ const ZaloNotificationService = () => {
                 {/* Heading */}
                 <h2
                     ref={h2Refzns}
-                    className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex whitespace-nowrap flex-wrap"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
-                    {"Tại sao doanh nghiệp dùng ZNS".split('').map((char, idx) => (
+                    {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, idx) => (
                         <span
                             key={idx}
                             className={`inline-block transition-all duration-500 ease-out
-          ${animateH2zns ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-        `}
+      ${animateH2zns ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+    `}
                             style={{
-                                transitionDelay: `${idx * 50}ms`,
+                                transitionDelay: `${idx * 150}ms`,
                                 display: 'inline-block',
                                 lineHeight: '1.2',
                             }}
                         >
-                            {char === ' ' ? '\u00A0' : char}
+                            {word}&nbsp;
                         </span>
                     ))}
+
                 </h2>
                 {/* Features grid */}
                 <div className="flex flex-col items-center">
                     {/* Top row - 3 features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-[-30px] sm:mt-0 mb-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 xl:gap-x-24 gap-y-8 mt-[-30px] sm:mt-0 mb-12">
 
                         {/* Feature 1 */}
-                        <article className="flex flex-col items-center text-center space-y-4 max-w-xs">
+                        <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
                             <img
                                 src="https://content.zalo.cloud/uploads/ic_advantage_1_3f3e77ffbf.svg"
                                 alt="Nội dung đa dạng"
                                 className="w-20 h-20"
                             />
-                            <h3 className="text-lg font-roboto text-gray-900">Nội dung đa dạng</h3>
-                            <p className="text-gray-600 leading-relaxed font-manrope text-sm">
+                            <h3 className="text-lg md:text-xl font-roboto text-gray-900">Nội dung đa dạng</h3>
+                            <p className="text-gray-600 leading-relaxed font-manrope text-sm md:text-base">
                                 Tạo thông báo với giới hạn hàng trăm ký tự có đủ văn bản dạng phong phú (nội dung dạng bảng, nội dung chứa ảnh, nút CTA…)
                             </p>
                         </article>
 
                         {/* Feature 2 */}
-                        <article className="flex flex-col items-center text-center space-y-4 max-w-xs">
+                        <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
                             <img
                                 src="https://content.zalo.cloud/uploads/ic_advantage_2_0c886dcd4b.svg"
                                 alt="Tiết kiệm chi phí"
                                 className="w-20 h-20"
                             />
-                            <h3 className="text-lg font-roboto text-gray-900">Tiết kiệm chi phí</h3>
-                            <p className="text-gray-600 leading-relaxed font-manrope text-sm">
+                            <h3 className="text-lg md:text-xl font-roboto text-gray-900">Tiết kiệm chi phí</h3>
+                            <p className="text-gray-600 leading-relaxed font-manrope text-sm md:text-base">
                                 Chỉ trả phí trên số ZNS được xử lý thành công với giá cạnh tranh và minh bạch chỉ từ 200đ.
                             </p>
                         </article>
 
                         {/* Feature 3 */}
-                        <article className="flex flex-col items-center text-center space-y-4 max-w-xs">
+                        <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
                             <img
                                 src="https://content.zalo.cloud/uploads/ic_advantage_3_8939b96d9d.svg"
                                 alt="Tương tác 2 chiều"
                                 className="w-20 h-20"
                             />
-                            <h3 className="text-lg font-roboto text-gray-900">Tương tác 2 chiều</h3>
-                            <p className="text-gray-600 leading-relaxed font-manrope text-sm">
+                            <h3 className="text-lg md:text-xl font-roboto text-gray-900">Tương tác 2 chiều</h3>
+                            <p className="text-gray-600 leading-relaxed font-manrope text-sm md:text-base">
                                 Tiếp tục duy trì hội thoại qua Tài khoản doanh nghiệp (Official Account) nếu người nhận phản hồi với thông báo.
                             </p>
                         </article>
                     </div>
 
                     {/* Bottom row - 2 features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 xl:gap-x-24 gap-y-8">
 
                         {/* Feature 4 */}
-                        <article className="flex flex-col items-center text-center space-y-4 max-w-xs">
+                        <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
                             <img
                                 src="https://content.zalo.cloud/uploads/ic_advantage_4_748802bbef.svg"
                                 alt="Tiếp cận chủ động"
                                 className="w-20 h-20"
                             />
-                            <h3 className="text-lg font-roboto text-gray-900">Tiếp cận chủ động</h3>
-                            <p className="text-gray-600 leading-relaxed font-manrope text-sm">
+                            <h3 className="text-lg md:text-xl font-roboto text-gray-900">Tiếp cận chủ động</h3>
+                            <p className="text-gray-600 leading-relaxed font-manrope text-sm md:text-base">
                                 Gửi thông báo đến khách hàng khi có số điện thoại đăng ký dùng Zalo, không yêu cầu điều kiện khách hàng phải follow OA trước đó.
                             </p>
                         </article>
 
                         {/* Feature 5 */}
-                        <article className="flex flex-col items-center text-center space-y-4 max-w-xs">
+                        <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
                             <img
                                 src="https://content.zalo.cloud/uploads/ic_advantage_5_6024271193.svg"
                                 alt="Theo dõi dễ dàng"
                                 className="w-20 h-20"
                             />
-                            <h3 className="text-lg  text-gray-900 font-roboto">Theo dõi dễ dàng</h3>
-                            <p className="text-gray-600 leading-relaxed font-manrope text-sm">
+                            <h3 className="text-lg md:text-xl  text-gray-900 font-roboto">Theo dõi dễ dàng</h3>
+                            <p className="text-gray-600 leading-relaxed font-manrope text-sm md:text-base">
                                 Nắm thông tin lượt xử lý thành công theo ngày với khả năng theo dõi lượng tương tác qua nút CTA nếu dẫn đến web/app của doanh nghiệp.        </p>
                         </article>
                     </div>
@@ -1017,7 +1017,7 @@ const ZaloNotificationService = () => {
                                     }}
                                 >
                                     <div
-                                        className="mt-3 text-gray-700 text-base leading-relaxed font-manrope"
+                                        className="mt-3 text-gray-700 text-sm md:text-base leading-relaxed font-manrope"
                                         dangerouslySetInnerHTML={{ __html: faq.answer }}
                                     />
                                 </div>
