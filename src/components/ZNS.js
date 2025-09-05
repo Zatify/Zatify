@@ -274,10 +274,10 @@ const ZaloNotificationService = () => {
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52  gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
-                <aside className="service-single-sidebar w-full md:w-1/4 flex-col gap-6 hidden md:flex">
+               <aside className="service-single-sidebar w-full md:w-1/4 flex-col gap-6 hidden md:flex">
                     {/* Service list */}
-                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px] 2xl:h-[400px]">
-                        <ul className="space-y-8 text-gray-500 font-manrope text-[20px]">
+                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
+                        <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
                             {[
                                 "Zalo Official Account",
                                 "Zalo Mini App",
@@ -302,34 +302,45 @@ const ZaloNotificationService = () => {
                     </div>
 
                     {/* Brochure */}
-                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px] 2xl:h-[400px]">
-                        <div className="mb-4">
-                            <h3 className="text-[40px] leading-none my-4 font-roboto">ZATIFY brochure</h3>
-                        </div>
-                        <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
-                            <a
-                                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
-                                download
-                                className="justify-center text-sm bg-purple-400 rounded-[0.65rem] px-4 py-2 hover:bg-purple-600 hover:text-white text-white transition flex items-center gap-1 w-[160px] h-[50px]"
-                            >
-                                Download
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    <div
+        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
+        style={{
+            backgroundImage: 'url(/brochure/Brochure.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: '340px',
+        }}
+>
+    {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
+    {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
+    <div className="mb-4">
+        <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
+    </div>
+    {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
+    <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
+            <a
+                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
+                download
+                    className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
+            >
+                Download
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+    </div>
+</div>
 
 
                     {/* AI Consulting */}
-                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px] 2xl:h-[400px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
                             <h3 className="text-3xl font-roboto mb-2">Tăng cường nhận diện thương hiệu</h3>
                             <p className="font-manrope">Cho phép doanh nghiệp cải thiện đáng kể khả năng tương tác với khách hàng</p>
@@ -343,7 +354,7 @@ const ZaloNotificationService = () => {
                     <article className="main-content w-full">
                         <h1
                             ref={titleRef}
-                            className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl pl-6 md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
+                            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl pl-6 md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
                             style={{
                                 overflow: 'visible',
                                 lineHeight: '1.2',
@@ -391,463 +402,89 @@ const ZaloNotificationService = () => {
                         </p>
                     </article>
 
-                    {/* Animated phones + icons section */}
-                    <section className="sec_intro w-[100%] xl:w-[104%] h-[70vh] xl:h-[114vh] 2xl:h-[105vh] bg-[#f5f8ff] py-12 pb-24 md:pb-0 md:py-20 relative overflow-hidden">
-                        <div className="container max-w-[1440px] top-[-10vh] sm:top-0 relative z-10">
-                            <div className="content_main flex flex-col md:flex-row items-center mt-14 justify-between relative z-20">
-
-                                {/* Phones + Icons cluster */}
-                                <div className="ani_images relative flex-1 flex items-center justify-center">
-                                    <div className="inner relative top-[10vh] right-[10%] md:left-[20%] flex items-start gap-16">
-
-                                        {/* Phone 1 */}
-                                        <div className="images relative z-10">
-                                            <img
-                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/sec_intro_2.png"
-                                                alt="Phone 1"
-                                                className="w-[150px] md:w-[210px] lg:w-[265px] z-10 relative"
-                                            />
-
-                                            {/* Decorative overlays */}
-                                            <div className="deco3 absolute left-[-50%] top-[15vh] w-20 md:w-28">
-                                                <img className="w-full" src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/deco3.png" alt="" />
-                                            </div>
-                                            <div className="deco2 absolute right-[-25%] top-[-7vh] w-20 md:w-28">
-                                                <img className="w-full" src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/deco2.png" alt="" />
-                                            </div>
-                                            <div className="deco1 absolute right-[-45%] bottom-[1vh] w-16 md:w-20">
-                                                <img className="w-full" src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/deco1.png" alt="" />
-                                            </div>
-                                        </div>
-
-                                        {/* Icons bar below both phones (Desktop only) */}
-                                        <div className="ani absolute bottom-[20vh] left-0 w-full items-center justify-center md:flex hidden">
-                                            <div className="wrap relative flex flex-col left-[12%] justify-between items-center w-[calc(100%-17rem)] max-w-[600px]">
-
-                                                {/* Item 1 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[10vh]">
-                                                    <motion.div
-                                                        className="absolute flex items-center gap-3"
-                                                        style={{ top: 40, zIndex: 2 }}
-                                                        initial={{ x: -250 }}
-                                                        animate={{ x: 50 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-2">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-10 md:w-14"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_call.svg"
-                                                                alt="Call"
-                                                            />
-                                                        </div>
-                                                    </motion.div>
-                                                </div>
-
-
-                                                {/* Item 2 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[10vh]">
-                                                    <motion.div
-                                                        className="absolute left-0 right-0 flex items-center"
-                                                        style={{ top: 40, zIndex: 1 }}
-                                                        initial={{ x: 280 }}
-                                                        animate={{ x: -10 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-10 md:w-14"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_mess.svg"
-                                                                alt="Call"
-                                                            />
-                                                        </div>
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap ml-4 flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-2">
-                                                                <img
-                                                                    className="w-full max-w-[200px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-
-                                                    </motion.div>
-                                                </div>
-
-                                                {/* Item 3 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[10vh]">
-                                                    <motion.div
-                                                        className="absolute flex items-center gap-3"
-                                                        style={{ top: 40, zIndex: 2 }}
-                                                        initial={{ x: -250 }}
-                                                        animate={{ x: 50 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-2">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[200px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-10 md:w-14"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_img.svg"
-                                                                alt="Picture"
-                                                            />
-                                                        </div>
-                                                    </motion.div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Icons bar for mobile */}
-                                        <div className="ani absolute bottom-[15vh] left-0 w-full flex items-center justify-center md:hidden">
-                                            <div className="wrap relative flex flex-col left-[2%] justify-between items-center w-[calc(100%-3rem)] max-w-[340px]">
-                                                {/* Item 1 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[7vh]">
-                                                    <motion.div
-                                                        className="absolute flex items-center gap-2"
-                                                        style={{ top: 20, zIndex: 2 }}
-                                                        initial={{ x: -100 }}
-                                                        animate={{ x: 70 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-1">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-7"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_call.svg"
-                                                                alt="Call"
-                                                            />
-                                                        </div>
-                                                    </motion.div>
-                                                </div>
-                                                {/* Item 2 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[7vh]">
-                                                    <motion.div
-                                                        className="absolute left-0 right-0 flex items-center"
-                                                        style={{ top: 20, zIndex: 1 }}
-                                                        initial={{ x: 250 }}
-                                                        animate={{ x: 80 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-7"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_mess.svg"
-                                                                alt="Call"
-                                                            />
-                                                        </div>
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap ml-2 flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-1">
-                                                                <img
-                                                                    className="w-full max-w-[90px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px] rotate-180"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </motion.div>
-                                                </div>
-                                                {/* Item 3 */}
-                                                <div className="item w-full relative flex items-center justify-center h-[7vh]">
-                                                    <motion.div
-                                                        className="absolute flex items-center gap-2"
-                                                        style={{ top: 20, zIndex: 2 }}
-                                                        initial={{ x: -100 }}
-                                                        animate={{ x: 70 }}
-                                                        transition={{
-                                                            repeat: Infinity,
-                                                            repeatType: "loop",
-                                                            duration: 2.8,
-                                                            ease: "easeInOut",
-                                                            delay: 0.78
-                                                        }}
-                                                    >
-
-                                                        {/* Line + Number */}
-                                                        <div className="box_wrap flex flex-col items-center">
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                            <div className="line my-1">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/line.svg"
-                                                                    alt="line"
-                                                                />
-                                                            </div>
-                                                            <div className="number">
-                                                                <img
-                                                                    className="w-full max-w-[90px]"
-                                                                    src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/number.png"
-                                                                    alt="number"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        {/* Icon */}
-                                                        <div className="icon flex-shrink-0">
-                                                            <img
-                                                                className="w-7"
-                                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/ani_img.svg"
-                                                                alt="Picture"
-                                                            />
-                                                        </div>
-                                                    </motion.div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* End mobile motion icons */}
-                                        {/* Phone 2 */}
-                                        <div className="images relative left-[20%] md:left-[26%] z-20">
-                                            <img
-                                                src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/sec_intro_1.png"
-                                                alt="Phone 2"
-                                                className="w-[150px] md:w-[210px] lg:w-[265px]"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Laptop */}
-                                <div className="flex-1 flex items-center justify-end mt-12 md:mt-0 relative overflow-hidden">
-                                    <img
-                                        src="https://stc-oa.zdn.vn/resources/zoa-landing/v122023/images/home/deco5.png"
-                                        alt="Laptop"
-                                        className="hidden md:block w-[150%] max-w-none translate-x-1/3"
-                                    />
-                                </div>
-
-                            </div>
-                        </div>
-                    </section>
-
-
-
-
-                </main>
-            </section>
-
-            {/* ZNS Template Section  */}
-            <section className="relative flex-grow my-16 xl:my-40 max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
-                {/* Tabs */}
-                <div className="flex flex-col px-0 py-0 bg-transparent">
-                    <h2
-                        ref={h2Ref}
-                        className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
-                        style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-                    >
-                        {"Chọn loại mẫu ZNS".split('').map((char, idx) => (
-                            <span
-                                key={idx}
-                                className={`inline-block transition-all duration-500 ease-out
+                    {/* ZNS Template Section  */}
+                    <section className="relative w-full flex-grow my-12 max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
+                        {/* Tabs */}
+                        <div className="flex flex-col px-0 py-0 bg-transparent">
+                            <h2
+                                ref={h2Ref}
+                                className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                                style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                            >
+                                {"Chọn loại mẫu ZNS".split('').map((char, idx) => (
+                                    <span
+                                        key={idx}
+                                        className={`inline-block transition-all duration-500 ease-out
           ${animateH2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
-                                style={{
-                                    transitionDelay: `${idx * 50}ms`,
-                                    display: 'inline-block',
-                                    lineHeight: '1.2',
-                                }}
-                            >
-                                {char === ' ' ? '\u00A0' : char}
-                            </span>
-                        ))}
-                    </h2>
-                    <div className="flex gap-2 sm:gap-8 items-center border-b border-[#e0e7ef]">
-                        {[
-                            {
-                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Giao dịch</span>,
-                                icon: <FontAwesomeIcon icon={faFileInvoiceDollar} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
-                            },
-                            {
-                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Chăm sóc khách hàng</span>,
-                                icon: <FontAwesomeIcon icon={faPhone} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
-                            },
-                            {
-                                label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Khuyến mãi</span>,
-                                icon: <FontAwesomeIcon icon={faGift} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
-                            },
-                        ].map((tab, i) => (
-                            <button
-                                key={i}
-                                className={`flex items-center gap-1 sm:gap-2 px-1 sm:px-2 pb-2 border-b-2 transition font-semibold text-xs sm:text-sm md:text-lg bg-transparent
+                                        style={{
+                                            transitionDelay: `${idx * 50}ms`,
+                                            display: 'inline-block',
+                                            lineHeight: '1.2',
+                                        }}
+                                    >
+                                        {char === ' ' ? '\u00A0' : char}
+                                    </span>
+                                ))}
+                            </h2>
+                            <div className="flex gap-2 sm:gap-8 items-center border-b border-[#e0e7ef]">
+                                {[
+                                    {
+                                        label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Giao dịch</span>,
+                                        icon: <FontAwesomeIcon icon={faFileInvoiceDollar} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
+                                    },
+                                    {
+                                        label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Chăm sóc khách hàng</span>,
+                                        icon: <FontAwesomeIcon icon={faPhone} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
+                                    },
+                                    {
+                                        label: <span className="font-manrope text-sm md:text-base xl:text-lg">ZNS Khuyến mãi</span>,
+                                        icon: <FontAwesomeIcon icon={faGift} className="text-base sm:text-lg md:text-xl xl:text-xl" />,
+                                    },
+                                ].map((tab, i) => (
+                                    <button
+                                        key={i}
+                                        className={`flex items-center gap-1 sm:gap-2 px-1 sm:px-2 pb-2 border-b-2 transition font-semibold text-xs sm:text-sm md:text-lg bg-transparent
         ${znsTab === i
-                                        ? 'border-[#2e6fff] text-[#2e6fff]'
-                                        : 'border-transparent text-[#7b8190] hover:text-[#2e6fff]'
-                                    }`}
-                                onClick={() => setZnsTab(i)}
-                            >
-                                {tab.icon}
-                                {tab.label}
-                            </button>
-                        ))}
-                    </div>
-
-
-                    {/* Templates */}
-                    <div className="flex gap-6 mt-8 overflow-x-auto flex-nowrap scrollbar-hide">
-                        {znsTemplates[znsTab] && znsTemplates[znsTab].length > 0 ? (
-                            znsTemplates[znsTab].map((tpl, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[298px] 2xl:w-[298px]"
-                                >
-                                    <img
-                                        src={tpl.image}
-                                        alt={tpl.title}
-                                        className="rounded-2xl w-full h-auto object-cover mb-2"
-                                        style={{ background: '#fff' }}
-                                    />
-                                </div>
-                            ))
-                        ) : (
-                            <div className="text-gray-400 text-lg italic py-20 px-10">
-                                Chưa có mẫu minh họa
+                                                ? 'border-[#2e6fff] text-[#2e6fff]'
+                                                : 'border-transparent text-[#7b8190] hover:text-[#2e6fff]'
+                                            }`}
+                                        onClick={() => setZnsTab(i)}
+                                    >
+                                        {tab.icon}
+                                        {tab.label}
+                                    </button>
+                                ))}
                             </div>
-                        )}
-                    </div>
 
-                </div>
 
+                            {/* Templates */}
+                            <div className="flex gap-6 mt-8 overflow-x-auto flex-nowrap scrollbar-hide">
+                                {znsTemplates[znsTab] && znsTemplates[znsTab].length > 0 ? (
+                                    znsTemplates[znsTab].map((tpl, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[298px] 2xl:w-[292px]"
+                                        >
+                                            <img
+                                                src={tpl.image}
+                                                alt={tpl.title}
+                                                className="rounded-2xl w-full h-auto object-cover mb-2"
+                                                style={{ background: '#fff' }}
+                                            />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="text-gray-400 text-lg italic py-20 px-10">
+                                        Chưa có mẫu minh họa
+                                    </div>
+                                )}
+                            </div>
+
+                        </div>
+
+                    </section>
+                </main>
             </section>
 
             {/* ZNS Section */}
@@ -861,7 +498,7 @@ const ZaloNotificationService = () => {
                 {/* Heading */}
                 <h2
                     ref={h2Refzns}
-                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex whitespace-nowrap flex-wrap"
+                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex whitespace-nowrap justify-center flex-wrap"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
                     {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, idx) => (
@@ -1029,32 +666,31 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* Customer of Zatify */}
-            <section className="relative flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
-
-
+            <section className="relative flex-grow max-w-[100%] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
                 {/* Tiêu đề */}
-                <h2
-                    ref={h2Refcus}
-                    className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
-                    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-                >
-                    {"Khách hàng của Zatify".split('').map((char, idx) => (
-                        <span
-                            key={idx}
-                            className={`inline-block transition-all duration-500 ease-out
+                <div className="max-w-[80rem] mx-auto xl:mb-24">
+                    <h2
+                        ref={h2Refcus}
+                        className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                        style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                    >
+                        {"Khách hàng của Zatify".split('').map((char, idx) => (
+                            <span
+                                key={idx}
+                                className={`inline-block transition-all duration-500 ease-out
           ${animateH2cus ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
-                            style={{
-                                transitionDelay: `${idx * 50}ms`,
-                                display: 'inline-block',
-                                lineHeight: '1.2',
-                            }}
-                        >
-                            {char === ' ' ? '\u00A0' : char}
-                        </span>
-                    ))}
-                </h2>
-
+                                style={{
+                                    transitionDelay: `${idx * 50}ms`,
+                                    display: 'inline-block',
+                                    lineHeight: '1.2',
+                                }}
+                            >
+                                {char === ' ' ? '\u00A0' : char}
+                            </span>
+                        ))}
+                    </h2>
+                </div>
                 {/* Desktop: Swiper layout */}
                 <div className="hidden lg:block">
                     <Swiper
