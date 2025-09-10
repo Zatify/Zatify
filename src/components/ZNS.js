@@ -274,9 +274,9 @@ const ZaloNotificationService = () => {
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52  gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
-               <aside className="service-single-sidebar w-full md:w-1/4 flex-col gap-6 hidden md:flex">
+               <aside className="service-single-sidebar w-full md:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
-                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
+                    <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
                             {[
                                 "Zalo Official Account",
@@ -349,12 +349,12 @@ const ZaloNotificationService = () => {
                 </aside>
 
                 {/* Main content right */}
-                <main className="service-single-main w-full md:w-3/4 flex flex-col gap-8">
+                <main className="service-single-main w-full md:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
-                    <article className="main-content w-full">
+                    <article className="main-content w-full mx-auto max-w-[85rem] px-0 py-0 bg-transparent">
                         <h1
                             ref={titleRef}
-                            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl pl-6 md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
+                            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl pl-6 md:pl-0 max-w-[600px] 0.5xl:max-w-[100%] px-6 sm:px-8 lg:px-12"
                             style={{
                                 overflow: 'visible',
                                 lineHeight: '1.2',
@@ -397,13 +397,13 @@ const ZaloNotificationService = () => {
                                     )
                             }
                         </h1>
-                        <p className="font-manrope max-w-full pl-6 md:pl-0 mb-6 mt-4 leading-relaxed">
+                        <p className="font-manrope max-w-full xl:text-xl text-base pl-6 md:pl-0  mt-8 leading-relaxed px-6 sm:px-8 lg:px-12">
                             Zalo Notification Service (ZNS) là dịch vụ gửi thông báo chăm sóc khách hàng tới các số điện thoại đang sử dụng Zalo
                         </p>
                     </article>
 
                     {/* ZNS Template Section  */}
-                    <section className="relative w-full flex-grow my-12 max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
+                    <section className="relative w-full flex-grow my-6 max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
                         {/* Tabs */}
                         <div className="flex flex-col px-0 py-0 bg-transparent">
                             <h2
@@ -464,7 +464,7 @@ const ZaloNotificationService = () => {
                                     znsTemplates[znsTab].map((tpl, idx) => (
                                         <div
                                             key={idx}
-                                            className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[298px] 2xl:w-[292px]"
+                                            className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[298px] 2xl:w-[298px]"
                                         >
                                             <img
                                                 src={tpl.image}
@@ -488,7 +488,7 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* ZNS Section */}
-            <section className="relative flex-grow max-w-full sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+            <section className="relative flex-grow max-w-full xl:my-16 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
                 <img
                     src="/svg/bg-opacity.svg"
                     alt="Background opacity effect"
@@ -498,7 +498,7 @@ const ZaloNotificationService = () => {
                 {/* Heading */}
                 <h2
                     ref={h2Refzns}
-                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex whitespace-nowrap justify-center flex-wrap"
+                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-12 font-roboto text-gray-800 flex whitespace-nowrap justify-center flex-wrap"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
                     {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, idx) => (
@@ -597,7 +597,7 @@ const ZaloNotificationService = () => {
 
 
             {/* FAQ Section */}
-            <section className=" relative xl:my-40 my-16 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16 overflow-hidden">
+            <section className=" relative xl:my-20 my-16 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16 overflow-hidden">
                 <div className="relative max-w-full h-full flex-1">
                     <h2
                         ref={h2Reffaq}
