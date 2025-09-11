@@ -192,32 +192,13 @@ const ZaloMiniApp = () => {
                 <main className="service-single-main w-full md:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
-                        <h1 className="text-4xl 0.5xl:text-6xl max-w-full mb-4 leading-tight font-roboto">Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp</h1>
-                        <p className="font-manrope font-semibold max-w-full my-8">Integrating neural network models into existing systems or software applications, enabling businesses to leverage AI capabilities seamlessly.</p>
-                        <p className="font-manrope max-w-full mb-6 leading-relaxed">
-                            In today’s fast-paced and data-driven world, businesses are constantly seeking innovative ways to gain a competitive edge, make smarter decisions, and deliver exceptional customer experiences. One technology that is transforming industries across the globe is neural networks. Harnessing the power of artificial intelligence, neural networks have the ability to analyze vast amounts of data, identify complex patterns, and make accurate predictions, enabling businesses to unlock new opportunities and drive growth.
-                        </p>
+                        <h1 className="text-4xl 0.5xl:text-6xl max-w-full leading-tight font-roboto">Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp</h1>
                     </article>
 
                     {/* Main image */}
-                    <div className="main-image rounded-xl overflow-hidden shadow-lg">
-                        <img src="/svg/background/servicesingle.jpg" alt="AI VR headset" className="w-full h-auto object-cover rounded-xl" />
+                    <div className="main-image rounded-xl overflow-hidden">
+                        <img src="/images/Miniapp/landingpage-banner.png" alt="AI VR headset" className="w-[80%] mx-auto h-auto object-cover rounded-xl" />
                     </div>
-
-                    {/* Description paragraph */}
-                    <article className="description max-w-full">
-                        <p className="font-manrope max-w-full mb-6 leading-relaxed">
-                            In today’s fast-paced and data-driven world, businesses are constantly seeking innovative ways to gain a competitive edge, make smarter decisions, and deliver exceptional customer experiences. One technology that is transforming industries across the globe is neural networks. Harnessing the power of artificial intelligence, neural networks have the ability to analyze vast amounts of data, identify complex patterns, and make accurate predictions, enabling businesses to unlock new opportunities and drive growth.
-                        </p>
-                    </article>
-
-                    {/* Feature list */}
-                    <ul className="feature-list list-disc list-inside max-w-3xl space-y-2 font-manrope font-bold text-gray-700">
-                        <li>Pacific hake false trevally queen parrotfish black</li>
-                        <li>Prickleback moss really queen parrotfish black</li>
-                        <li>Queen parrotfish black prickleback moss pacific</li>
-                        <li>Hake false trevally queen</li>
-                    </ul>
 
                     {/* Pricing table */}
                     <section className="pricing-table max-w-full">
@@ -331,7 +312,50 @@ const ZaloMiniApp = () => {
                             </div>
                         </div>
                     </section>
+
                 </main>
+            </section>
+
+
+            {/* Zalo Mini Ap paragraphs */}
+            <section className="relative flex-grow max-w-full xl:my-16 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+                <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">Zalo Mini App là gì?</h2>
+                <p className="text-gray-700 text-base md:text-xl text-center max-w-2xl mx-auto font-manrope">
+                    Zalo Mini App là những "chương trình nhỏ" chạy trực tiếp trên nền tảng Zalo,
+                    một giải pháp hiệu quả dành cho doanh nghiệp.
+                </p>
+                {/* Decorative ellipse effect */}
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[90%] h-10 md:h-16 bg-transparent pointer-events-none">
+                    <svg width="100%" height="100%" viewBox="0 0 900 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ellipseGradient" x1="450" y1="12" x2="450" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stopColor="#b6f0ff" stopOpacity="0.15" />
+                                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.5" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse
+                            cx="450"
+                            cy="30"
+                            rx="440"
+                            ry="18"
+                            fill="none"
+                            stroke="url(#ellipseGradient)"
+                            strokeWidth="2"
+                            opacity="1"
+                        />
+                    </svg>
+                </div>
+                {/* Decorative dots */}
+                <span
+                    className="absolute left-[20%] top-28 w-2 h-2 rounded-full border-2 border-lime-400 bg-white/0 shadow-[0_0_12px_4px_rgba(163,230,53,0.5)] animate-pulse"
+                />
+                <span
+                    className="absolute right-[20%] top-16 w-2 h-2 rounded-full border-2 border-lime-400 bg-white/0 shadow-[0_0_12px_4px_rgba(163,230,53,0.5)] animate-pulse"
+                />
+                <span
+                    className="absolute left-[25%] bottom-12 w-2 h-2 bg-cyan-300 rounded-full opacity-80 shadow-[0_0_10px_1px_rgba(34,211,238,0.8)] animate-pulse"
+                />
+                <span className="absolute right-[20%] bottom-16 w-2 h-2 bg-cyan-300 rounded-full opacity-80 shadow-[0_0_10px_1px_rgba(34,211,238,0.8)] animate-pulse"></span>
             </section>
 
         </div>
