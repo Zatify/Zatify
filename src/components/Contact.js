@@ -19,7 +19,7 @@ const Contact = () => {
                         backgroundPosition: 'center',
                     }}
                 >
-                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Contacts</h1>
+                    <h1 className="text-white text-[40px] md:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Liên hệ</h1>
                     {/* Vertical Neural text */}
                     <div className="absolute right-24 bottom-5 items-center hidden md:block">
                         <span
@@ -36,7 +36,7 @@ const Contact = () => {
                                 lineHeight: 1,
                                 transform: 'rotate(180deg)'
                             }}
-                        >Contacts</span>
+                        >Zatify</span>
                     </div>
 
 
@@ -46,7 +46,7 @@ const Contact = () => {
                     {/* Circle div top-left */}
                     <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
                     <div className="justify-center items-center w-64 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-                        <span className="text-sm mb-1">Home / Contact</span>
+                        <span className="text-sm mb-1">Trang chủ / Liên hệ</span>
                     </div>
 
 
@@ -71,66 +71,73 @@ const Contact = () => {
       <div className="max-w-[85rem] mx-auto flex flex-col md:flex-row mt-60 p-6 md:p-16 bg-white">
         {/* Left info panel */}
         <div className="md:w-1/2 flex flex-col justify-center relative pr-0 md:pr-20">
-          <h1 className="text-4xl md:text-6xl font-normal leading-tight max-w-xl mb-6 text-black whitespace-pre-line text-center md:text-left" style={{fontFamily: 'Inter, sans-serif'}}>
-            {`We are always ready
-            to help you and
-            answer your
-            questions`}
+          <h1 className="text-4xl md:text-7xl font-normal leading-tight max-w-xl mb-6 text-black whitespace-pre-line text-center md:text-left" style={{fontFamily: 'Inter, sans-serif'}}>
+            {`Chúng tôi luôn
+            sẵn sàng hỗ trợ
+            và giải đáp mọi
+            thắc mắc của bạn!`}
           </h1>
-          <p className="text-base max-w-xl mb-0 text-[#1a1a1a] font-normal">
-            Pacific hake false trevally queen parrotfish black prickleback mosshead warbonnet sweeper! Greenling sleeper.
-          </p>
           <img alt="World map pattern made of small dots in light gray behind text" className="absolute left-0 bottom-0 -z-10 opacity-30 w-[520px] h-[220px] hidden md:block" height="220" src="https://storage.googleapis.com/a1aa/image/76ee56e8-6cc1-4f65-9e39-a413c576a794.jpg" width="520" />
           {/* Info grid dưới đoạn mô tả */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12 mt-12 w-full max-w-3xl">
             <div>
-              <p className="font-semibold text-lg mb-2 text-black">Call Center</p>
-              <p className="text-base text-black mb-1">800 100 975 20 34</p>
-              <p className="text-base text-black">+ (123) 1800-234-5678</p>
+              <p className="font-semibold text-lg mb-2 text-black">Hotline</p>
+              <p className="text-base text-black mb-1">0389 603 339</p>
+              <p className="text-base text-black">0919 676 808</p>
             </div>
             <div>
-              <p className="font-semibold text-lg mb-2 text-black">Our Location</p>
-              <p className="text-base text-black mb-1">USA, New York – 1060</p>
-              <p className="text-base text-black">Str. First Avenue 1</p>
+              <p className="font-semibold text-lg mb-2 text-black">Địa chỉ</p>
+              <p className="text-base text-black mb-1">1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM</p>
             </div>
             <div>
               <p className="font-semibold text-lg mb-2 text-black">Email</p>
-              <a className="text-base text-black underline hover:text-blue-700" href="mailto:aiero@mail.co">aiero@mail.co</a>
-            </div>
-            <div>
-              <p className="font-semibold text-lg mb-2 text-black">Social network</p>
-              <div className="flex space-x-6 text-2xl mt-1">
-                <a aria-label="Facebook" className="hover:text-blue-600 transition" href="#"><i className="fab fa-facebook-f"></i></a>
-                <a aria-label="X" className="hover:text-black transition" href="#"><i className="fab fa-x-twitter"></i></a>
-                <a aria-label="LinkedIn" className="hover:text-blue-700 transition" href="#"><i className="fab fa-linkedin-in"></i></a>
-                <a aria-label="YouTube" className="hover:text-red-600 transition" href="#"><i className="fab fa-youtube"></i></a>
-              </div>
+              <a className="text-base text-black underline hover:text-blue-700" href="mailto:Sales@zatify.com.vn">Sales@zatify.com.vn</a>
             </div>
           </div>
         </div>
         {/* Contact form */}
-        <form aria-label="Get in Touch form" className="md:w-1/2 bg-[#f3f4f6] rounded-[2rem] p-12 max-w-xl w-full mt-12 md:mt-0 flex flex-col justify-center">
-          <h2 className="font-bold text-2xl mb-8 text-[#1a1a1a]" style={{fontFamily: 'Inter, sans-serif'}}>Get in Touch</h2>
-          <input className="w-full mb-6 px-6 py-4 rounded-2xl border border-gray-300 text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Full name" required type="text" />
-          <input className="w-full mb-6 px-6 py-4 rounded-2xl border border-gray-300 text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Email" required type="email" />
-          <input className="w-full mb-6 px-6 py-4 rounded-2xl border border-gray-300 text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Subject" required type="text" />
-          <textarea className="w-full mb-8 px-6 py-4 rounded-2xl border border-gray-300 text-base text-gray-700 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Message" required rows={5}></textarea>
-              <div className="gradient-border w-[162px] h-[52px] rounded-md inline-block p-[1px]">
-                <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                  Expore more
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-        </form>
+          <div className=" flex h-[600px] 2xl:h-[650px] justify-center 2xl:min-w-[600px]">
+            <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg 2xl:max-w-xl shadow-lg">
+              <h3 className="text-3xl md:text-4xl 2xl:text-5xl  leading-tight mb-4 font-roboto text-gray-900">Get in Touch</h3>
+              <form className="space-y-6">
+                <input
+                  type="text"
+                  placeholder="Họ tên"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                />
+                <input
+                  type="text"
+                  placeholder="Tiêu đề"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                />
+                <textarea
+                  placeholder="Nội dung"
+                  rows="4"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                />
+                <div className="gradient-border rounded-md inline-block p-[1px]">
+                  <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                    Gửi mail ngay
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
       </div>
 
       {/* Google Map section */}

@@ -271,7 +271,7 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* Main layout section */}
-            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52  gap-10">
+            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6 gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
                <aside className="service-single-sidebar w-full md:w-1/5 flex-col gap-8 hidden md:flex">

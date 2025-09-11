@@ -80,7 +80,7 @@ const ZaloMiniApp = () => {
                                 lineHeight: 1,
                                 transform: 'rotate(180deg)'
                             }}
-                        >Neural</span>
+                        >Zatify</span>
                     </div>
 
 
@@ -90,7 +90,7 @@ const ZaloMiniApp = () => {
                     {/* Circle div top-left */}
                     <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
                     <div className="justify-center items-center w-80 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-                        <span className="text-sm mb-1">Home / Artificial Intelligence (AI) systems</span>
+                        <span className="text-sm mb-1"> Dịch vụ / Zalo Mini App</span>
                     </div>
 
 
@@ -114,25 +114,55 @@ const ZaloMiniApp = () => {
             {/* Main layout section */}
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-10">
                 {/* Sidebar left */}
-                <aside className="service-single-sidebar w-full md:w-1/4 flex flex-col gap-6 hidden md:flex">
+                <aside className="service-single-sidebar w-full md:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
-                    <div className=" service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-center items-center 0.5xl:h-[340px]">
-                        <ul className="space-y-6 text-gray-600 font-semibold font-manrope text-[20px]">
-                            <li className="cursor-pointer hover:text-blue-600">Network Integration</li>
-                            <li className="cursor-pointer hover:text-blue-600">Deep learning solutions</li>
-                            <li className="cursor-pointer hover:text-blue-600">Transfer learning</li>
-                            <li className="cursor-pointer hover:text-blue-600">Model evaluation</li>
-                            <li className="cursor-pointer hover:text-blue-600">Real-time prediction</li>
+                    <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
+                        <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
+                            {[
+                                "Zalo Official Account",
+                                "Zalo Mini App",
+                                "Zalo Notification Service",
+                                "Zalo Ads",
+                            ].map((item, index) => (
+                                <li
+                                    key={index}
+                                    className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
+                                >
+                                    {/* Icon mũi tên */}
+                                    <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
+                                        ↗
+                                    </span>
+                                    {/* Text */}
+                                    <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
+                                        {item}
+                                    </span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Brochure */}
-                    <div className="service-brochure bg-purple-400 p-6 rounded-xl text-white flex flex-col justify-center  0.5xl:h-[340px]">
+                    <div
+                        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
+                        style={{
+                            backgroundImage: 'url(/brochure/Brochure.jpg)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            minHeight: '340px',
+                        }}
+                    >
+                        {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
+                        {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
                         <div className="mb-4">
-                            <h3 className="text-[40px] leading-none my-4 font-roboto">Services brochure</h3>
+                            <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
                         </div>
+                        {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
                         <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
-                            <button className="justify-center text-sm text-black bg-purple-400 rounded-[0.65rem] px-4 py-2 hover:bg-purple-600 hover:text-white text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                            <a
+                                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
+                                download
+                                className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
+                            >
                                 Download
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -144,24 +174,25 @@ const ZaloMiniApp = () => {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
 
+
                     {/* AI Consulting */}
-                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
-                            <h3 className="text-3xl font-roboto mb-2">AI Strategy and Consulting</h3>
-                            <p className="font-manrope">Provide expert guidance on developing an AI strategy</p>
+                            <h3 className="text-3xl font-roboto mb-2">Tăng cường nhận diện thương hiệu</h3>
+                            <p className="font-manrope">Cho phép doanh nghiệp cải thiện đáng kể khả năng tương tác với khách hàng</p>
                         </div>
                     </div>
                 </aside>
 
                 {/* Main content right */}
-                <main className="service-single-main w-full md:w-3/4 flex flex-col gap-8">
+                <main className="service-single-main w-full md:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
-                        <h1 className="text-4xl 0.5xl:text-6xl max-w-full mb-4 leading-tight font-roboto">Neural networks are a fundamental component of Artificial Intelligence (AI) systems</h1>
+                        <h1 className="text-4xl 0.5xl:text-6xl max-w-full mb-4 leading-tight font-roboto">Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp</h1>
                         <p className="font-manrope font-semibold max-w-full my-8">Integrating neural network models into existing systems or software applications, enabling businesses to leverage AI capabilities seamlessly.</p>
                         <p className="font-manrope max-w-full mb-6 leading-relaxed">
                             In today’s fast-paced and data-driven world, businesses are constantly seeking innovative ways to gain a competitive edge, make smarter decisions, and deliver exceptional customer experiences. One technology that is transforming industries across the globe is neural networks. Harnessing the power of artificial intelligence, neural networks have the ability to analyze vast amounts of data, identify complex patterns, and make accurate predictions, enabling businesses to unlock new opportunities and drive growth.
