@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart } from "react-icons/fi";
+import { motion } from "framer-motion"
+import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart, FiCheck, FiDownload } from "react-icons/fi";
 
 const ZaloMiniApp = () => {
     // State để lưu index của thẻ details đang mở
@@ -247,73 +248,221 @@ const ZaloMiniApp = () => {
 
 
 
-{/* business benefits section */}
-<section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
-  <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">
-    Lợi ích cho doanh nghiệp
-  </h2>
-  <p className="text-gray-700 text-base md:text-xl text-center max-w-4xl mx-auto font-manrope">
-    Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
-  </p>
+            {/* business benefits section */}
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+                <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">
+                    Lợi ích cho doanh nghiệp
+                </h2>
+                <p className="text-gray-700 text-base md:text-xl text-center max-w-4xl mx-auto font-manrope">
+                    Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
+                </p>
 
-  {/* Content section */}
-  <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
-    {/* Left side */}
-    <div className="flex flex-col gap-10 h-full">
-      {[
-        { icon: <FiUsers />, title: "Tiếp cận hàng triệu khách hàng", desc: "Dễ dàng chuyển đổi, không cần tải app" },
-        { icon: <FiCalendar />, title: "Nâng cao trải nghiệm khách hàng", desc: "Khách hàng dễ dàng trải nghiệm đa dịch vụ chỉ trên 1 ứng dụng duy nhất" },
-        { icon: <FiRepeat />, title: "Kênh mới Re-Marketing 0 đồng", desc: "Kênh mới để chăm sóc khách hàng một cách tiện lợi trên Zalo, Momo" }
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="flex flex-col items-center md:items-end text-center md:text-right h-full justify-start"
-        >
-          <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
-            {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
-          </div>
-          <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
-          <p className="text-gray-600 font-manrope text-sm md:text-base min-h-[48px] flex items-center">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
+                {/* Content section */}
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+                    {/* Left side */}
+                    <div className="flex flex-col gap-10 h-full">
+                        {[
+                            { icon: <FiUsers />, title: "Tiếp cận hàng triệu khách hàng", desc: "Dễ dàng chuyển đổi, không cần tải app" },
+                            { icon: <FiCalendar />, title: "Nâng cao trải nghiệm khách hàng", desc: "Khách hàng dễ dàng trải nghiệm đa dịch vụ chỉ trên 1 ứng dụng duy nhất" },
+                            { icon: <FiRepeat />, title: "Kênh mới Re-Marketing 0 đồng", desc: "Kênh mới để chăm sóc khách hàng một cách tiện lợi trên Zalo, Momo" }
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="flex flex-col items-center md:items-end text-center md:text-right h-full justify-start"
+                            >
+                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
+                                    {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
+                                </div>
+                                <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
+                                <p className="text-gray-600 font-manrope text-sm md:text-base min-h-[48px] flex items-center">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
 
-    {/* Center image */}
-    <div className="flex justify-center items-center">
-      <img
-        src="https://miniapp.vn/wp-content/uploads/2024/01/banner-app.webp"
-        alt="App Preview"
-        className="max-h-[70vh] xl:max-h-[90vh] object-contain"
-      />
-    </div>
+                    {/* Center image */}
+                    <div className="flex justify-center items-center">
+                        <img
+                            src="https://miniapp.vn/wp-content/uploads/2024/01/banner-app.webp"
+                            alt="App Preview"
+                            className="max-h-[70vh] xl:max-h-[90vh] object-contain"
+                        />
+                    </div>
 
-    {/* Right side */}
-    <div className="flex flex-col gap-10 h-full">
-      {[
-        { icon: <FiDollarSign />, title: "Tiết kiệm chi phí", desc: "Tiết kiệm chi phí, thời gian và nhân lực vận hành ứng dụng." },
-        { icon: <FiShare2 />, title: "Marketing hiệu quả", desc: "Tận dụng lan truyền xã hội, đòn bẩy social trên Zalo, Momo." },
-        { icon: <FiHeart />, title: "Khách hàng trung thành", desc: "Áp dụng các chương trình khuyến mãi và tích điểm để kích thích mua hàng." }
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="flex flex-col items-center md:items-start text-center md:text-left h-full justify-start"
-        >
-          <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
-            {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
-          </div>
-          <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
-          <p className="text-gray-600 font-manrope text-sm md:text-base min-h-[48px] flex items-center">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+                    {/* Right side */}
+                    <div className="flex flex-col gap-8 px-6 md:px-0 h-full justify-start">
+                        {/* Tiêu đề đầu trang */}
+                        <div className="flex flex-col gap-2 text-left">
+                            {[
+                                "Tăng doanh thu - Giảm chi phí",
+                                "Đầu tư ít - Hiệu quả cao"
+                            ].map((text, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                    <div className="bg-blue-800 rounded-full p-1 flex items-center justify-center">
+                                        <FiCheck className="text-white text-xs" />
+                                    </div>
+                                    <h4 className="text-base md:text-lg font-semibold text-gray-700">
+                                        {text}
+                                    </h4>
+                                </div>
+
+                            ))}
+                        </div>
 
 
+                        {/* Các item lợi ích */}
+                        {[
+                            { icon: <FiDollarSign />, title: "Tiết kiệm chi phí", desc: "Tiết kiệm chi phí, thời gian và nhân lực vận hành ứng dụng." },
+                            { icon: <FiShare2 />, title: "Marketing hiệu quả", desc: "Tận dụng lan truyền xã hội, đòn bẩy social trên Zalo, Momo." },
+                            { icon: <FiHeart />, title: "Khách hàng trung thành", desc: "Áp dụng các chương trình khuyến mãi và tích điểm để kích thích mua hàng." }
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center gap-4 h-full">
+                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
+                                    {React.cloneElement(item.icon, { className: "text-white text-2xl" })}
+                                </div>
+                                <div className="flex flex-col text-left">
+                                    <h3 className="font-medium font-roboto text-lg md:text-xl mb-1">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-600 font-manrope text-sm md:text-base">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                        {/* Label & Logos
+                        <div className="mt-6">
+                            <h4 className="font-medium font-roboto text-lg md:text-xl text-gray-800 mb-8">
+                                Sản phẩm trong hệ sinh thái của Zalo
+                            </h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 gap-y-12">
+                                {["zaloaccout.jpg", "zalozns.jpg", "zaloads.jpg", "miniapp.jpg"].map((logo, i) => (
+                                    <img
+                                        key={i}
+                                        src={`/svg/logos/${logo}`}
+                                        alt={`Logo ${i + 1}`}
+                                        className="h-8 w-auto object-contain mx-auto hover:scale-105 transition-transform"
+                                    />
+                                ))}
+                            </div>
+                        </div> */}
+
+                    </div>
+
+                </div>
+            </section>
+
+            {/* Users benefits section  */}
+            <article className="relative flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12">
+                <h2 className="text-4xl 0.5xl:text-6xl w-full text-left leading-tight font-roboto my-8">
+                    Lợi ích cho doanh nghiệp
+                </h2>
+                <p className="text-gray-700 text-base md:text-xl text-left w-full mx-auto font-manrope">
+                    Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
+                </p>
+            </article>
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    {/* Left: 3 Phone Images */}
+                    <div className="flex justify-center relative">
+                        {/* Phone 1 */}
+                        <motion.img
+                            src="https://miniapp.vn/wp-content/uploads/2024/01/banner-miniapp-2.png"
+                            alt="Phone 1"
+                            className="absolute right-20 xl:right-36 max-h-[100%] relative z-10"
+                            animate={{ y: [0, -10, 5, -5, 0] }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                repeatType: "mirror",
+                                ease: "easeInOut",
+                                delay: 0.2,
+                            }}
+                        />
+                        {/* Phone 2 */}
+                        <motion.img
+                            src="https://miniapp.vn/wp-content/uploads/2024/01/thetichdiem3.png"
+                            alt="Phone 2"
+                            className="absolute top-36 left-40 max-h-[100%] z-20 drop-shadow-xl"
+                            animate={{ y: [0, 12, -8, 4, 0] }}
+                            transition={{
+                                duration: 6,
+                                repeat: Infinity,
+                                repeatType: "mirror",
+                                ease: "easeInOut",
+                                delay: 0.7,
+                            }}
+                        />
+                        {/* Phone 3 */}
+                        <motion.img
+                            src="https://miniapp.vn/wp-content/uploads/2024/01/thetichdiem2.png"
+                            alt="Phone 3"
+                            className="absolute top-24 left-72 max-h-[100%] z-30 drop-shadow-xl hidden md:block"
+                            animate={{ y: [0, -15, 10, -5, 0] }}
+                            transition={{
+                                duration: 7,
+                                repeat: Infinity,
+                                repeatType: "mirror",
+                                ease: "easeInOut",
+                                delay: 1.1,
+                            }}
+                        />
+                    </div>
+
+                    {/* Right side */}
+                    <div className="flex flex-col gap-8 px-6 md:px-0 h-full justify-start">
+                        {/* Tiêu đề đầu trang */}
+                        <div className="flex flex-col gap-2 text-left">
+                            <div className="flex items-center gap-3">
+                                <p className="text-base md:text-lg text-gray-700">
+                                    Mini App giúp người dùng dễ dàng truy cập, trải nghiệm nhanh chóng, đa dạng các dịch vụ.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        {/* Các item lợi ích */}
+                        {[
+                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Trải nghiệm nhanh chóng", desc: "User dễ dàng truy cập Mini App ngay trên Zalo hay Momo" },
+                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Giao diện đơn giản", desc: "Tinh gọn thiết kế phù hợp với nhu cầu sử dụng" },
+                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Tính tiện dụng cao", desc: "Liên kết sẵn tài khoản, số điện thoại, … thuận tiện" },
+                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Dễ dàng chia sẻ", desc: "Trực tiếp cho bạn bè, nhóm chat trên Zalo" },
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center gap-4 h-full">
+                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
+                                    {React.cloneElement(item.icon, { className: "text-white text-2xl" })}
+                                </div>
+                                <div className="flex flex-col text-left">
+                                    <h3 className="font-medium font-roboto text-lg md:text-xl mb-1">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-600 font-manrope text-sm md:text-base">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                        {/* Label & Logos */}
+                        <div className="mt-6">
+                            <h4 className="font-medium font-roboto text-lg md:text-xl text-gray-800 mb-8">
+                                Sản phẩm trong hệ sinh thái của Zalo
+                            </h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 gap-y-12">
+                                {["zaloaccout.jpg", "zalozns.jpg", "zaloads.jpg", "miniapp.jpg"].map((logo, i) => (
+                                    <img
+                                        key={i}
+                                        src={`/svg/logos/${logo}`}
+                                        alt={`Logo ${i + 1}`}
+                                        className="h-8 w-auto object-contain mx-auto hover:scale-105 transition-transform"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
 
 
         </div>
