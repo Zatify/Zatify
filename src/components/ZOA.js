@@ -171,7 +171,7 @@ const ZaloOfficialAccount = () => {
             {/* Main layout section */}
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-10">
                 {/* Sidebar left */}
-               <aside className="service-single-sidebar w-full md:w-1/5 flex-col gap-8 hidden md:flex">
+               <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
                     <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
@@ -246,7 +246,7 @@ const ZaloOfficialAccount = () => {
                 </aside>
 
                 {/* Main content right */}
-                <main className="service-single-main w-full md:w-4/5 flex flex-col gap-8">
+                <main className="service-single-main w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
                         <h1 className="text-4xl 0.5xl:text-6xl max-w-full mb-4 leading-tight font-roboto">KẾT NỐI VÀ TƯƠNG TÁC VỚI NGƯỜI DÙNG ZALO</h1>

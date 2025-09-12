@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart } from "react-icons/fi";
 
 const ZaloMiniApp = () => {
     // State để lưu index của thẻ details đang mở
@@ -112,9 +112,9 @@ const ZaloMiniApp = () => {
             </section>
 
             {/* Main layout section */}
-            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-10">
+            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-8">
                 {/* Sidebar left */}
-                <aside className="service-single-sidebar w-full md:w-1/5 flex-col gap-8 hidden md:flex">
+                <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
                     <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
@@ -189,7 +189,7 @@ const ZaloMiniApp = () => {
                 </aside>
 
                 {/* Main content right */}
-                <main className="service-single-main w-full md:w-4/5 flex flex-col gap-8">
+                <main className="service-single-main w-full max-w-[62rem] md:w-3/4 2xl:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
                         <h1 className="text-4xl 0.5xl:text-6xl max-w-full leading-tight font-roboto">Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp</h1>
@@ -197,128 +197,15 @@ const ZaloMiniApp = () => {
 
                     {/* Main image */}
                     <div className="main-image rounded-xl overflow-hidden">
-                        <img src="/images/Miniapp/landingpage-banner.png" alt="AI VR headset" className="w-[80%] mx-auto h-auto object-cover rounded-xl" />
+                        <img src="/images/Miniapp/landingpage-banner.png" alt="AI VR headset" className="w-[100%] 2xl:w-[80%] mx-auto h-auto object-cover rounded-xl" />
                     </div>
-
-                    {/* Pricing table */}
-                    <section className="pricing-table max-w-full">
-                        <h1 className="text-4xl 0.5xl:text-6xl max-w-xl mb-4 leading-tight font-roboto 0.5xl:mt-28">Choose the plan that fits your needs</h1>
-                        <div className="flex flex-col 0.5xl:flex-row items-star justify-center gap-6 w-full">
-                            {/* Card 1 */}
-                            <div className="flex flex-row gap-3  h-[555px]">
-                                <div className="flex-1 bg-white w-[330px] 0.5xl:pt-20 rounded-2xl border border-black p-10 flex flex-col items-start relative z-10">
-                                    <h3 className="text-[40px] font-roboto mb-2">Basic</h3>
-                                    <p className="mb-4 font-manrope font-semibold text-gray-800">Great for private individuals</p>
-                                    <ul className="mb-8 text-base font-manrope text-gray-800 space-y-2">
-                                        <li>1 User</li>
-                                        <li>Unlimited Projects</li>
-                                        <li>Download prototypes</li>
-                                        <li>1 Gb workspace</li>
-                                    </ul>
-                                    <div className="text-4xl font-bold mb-8">Free</div>
-                                    <div className="gradient-border rounded-md inline-block p-[1px]">
-                                        <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                                            Get started<span className="ml-1">→</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Card 2 */}
-                            <div className="flex flex-row gap-3  h-[555px]">
-                                <div className="flex-1 w-[330px] 0.5xl:pt-20 bg-[#f1f2f4] rounded-2xl p-10 flex flex-col items-start relative z-20">
-                                    <div className="absolute top-0 left-1/3 -translate-x-1/2 bg-white text-black text-black px-6 py-2 rounded-b-2xl font-semibold text-sm">Popular</div>
-                                    <h3 className="text-[40px] text-black font-roboto mb-2">Premium</h3>
-                                    <p className="mb-4 font-manrope font-semibold text-black">14 days free period</p>
-                                    <ul className="mb-8 text-base font-manrope text-black space-y-2">
-                                        <li>3 Users</li>
-                                        <li>Unlimited Projects</li>
-                                        <li>Download prototypes</li>
-                                        <li>100 Gb workspace</li>
-                                    </ul>
-                                    <div className="text-4xl text-black font-bold mb-8">$99<span className="text-lg font-normal">/mo</span></div>
-                                    <div className="rounded-md inline-block p-[1px]">
-                                        <button className="justify-center text-sm text-white bg-[#333333] #333333 rounded-[0.65rem] px-4 py-2 hover:bg-[#3ed6c5] hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                                            Get started<span className="ml-1">→</span>
-                                        </button>
-                                    </div>                        </div>
-                            </div>
-                            {/* Card 3 */}
-                            <div className="flex flex-row gap-3  h-[555px]">
-                                <div className="flex-1 bg-white w-[330px] 0.5xl:pt-20 rounded-2xl border border-black p-10 flex flex-col items-start relative z-10">
-                                    <h3 className="text-[40px] text-black font-roboto mb-2">Unlimited</h3>
-                                    <p className="mb-4 font-manrope font-semibold text-black">Great for private individuals</p>
-                                    <ul className="mb-8 text-base font-manrope text-black space-y-2">
-                                        <li>100 Users</li>
-                                        <li>Unlimited Projects</li>
-                                        <li>Download prototypes</li>
-                                        <li>100 Gb workspace</li>
-                                    </ul>
-                                    <div className="text-4xl text-black font-bold mb-8">$199<span className="text-lg font-normal">/mo</span></div>
-                                    <div className="gradient-border rounded-md inline-block p-[1px]">
-                                        <button className="justify-center text-sm bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                                            Get started<span className="ml-1">→</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* FAQ Section */}
-                    <section className=" my-28  h-auto w-full rounded-br-3xl flex justify-start items-start relative overflow-hidden">
-                        <div className="relative max-w-full h-full flex-1">
-                            <h2 className="text-4xl 0.5xl:text-6xl font-light mb-10 0.5xl:w-[53%] font-roboto leading-tight">
-                                Open questions from our customers
-                            </h2>
-                            <div className="space-y-6">
-                                {faqList.map((faq, idx) => (
-                                    <details
-                                        key={idx}
-                                        className="group border-b border-gray-300 pb-4 cursor-pointer"
-                                        open={openDetail === idx}
-                                        onClick={e => e.preventDefault()}
-                                    >
-                                        <summary
-                                            className="text-xl 0.5xl:text-2xl font-roboto list-none flex justify-between items-center"
-                                            onClick={e => {
-                                                e.preventDefault();
-                                                setOpenDetail(openDetail === idx ? null : idx);
-                                            }}
-                                            style={{ cursor: 'pointer' }}
-                                        >
-                                            {faq.question}
-                                            <span className="transition-transform duration-300 group-open:rotate-45 text-xl">+</span>
-                                        </summary>
-                                        <div
-                                            ref={el => {
-                                                contentRefs.current[idx] = el;
-                                            }}
-                                            style={{
-                                                overflow: 'hidden',
-                                                maxHeight: openDetail === idx ? getContentHeight(idx) + 'px' : '0px',
-                                                opacity: openDetail === idx ? 1 : 0,
-                                                transform: openDetail === idx ? 'translateY(0)' : 'translateY(-24px) scaleY(0.98)',
-                                                transition:
-                                                    'max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1)',
-                                                willChange: 'max-height, opacity, transform',
-                                            }}
-                                        >
-                                            <p className="mt-3 text-gray-700 text-base leading-relaxed font-manrope">
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </details>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
 
                 </main>
             </section>
 
 
-            {/* Zalo Mini Ap paragraphs */}
-            <section className="relative flex-grow max-w-full xl:my-16 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+            {/* Zalo Mini App paragraphs */}
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
                 <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">Zalo Mini App là gì?</h2>
                 <p className="text-gray-700 text-base md:text-xl text-center max-w-2xl mx-auto font-manrope">
                     Zalo Mini App là những "chương trình nhỏ" chạy trực tiếp trên nền tảng Zalo,
@@ -357,6 +244,77 @@ const ZaloMiniApp = () => {
                 />
                 <span className="absolute right-[20%] bottom-16 w-2 h-2 bg-cyan-300 rounded-full opacity-80 shadow-[0_0_10px_1px_rgba(34,211,238,0.8)] animate-pulse"></span>
             </section>
+
+
+
+{/* business benefits section */}
+<section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+  <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">
+    Lợi ích cho doanh nghiệp
+  </h2>
+  <p className="text-gray-700 text-base md:text-xl text-center max-w-4xl mx-auto font-manrope">
+    Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
+  </p>
+
+  {/* Content section */}
+  <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+    {/* Left side */}
+    <div className="flex flex-col gap-10 h-full">
+      {[
+        { icon: <FiUsers />, title: "Tiếp cận hàng triệu khách hàng", desc: "Dễ dàng chuyển đổi, không cần tải app" },
+        { icon: <FiCalendar />, title: "Nâng cao trải nghiệm khách hàng", desc: "Khách hàng dễ dàng trải nghiệm đa dịch vụ chỉ trên 1 ứng dụng duy nhất" },
+        { icon: <FiRepeat />, title: "Kênh mới Re-Marketing 0 đồng", desc: "Kênh mới để chăm sóc khách hàng một cách tiện lợi trên Zalo, Momo" }
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="flex flex-col items-center md:items-end text-center md:text-right h-full justify-start"
+        >
+          <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
+            {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
+          </div>
+          <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
+          <p className="text-gray-600 font-manrope text-sm md:text-base min-h-[48px] flex items-center">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* Center image */}
+    <div className="flex justify-center items-center">
+      <img
+        src="https://miniapp.vn/wp-content/uploads/2024/01/banner-app.webp"
+        alt="App Preview"
+        className="max-h-[70vh] xl:max-h-[90vh] object-contain"
+      />
+    </div>
+
+    {/* Right side */}
+    <div className="flex flex-col gap-10 h-full">
+      {[
+        { icon: <FiDollarSign />, title: "Tiết kiệm chi phí", desc: "Tiết kiệm chi phí, thời gian và nhân lực vận hành ứng dụng." },
+        { icon: <FiShare2 />, title: "Marketing hiệu quả", desc: "Tận dụng lan truyền xã hội, đòn bẩy social trên Zalo, Momo." },
+        { icon: <FiHeart />, title: "Khách hàng trung thành", desc: "Áp dụng các chương trình khuyến mãi và tích điểm để kích thích mua hàng." }
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="flex flex-col items-center md:items-start text-center md:text-left h-full justify-start"
+        >
+          <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
+            {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
+          </div>
+          <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
+          <p className="text-gray-600 font-manrope text-sm md:text-base min-h-[48px] flex items-center">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
 
         </div>
     )
