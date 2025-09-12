@@ -274,7 +274,7 @@ const ZaloNotificationService = () => {
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6 gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
-               <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
+                <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
                     <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
@@ -303,40 +303,40 @@ const ZaloNotificationService = () => {
 
                     {/* Brochure */}
                     <div
-        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
-        style={{
-            backgroundImage: 'url(/brochure/Brochure.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            minHeight: '340px',
-        }}
->
-    {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
-    {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
-    <div className="mb-4">
-        <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
-    </div>
-    {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
-    <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
-            <a
-                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
-                download
-                    className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
-            >
-                Download
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </a>
-    </div>
-</div>
+                        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
+                        style={{
+                            backgroundImage: 'url(/brochure/Brochure.jpg)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            minHeight: '340px',
+                        }}
+                    >
+                        {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
+                        {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
+                        <div className="mb-4">
+                            <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
+                        </div>
+                        {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
+                        <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
+                            <a
+                                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
+                                download
+                                className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
+                            >
+                                Download
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
 
                     {/* AI Consulting */}
@@ -355,47 +355,27 @@ const ZaloNotificationService = () => {
                         <h1
                             ref={titleRef}
                             className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
-                            style={{
-                                overflow: 'visible',
-                                lineHeight: '1.2',
-                                minHeight: '1em',
-                                wordBreak: 'break-word',
-                                whiteSpace: 'normal',
-                                display: 'block',
-                            }}
+                            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                         >
-                            {
-                                // Tách theo từ và giữ dấu cách
-                                "Giải pháp Chăm sóc Khách hàng Tiết kiệm & Hiệu quả trên Zalo"
-                                    .split(/(\s+)/)
-                                    .map((wordOrSpace, wordIdx) =>
-                                        wordOrSpace.trim() === "" ? (
-                                            // Nếu là dấu cách, render luôn
-                                            <span key={`space-${wordIdx}`}>{wordOrSpace}</span>
-                                        ) : (
-                                            // Nếu là từ, map từng ký tự
-                                            <span key={`word-${wordIdx}`} style={{ display: 'inline-block' }}>
-                                                {wordOrSpace.split('').map((char, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className={`inline-block transition-all duration-500 ease-out
-                            ${animateTitle
-                                                                ? 'opacity-100 translate-y-0'
-                                                                : 'opacity-0 translate-y-8'}
-                          `}
-                                                        style={{
-                                                            transitionDelay: `${(wordIdx * 10 + idx) * 15}ms`,
-                                                            display: 'inline-block',
-                                                            lineHeight: '1.2',
-                                                        }}
-                                                    >
-                                                        {char}
-                                                    </span>
-                                                ))}
-                                            </span>
-                                        )
-                                    )
-                            }
+                            {"Giải pháp Chăm sóc Khách hàng Tiết kiệm & Hiệu quả trên Zalo".split(' ').map((word, wordIndex) => (
+                                <span key={wordIndex} style={{ display: 'inline-block' }}>
+                                    {word.split('').map((char, charIndex) => (
+                                        <span
+                                            key={charIndex}
+                                            className={`inline-block transition-all duration-500 ease-out
+          ${animateTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                                            style={{
+                                                transitionDelay: `${(wordIndex * 150) + (charIndex * 50)}ms`,
+                                                lineHeight: '1.2'
+                                            }}
+                                        >
+                                            {char}
+                                        </span>
+                                    ))}
+                                    {wordIndex < "Giải pháp Chăm sóc Khách hàng Tiết kiệm & Hiệu quả trên Zalo".split(' ').length - 1 && '\u00A0'}
+                                </span>
+                            ))}
                         </h1>
                         <p className="font-manrope max-w-full 2xl:text-xl text-base xl:text-lg md:pl-0  mt-8 leading-relaxed">
                             Zalo Notification Service (ZNS) là dịch vụ gửi thông báo chăm sóc khách hàng tới các số điện thoại đang sử dụng Zalo
@@ -496,28 +476,31 @@ const ZaloNotificationService = () => {
                 />
 
                 {/* Heading */}
-                <h2
-                    ref={h2Refzns}
-                    className="text-4xl sm:text-7xl max-w-full leading-tight mb-12 font-roboto text-gray-800 flex whitespace-nowrap justify-center flex-wrap"
-                    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-                >
-                    {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, idx) => (
-                        <span
-                            key={idx}
-                            className={`inline-block transition-all duration-500 ease-out
-      ${animateH2zns ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-    `}
-                            style={{
-                                transitionDelay: `${idx * 150}ms`,
-                                display: 'inline-block',
-                                lineHeight: '1.2',
-                            }}
+                         <h2
+                            ref={h2Refzns}
+                            className="text-[2.5rem] leading-[1.1] font-roboto text-center xl:text-7xl md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
+                            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                         >
-                            {word}&nbsp;
-                        </span>
-                    ))}
-
-                </h2>
+                            {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, wordIndex) => (
+                                <span key={wordIndex} style={{ display: 'inline-block' }}>
+                                    {word.split('').map((char, charIndex) => (
+                                        <span
+                                            key={charIndex}
+                                            className={`inline-block transition-all duration-1000 ease-out
+          ${animateH2zns ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                                            style={{
+                                                transitionDelay: `${(wordIndex * 150) + (charIndex * 50)}ms`,
+                                                lineHeight: '1.2'
+                                            }}
+                                        >
+                                            {char}
+                                        </span>
+                                    ))}
+                                    {wordIndex < "Giải pháp Chăm sóc Khách hàng Tiết kiệm & Hiệu quả trên Zalo".split(' ').length - 1 && '\u00A0'}
+                                </span>
+                            ))}
+                        </h2>
                 {/* Features grid */}
                 <div className="flex flex-col items-center">
                     {/* Top row - 3 features */}

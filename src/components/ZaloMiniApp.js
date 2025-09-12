@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion"
 import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart, FiCheck, FiDownload } from "react-icons/fi";
 
@@ -6,6 +6,16 @@ const ZaloMiniApp = () => {
     // State để lưu index của thẻ details đang mở
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]); // Ref array for content divs
+
+    // Hiệu ứng cho tiêu đề 
+    const [animateTitle, setAnimateTitle] = React.useState(false);
+    const titleRef = React.useRef(null);
+    const h2Refwhat = useRef(null);
+    const [animateH2what, setAnimateH2what] = useState(false);
+    const h2Refbus = useRef(null);
+    const [animateH2bus, setAnimateH2bus] = useState(false);
+    const h2Refuser = useRef(null);
+    const [animateH2user, setAnimateH2user] = useState(false);
 
     // Danh sách câu hỏi/đáp án FAQ
     const faqList = [
@@ -49,6 +59,46 @@ const ZaloMiniApp = () => {
         }
     }, [openDetail]);
 
+    React.useEffect(() => {
+        // Trigger hiệu ứng khi tiêu đề vào viewport
+        function onScrollTitle() {
+            if (!titleRef.current) return;
+            const rect = titleRef.current.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                setAnimateTitle(true);
+                window.removeEventListener('scroll', onScrollTitle);
+            }
+        }
+        window.addEventListener('scroll', onScrollTitle);
+        onScrollTitle();
+        return () => window.removeEventListener('scroll', onScrollTitle);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (h2Refwhat.current) {
+                const rect2 = h2Refwhat.current.getBoundingClientRect();
+                if (rect2.top < window.innerHeight - 80) {
+                    setAnimateH2what(true);
+                }
+            }
+            if (h2Refbus.current) {
+                const rect2 = h2Refbus.current.getBoundingClientRect();
+                if (rect2.top < window.innerHeight - 80) {
+                    setAnimateH2bus(true);
+                }
+            }
+            if (h2Refuser.current) {
+                const rect2 = h2Refuser.current.getBoundingClientRect();
+                if (rect2.top < window.innerHeight - 80) {
+                    setAnimateH2user(true);
+                }
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="relative w-full min-h-screen font-sans">
@@ -193,8 +243,31 @@ const ZaloMiniApp = () => {
                 <main className="service-single-main w-full max-w-[62rem] md:w-3/4 2xl:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
-                        <h1 className="text-4xl 0.5xl:text-6xl max-w-full leading-tight font-roboto">Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp</h1>
-                    </article>
+                        <h1
+                            ref={titleRef}
+                            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl md:pl-0 w-[105%]"
+                            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                        >
+                            {"Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp".split(' ').map((word, wordIndex) => (
+                                <span key={wordIndex} style={{ display: 'inline-block' }}>
+                                    {word.split('').map((char, charIndex) => (
+                                        <span
+                                            key={charIndex}
+                                            className={`inline-block transition-all duration-500 ease-out
+          ${animateTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                                            style={{
+                                                transitionDelay: `${(wordIndex * 150) + (charIndex * 50)}ms`,
+                                                lineHeight: '1.2'
+                                            }}
+                                        >
+                                            {char}
+                                        </span>
+                                    ))}
+                                    {wordIndex < "Mini App - Khai mở kênh tiếp cận khách hàng mới cho doanh nghiệp".split(' ').length - 1 && '\u00A0'}
+                                </span>
+                            ))}
+                        </h1>                    </article>
 
                     {/* Main image */}
                     <div className="main-image rounded-xl overflow-hidden">
@@ -207,7 +280,27 @@ const ZaloMiniApp = () => {
 
             {/* Zalo Mini App paragraphs */}
             <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
-                <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">Zalo Mini App là gì?</h2>
+                <h2
+                    ref={h2Refwhat}
+                    className="text-4xl sm:text-7xl justify-center w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                >
+                    {"Zalo Mini App là gì?".split('').map((char, idx) => (
+                        <span
+                            key={idx}
+                            className={`inline-block transition-all duration-500 ease-out
+          ${animateH2what ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                            style={{
+                                transitionDelay: `${idx * 50}ms`,
+                                display: 'inline-block',
+                                lineHeight: '1.2',
+                            }}
+                        >
+                            {char === ' ' ? '\u00A0' : char}
+                        </span>
+                    ))}
+                </h2>
                 <p className="text-gray-700 text-base md:text-xl text-center max-w-2xl mx-auto font-manrope">
                     Zalo Mini App là những "chương trình nhỏ" chạy trực tiếp trên nền tảng Zalo,
                     một giải pháp hiệu quả dành cho doanh nghiệp.
@@ -250,8 +343,26 @@ const ZaloMiniApp = () => {
 
             {/* business benefits section */}
             <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
-                <h2 className="text-4xl 0.5xl:text-6xl max-w-full text-center leading-tight font-roboto my-8">
-                    Lợi ích cho doanh nghiệp
+                <h2
+                    ref={h2Refbus}
+                    className="text-4xl sm:text-7xl justify-center w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                >
+                    {"Lợi ích cho doanh nghiệp".split('').map((char, idx) => (
+                        <span
+                            key={idx}
+                            className={`inline-block transition-all duration-500 ease-out
+          ${animateH2bus ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                            style={{
+                                transitionDelay: `${idx * 50}ms`,
+                                display: 'inline-block',
+                                lineHeight: '1.2',
+                            }}
+                        >
+                            {char === ' ' ? '\u00A0' : char}
+                        </span>
+                    ))}
                 </h2>
                 <p className="text-gray-700 text-base md:text-xl text-center max-w-4xl mx-auto font-manrope">
                     Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
@@ -268,9 +379,9 @@ const ZaloMiniApp = () => {
                         ].map((item, i) => (
                             <div
                                 key={i}
-                                className="flex flex-col items-center md:items-end text-center md:text-right h-full justify-start"
+                                className="group flex flex-col items-center md:items-end text-center md:text-right h-full justify-start"
                             >
-                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
+                                <div className="bg-blue-400 group-hover:bg-blue-900 transition-colors duration-300 rounded-full p-4 mb-3 flex items-center justify-center">
                                     {React.cloneElement(item.icon, { className: "text-white text-3xl" })}
                                 </div>
                                 <h3 className="font-medium font-roboto text-lg md:text-xl mb-2">{item.title}</h3>
@@ -317,8 +428,8 @@ const ZaloMiniApp = () => {
                             { icon: <FiShare2 />, title: "Marketing hiệu quả", desc: "Tận dụng lan truyền xã hội, đòn bẩy social trên Zalo, Momo." },
                             { icon: <FiHeart />, title: "Khách hàng trung thành", desc: "Áp dụng các chương trình khuyến mãi và tích điểm để kích thích mua hàng." }
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-4 h-full">
-                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
+                            <div key={i} className="group flex items-center gap-4 h-full">
+                                <div className="bg-blue-400 group-hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
                                     {React.cloneElement(item.icon, { className: "text-white text-2xl" })}
                                 </div>
                                 <div className="flex flex-col text-left">
@@ -355,8 +466,26 @@ const ZaloMiniApp = () => {
 
             {/* Users benefits section  */}
             <article className="relative flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12">
-                <h2 className="text-4xl 0.5xl:text-6xl w-full text-left leading-tight font-roboto my-8">
-                    Lợi ích cho doanh nghiệp
+                <h2
+                    ref={h2Refuser}
+                    className="text-4xl sm:text-7xl w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                >
+                    {"Lợi ích cho người dùng".split('').map((char, idx) => (
+                        <span
+                            key={idx}
+                            className={`inline-block transition-all duration-500 ease-out
+          ${animateH2user ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                            style={{
+                                transitionDelay: `${idx * 50}ms`,
+                                display: 'inline-block',
+                                lineHeight: '1.2',
+                            }}
+                        >
+                            {char === ' ' ? '\u00A0' : char}
+                        </span>
+                    ))}
                 </h2>
                 <p className="text-gray-700 text-base md:text-xl text-left w-full mx-auto font-manrope">
                     Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
@@ -422,16 +551,21 @@ const ZaloMiniApp = () => {
                         </div>
 
 
-                        {/* Các item lợi ích */}
                         {[
-                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Trải nghiệm nhanh chóng", desc: "User dễ dàng truy cập Mini App ngay trên Zalo hay Momo" },
-                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Giao diện đơn giản", desc: "Tinh gọn thiết kế phù hợp với nhu cầu sử dụng" },
-                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Tính tiện dụng cao", desc: "Liên kết sẵn tài khoản, số điện thoại, … thuận tiện" },
-                            { icon: <FiDownload className="text-blue-500 w-5 h-5" />, title: "Dễ dàng chia sẻ", desc: "Trực tiếp cho bạn bè, nhóm chat trên Zalo" },
+                            { icon: <FiDownload />, title: "Trải nghiệm nhanh chóng", desc: "User dễ dàng truy cập Mini App ngay trên Zalo hay Momo" },
+                            { icon: <FiDownload />, title: "Giao diện đơn giản", desc: "Tinh gọn thiết kế phù hợp với nhu cầu sử dụng" },
+                            { icon: <FiDownload />, title: "Tính tiện dụng cao", desc: "Liên kết sẵn tài khoản, số điện thoại, … thuận tiện" },
+                            { icon: <FiDownload />, title: "Dễ dàng chia sẻ", desc: "Trực tiếp cho bạn bè, nhóm chat trên Zalo" },
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-4 h-full">
-                                <div className="bg-blue-400 hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
-                                    {React.cloneElement(item.icon, { className: "text-white text-2xl" })}
+                            <div
+                                key={i}
+                                className="group flex items-center gap-4 h-full cursor-pointer"
+                            >
+                                <div className="bg-blue-400 group-hover:bg-blue-900 transition-colors duration-300 rounded-full p-3 flex items-center justify-center flex-shrink-0">
+                                    {React.cloneElement(item.icon, {
+                                        className:
+                                            "text-white text-2xl transition-colors duration-300",
+                                    })}
                                 </div>
                                 <div className="flex flex-col text-left">
                                     <h3 className="font-medium font-roboto text-lg md:text-xl mb-1">
@@ -443,6 +577,7 @@ const ZaloMiniApp = () => {
                                 </div>
                             </div>
                         ))}
+
                         {/* Label & Logos */}
                         <div className="mt-6">
                             <h4 className="font-medium font-roboto text-lg md:text-xl text-gray-800 mb-8">
