@@ -14,15 +14,15 @@ const Pricingplans = () => (
           backgroundPosition: 'center',
         }}
       >
-        <h1 className="text-white text-[32px] sm:text-[50px] md:text-[70px] lg:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Pricing plans</h1>
+        <h1 className="text-white text-[32px] sm:text-[50px] md:text-[70px] lg:text-[90px] font-roboto font-normal text-center mx-auto select-none" style={{ letterSpacing: 2 }}>Bảng giá</h1>
         {/* Vertical Neural text */}
-        <div className="absolute right-8 sm:right-24 bottom-5 items-center hidden md:block">
+        <div className="absolute right-24 bottom-5 items-center hidden md:block">
           <span
             className="font-sans select-none"
             style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              fontSize: '60px',
+              fontSize: '90px',
               fontWeight: 650,
               color: 'transparent',
               WebkitTextStroke: '1px #fff',
@@ -31,13 +31,14 @@ const Pricingplans = () => (
               lineHeight: 1,
               transform: 'rotate(180deg)'
             }}
-          >Price</span>
+          >Zatify</span>
         </div>
+
         {/* Breadcrumb & Decorations */}
         <div className="absolute left-[255px] bottom-[-11px] w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
         <div className="absolute left-[-1px] bottom-[69px]  w-8 h-8 bg-white mask-rounded-hole-service-bl z-50"></div>
         <div className="justify-center items-center w-64 h-20 absolute left-0 bottom-0 bg-white rounded-tr-3xl  rounded-br-none px-8 py-4 text-black text-base font-sans flex flex-col shadow-md" style={{ minWidth: 220 }}>
-          <span className="text-sm mb-1">Home / Pricing plans</span>
+          <span className="text-sm mb-1">Trang chủ / Bảng giá</span>
         </div>
         <div className="hidden md:block absolute left-[95px] top-[-1px] w-8 h-8 bg-white mask-rounded-hole-service-tl z-50"></div>
         <div className="hidden md:block absolute left-[-1px] top-[63px]  w-8 h-8 bg-white mask-rounded-hole-service-tl z-50"></div>
@@ -122,26 +123,26 @@ const Pricingplans = () => (
         </div>
       </div>
     </section>
-    
+
     {/* PRICING SECTION - ĐÃ CHỈNH JSX GIỐNG HÌNH MẪU */}
     <section className="min-h-[80vh] w-full flex flex-col md:flex-row items-center justify-center px-2 sm:px-6 md:px-20 py-8 sm:py-16 gap-8 sm:gap-10 bg-gradient-to-r from-white via-white to-purple-200 font-roboto">
       {/* Left Text Content */}
       <div className="flex-1 flex flex-col justify-center h-full min-h-[320px] sm:min-h-[420px] md:min-h-[480px] max-w-[540px] px-4 sm:px-8 py-8 md:py-0 md:px-0 font-roboto">
-        <h2 className="text-[56px] md:text-[64px] font-medium leading-tight mb-8 text-black font-roboto" style={{lineHeight:'1.1'}}>Only pay for <br />what you use.</h2>
-        <p className="text-lg leading-relaxed text-black mb-4 font-roboto font-normal">Triggerfish bluntnose knifefish upside-down catfish kfish convict cichlid cat shark saw shark trout cod.</p>
-        <p className="text-lg leading-relaxed text-black mb-8 font-roboto font-normal">Pacific hake false trevally queen parrotfish black prickleback moss revally queen parrotfish black</p>
+        <h2 className="text-[56px] md:text-[64px] font-medium leading-tight mb-8 text-black font-roboto" style={{ lineHeight: '1.1' }}>	Phí sử dụng / <br />Tích hợp hệ thống</h2>
+        <p className="text-lg leading-relaxed text-black mb-4 font-roboto font-normal">Chỉ với một nền tảng duy nhất – Zatify giúp doanh nghiệp tận dụng sức mạnh ZNS để nâng cao trải nghiệm khách hàng, giảm thiểu chi phí chăm sóc và tối ưu tỷ lệ chuyển đổi.</p>
+        <p className="text-lg leading-relaxed text-black mb-8 font-roboto font-normal">Từ tin nhắn giao dịch, OTP cho đến thông báo chăm sóc, tất cả đều được gửi nhanh chóng – chính xác – bảo mật. Zatify đồng hành cùng doanh nghiệp trong hành trình số hoá, mang đến giải pháp ZNS toàn diện và bền vững.</p>
         <ul className="flex flex-col gap-6 text-black text-xl font-medium font-roboto">
           <li className="flex items-center gap-4 font-roboto">
             <svg className="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span className="font-roboto">Fine-tuning models</span>
+            <span className="font-roboto">Kết nối API nhanh chóng – dễ dàng tích hợp vào hệ thống sẵn có</span>
           </li>
           <li className="flex items-center gap-4 font-roboto">
             <svg className="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span className="font-roboto">Embedding models</span>
+            <span className="font-roboto">Hỗ trợ kỹ thuật 24/7 – đồng hành cùng doanh nghiệp</span>
           </li>
           <li className="flex items-center gap-4 font-roboto">
             <svg className="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span className="font-roboto">InstructGPT</span>
+            <span className="font-roboto">Bảo mật cao – an toàn dữ liệu khi truyền tải</span>
           </li>
         </ul>
       </div>
@@ -150,22 +151,22 @@ const Pricingplans = () => (
         {/* Basic Card */}
         <div className="flex flex-col sm:flex-row items-center rounded-2xl border border-[#d1cfff] overflow-hidden bg-gradient-to-r from-white to-[#f3f0ff] shadow-sm p-6 sm:p-12 font-roboto">
           {/* Cột 1: Tiêu đề và mô tả */}
-          <div className="flex flex-col flex-1 justify-center items-start min-w-[240px] font-roboto">
-            <h3 className="text-[40px] text-black font-roboto mb-2">Basic</h3>
-            <p className="text-lg font-normal font-roboto mt-2 text-black">Great for private individuals</p>
+          <div className="flex flex-col flex-1 justify-center items-start max-w-[180px] font-roboto">
+            <h3 className="text-4xl text-black font-roboto mb-2">Dùng thử</h3>
+            <p className="text-lg font-normal font-roboto mt-2 text-black">15 ngày</p>
           </div>
           {/* Cột 2: List */}
-          <ul className="flex flex-col gap-4 flex-1 px-8 text-gray-900 text-lg font-normal font-roboto min-w-[320px] max-w-[340px] break-words list-disc list-inside">
-            <li>1 User</li>
-            <li>Unlimited Projects</li>
-            <li>Download prototypes</li>
-            <li>1 Gb workspace</li>
+          <ul className="flex flex-col gap-4 flex-1 px-8 text-gray-900 text-lg font-normal font-roboto min-w-[360px] max-w-[380px] break-words list-disc list-inside">
+            <li>1 Tài khoản/ OA</li>
+            <li>Giới hạn báo cáo</li>
+            <li>Không kết nối được API</li>
+            <li>Không hỗ trợ tư vấn tạo template</li>
           </ul>
           {/* Cột 3: Giá và nút */}
           <div className="flex flex-col items-center justify-center flex-1 min-w-[240px] pr-2 font-roboto">
-            <h3 className="text-6xl font-extrabold font-roboto text-black leading-none text-center mb-6">Free</h3>
+            <h3 className="text-6xl font-extrabold font-roboto text-black leading-none text-center mb-6">Miễn phí</h3>
             <button className="px-8 py-4 rounded-xl border border-[#a689fa] text-black text-lg flex items-center gap-2 bg-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition font-medium min-w-[180px] focus:outline-none font-roboto">
-              Get started
+              Dùng thử ngay
               <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
           </div>
@@ -173,25 +174,25 @@ const Pricingplans = () => (
         {/* Premium Card */}
         <div className="flex flex-col sm:flex-row items-center justify-between rounded-2xl overflow-hidden bg-[#f6f7f8] shadow-sm p-6 sm:p-12 font-roboto">
           {/* Cột 1: Tiêu đề và mô tả */}
-          <div className="flex flex-col flex-1 justify-center items-start min-w-[220px] font-roboto">
-            <h3 className="text-5xl font-roboto mb-2">Premium</h3>
-            <p className="text-lg font-normal font-roboto">14 days free period</p>
+          <div className="flex flex-col flex-1 justify-center items-start max-w-[180px] font-roboto">
+            <h3 className="text-4xl font-roboto mb-2">Chính thức</h3>
+            <p className="text-lg font-normal font-roboto">1 năm </p>
           </div>
           {/* Cột 2: List */}
-          <ul className="flex flex-col gap-4 flex-1 px-8 text-gray-900 text-lg list-disc list-inside min-w-[220px] font-roboto">
-            <li>3 Users</li>
-            <li>Unlimited Projects</li>
-            <li>Download prototypes</li>
-            <li>100 Gb workspace</li>
+          <ul className="flex flex-col gap-4 flex-1 px-8 text-gray-900 text-lg list-disc list-inside min-w-[360px] max-w-[380px] font-roboto">
+            <li>Không giới hạn tài khoản</li>
+            <li>Sử dụng đầy đủ tính năng</li>
+            <li>Kết nối API</li>
+            <li>Hỗ trợ tư vấn tạo template</li>
           </ul>
           {/* Cột 3: Giá và nút */}
           <div className="flex flex-col items-center justify-center flex-1 min-w-[220px] font-roboto">
-            <div className="flex items-baseline gap-2 mb-6 font-roboto">
-              <span className="text-6xl font-extrabold font-roboto text-black leading-none">$99</span>
-              <span className="text-2xl font-semibold font-roboto">/mo</span>
+            <div className="flex flex-col items-baseline gap-2 mb-6 font-roboto">
+              <span className="text-6xl font-extrabold font-roboto text-black leading-none">2.000.000đ</span>
+              <span className="w-full text-2xl text-center font-semibold font-roboto">/năm</span>
             </div>
             <button className="px-8 py-4 rounded-xl bg-gray-900 text-white text-lg flex items-center gap-2 hover:bg-gray-800 transition font-medium min-w-[180px] font-roboto">
-              Get started
+              Đăng ký ngay
               <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
           </div>
@@ -278,77 +279,77 @@ const Pricingplans = () => (
       </div>
     </div>
     {/* Price Section  */}
-            {/* Price Section  */}
-            <section className="relative 0.5xl:mt-20 flex-row max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
-                <h2 className="text-3xl sm:text-7xl w-full 0.5xl:w-[55%] leading-tight mb-16 font-roboto text-gray-800">
-                    Choose the plan that fits your needs
-                </h2>
-                <div className="flex flex-col 0.5xl:flex-row items-star justify-center gap-6 w-full">
-                    {/* Card 1 */}
-                    <div className="flex flex-row gap-3  h-[555px]">
-                        <div className="flex-1 bg-white w-[330px] 0.5xl:pt-20 rounded-2xl border border-black p-10 flex flex-col items-start shadow-md relative z-10">
-                            <h3 className="text-[40px] font-roboto mb-2">Basic</h3>
-                            <p className="mb-4 font-manrope font-semibold text-gray-800">Great for private individuals</p>
-                            <ul className="mb-8 text-base font-manrope text-gray-800 space-y-2">
-                                <li>1 User</li>
-                                <li>Unlimited Projects</li>
-                                <li>Download prototypes</li>
-                                <li>1 Gb workspace</li>
-                            </ul>
-                            <div className="text-4xl font-bold mb-8">Free</div>
-                            <div className="rounded-md inline-block p-[1px]">
-                                <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
-                                    Get started<span className="ml-1">→</span>
-                                </button>
-                            </div>
-                        </div>
-                        {/* Vertical bar 1 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/basic.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-                    </div>
-                    {/* Card 2 */}
-                    <div className="flex flex-row gap-3  h-[555px]">
-                        <div className="flex-1 w-[330px] 0.5xl:pt-20 bg-[#bcaaff] rounded-2xl p-10 flex flex-col items-start shadow-xl relative z-20">
-                            <div className="absolute top-0 left-1/3 -translate-x-1/2 bg-white text-black px-6 py-2 rounded-b-2xl font-semibold text-sm">Popular</div>
-                            <h3 className="text-[40px] text-white font-roboto mb-2">Premium</h3>
-                            <p className="mb-4 font-manrope font-semibold text-white">14 days free period</p>
-                            <ul className="mb-8 text-base font-manrope text-white space-y-2">
-                                <li>3 Users</li>
-                                <li>Unlimited Projects</li>
-                                <li>Download prototypes</li>
-                                <li>100 Gb workspace</li>
-                            </ul>
-                            <div className="text-4xl text-white font-bold mb-8">$99<span className="text-lg font-normal">/mo</span></div>
-                            <div className="rounded-md inline-block p-[1px]">
-                                <button className="justify-center text-sm text-white bg-[#333333] #333333 rounded-[0.65rem] px-4 py-2 hover:bg-[#3ed6c5] hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                                    Get started<span className="ml-1">→</span>
-                                </button>
-                            </div>                        </div>
-                        {/* Vertical bar 2 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/premium.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-                    </div>
-                    {/* Card 3 */}
-                    <div className="flex flex-row gap-3  h-[555px]">
-                        <div className="flex-1 w-[330px] 0.5xl:pt-20 bg-[#3ed6c5] rounded-2xl p-10 flex flex-col items-start shadow-md relative z-10">
-                            <h3 className="text-[40px] text-white font-roboto mb-2">Unlimited</h3>
-                            <p className="mb-4 font-manrope font-semibold text-white">Great for private individuals</p>
-                            <ul className="mb-8 text-base font-manrope text-white space-y-2">
-                                <li>100 Users</li>
-                                <li>Unlimited Projects</li>
-                                <li>Download prototypes</li>
-                                <li>100 Gb workspace</li>
-                            </ul>
-                            <div className="text-4xl text-white font-bold mb-8">$199<span className="text-lg font-normal">/mo</span></div>
-                            <div className="rounded-md inline-block p-[1px]">
-                                <button className="justify-center text-sm bg-[#3ed6c5] border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
-                                    Get started<span className="ml-1">→</span>
-                                </button>
-                            </div>
-                        </div>
-                        {/* Vertical bar 3 */}
-                        <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/unlimited.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-                    </div>
-                </div>
-            </section>
+    {/* Price Section  */}
+    <section className="relative 0.5xl:mt-20 flex-row max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+      <h2 className="text-3xl sm:text-7xl w-full 0.5xl:w-[55%] leading-tight mb-16 font-roboto text-gray-800">
+        Choose the plan that fits your needs
+      </h2>
+      <div className="flex flex-col 0.5xl:flex-row items-star justify-center gap-6 w-full">
+        {/* Card 1 */}
+        <div className="flex flex-row gap-3  h-[555px]">
+          <div className="flex-1 bg-white w-[330px] 0.5xl:pt-20 rounded-2xl border border-black p-10 flex flex-col items-start shadow-md relative z-10">
+            <h3 className="text-[40px] font-roboto mb-2">Basic</h3>
+            <p className="mb-4 font-manrope font-semibold text-gray-800">Great for private individuals</p>
+            <ul className="mb-8 text-base font-manrope text-gray-800 space-y-2">
+              <li>1 User</li>
+              <li>Unlimited Projects</li>
+              <li>Download prototypes</li>
+              <li>1 Gb workspace</li>
+            </ul>
+            <div className="text-4xl font-bold mb-8">Free</div>
+            <div className="rounded-md inline-block p-[1px]">
+              <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
+                Get started<span className="ml-1">→</span>
+              </button>
+            </div>
+          </div>
+          {/* Vertical bar 1 */}
+          <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/basic.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        </div>
+        {/* Card 2 */}
+        <div className="flex flex-row gap-3  h-[555px]">
+          <div className="flex-1 w-[330px] 0.5xl:pt-20 bg-[#bcaaff] rounded-2xl p-10 flex flex-col items-start shadow-xl relative z-20">
+            <div className="absolute top-0 left-1/3 -translate-x-1/2 bg-white text-black px-6 py-2 rounded-b-2xl font-semibold text-sm">Popular</div>
+            <h3 className="text-[40px] text-white font-roboto mb-2">Premium</h3>
+            <p className="mb-4 font-manrope font-semibold text-white">14 days free period</p>
+            <ul className="mb-8 text-base font-manrope text-white space-y-2">
+              <li>3 Users</li>
+              <li>Unlimited Projects</li>
+              <li>Download prototypes</li>
+              <li>100 Gb workspace</li>
+            </ul>
+            <div className="text-4xl text-white font-bold mb-8">$99<span className="text-lg font-normal">/mo</span></div>
+            <div className="rounded-md inline-block p-[1px]">
+              <button className="justify-center text-sm text-white bg-[#333333] #333333 rounded-[0.65rem] px-4 py-2 hover:bg-[#3ed6c5] hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                Get started<span className="ml-1">→</span>
+              </button>
+            </div>                        </div>
+          {/* Vertical bar 2 */}
+          <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/premium.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        </div>
+        {/* Card 3 */}
+        <div className="flex flex-row gap-3  h-[555px]">
+          <div className="flex-1 w-[330px] 0.5xl:pt-20 bg-[#3ed6c5] rounded-2xl p-10 flex flex-col items-start shadow-md relative z-10">
+            <h3 className="text-[40px] text-white font-roboto mb-2">Unlimited</h3>
+            <p className="mb-4 font-manrope font-semibold text-white">Great for private individuals</p>
+            <ul className="mb-8 text-base font-manrope text-white space-y-2">
+              <li>100 Users</li>
+              <li>Unlimited Projects</li>
+              <li>Download prototypes</li>
+              <li>100 Gb workspace</li>
+            </ul>
+            <div className="text-4xl text-white font-bold mb-8">$199<span className="text-lg font-normal">/mo</span></div>
+            <div className="rounded-md inline-block p-[1px]">
+              <button className="justify-center text-sm bg-[#3ed6c5] border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
+                Get started<span className="ml-1">→</span>
+              </button>
+            </div>
+          </div>
+          {/* Vertical bar 3 */}
+          <div className="flex w-[70px] h-full  rounded-3xl " style={{ backgroundImage: "url('svg/thanhdoc/unlimited.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        </div>
+      </div>
+    </section>
   </div>
 );
 

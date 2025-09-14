@@ -240,7 +240,7 @@ const ZaloMiniApp = () => {
                 </aside>
 
                 {/* Main content right */}
-                <main className="service-single-main w-full max-w-[62rem] md:w-3/4 2xl:w-4/5 flex flex-col gap-8">
+                <main className="service-single-main w-full max-w-[62rem] 2xl:max-w-[100%] md:w-3/4 2xl:w-4/5 flex flex-col gap-8">
                     {/* Main heading and paragraphs */}
                     <article className="main-content w-full">
                         <h1

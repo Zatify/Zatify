@@ -444,7 +444,7 @@ const ZaloNotificationService = () => {
                                     znsTemplates[znsTab].map((tpl, idx) => (
                                         <div
                                             key={idx}
-                                            className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[228px] 2xl:w-[298px]"
+                                            className="flex-shrink-0 flex flex-col items-center w-[170px] xl:w-[228px] 2xl:w-[322px]"
                                         >
                                             <img
                                                 src={tpl.image}
