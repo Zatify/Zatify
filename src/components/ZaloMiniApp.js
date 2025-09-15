@@ -2,20 +2,40 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion"
 import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart, FiCheck, FiDownload } from "react-icons/fi";
 
+const useAnimateOnScroll = () => {
+    const ref = useRef(null);
+    const [animate, setAnimate] = useState(false);
+    const hasAnimated = useRef(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (ref.current && !hasAnimated.current) {
+                const rect = ref.current.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    setAnimate(true);
+                    hasAnimated.current = true;
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return [ref, animate];
+};
+
 const ZaloMiniApp = () => {
     // State để lưu index của thẻ details đang mở
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]); // Ref array for content divs
 
     // Hiệu ứng cho tiêu đề 
-    const [animateTitle, setAnimateTitle] = React.useState(false);
-    const titleRef = React.useRef(null);
-    const h2Refwhat = useRef(null);
-    const [animateH2what, setAnimateH2what] = useState(false);
-    const h2Refbus = useRef(null);
-    const [animateH2bus, setAnimateH2bus] = useState(false);
-    const h2Refuser = useRef(null);
-    const [animateH2user, setAnimateH2user] = useState(false);
+    const [titleRef, animateTitle] = useAnimateOnScroll();
+    const [h2Refwhat, animateH2what] = useAnimateOnScroll();
+    const [h2Refbus, animateH2bus] = useAnimateOnScroll();
+    const [h2Refuser, animateH2user] = useAnimateOnScroll();
 
     // Danh sách câu hỏi/đáp án FAQ
     const faqList = [
@@ -59,46 +79,6 @@ const ZaloMiniApp = () => {
         }
     }, [openDetail]);
 
-    React.useEffect(() => {
-        // Trigger hiệu ứng khi tiêu đề vào viewport
-        function onScrollTitle() {
-            if (!titleRef.current) return;
-            const rect = titleRef.current.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                setAnimateTitle(true);
-                window.removeEventListener('scroll', onScrollTitle);
-            }
-        }
-        window.addEventListener('scroll', onScrollTitle);
-        onScrollTitle();
-        return () => window.removeEventListener('scroll', onScrollTitle);
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (h2Refwhat.current) {
-                const rect2 = h2Refwhat.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2what(true);
-                }
-            }
-            if (h2Refbus.current) {
-                const rect2 = h2Refbus.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2bus(true);
-                }
-            }
-            if (h2Refuser.current) {
-                const rect2 = h2Refuser.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2user(true);
-                }
-            }
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     return (
         <div className="relative w-full min-h-screen font-sans">
@@ -442,23 +422,6 @@ const ZaloMiniApp = () => {
                                 </div>
                             </div>
                         ))}
-                        {/* Label & Logos
-                        <div className="mt-6">
-                            <h4 className="font-medium font-roboto text-lg md:text-xl text-gray-800 mb-8">
-                                Sản phẩm trong hệ sinh thái của Zalo
-                            </h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 gap-y-12">
-                                {["zaloaccout.jpg", "zalozns.jpg", "zaloads.jpg", "miniapp.jpg"].map((logo, i) => (
-                                    <img
-                                        key={i}
-                                        src={`/svg/logos/${logo}`}
-                                        alt={`Logo ${i + 1}`}
-                                        className="h-8 w-auto object-contain mx-auto hover:scale-105 transition-transform"
-                                    />
-                                ))}
-                            </div>
-                        </div> */}
-
                     </div>
 
                 </div>
@@ -499,7 +462,7 @@ const ZaloMiniApp = () => {
                         <motion.img
                             src="https://miniapp.vn/wp-content/uploads/2024/01/banner-miniapp-2.png"
                             alt="Phone 1"
-                            className="absolute right-20 xl:right-36 max-h-[100%] relative z-10"
+                            className=" right-20 xl:right-36 max-h-[100%] relative z-10"
                             animate={{ y: [0, -10, 5, -5, 0] }}
                             transition={{
                                 duration: 5,

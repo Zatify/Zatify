@@ -6,22 +6,41 @@ import 'swiper/css/pagination';
 import { motion } from "framer-motion";
 import { Pagination, Autoplay } from "swiper/modules";
 
+const useAnimateOnScroll = () => {
+    const ref = useRef(null);
+    const [animate, setAnimate] = useState(false);
+    const hasAnimated = useRef(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (ref.current && !hasAnimated.current) {
+                const rect = ref.current.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    setAnimate(true);
+                    hasAnimated.current = true;
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return [ref, animate];
+};
+
 const ZaloNotificationService = () => {
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]);
     const [znsTab, setZnsTab] = useState(2);
 
     // Hiệu ứng cho tiêu đề 
-    const [animateTitle, setAnimateTitle] = React.useState(false);
-    const titleRef = React.useRef(null);
-    const h2Ref = useRef(null);
-    const [animateH2, setAnimateH2] = useState(false);
-    const h2Refcus = useRef(null);
-    const [animateH2cus, setAnimateH2cus] = useState(false);
-    const h2Reffaq = useRef(null);
-    const [animateH2faq, setAnimateH2faq] = useState(false);
-    const h2Refzns = useRef(null);
-    const [animateH2zns, setAnimateH2zns] = useState(false);
+    const [titleRef, animateTitle] = useAnimateOnScroll();
+    const [h2Ref, animateH2] = useAnimateOnScroll();
+    const [h2Refcus, animateH2cus] = useAnimateOnScroll();
+    const [h2Reffaq, animateH2faq] = useAnimateOnScroll();
+    const [h2Refzns, animateH2zns] = useAnimateOnScroll();
 
     // Danh sách câu hỏi/đáp án FAQ
     const faqList = [
@@ -129,20 +148,7 @@ const ZaloNotificationService = () => {
         return el ? el.scrollHeight : 0;
     };
 
-    React.useEffect(() => {
-        // Trigger hiệu ứng khi tiêu đề vào viewport
-        function onScrollTitle() {
-            if (!titleRef.current) return;
-            const rect = titleRef.current.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                setAnimateTitle(true);
-                window.removeEventListener('scroll', onScrollTitle);
-            }
-        }
-        window.addEventListener('scroll', onScrollTitle);
-        onScrollTitle();
-        return () => window.removeEventListener('scroll', onScrollTitle);
-    }, []);
+
 
     React.useEffect(() => {
         if (openDetail !== null && contentRefs.current[openDetail]) {
@@ -156,58 +162,7 @@ const ZaloNotificationService = () => {
         }
     }, [openDetail]);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (h2Reffaq.current) {
-                const rect2 = h2Reffaq.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2faq(true);
-                }
-            }
-            if (h2Refzns.current) {
-                const rect2 = h2Refzns.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2zns(true);
-                }
-            }
-            if (h2Refcus.current) {
-                const rect2 = h2Refcus.current.getBoundingClientRect();
-                if (rect2.top < window.innerHeight - 80) {
-                    setAnimateH2cus(true);
-                }
-            }
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
-    useEffect(() => {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setAnimateH2(true);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        if (h2Ref.current) {
-            observer.observe(h2Ref.current);
-        }
-
-        return () => {
-            if (h2Ref.current) {
-                observer.unobserve(h2Ref.current);
-            }
-        };
-    }, []);
     return (
         <div className="relative w-full min-h-screen font-sans">
             {/* Hero Section */}
