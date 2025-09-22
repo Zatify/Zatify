@@ -26,7 +26,7 @@ const menuItems = [
     label: 'TIN TỨC',
     dropdown: [
       { label: 'FAQ', path: '/faq' },
-      { label: 'Blog grid', path: '/blog-grid' }
+      { label: 'Blog', path: '/blog-grid' }
     ]
   },
   { label: 'LIÊN HỆ', path: '/contact' },

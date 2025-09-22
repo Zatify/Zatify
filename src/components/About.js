@@ -1,9 +1,33 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+const useAnimateOnScroll = () => {
+  const ref = useRef(null);
+  const [animate, setAnimate] = useState(false);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ref.current && !hasAnimated.current) {
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          setAnimate(true);
+          hasAnimated.current = true;
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return [ref, animate];
+};
 
 const About = () => {
   React.useEffect(() => {
@@ -50,54 +74,10 @@ const About = () => {
   }, []);
 
   // Hiệu ứng từng ký tự cho tiêu đề
-  const [animateTitle, setAnimateTitle] = React.useState(false);
-  const titleRef = React.useRef(null);
-  const h2Ref = useRef(null);
-  const [animateH2, setAnimateH2] = useState(false);
+  const [titleRef, animateTitle] = useAnimateOnScroll()
+  const [h2Ref, animateH2] = useAnimateOnScroll();
+  const [h2Refcus, animateH2cus] = useAnimateOnScroll();
 
-  React.useEffect(() => {
-    // Trigger hiệu ứng khi tiêu đề vào viewport
-    function onScrollTitle() {
-      if (!titleRef.current) return;
-      const rect = titleRef.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setAnimateTitle(true);
-        window.removeEventListener('scroll', onScrollTitle);
-      }
-    }
-    window.addEventListener('scroll', onScrollTitle);
-    onScrollTitle();
-    return () => window.removeEventListener('scroll', onScrollTitle);
-  }, []);
-
-  // Fixed useEffect for h2 "Ưu điểm của Zatify"
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setAnimateH2(true);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    if (h2Ref.current) {
-      observer.observe(h2Ref.current);
-    }
-
-    return () => {
-      if (h2Ref.current) {
-        observer.unobserve(h2Ref.current);
-      }
-    };
-  }, []);
 
 
   return (
@@ -180,48 +160,28 @@ const About = () => {
         <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 z-10">
           <h1
             ref={titleRef}
-            className="text-[2.5rem] leading-[1.1] font-roboto 0.5xl:text-6xl max-w-[600px] 0.5xl:max-w-[65%]"
-            style={{
-              overflow: 'visible',
-              lineHeight: '1.2',
-              minHeight: '1em',
-              wordBreak: 'break-word',
-              whiteSpace: 'normal',
-              display: 'block',
-            }}
+            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl md:pl-0 w-[100%]"
+            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
-            {
-              // Tách theo từ và giữ dấu cách
-              "Định hình tương lai số hóa trên nền tảng Zalo"
-                .split(/(\s+)/)
-                .map((wordOrSpace, wordIdx) =>
-                  wordOrSpace.trim() === "" ? (
-                    // Nếu là dấu cách, render luôn
-                    <span key={`space-${wordIdx}`}>{wordOrSpace}</span>
-                  ) : (
-                    // Nếu là từ, map từng ký tự
-                    <span key={`word-${wordIdx}`} style={{ display: 'inline-block' }}>
-                      {wordOrSpace.split('').map((char, idx) => (
-                        <span
-                          key={idx}
-                          className={`inline-block transition-all duration-500 ease-out
-                            ${animateTitle
-                              ? 'opacity-100 translate-y-0'
-                              : 'opacity-0 translate-y-8'}
-                          `}
-                          style={{
-                            transitionDelay: `${(wordIdx * 10 + idx) * 15}ms`,
-                            display: 'inline-block',
-                            lineHeight: '1.2',
-                          }}
-                        >
-                          {char}
-                        </span>
-                      ))}
-                    </span>
-                  )
-                )
-            }
+            {"Định hình tương lai số hoá trên nền tảng Zalo".split(' ').map((word, wordIndex) => (
+              <span key={wordIndex} style={{ display: 'inline-block' }}>
+                {word.split('').map((char, charIndex) => (
+                  <span
+                    key={charIndex}
+                    className={`inline-block transition-all duration-500 ease-out
+          ${animateTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                    style={{
+                      transitionDelay: `${(wordIndex * 150) + (charIndex * 50)}ms`,
+                      lineHeight: '1.2'
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
+                {wordIndex < "Định hình tương lai số hoá trên nền tảng Zalo".split(' ').length - 1 && '\u00A0'}
+              </span>
+            ))}
           </h1>
           <img
             src="/images/logoZ.jpg"
@@ -473,40 +433,38 @@ const About = () => {
           <div className="grid grid-cols-3 gap-6 relative">
             {/* 2023 */}
             <div className="flex flex-col items-center text-center">
-              <div
-                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-              >
+              <div className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10">
                 <img src="/images/timeline/icon-2023.png" alt="icon" className="w-full h-full" />
               </div>
               <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2023</h3>
-              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[220px]">
-                Thành lập Công ty TNHH 3NS – tiền thân của Zatify
+              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[260px]">
+                Thành lập Công ty TNHH 3NS – tiền thân của Zatify<br />
+                <span className="block ml-4 text-start text-sm mt-3">● Trở thành đại lý ủy quyền chính thức của Zalo, cung cấp dịch vụ chăm sóc khách hàng trên Zalo qua Zalo OA và ZNS.</span>
+                <span className="block ml-4 text-start text-sm">● Hợp tác chiến lược với Pancake để cung cấp dịch vụ ZNS cho khách hàng.</span>
               </p>
             </div>
 
             {/* 2024 */}
             <div className="flex flex-col items-center text-center">
-              <div
-                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-              >
+              <div className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10">
                 <img src="/images/timeline/icon-2024.png" alt="icon" className="w-full h-full" />
               </div>
               <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2024</h3>
-              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[220px]">
-                Đổi tên thành Công ty TNHH Zatify
+              <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[260px]">
+                Đổi tên thành Công ty TNHH Zatify và thay đổi bộ nhận diện thương hiệu<br />
+                <span className="block ml-4 text-start text-sm mt-3">● Cung cấp thêm các dịch vụ mới trên nền tảng Zalo, bao gồm Mini App, Zalo Ads và Zalo Survey.</span>
               </p>
             </div>
 
             {/* 2025 */}
             <div className="flex flex-col items-center text-center">
-              <div
-                className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10"
-              >
+              <div className="w-28 h-28 flex items-center justify-center rounded-full bg-white relative z-10">
                 <img src="/images/timeline/icon-2025.png" alt="icon" className="w-full h-full" />
               </div>
               <h3 className="mt-4 font-bold font-roboto text-base md:text-2xl leading-relaxed">2025</h3>
               <p className="text-gray-600 font-manrope text-sm md:text-base leading-relaxed max-w-[280px]">
-                Đón nhận thêm thành viên ban quản trị – mở rộng quy mô công ty
+                Mở rộng quy mô Công ty<br />
+                <span className="block ml-4 text-start text-sm mt-3">● Triển khai hợp tác với các đối tác lớn, cung cấp dịch vụ chuyên sâu về chuỗi hoạt động chăm sóc khách hàng và phát triển thương hiệu cho doanh nghiệp trên hệ sinh thái Zalo.</span>
               </p>
             </div>
           </div>
@@ -515,237 +473,269 @@ const About = () => {
 
 
 
-{/* Customer of Zatify */}
-<section className="relative 0.5xl:mt-10 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
-  <img
-    src="/svg/bg-opacity.svg"
-    alt="Background opacity effect"
-    className="absolute inset-0 top-6 rounded-bl-3xl rounded-br-3xl pointer-events-none opacity-100 hidden sm:block"
-  />
-
-  {/* Tiêu đề */}
-  <h2
-    ref={h2Ref}
-    className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
-    style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-  >
-    {"Khách hàng của Zatify".split('').map((char, idx) => (
-      <span
-        key={idx}
-        className={`inline-block transition-all duration-500 ease-out
-          ${animateH2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+      {/* Customer of Zatify */}
+      <section className="relative 0.5xl:mt-10 flex-grow xl:max-w-[90%] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        {/* Tiêu đề */}
+        <div className="max-w-[80rem] mx-auto xl:mb-24">
+          <h2
+            ref={h2Refcus}
+            className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+          >
+            {"Khách hàng của Zatify".split('').map((char, idx) => (
+              <span
+                key={idx}
+                className={`inline-block transition-all duration-500 ease-out
+          ${animateH2cus ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
-        style={{
-          transitionDelay: `${idx * 50}ms`,
-          display: 'inline-block',
-          lineHeight: '1.2',
-        }}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </span>
-    ))}
-  </h2>
-
-  {/* Desktop: Swiper layout */}
-  <div className="hidden lg:block">
-    <Swiper
-      modules={[Pagination]}
-      spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true, el: '.custom-pagination-desktop' }}
-      loop={true}
-      className="my-swiper-desktop"
-    >
-      {/* Slide 1: 12 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-6 gap-8">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-16 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/miniapp.jpg';
+                style={{
+                  transitionDelay: `${idx * 50}ms`,
+                  display: 'inline-block',
+                  lineHeight: '1.2',
                 }}
-              />
-            </div>
-          ))}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h2>
         </div>
-      </SwiperSlide>
 
-      {/* Slide 2: 12 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-6 gap-8">
-          {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-16 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zaloaccout.jpg';
-                }}
-              />
-            </div>
-          ))}
+        {/* Desktop: Swiper layout */}
+        <div className="hidden lg:block">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true, el: ".custom-pagination-desktop" }}
+            autoplay={{
+              delay: 4000, // 4s giây
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="my-swiper-desktop"
+          >
+            {/* Slide 1: 12 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-6 gap-8">
+                {[17, 26, 32, 22, 5, 36, 21, 38, 39, 40, 41, 37].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-24 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/miniapp.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 2: 12 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-6 gap-8">
+                {[13, 14, 15, 16, 1, 18, 19, 20, 7, 4, 23, 24].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-24 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloaccout.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 3: 12 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-6 gap-8">
+                {[25, 2, 27, 28, 29, 30, 31, 3, 33, 34, 35, 6].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-24 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloads.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+            {/* Slide 4: a lot logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-6 gap-8">
+                {[8, 9, 10, 11, 12].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-24 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloads.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+          </Swiper>
+
+          {/* Pagination dots for desktop */}
+          <div className="custom-pagination-desktop mt-8 flex justify-center space-x-4">
+            <div className="swiper-pagination-desktop"></div>
+          </div>
         </div>
-      </SwiperSlide>
 
-      {/* Slide 3: 12 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-6 gap-8">
-          {[25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-16 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zaloads.jpg';
-                }}
-              />
-            </div>
-          ))}
+        {/* Mobile: Swiper layout */}
+        <div className="lg:hidden">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true, el: ".custom-pagination-mobile" }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="my-swiper"
+          >
+            {/* Slide 1: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[17, 26, 32, 22, 5, 36].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/miniapp.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 2: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[21, 38, 39, 40, 41, 37].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloaccout.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 3: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[13, 14, 15, 16, 1, 18].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloads.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 4: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[19, 20, 7, 4, 23, 24].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zalozns.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 5: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[25, 2, 27, 28, 29, 30].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/miniapp.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 6: 6 logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[31, 3, 33, 34, 35, 6].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloaccout.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+            {/* Slide 7: a lot logos */}
+            <SwiperSlide>
+              <div className="grid grid-cols-3 gap-4">
+                {[8, 9, 10, 11, 12].map(index => (
+                  <div key={index} className="flex items-center justify-center">
+                    <img
+                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                      alt={`Khách hàng ${index}`}
+                      className="h-12 w-auto max-w-full object-contain"
+                      onError={(e) => {
+                        e.target.src = '/svg/logos/zaloaccout.jpg';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+          </Swiper>
+
+          {/*  Pagination dots*/}
+          <div className="custom-pagination-mobile mt-6 flex justify-center"></div>
         </div>
-      </SwiperSlide>
-    </Swiper>
-
-    {/* Pagination dots for desktop */}
-    <div className="custom-pagination-desktop mt-8 flex justify-center space-x-4">
-      <div className="swiper-pagination-desktop"></div>
-    </div>
-  </div>
-
-  {/* Mobile: Swiper layout */}
-  <div className="lg:hidden">
-    <Swiper
-      modules={[Pagination]}
-      spaceBetween={20}
-      slidesPerView={1}
-      pagination={{ clickable: true, el: '.custom-pagination-mobile' }} // 👈 dùng container ngoài
-      loop={true}
-      className="my-swiper"
-      breakpoints={{
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-      }}
-    >
-      {/* Slide 1: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/miniapp.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 2: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[7, 8, 9, 10, 11, 12].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zaloaccout.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 3: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[13, 14, 15, 16, 17, 18].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zaloads.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 4: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[19, 20, 21, 22, 23, 24].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zalozns.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 5: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[25, 26, 27, 28, 29, 30].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/miniapp.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 6: 6 logos */}
-      <SwiperSlide>
-        <div className="grid grid-cols-3 gap-4">
-          {[31, 32, 33, 34, 35, 36].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img 
-                src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`} 
-                alt={`Khách hàng ${index}`} 
-                className="h-12 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/svg/logos/zaloaccout.jpg';
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </SwiperSlide>
-    </Swiper>
-
-    {/*  Pagination dots*/}
-    <div className="custom-pagination-mobile mt-6 flex justify-center"></div>
-  </div>
-</section>
+      </section>
 
 
     </div>
