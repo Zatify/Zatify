@@ -98,7 +98,7 @@ const Contact = () => {
         {/* Contact form */}
           <div className=" flex h-[600px] 2xl:h-[650px] justify-center 2xl:min-w-[600px]">
             <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg 2xl:max-w-xl shadow-lg">
-              <h3 className="text-3xl md:text-4xl 2xl:text-5xl  leading-tight mb-4 font-roboto text-gray-900">Get in Touch</h3>
+              <h3 className="text-3xl md:text-4xl 2xl:text-5xl  leading-tight mb-4 font-roboto text-gray-900">Liên hệ ngay</h3>
               <form className="space-y-6">
                 <input
                   type="text"
