@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../partials/Header";
-
+import emailjs from 'emailjs-com';
 const bannerImg = "https://storage.googleapis.com/a1aa/image/0e692277-3ada-4b9d-e3e2-3761f213b7ca.jpg";
 
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: ""
+  });
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setSuccess(null);
+    try {
+      await emailjs.send(
+        "service_okgwq1i", // service id mới
+        "template_2sq72ne", // template id
+        {
+          user_name: form.name,
+          user_email: form.email,
+          subject: form.title,
+          message: form.message,
+        },
+        "0BR2t5qMTwNVu6YVL" // public key
+      );
+      setSuccess("Gửi thành công!");
+      setForm({ name: "", email: "", title: "", message: "" });
+    } catch (err) {
+      setSuccess("Gửi thất bại. Vui lòng thử lại.");
+    }
+    setSending(false);
+  };
+
   return (
     <div>
             {/* Hero Section */}
@@ -99,30 +136,46 @@ const Contact = () => {
           <div className=" flex h-[600px] 2xl:h-[650px] justify-center 2xl:min-w-[600px]">
             <div className="bg-white rounded-2xl p-8 md:p-10 w-full max-w-lg 2xl:max-w-xl shadow-lg">
               <h3 className="text-3xl md:text-4xl 2xl:text-5xl  leading-tight mb-4 font-roboto text-gray-900">Liên hệ ngay</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Họ tên"
+                  value={form.name}
+                  onChange={handleChange}
                   className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                  required
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  value={form.email}
+                  onChange={handleChange}
                   className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                  required
                 />
                 <input
                   type="text"
+                  name="title"
                   placeholder="Tiêu đề"
+                  value={form.title}
+                  onChange={handleChange}
                   className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                  required
                 />
                 <textarea
+                  name="message"
                   placeholder="Nội dung"
                   rows="4"
+                  value={form.message}
+                  onChange={handleChange}
                   className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 2xl:px-6 lg:py-4 2xl:text-lg"
+                  required
                 />
                 <div className="gradient-border rounded-md inline-block p-[1px]">
-                  <button className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
-                    Gửi mail ngay
+                  <button type="submit" disabled={sending} className="justify-center text-sm text-black bg-white rounded-[0.65rem] px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition flex items-center gap-1 w-[160px] h-[50px]">
+                    {sending ? "Đang gửi..." : "Gửi mail ngay"}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -135,6 +188,7 @@ const Contact = () => {
                     </svg>
                   </button>
                 </div>
+                {success && <div className="text-center text-green-600 font-semibold mt-2">{success}</div>}
               </form>
             </div>
           </div>
