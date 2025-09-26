@@ -12,11 +12,11 @@ import Projectsgrid from "./components/Projectsgrid";
 import BlogGrid from "./components/BlogGrid";
 import ProjectDetail from "./components/ProjectDetail";
 import ZaloMiniApp from "./components/ZaloMiniApp";
-import ZaloOfficialAccout from "./components/ZOA";
 import ZaloNotificationService from "./components/ZNS";
 import ZaloAds from "./components/ZaloAds";
 import ZaloOfficialAccount from "./components/ZOA";
 import FAQ from "./components/FAQ";
+import ViewBlog from "./components/ViewBlog";
 
 function App() {
   return (
@@ -33,11 +33,12 @@ function App() {
             <Route path="/pricing" element={<Pricingplans />} />
             <Route path="/project-grid" element={<Projectsgrid />} />
             <Route path="/blog-grid" element={<BlogGrid />} />
+            <Route path="/view-blog" element={<ViewBlog />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}
             <Route path="/zalo-mini-app" element={<ZaloMiniApp />} />
-            <Route path="/zalo-oficial-account" element={<ZaloOfficialAccount/>} />
-            <Route path="/zalo-notification-service" element={<ZaloNotificationService/>} />
+            <Route path="/zalo-oficial-account" element={<ZaloOfficialAccount />} />
+            <Route path="/zalo-notification-service" element={<ZaloNotificationService />} />
             <Route path="/zalo-ads" element={<ZaloAds />} />
             <Route path="/faq" element={<FAQ />} />
           </Route>

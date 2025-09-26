@@ -7,24 +7,48 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from 'react-router-dom';
 import { useMenu } from '../contexts/MenuContext'; // Thêm dòng này gần useNavigate
 
+
+const useAnimateOnScroll = () => {
+  const ref = useRef(null);
+  const [animate, setAnimate] = useState(false);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ref.current && !hasAnimated.current) {
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          setAnimate(true);
+          hasAnimated.current = true;
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return [ref, animate];
+};
+
 const HomePage = () => {
   // State để lưu index của thẻ details đang mở
   const [openDetail, setOpenDetail] = useState(null);
   const contentRefs = React.useRef([]); // Ref array for content divs
   const navigate = useNavigate();
   const { setActiveIndex } = useMenu(); // Thêm dòng này gần useNavigate
-  const h3Ref = useRef(null);
-  const [animateH3, setAnimateH3] = useState(false);
+
+
+
 
   // Thêm hiệu ứng cho heading "Ưu điểm của Zatify"
-  const h2Ref = useRef(null);
-  const [animateH2, setAnimateH2] = useState(false);
-  const h2Refcus = useRef(null);
-  const [animateH2cus, setAnimateH2cus] = useState(false);
+  const [h2Ref, animateH2] = useAnimateOnScroll();
+  const [h3Ref, animateH3] = useAnimateOnScroll();
+  const [h2Refcus, animateH2cus] = useAnimateOnScroll();
+  const [h2Refpart, animateH2part] = useAnimateOnScroll();
+  const [h2BlogRef, animateH2Blog] = useAnimateOnScroll();
 
-  // Thêm hiệu ứng cho heading "Khám phá các dự án tiêu biểu của Zatify"
-  const h2BlogRef = useRef(null);
-  const [animateH2Blog, setAnimateH2Blog] = useState(false);
 
   // Testimonial data
   const testimonials = [
@@ -107,36 +131,7 @@ const HomePage = () => {
     }
   }, [openDetail]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!h3Ref.current) return;
-      const rect = h3Ref.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 80) {
-        setAnimateH3(true);
-      }
-      if (h2Ref.current) {
-        const rect2 = h2Ref.current.getBoundingClientRect();
-        if (rect2.top < window.innerHeight - 80) {
-          setAnimateH2(true);
-        }
-      }
-      if (h2Refcus.current) {
-        const rect2 = h2Refcus.current.getBoundingClientRect();
-        if (rect2.top < window.innerHeight - 80) {
-          setAnimateH2cus(true);
-        }
-      }
-      if (h2BlogRef.current) {
-        const rectBlog = h2BlogRef.current.getBoundingClientRect();
-        if (rectBlog.top < window.innerHeight - 80) {
-          setAnimateH2Blog(true);
-        }
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
 
   // Animated counter for "250+"
   const [clientCount, setClientCount] = useState(0);
@@ -1035,16 +1030,16 @@ const HomePage = () => {
         {/* Mobile: Swiper layout */}
         <div className="lg:hidden">
           <Swiper
-                        modules={[Pagination, Autoplay]}
-                        spaceBetween={20}
-                        slidesPerView={1}
-                        pagination={{ clickable: true, el: ".custom-pagination-mobile" }}
-                        autoplay={{
-                            delay: 4000,
-                            disableOnInteraction: false,
-                        }}
-                        loop={true}
-                        className="my-swiper"
+            modules={[Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true, el: ".custom-pagination-mobile" }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="my-swiper"
           >
             {/* Slide 1: 6 logos */}
             <SwiperSlide>
@@ -1177,7 +1172,43 @@ const HomePage = () => {
         </div>
       </section>
 
-
+      {/* Partner of Zatify */}
+      <section className="relative flex-grow xl:max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <div className="max-w-[85rem] mx-auto xl:mb-24">
+          <h2
+            ref={h2Refpart}
+            className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex"
+            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+          >
+            {"Đối tác của Zatify".split('').map((char, idx) => (
+              <span
+                key={idx}
+                className={`inline-block transition-all duration-500 ease-out
+          ${animateH2part ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                style={{
+                  transitionDelay: `${idx * 50}ms`,
+                  display: 'inline-block',
+                  lineHeight: '1.2',
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h2>
+        </div>
+        <div className="grid grid-cols-4 gap-8 gap-x-20">
+          {[1, 2, 6, 4, 5, 3, 7, 8].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img
+                src={`/images/logodoitac/partner-${index < 10 ? '0' + index : index}.png`}
+                alt={`Đối tác ${index}`}
+                className="h-20 w-auto max-w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
 
     </div>
   );

@@ -893,7 +893,7 @@ const ZaloNotificationService = () => {
             ))}
           </h2>
         </div>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8 gap-x-20">
           {[1,2,6,4,5,3,7,8].map(index => (
             <div key={index} className="flex items-center justify-center">
               <img

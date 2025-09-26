@@ -488,7 +488,7 @@ const StickyHeader = () => {
               LIÊN HỆ
             </div>
             <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope flex items-center justify-center text-center">
-              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận Quận 7, TP.HCM
+              1015/32 đường Huỳnh Tấn Phát, phường Phú Thuận, TP.HCM
             </div>
             <div className="text-md 2xl:text-lg font-semibold leading-relaxed mb-4 font-manrope">
               0389 603 339<br />
