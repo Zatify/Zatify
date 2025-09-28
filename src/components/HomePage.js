@@ -173,7 +173,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative pt-56 px-2 sm:px-4 md:px-6 xl:px-6 pb-6 mx-auto w-full bg-gray-100 rounded-bl-3xl rounded-br-3xl">
         <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-40 rounded-bl-3xl rounded-br-3xl pointer-events-none" />
-        <div className="relative flex flex-col justify-center xl:flex-row md:flex-row sm:flex-col w-full">
+        <div className="relative flex flex-col justify-center xl:flex-row md:flex-row  w-full">
           {/* Left: Title */}
           <div className="2xl:w-[50%] xl:w-[65%] md:w-[50%] sm:w-full flex flex-col justify-start xl:justify-center md:justify-center sm:justify-start">
             <h1 className="text-5xl sm:text-6xl w-auto 2xl:text-8xl xl:text-8xl  leading-tight text-black mb-2 xl:mb-0 md:mb-1 sm:mb-2 md:ml-8 font-roboto font-light" style={{ lineHeight: 1.08 }}>
@@ -341,7 +341,7 @@ const HomePage = () => {
           <div className="flex flex-col flex-1 justify-center items-start w-full">
             <h3
               ref={h3Ref}
-              className="text-4xl sm:text-5xl md:text-7xl font-light font-roboto flex"
+              className="text-3xl  sm:text-4xl md:text-7xl font-light font-roboto flex"
               style={{
                 overflow: 'visible',
                 lineHeight: '1.2',
@@ -607,7 +607,7 @@ const HomePage = () => {
         {/* Heading với hiệu ứng từng ký tự */}
         <h2
           ref={h2Ref}
-          className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+          className="text-3xl   sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
           style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
         >
           {"Ưu điểm của Zatify".split('').map((char, idx) => (
@@ -634,7 +634,7 @@ const HomePage = () => {
 
           {/* Feature 1 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
-            <span className="material-icons-outlined text-indigo-500 text-4xl">integration_instructions</span>
+            <span className="material-icons-outlined text-indigo-500 text-3xl  ">integration_instructions</span>
             <h3 className="text-[20px] font-semibold font-manrope">Hệ sinh thái Zalo</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
               Tối ưu hóa tiềm năng kinh doanh từ hệ sinh thái hơn 100 triệu người dùng và hạ tầng công nghệ của Zalo.            </p>
@@ -642,7 +642,7 @@ const HomePage = () => {
 
           {/* Feature 2 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
-            <span className="material-icons-outlined text-indigo-500 text-4xl">grid_view</span>
+            <span className="material-icons-outlined text-indigo-500 text-3xl  ">grid_view</span>
             <h3 className="text-[20px] font-semibold font-manrope">Giải pháp toàn diện</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
               Thiết kế giải pháp công nghệ phù hợp với chiến lược kinh doanh của riêng bạn từ nền tảng sản phẩm đa dạng.
@@ -651,7 +651,7 @@ const HomePage = () => {
 
           {/* Feature 3 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
-            <span className="material-icons-outlined text-indigo-500 text-4xl">smart_display</span>
+            <span className="material-icons-outlined text-indigo-500 text-3xl  ">smart_display</span>
             <h3 className="text-[20px] font-semibold font-manrope">	Sẵn sàng hỗ trợ</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
               Triển khai nhanh chóng và vận hành hiệu quả với đội ngũ chăm sóc khách hàng chuyên nghiệp.            </p>
@@ -659,7 +659,7 @@ const HomePage = () => {
 
           {/* Feature 4 */}
           <article className="flex flex-col items-start space-y-4 max-w-xs">
-            <span className="material-icons-outlined text-indigo-500 text-4xl">shield</span>
+            <span className="material-icons-outlined text-indigo-500 text-3xl  ">shield</span>
             <h3 className="text-[20px] font-semibold font-manrope">Bảo mật thông tin</h3>
             <p className="text-gray-600 leading-relaxed font-manrope">
               Ứng dụng công nghệ hiện đại vào từng sản phẩm với tiêu chuẩn bảo mật cao.            </p>
@@ -678,7 +678,7 @@ const HomePage = () => {
               alt="Client Logo"
               className=" h-24 rounded-lg mb-4 object-cover"
             />
-            <div className="text-4xl text-white ">❝</div>
+            <div className="text-3xl   text-white ">❝</div>
             <p className="text-[18px] 0.5xl:text-2xl text-white leading-relaxed font-roboto">
               {testimonials[currentTestimonial].quote}
             </p>
@@ -718,7 +718,7 @@ const HomePage = () => {
           className="text-white p-10 md:w-[40%] rounded-3xl md:h-[650px] 2xl:h-[780px] h-[472px] flex flex-col justify-around"
           style={{ backgroundImage: "url('/svg/Testimonial.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-          <h2 className="0.5xl:text-6xl text-4xl leading-snug mb-8 font-roboto">
+          <h2 className="0.5xl:text-6xl text-3xl   leading-snug mb-8 font-roboto">
             Số lượng khách hàng lớn đã tin tưởng và sử dụng dich vụ của Zatify
           </h2>
           <div>
@@ -729,14 +729,14 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="  pt-32 pb-32 px-2 sm:px-4 md:px-6 xl:px-6 mx-6 0.5xl:mx-6 h-auto bg-gray-100 rounded-3xl rounded-br-3xl flex flex-col 0.5xl:flex-row justify-around items-start relative overflow-hidden">
+      <section className="md:py-32 py-16 px-2 sm:px-4 md:px-6 xl:px-6 mx-6 0.5xl:mx-6 h-auto bg-gray-100 rounded-3xl rounded-br-3xl flex flex-col 0.5xl:flex-row justify-around items-start relative overflow-hidden">
         {/* left section */}
         <div className="relative 0.5xl:left-10 h-[200px] 0.5xl:h-[650px] flex-[0.3] mb-20 0.5xl:mb-0 w-auto sm:w-auto pointer-events-none select-none z-0 flex items-center">
           <img src="/svg/elements-X.png" alt="Pattern X" className="h-full w-full opacity-90" />
         </div>
         {/* right section  */}
         <div className="relative max-w-4xl w-full h-full flex-[0.7]">
-          <h2 className="text-4xl 0.5xl:text-6xl font-light mb-10 font-roboto leading-tight">
+          <h2 className="text-3xl   0.5xl:text-6xl font-light mb-10 font-roboto leading-tight">
             Bạn thắc mắc, <br />
             tôi giải đáp
           </h2>
@@ -802,7 +802,7 @@ const HomePage = () => {
             <div className='w-full xl:w-[50%]'>
               <h2
                 ref={h2BlogRef}
-                className="mt-4 text-4xl sm:text-6xl font-roboto font-light leading-tight text-black flex flex-wrap"
+                className="mt-4 text-3xl  sm:text-6xl xl:text-7xl font-roboto font-light leading-tight text-black flex flex-wrap"
                 style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
               >
                 {"Khám phá các dự án tiêu biểu của Zatify".split(' ').map((word, wIdx, arr) => (
@@ -910,12 +910,12 @@ const HomePage = () => {
       </section>
 
       {/* Customer of Zatify */}
-      <section className="relative 0.5xl:mt-10 flex-grow xl:max-w-[90%] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+      <section className="relative xl:my-10 flex-grow xl:max-w-[90%] mx-auto px-6 sm:px-8 lg:px-12 py-2 sm:py-16">
         {/* Tiêu đề */}
         <div className="max-w-[80rem] mx-auto xl:mb-24">
           <h2
             ref={h2Refcus}
-            className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+            className="text-3xl  sm:text-6xl xl:text-7xl max-w-fullbg-o leading-tight mb-8 xl:mb-16 font-roboto text-gray-800 flex"
             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
             {"Khách hàng của Zatify".split('').map((char, idx) => (
@@ -1178,7 +1178,7 @@ const HomePage = () => {
         <div className="max-w-[85rem] mx-auto xl:mb-24">
           <h2
             ref={h2Refpart}
-            className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex"
+            className="text-3xl  sm:text-6xl xl:text-7xl max-w-full leading-tight mb-2 xl:mb-16 font-roboto text-gray-800 flex"
             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
             {"Đối tác của Zatify".split('').map((char, idx) => (
@@ -1198,7 +1198,7 @@ const HomePage = () => {
             ))}
           </h2>
         </div>
-        <div className="grid grid-cols-4 gap-8 gap-x-20">
+        <div className="grid grid-cols-4 gap-8 md:gap-x-20 gap-2">
           {[1, 2, 6, 4, 5, 3, 7, 8].map(index => (
             <div key={index} className="flex items-center justify-center">
               <img
