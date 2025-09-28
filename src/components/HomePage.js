@@ -283,10 +283,10 @@ const HomePage = () => {
       </section>
 
       {/* Explore Services Section */}
-      <section className="relative mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-white overflow-hidden">
-        <div className="absolute inset-0 w-[0%] 0.5xl:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
+      <section className="relative md:my-24 my-8 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-white overflow-hidden">
+        <div className="absolute inset-0 w-[0%] md:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
         {/* Pattern bên trái */}
-        <div className="absolute left-[-140px] top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 flex items-center">
+        <div className="absolute left-[-140px] hidden md:flex top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 items-center">
           <img src="/svg/elements-X.png" alt="Pattern X" className="h-full w-full opacity-90" />
         </div>
         {/* Nội dung chính */}
@@ -298,7 +298,7 @@ const HomePage = () => {
             </span>
           </h2>
           {/* Logos */}
-          <div className="hidden sm:flex flex-row items-center justify-center gap-12 mt-2 opacity-80">
+          <div className="hidden md:flex flex-row items-center justify-center gap-4 xl:gap-12 mt-2 opacity-80">
             {[
               { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
               { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
@@ -308,7 +308,7 @@ const HomePage = () => {
               <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-10" />
             ))}
           </div>
-          <div className="sm:hidden w-full">
+          <div className="md:hidden w-full">
             <div className="swiper-container-wrapper">
               <Swiper
                 modules={[Pagination]}
@@ -336,12 +336,12 @@ const HomePage = () => {
       </section>
 
       {/* Services Cards Section */}
-      <section className="mt-32 px-6 max-w-full mx-auto mb-20">
+      <section className="md:my-24 my-4 px-6 max-w-full mx-auto">
         <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start sm:items-center mb-6 mx-auto min-h-[120px]">
           <div className="flex flex-col flex-1 justify-center items-start w-full">
             <h3
               ref={h3Ref}
-              className="text-3xl 0.5xl:text-7xl font-light font-roboto flex"
+              className="text-4xl sm:text-5xl md:text-7xl font-light font-roboto flex"
               style={{
                 overflow: 'visible',
                 lineHeight: '1.2',
@@ -423,12 +423,12 @@ const HomePage = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between 0.5xl:h-[568px] h-[378px] 
+          <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between md:h-[568px] h-[378px] 
             w-full sm:w-[456px] ml-0 sm:ml-0">
             <div>
               <h4
                 style={{ textDecorationThickness: '2px' }}
-                className="text-white text-xl md:text-2xl xl:text-3xl hover:underline  underline-offset-8 font-semibold mt-8 mb-6"
+                className="text-white text-xl md:text-2xl xl:text-3xl hover:underline  underline-offset-8 font-semibold md:mt-8 mt-2 mb-6"
                 onClick={() => {
                   setActiveIndex(2);
                   window.scrollTo(0, 0);
@@ -456,7 +456,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* Replace globe SVG with dotted circles and 3 X letters */}
-            <svg className="absolute bottom-0 left-2 w-full h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="hidden md:block absolute bottom-0 left-2 w-full h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.6" fill="#FFFFFF">
                 {[
                   6, 8, 10, 12, 12, 12, 12, 12, 12, 10, 8, 6
@@ -482,15 +482,16 @@ const HomePage = () => {
                 href="/svg/3x.png"
                 x="-80"
                 y="52"
-                width="240"
-                height="100"
+                className="w-[240px] h-[100px]"
               />
             </svg>
           </div>
 
           {/* Card 3 */}
-          <div className="md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col h-[568px] 
-            w-full sm:w-[456px] ml-0 sm:ml-0"
+          <div
+            className={`md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col
+    ${window.innerWidth < 768 ? 'h-[378px]' : 'h-[568px]'}
+    w-full sm:w-[456px] ml-0 sm:ml-0`}
             onClick={() => {
               setActiveIndex(2);
               window.scrollTo(0, 0);
@@ -510,7 +511,7 @@ const HomePage = () => {
             style={{ outline: 'none' }}
           >
             {/* Top part */}
-            <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3] flex items-center justify-center">
+            <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.4] flex items-center justify-center sm:flex-[0.3]">
               <h4
                 style={{ textDecorationThickness: '2px' }}
                 className=" text-black text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mb-2 mt-6 absolute left-20 top-4 -translate-x-1/2"
@@ -528,10 +529,8 @@ const HomePage = () => {
               <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
                 {/* Circle div top-right */}
                 <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
                 {/* Circle div bottom-left */}
                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
                 <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e => {
                   e.stopPropagation();
                   setActiveIndex(2);
@@ -545,13 +544,22 @@ const HomePage = () => {
               </div>
             </div>
             {/* Bottom part */}
-            <div className=" rounded-3xl p-6 flex flex-col justify-between flex-[0.7] relative text-white">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-80 rounded-bl-3xl rounded-3xl pointer-events-none"></div>
-
+            <div className="rounded-3xl p-6 flex flex-col justify-between flex-[0.6] sm:flex-[0.7] relative text-white">
+              <div className="absolute inset-0 rounded-bl-3xl rounded-3xl pointer-events-none overflow-hidden">
+                {/* Gradient background */}
+                <div className="w-full h-full bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-80 absolute inset-0"></div>
+                {/* Image inside gradient */}
+                <img
+                  src="https://www.prulifeuk.com.ph/export/sites/prudential-ph/en/.galleries/images/communication-care-366x206.jpg"
+                  alt="Background"
+                  className="w-full h-full object-cover opacity-50"
+                  style={{ mixBlendMode: 'multiply' }} // Nếu muốn hiệu ứng blend với gradient
+                />
+              </div>
               <div className="relative z-10">
                 <h4
                   style={{ textDecorationThickness: '2px' }}
-                  className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mt-8 mb-6"
+                  className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold md:mt-8 mt-2 mb-6"
                   onClick={() => {
                     setActiveIndex(2);
                     window.scrollTo(0, 0);
@@ -564,10 +572,8 @@ const HomePage = () => {
               <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
                 {/* Circle div top-right */}
                 <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
                 {/* Circle div bottom-left */}
                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
                 <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
                   setActiveIndex(2);
                   window.scrollTo(0, 0);
@@ -579,11 +585,6 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <img
-              src="https://www.prulifeuk.com.ph/export/sites/prudential-ph/en/.galleries/images/communication-care-366x206.jpg"
-              alt="Background"
-              className="absolute bottom-[0px] w-full h-[367px] object-cover rounded-3xl -z-10"
-            />
           </div>
         </div>
       </section>

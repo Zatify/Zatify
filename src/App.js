@@ -17,6 +17,8 @@ import ZaloAds from "./components/ZaloAds";
 import ZaloOfficialAccount from "./components/ZOA";
 import FAQ from "./components/FAQ";
 import ViewBlog from "./components/ViewBlog";
+import Bai1 from "./components/Blog/Bai1";
+import Bai2 from "./components/Blog/Bai2";
 
 function App() {
   return (
@@ -33,7 +35,10 @@ function App() {
             <Route path="/pricing" element={<Pricingplans />} />
             <Route path="/project-grid" element={<Projectsgrid />} />
             <Route path="/blog-grid" element={<BlogGrid />} />
-            <Route path="/view-blog" element={<ViewBlog />} />
+            <Route path="/view-blog" element={<ViewBlog />}>
+              <Route path="bai1" element={<Bai1 />} />
+              <Route path="bai2" element={<Bai2 />} />
+            </Route>
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}
             <Route path="/zalo-mini-app" element={<ZaloMiniApp />} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const blogCards = [
     {
@@ -145,6 +146,7 @@ const blogCards = [
 ];
 
 const BlogGrid = () => {
+    const navigate = useNavigate();
     const [page, setPage] = React.useState(1);
     const cardsPerPage = 9;
     const totalPages = Math.ceil(blogCards.length / cardsPerPage);
@@ -235,7 +237,11 @@ const BlogGrid = () => {
                         {showCards.map((card, idx) => {
 
                             return (
-                                <div key={idx} className="bg-white rounded-3xl shadow-md overflow-hidden w-full flex flex-col relative group min-h-[450px]">
+                                <div
+                                    key={idx}
+                                    className="bg-white rounded-3xl shadow-md overflow-hidden w-full flex flex-col relative group min-h-[450px] cursor-pointer"
+                                    onClick={() => navigate(`/view-blog/bai${card.id}`)} // Thêm dòng này
+                                >
                                     <div className="relative w-full flex-[0.65] overflow-hidden rounded-3xl">
                                         <img
                                             src={card.img}
