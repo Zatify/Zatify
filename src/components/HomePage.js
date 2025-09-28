@@ -5,7 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from 'react-router-dom';
-import { useMenu } from '../contexts/MenuContext'; // Thêm dòng này gần useNavigate
+import { useMenu } from '../contexts/MenuContext';
+import { blogCards } from './BlogGrid'; // Thêm import blogCards từ BlogGrid.js
 
 
 const useAnimateOnScroll = () => {
@@ -108,6 +109,12 @@ const HomePage = () => {
       answer: "Không, ZNS chỉ được gửi đến nhóm khách hàng có sử dụng Zalo.",
     },
   ];
+
+  const handleClick = () => {
+    setActiveIndex(4);
+    navigate("/blog-grid");
+    window.scrollTo(0, 0);
+  };
 
   // Helper to get content height
   const getContentHeight = idx => {
@@ -729,9 +736,9 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="md:py-32 py-16 px-2 sm:px-4 md:px-6 xl:px-6 mx-6 0.5xl:mx-6 h-auto bg-gray-100 rounded-3xl rounded-br-3xl flex flex-col 0.5xl:flex-row justify-around items-start relative overflow-hidden">
+      <section className="md:py-28 py-16 px-2 sm:px-4 md:pr-6 xl:pr-6 mx-6 xl:mx-6 h-auto bg-gray-100 rounded-3xl rounded-br-3xl flex flex-col xl:flex-row justify-around items-start relative overflow-hidden">
         {/* left section */}
-        <div className="relative 0.5xl:left-10 h-[200px] 0.5xl:h-[650px] flex-[0.3] mb-20 0.5xl:mb-0 w-auto sm:w-auto pointer-events-none select-none z-0 flex items-center">
+        <div className="relative h-[200px] xl:h-[650px] flex-[0.3] mb-20 xl:mb-0 w-auto sm:w-auto pointer-events-none select-none z-0 flex items-center">
           <img src="/svg/elements-X.png" alt="Pattern X" className="h-full w-full opacity-90" />
         </div>
         {/* right section  */}
@@ -798,40 +805,39 @@ const HomePage = () => {
       {/* Blog Section */}
       <section className="w-full flex flex-col items-center mt-32 mb-24">
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
-          <div className="flex flex-col px-4 xl:px-2 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
-            <div className='w-full xl:w-[60%]'>
+          <div className="flex flex-col gap-y-4 sm:gap-y-8 px-4 xl:px-2 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
+            <div className='w-full xl:w-[80%]'>
               <h2
                 ref={h2BlogRef}
-                className="mt-4 text-3xl  sm:text-6xl xl:text-7xl font-roboto font-light leading-tight text-black flex flex-wrap"
+                className="text-3xl  sm:text-6xl xl:text-7xl leading-[1.1] font-roboto md:pl-0 max-w-[100%] "
                 style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
               >
-                {"Khám phá các dự án tiêu biểu của Zatify".split(' ').map((word, wIdx, arr) => (
-                  <span key={wIdx} className="mr-2">
-                    {word.split('').map((char, idx) => (
+                {"Các bài viết tiêu biểu của Zatify".split(' ').map((word, wordIndex) => (
+                  <span key={wordIndex} style={{ display: 'inline-block' }}>
+                    {word.split('').map((char, charIndex) => (
                       <span
-                        key={wIdx + '-' + idx}
+                        key={charIndex}
                         className={`inline-block transition-all duration-500 ease-out
-                          ${animateH2Blog
-                            ? 'opacity-100 translate-y-0'
-                            : 'opacity-0 translate-y-8'}
-                        `}
+          ${animateH2Blog ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
                         style={{
-                          transitionDelay: `${(wIdx * word.length + idx) * 18}ms`, // delay đều hơn, không bị khựng
-                          display: 'inline-block',
-                          lineHeight: '1.2',
+                          transitionDelay: `${(wordIndex * 150) + (charIndex * 50)}ms`,
+                          lineHeight: '1.2'
                         }}
                       >
                         {char}
                       </span>
                     ))}
-                    {wIdx < arr.length - 1 ? <span>&nbsp;</span> : null}
+                    {wordIndex < "Các dự án tiêu biểu của Zatify".split(' ').length - 1 && '\u00A0'}
                   </span>
                 ))}
               </h2>
             </div>
             <div className="rounded-md inline-block p-[1px]">
-              <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
-                Các dự án khác<span className="ml-1">→</span>
+              <button
+                onClick={handleClick}
+                className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white">
+                Các bài viết khác<span className="ml-1">→</span>
               </button>
             </div>
           </div>
@@ -840,8 +846,8 @@ const HomePage = () => {
             <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
-                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/autodrive-autonomous-vehicle-navigation-fi-640x478.jpg"
-                  alt="AI Blog 1"
+                  src={blogCards[0].img}
+                  alt={blogCards[0].title}
                   className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
                   style={{ willChange: 'transform' }}
                 />
@@ -849,22 +855,24 @@ const HomePage = () => {
                 <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
                   <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
                   <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
-                    2 Jan 2025 / andrew
+                    {blogCards[0].date}
                   </div>
                   <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How can I get started with Artificial Intelligence for my business?</h3>
-                <div className="text-xs text-gray-400 mt-auto">/ AI Aiero / Technology /</div>
+                <h3 className="text-[22px] line-clamp-3 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">
+                  {blogCards[0].title}
+                </h3>
+                <div className="text-xs text-gray-400 mt-auto line-clamp-2">{blogCards[0].desc}</div>
               </div>
             </div>
             {/* Blog Card 2 */}
             <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
-                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/robot-1-min-640x478.jpg"
-                  alt="AI Blog 2"
+                  src={blogCards[1].img}
+                  alt={blogCards[1].title}
                   className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
                   style={{ willChange: 'transform' }}
                 />
@@ -872,22 +880,24 @@ const HomePage = () => {
                 <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
                   <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
                   <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
-                    25 Dec 2024 / andrew
+                    {blogCards[1].date}
                   </div>
                   <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">AI and Robotics: Advancing Automation and Human-Robot Collaboration</h3>
-                <div className="text-xs text-gray-400 mt-auto">/ AI / Neural Networks /</div>
+                <h3 className="text-[22px] line-clamp-3 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">
+                  {blogCards[1].title}
+                </h3>
+                <div className="text-xs text-gray-400 mt-auto line-clamp-2">{blogCards[1].desc}</div>
               </div>
             </div>
             {/* Blog Card 3 */}
             <div className="bg-white rounded-3xl shadow-md overflow-hidden w-full h-auto flex flex-col relative group">
               <div className="relative w-full flex-[0.55] overflow-hidden rounded-3xl">
                 <img
-                  src="https://8ded8880.delivery.rocketcdn.me/themes/aiero/wp-content/uploads/2024/12/is-artificial-intelligence-accessible-640x478.jpg"
-                  alt="AI Blog 3"
+                  src={blogCards[2].img}
+                  alt={blogCards[2].title}
                   className="w-full h-full object-cover rounded-3xl transition-transform duration-300 group-hover:scale-105"
                   style={{ willChange: 'transform' }}
                 />
@@ -895,14 +905,16 @@ const HomePage = () => {
                 <div className="absolute left-1/3 bottom-0 -translate-x-1/2 flex items-end z-20">
                   <div className="relative w-8 h-8 left-1 top-1.5 bg-white mask-rounded-hole-testimonial-left"></div>
                   <div className="text-xs text-gray-500 w-40 h-12 flex justify-center items-center bg-white rounded-t-3xl z-50">
-                    25 Dec 2024 / andrew
+                    {blogCards[2].date}
                   </div>
                   <div className="relative w-8 h-8 right-[1px] top-1.5 bg-white mask-rounded-hole-testimonial-right"></div>
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-[0.45] ml-2 0.5xl:ml-4">
-                <h3 className="text-[22px] 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">How Natural Language Processing is revolutionizing Text Analysis</h3>
-                <div className="text-xs text-gray-400 mt-auto">/ AI Services / AI Solutions /</div>
+                <h3 className="text-[22px] line-clamp-3 0.5xl:text-[25px] mb-3 text-gray-900 font-roboto">
+                  {blogCards[2].title}
+                </h3>
+                <div className="text-xs text-gray-400 mt-auto line-clamp-2">{blogCards[2].desc}</div>
               </div>
             </div>
           </div>

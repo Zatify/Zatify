@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const blogCards = [
+export const blogCards = [
     {
         id: 1,
         img: "/svg/bloggrid/card1.jpg",
