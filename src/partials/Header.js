@@ -231,9 +231,15 @@ const Header = () => {
 
         {/* Nút search + login - Ẩn khi nhỏ hơn 1280px */}
         <div className="hidden 0.5xl:flex items-center space-x-6">
-          <button className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50 ">
-            Đăng nhập
-          </button>
+<div className="hidden 0.5xl:flex items-center space-x-6">
+  <button
+    onClick={() => window.open("https://app.zatify.com.vn/login", "_blank")}
+    className="px-10 py-2 rounded-full border border-cyan-400 text-cyan-600 font-semibold hover:bg-cyan-50"
+  >
+    Đăng nhập
+  </button>
+</div>
+
         </div>
 
         {/* Nút menu hamburger */}

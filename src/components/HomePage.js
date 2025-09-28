@@ -799,7 +799,7 @@ const HomePage = () => {
       <section className="w-full flex flex-col items-center mt-32 mb-24">
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
           <div className="flex flex-col px-4 xl:px-2 0.5xl:flex-row 0.5xl:justify-between ml-6 0.5xl:ml-0 justify-start items-start 0.5xl:items-center w-full mb-12">
-            <div className='w-full xl:w-[50%]'>
+            <div className='w-full xl:w-[60%]'>
               <h2
                 ref={h2BlogRef}
                 className="mt-4 text-3xl  sm:text-6xl xl:text-7xl font-roboto font-light leading-tight text-black flex flex-wrap"
