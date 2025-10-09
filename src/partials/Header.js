@@ -21,7 +21,15 @@ const menuItems = [
       { label: 'Zalo Mini App', path: '/zalo-mini-app' }
     ]
   },
-  { label: 'BẢNG GIÁ', path: '/pricing' },
+  { label: 'BẢNG GIÁ',
+   dropdown: [
+      { label: 'BẢNG GIÁ', path: '/pricing' },
+  { label: 'Công thức tính mẫu ZNS', path: '/pricing#zns-formula' },
+  { label: 'Ước tính đơn giá ZNS', path: '/pricing#zns-estimate' },
+      { label: 'Bảng Giá OA', path: '/pricing#pricing-oa' },
+      { label: 'Phí Dịch Vụ',path:'/pricing#phidichvu' }
+    ]
+  },
   {
     label: 'TIN TỨC',
     dropdown: [
@@ -181,8 +189,21 @@ const Header = () => {
                           e.preventDefault();
                           setActiveIndex(idx); // set index cha
                           setOpenDropdownIdx(null);
-                          navigate(sub.path);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                          if (sub.path && sub.path.includes('#')) {
+                            const [pathname, hash] = sub.path.split('#');
+                            navigate(pathname || '/');
+                            // scroll after navigation; small delay ensures element exists
+                            setTimeout(() => {
+                              const el = document.getElementById(hash);
+                              if (el) {
+                                const y = window.pageYOffset + el.getBoundingClientRect().top - 120; // offset 40px
+                                window.scrollTo({ top: y, behavior: 'smooth' });
+                              }
+                            }, 150);
+                          } else {
+                            navigate(sub.path);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }
                         }}
                       >
                         {sub.label}
@@ -357,7 +378,19 @@ const Header = () => {
                                                     setActiveIndex(idx); // set index cha
                                                     setSidebarOpen(false);
                                                     setSidebarDropdownIdx(null);
-                                                    navigate(sub.path);
+                                                    if (sub.path && sub.path.includes('#')) {
+                                                      const [pathname, hash] = sub.path.split('#');
+                                                      navigate(pathname || '/');
+                                                      setTimeout(() => {
+                                                        const el = document.getElementById(hash);
+                                                        if (el) {
+                                                          const y = window.pageYOffset + el.getBoundingClientRect().top - 120; // offset 40px
+                                                          window.scrollTo({ top: y, behavior: 'smooth' });
+                                                        }
+                                                      }, 150);
+                                                    } else {
+                                                      navigate(sub.path);
+                                                    }
                                                 }}
                                             >
                                                 {sub.label}

@@ -334,7 +334,9 @@ const Pricingplans = () => {
       </div>
     )}
     {/* Price Section  */}
-   <section className="relative 0.5xl:mt-20 flex-row max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+   <section
+   id="pricing-oa"
+   className="relative 0.5xl:mt-20 flex-row max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
       <h2 className="text-3xl sm:text-7xl w-full 0.5xl:w-[55%] leading-tight mb-16 font-roboto text-gray-800">
         Bảng giá dịch vụ OA
       </h2>
