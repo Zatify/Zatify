@@ -21,7 +21,7 @@ const Bai2 = () => {
         }, 150);
     };
     return (
-        <main className="mt-40 max-w-[85rem] mx-auto px-4">
+        <main className="mt-40 max-w-[75rem] mx-auto px-4">
             {/* Tiêu đề và ảnh bên phải */}
             <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
                 <div className="flex-1 my-auto">
@@ -63,7 +63,7 @@ const Bai2 = () => {
                 <img
                     src="/svg/bloggrid/baiviet/image2_1.jpg"
                     alt="Zalo OA minh họa"
-                    className="rounded-lg shadow max-w-full"
+                    className=" shadow max-w-full"
                 />
             </div>
             {/* Bảng giá và tính năng */}

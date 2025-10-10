@@ -19,6 +19,8 @@ import FAQ from "./components/FAQ";
 import ViewBlog from "./components/ViewBlog";
 import Bai1 from "./components/Blog/Bai1";
 import Bai2 from "./components/Blog/Bai2";
+import Bai3 from "./components/Blog/Bai3";
+import Bai4 from "./components/Blog/Bai4";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path="/view-blog" element={<ViewBlog />}>
               <Route path="blog_1" element={<Bai1 />} />
               <Route path="blog_2" element={<Bai2 />} />
+              <Route path="blog_3" element={<Bai3 />} />
+              <Route path="blog_4" element={<Bai4 />} />
             </Route>
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}

@@ -63,6 +63,18 @@ const Header = () => {
                 }
             }
         });
+        // Nếu là trang tin tức/blog thì active tab TIN TỨC
+        if (
+            pathname.startsWith('/tin-tuc') ||
+            pathname.startsWith('/blog-grid') ||
+            pathname.startsWith('/view-blog') ||
+            pathname.startsWith('/blog_')
+        ) {
+            const newsIdx = menuItems.findIndex(item =>
+                item.label.toUpperCase().includes('TIN TỨC')
+            );
+            if (newsIdx !== -1) foundIdx = newsIdx;
+        }
         if (foundIdx !== null) setActiveIndex(foundIdx);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
