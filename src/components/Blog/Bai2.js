@@ -10,12 +10,12 @@ const Bai2 = () => {
         e.preventDefault();
         setActiveIndex(3);
         const pathname = '/pricing';
-        const hash = 'pricing-oa';
+        const hash = 'zns-estimate';
         navigate(pathname);
         setTimeout(() => {
             const el = document.getElementById(hash);
             if (el) {
-                const y = window.pageYOffset + el.getBoundingClientRect().top - 120;
+                const y = window.pageYOffset + el.getBoundingClientRect().top - 40;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
         }, 150);
@@ -61,14 +61,14 @@ const Bai2 = () => {
             {/* Ảnh minh họa bên dưới */}
             <div className="flex justify-center mb-8">
                 <img
-                    src="/svg/bloggrid/bai1/image1.jpg"
+                    src="/svg/bloggrid/baiviet/image2_1.jpg"
                     alt="Zalo OA minh họa"
                     className="rounded-lg shadow max-w-full"
                 />
             </div>
             {/* Bảng giá và tính năng */}
             <div className="prose font-manrope max-w-none space-y-4">
-                <h2 className='font-bold text-xl'>Các gói dịch vụ dành cho OA xác thực</h2>
+                <h2 className='font-bold text-2xl'>Các gói dịch vụ dành cho OA xác thực</h2>
                 <p>
                     <strong>Gói miễn phí</strong> Bất kỳ Doanh nghiệp, Thương hiệu, Hộ kinh doanh muốn tạo tài khoản OA xác thực để trải nghiệm các tính năng, dịch vụ cơ bản của Zalo OA.
                 </p>
@@ -82,16 +82,58 @@ const Bai2 = () => {
                 </ul>
                 <p>Nhằm mang lại nhiều giá trị, đảm bảo lợi ích và trải nghiệm cho doanh nghiệp và khách hàng của doanh nghiệp, từ ngày <strong>20/06/2023, chính sách dịch vụ tài khoản Zalo OA Doanh nghiệp</strong> sẽ có những thay đổi chính như sau:</p>
                 <img
-                    src="/svg/bloggrid/bai1/image2.jpg"
+                    src="/svg/bloggrid/baiviet/image2_2.jpg"
                     alt="Bảng giá OA xác thực"
                     className="max-w-full"
                 />
+                <p>Để đảm bảo hiệu quả gửi thông báo và tính chính thống của doanh nghiệp trên Zalo, nội dung ZNS được kiểm duyệt chặt chẽ.</p>
+                <h2 className='font-bold text-2xl'>4 ưu điểm của ZNS dành cho doanh nghiệp</h2>
+                <h3 className='font-bold text-lg'>1. Tiếp cận tệp khách hàng rộng khắp Việt Nam</h3>
                 <p>
-                    Chi tiết quyền lợi vui lòng tham khảo <strong>Bảng giá tại <a
-                        className='text-purple-800 underline'
-                        href="/pricing#pricing-oa"
+                    Zalo hiện tại là một trong những ứng dụng giao tiếp trực tuyến nội địa phổ biến nhất Việt Nam. Với lợi thế của một sản phẩm trực thuộc Zalo,
+                    ZNS cho phép các doanh nghiệp tiếp cận dễ dàng đến tệp khách hàng rộng lớn và trải dài khắp cả nước.
+                </p>
+                <h3 className='font-bold text-lg'>2. Nội dung thông báo đa dạng và được cá nhân hóa</h3>
+                <p>
+                    Với số lượng ký tự giới hạn cho mỗi thông báo lên đến 400 ký tự có dấu, thông báo được gửi qua ZNS sẽ được thiết kế trọn vẹn và có thể truyền tải chính xác nội dung đến khách hàng.
+                    Mẫu ZNS có thể đính kèm nhiều tiện ích như đường dẫn truy cập và gọi điện nhanh, giúp doanh nghiệp tối ưu hiệu quả của thông báo. Bên cạnh đó,
+                    thông qua kênh ZNS doanh nghiệp có thể dễ dàng tăng độ nhận diện thương hiệu của mình với khả năng đính kèm logo thương hiệu trong các ZNS gửi đến khách hàng.
+                </p>
+                <h3 className='font-bold text-lg'>3. Chi phí tối ưu, minh bạch</h3>
+                <p>
+                    Khi sử dụng ZNS, doanh nghiệp chỉ phải thanh toán cho những lệnh ZNS được xử lý thành công, dựa theo báo cáo kết quả xử lý chi tiết.
+                    Đây chính là ưu điểm nổi trội giúp việc sử dụng ZNS có chi phí được tối ưu hóa.
+                </p>
+                <h3 className='font-bold text-lg'>4. Đo lường hiệu quả</h3>
+                <img
+                    src="/svg/bloggrid/baiviet/image2_3.jpg"
+                    alt="Bảng giá OA xác thực"
+                    className="w-full h-auto"
+                />
+                <p>
+                    Hệ thống báo cáo của ZNS giúp ghi nhận kết quả của tất cả hoạt động xử lý lệnh ZNS đã thực hiện.
+                    Doanh nghiệp luôn có thể theo dõi kết quả các lệnh đã tạo, trạng thái đã nhận từ phía khách hàng và lý do xử lý không thành công (nếu có)
+                    của từng lệnh ZNS. Các kết quả này cung cấp nguồn số liệu quan trọng để đo lường hiệu quả của hoạt động CSKH.
+                </p>
+                <p>
+                    Bên cạnh đó, các báo cáo có thể được truy xuất chính xác theo từng mốc thời gian giúp đáp ứng nhu cầu báo cáo nội bộ của từng doanh nghiệp.
+                </p>
+                <h2 className='font-bold text-2xl'>Chi phí của dịch vụ ZNS</h2>
+                <p>Công thức tính giá ZNS</p>
+                <img
+                    src="/svg/bloggrid/baiviet/image2_4.jpg"
+                    alt="Bảng giá OA xác thực"
+                    className="w-full h-auto"
+                />
+                <p>
+                    Với nhóm tài khoản OA Hành chính công và Tiện ích thiết yếu (điện, nước, internet,…), đơn giá chuẩn của ZNS dạng văn bản và dạng bảng có giá là 120đ/tin.
+                </p>
+                <p>
+                    Bạn có thể xem thêm về quy định tính phí ZNS tại:  <a
+                        className='text-blue-700 '
+                        href="/pricing#zns-estimate"
                         onClick={handleBangGiaClick}
-                    >đây</a>.</strong>
+                    >TẠI ĐÂY</a>.
                 </p>
                 <p>
                     <strong>Lưu ý:</strong> Zalo Notification Service (ZNS) là dịch vụ gửi thông báo chăm sóc khách hàng qua API tới số điện thoại đang sử dụng Zalo. Vì vậy, doanh nghiệp cần mua gói OA để tích hợp API và tiến hành gửi ZNS.

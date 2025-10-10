@@ -8,7 +8,7 @@ const Bai1 = () => {
 
     const handleBangGiaClick = (e) => {
         e.preventDefault();
-        setActiveIndex(3); 
+        setActiveIndex(3);
         const pathname = '/pricing';
         const hash = 'pricing-oa';
         navigate(pathname);
@@ -57,7 +57,7 @@ const Bai1 = () => {
             {/* Ảnh minh họa bên dưới */}
             <div className="flex justify-center mb-8">
                 <img
-                    src="/svg/bloggrid/bai1/image1.jpg"
+                    src="/svg/bloggrid/baiviet/image1_1.jpg"
                     alt="Zalo OA minh họa"
                     className="rounded-lg shadow max-w-full"
                 />
@@ -78,7 +78,7 @@ const Bai1 = () => {
                 </ul>
                 <p>Nhằm mang lại nhiều giá trị, đảm bảo lợi ích và trải nghiệm cho doanh nghiệp và khách hàng của doanh nghiệp, từ ngày <strong>20/06/2023, chính sách dịch vụ tài khoản Zalo OA Doanh nghiệp</strong> sẽ có những thay đổi chính như sau:</p>
                 <img
-                    src="/svg/bloggrid/bai1/image2.jpg"
+                    src="/svg/bloggrid/baiviet/image1_2.jpg"
                     alt="Bảng giá OA xác thực"
                     className="max-w-full"
                 />

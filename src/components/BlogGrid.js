@@ -240,7 +240,7 @@ const BlogGrid = () => {
                                 <div
                                     key={idx}
                                     className="bg-white rounded-3xl shadow-md overflow-hidden w-full flex flex-col relative group min-h-[450px] cursor-pointer"
-                                    onClick={() => navigate(`/view-blog/bai${card.id}`)} // Thêm dòng này
+                                    onClick={() => navigate(`/view-blog/blog_${card.id}`)} // Thêm dòng này
                                 >
                                     <div className="relative w-full flex-[0.65] overflow-hidden rounded-3xl">
                                         <img

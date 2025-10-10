@@ -36,8 +36,8 @@ function App() {
             <Route path="/project-grid" element={<Projectsgrid />} />
             <Route path="/blog-grid" element={<BlogGrid />} />
             <Route path="/view-blog" element={<ViewBlog />}>
-              <Route path="bai1" element={<Bai1 />} />
-              <Route path="bai2" element={<Bai2 />} />
+              <Route path="blog_1" element={<Bai1 />} />
+              <Route path="blog_2" element={<Bai2 />} />
             </Route>
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}

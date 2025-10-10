@@ -417,7 +417,9 @@ const Pricingplans = () => {
 </section>
 
     {/* Ước tính đơn giá mẫu ZNS */}
-    <section className="w-full">
+    <section 
+    id="zns-estimate"
+    className="w-full">
       <div className="w-full min-h-[600px] bg-gradient-to-br from-white via-white to-purple-50 py-12 px-2 sm:px-8 flex flex-col items-center mt-20">
         
         {/* Tiêu đề */}
