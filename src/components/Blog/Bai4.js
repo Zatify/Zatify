@@ -1,25 +1,7 @@
-import react from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useMenu } from '../../contexts/MenuContext';
+
 
 const Bai4 = () => {
-    const navigate = useNavigate();
-    const { setActiveIndex } = useMenu();
 
-    const handleBangGiaClick = (e) => {
-        e.preventDefault();
-        setActiveIndex(3);
-        const pathname = '/pricing';
-        const hash = 'pricing-oa';
-        navigate(pathname);
-        setTimeout(() => {
-            const el = document.getElementById(hash);
-            if (el) {
-                const y = window.pageYOffset + el.getBoundingClientRect().top - 120;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        }, 150);
-    };
     return (
         <main className="mt-40 max-w-[75rem] mx-auto px-4">
             {/* Tiêu đề và ảnh bên phải */}
@@ -57,7 +39,7 @@ const Bai4 = () => {
 
             <div className="flex justify-center mb-8">
                 <img
-                    src="/svg/bloggrid/baiviet/image4_1.jpg"
+                    src="/svg/bloggrid/baiviet/image4_1.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />
@@ -71,7 +53,7 @@ const Bai4 = () => {
                     sản phẩm, ngày giờ đã nhận hàng,...
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image4_2.jpg"
+                    src="/svg/bloggrid/baiviet/image4_2.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />
@@ -83,7 +65,7 @@ const Bai4 = () => {
                     tiết về các bước tiếp theo cần phải thực hiện nếu có.
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image4_3.jpg"
+                    src="/svg/bloggrid/baiviet/image4_3.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />
@@ -96,7 +78,7 @@ const Bai4 = () => {
                     từ đó gia tăng sự kích thích, thúc đẩy sự quan tâm và tăng cường tương tác của khách hàng với thương hiệu.
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image4_4.jpg"
+                    src="/svg/bloggrid/baiviet/image4_4.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />
@@ -108,7 +90,7 @@ const Bai4 = () => {
                     sử dụng điểm để nhận các ưu đãi đặc biệt,...
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image4_5.jpg"
+                    src="/svg/bloggrid/baiviet/image4_5.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />

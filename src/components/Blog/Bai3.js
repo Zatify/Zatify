@@ -48,7 +48,7 @@ const Bai3 = () => {
                     đến máy của người dùng qua ứng dụng Zalo và hiển thị tại danh sách hội thoại với tỷ lệ mở thông báo cao.
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image3_1.jpg"
+                    src="/svg/bloggrid/baiviet/image3_1.webp"
                     alt="Bảng giá OA xác thực"
                     className="md:w-[60%] w-[75%] h-auto mx-auto"
                 />
@@ -59,7 +59,7 @@ const Bai3 = () => {
                     thông báo với các nút call-to-action (CTA) tùy biến ở từng mẫu ZNS.
                 </p>
                 <img
-                    src="/svg/bloggrid/baiviet/image3_2.jpg"
+                    src="/svg/bloggrid/baiviet/image3_2.webp"
                     alt="Bảng giá OA xác thực"
                     className="md:w-[70%] w-[80%] mx-auto h-auto"
                 />

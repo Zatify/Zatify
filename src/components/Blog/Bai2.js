@@ -61,7 +61,7 @@ const Bai2 = () => {
             {/* Ảnh minh họa bên dưới */}
             <div className="flex justify-center mb-8">
                 <img
-                    src="/svg/bloggrid/baiviet/image2_1.jpg"
+                    src="/svg/bloggrid/baiviet/image2_1.webp"
                     alt="Zalo OA minh họa"
                     className=" shadow max-w-full"
                 />
@@ -82,7 +82,7 @@ const Bai2 = () => {
                 </ul>
                 <p>Nhằm mang lại nhiều giá trị, đảm bảo lợi ích và trải nghiệm cho doanh nghiệp và khách hàng của doanh nghiệp, từ ngày <strong>20/06/2023, chính sách dịch vụ tài khoản Zalo OA Doanh nghiệp</strong> sẽ có những thay đổi chính như sau:</p>
                 <img
-                    src="/svg/bloggrid/baiviet/image2_2.jpg"
+                    src="/svg/bloggrid/baiviet/image2_2.webp"
                     alt="Bảng giá OA xác thực"
                     className="max-w-full"
                 />
@@ -106,7 +106,7 @@ const Bai2 = () => {
                 </p>
                 <h3 className='font-bold text-lg'>4. Đo lường hiệu quả</h3>
                 <img
-                    src="/svg/bloggrid/baiviet/image2_3.jpg"
+                    src="/svg/bloggrid/baiviet/image2_3.webp"
                     alt="Bảng giá OA xác thực"
                     className="w-full h-auto"
                 />
@@ -121,7 +121,7 @@ const Bai2 = () => {
                 <h2 className='font-bold text-2xl'>Chi phí của dịch vụ ZNS</h2>
                 <p>Công thức tính giá ZNS</p>
                 <img
-                    src="/svg/bloggrid/baiviet/image2_4.jpg"
+                    src="/svg/bloggrid/baiviet/image2_4.webp"
                     alt="Bảng giá OA xác thực"
                     className="w-full h-auto"
                 />
