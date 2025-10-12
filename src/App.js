@@ -26,6 +26,12 @@ import Bai6 from "./components/Blog/Bai6";
 import Bai7 from "./components/Blog/Bai7";
 import Bai8 from "./components/Blog/Bai8";
 import Bai9 from "./components/Blog/Bai9";
+import Bai10 from "./components/Blog/Bai10";
+import Bai11 from "./components/Blog/Bai11";
+import Bai12 from "./components/Blog/Bai12";
+import Bai13 from "./components/Blog/Bai13";
+import Bai14 from "./components/Blog/Bai14";
+import Bai15 from "./components/Blog/Bai15";
 
 function App() {
   return (
@@ -52,6 +58,12 @@ function App() {
               <Route path="blog_7" element={<Bai7 />} />
               <Route path="blog_8" element={<Bai8 />} />
               <Route path="blog_9" element={<Bai9 />} />
+              <Route path="blog_10" element={<Bai10 />} />
+              <Route path="blog_11" element={<Bai11 />} />
+              <Route path="blog_12" element={<Bai12 />} />
+              <Route path="blog_13" element={<Bai13 />} />
+              <Route path="blog_14" element={<Bai14 />} />
+              <Route path="blog_15" element={<Bai15 />} />
             </Route>
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}
