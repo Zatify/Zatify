@@ -353,10 +353,10 @@ const About = () => {
         </div>
       </div>
       {/* Explore Services Section */}
-      <section className="relative z-0 mt-24 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-none overflow-hidden">
-        <div className="absolute inset-0 w-[0%] 0.5xl:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
+      <section className="relative md:my-24 my-8 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[65vh] sm:h-[50vh] xl:h-[70vh] bg-white overflow-hidden">
+        <div className="absolute inset-0 w-[0%] md:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
         {/* Pattern bên trái */}
-        <div className="absolute left-[-140px] top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 flex items-center">
+        <div className="absolute left-[-140px] hidden md:flex top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 items-center">
           <img src="/svg/elements-X.png" alt="Pattern X" className="h-full w-full opacity-90" />
         </div>
         {/* Nội dung chính */}
@@ -368,7 +368,7 @@ const About = () => {
             </span>
           </h2>
           {/* Logos */}
-          <div className="hidden sm:flex flex-row items-center justify-center gap-12 mt-2 opacity-80">
+          <div className="hidden md:flex flex-row items-center justify-center gap-4 xl:gap-12 mt-2 opacity-80">
             {[
               { src: 'svg/logos/zalozns.jpg', alt: 'Zalo ZNS' },
               { src: 'svg/logos/zaloaccout.jpg', alt: 'Zalo Offical Account' },
@@ -378,7 +378,7 @@ const About = () => {
               <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-10" />
             ))}
           </div>
-          <div className="sm:hidden w-full">
+          <div className="md:hidden w-full">
             <div className="swiper-container-wrapper">
               <Swiper
                 modules={[Pagination]}

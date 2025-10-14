@@ -81,7 +81,7 @@ const ZaloMiniApp = () => {
 
 
     return (
-        <div className="relative w-full min-h-screen font-sans">
+        <div className="relative w-full min-h-screen font-sans overflow-x-hidden">
             {/* Hero Section */}
             <img src="/svg/bg-opacity.svg" alt="Background opacity effect" className="absolute inset-0 top-0 rounded-bl-3xl rounded-br-3xl pointer-events-none" />
 
@@ -143,7 +143,7 @@ const ZaloMiniApp = () => {
             </section>
 
             {/* Main layout section */}
-            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-8">
+            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-4 gap-8 overflow-x-hidden">
                 {/* Sidebar left */}
                 <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
@@ -259,10 +259,10 @@ const ZaloMiniApp = () => {
 
 
             {/* Zalo Mini App paragraphs */}
-            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 w-full mx-auto px-2 sm:px-8 lg:px-12 pb-16 overflow-x-hidden">
                 <h2
                     ref={h2Refwhat}
-                    className="text-4xl sm:text-7xl justify-center w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    className="text-4xl sm:text-6xl xl:text-7xl mb-8 md:mb-16 justify-center w-full leading-tight xl:mb-8 font-roboto text-gray-800 flex"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
                     {"Zalo Mini App là gì?".split('').map((char, idx) => (
@@ -322,10 +322,10 @@ const ZaloMiniApp = () => {
 
 
             {/* business benefits section */}
-            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 w-full mx-auto px-2 md:px-8 lg:px-12 pb-16 overflow-x-hidden">
                 <h2
                     ref={h2Refbus}
-                    className="text-4xl sm:text-7xl justify-center w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    className="text-4xl sm:text-6xl xl:text-7xl mb-8 md:mb-16 justify-center w-full leading-tight xl:mb-8 font-roboto text-gray-800 flex"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
                     {"Lợi ích cho doanh nghiệp".split('').map((char, idx) => (
@@ -428,10 +428,10 @@ const ZaloMiniApp = () => {
             </section>
 
             {/* Users benefits section  */}
-            <article className="relative flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12">
+            <article className="relative flex-grow max-w-full mx-auto px-4 sm:px-8 lg:px-12 overflow-x-hidden">
                 <h2
                     ref={h2Refuser}
-                    className="text-4xl sm:text-7xl w-full leading-tight mb-6 xl:mb-8 font-roboto text-gray-800 flex"
+                    className="text-4xl sm:text-6xl xl:text-7xl mb-8 md:mb-16  max-w-fullbg-o leading-tight font-roboto text-gray-800 flex"
                     style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                 >
                     {"Lợi ích cho người dùng".split('').map((char, idx) => (
@@ -454,7 +454,7 @@ const ZaloMiniApp = () => {
                     Zalo Mini App giúp doanh nghiệp xây dựng và tích hợp ứng dụng trên zalo 1 cách đơn giản, dễ dàng, tiện lợi và hiệu quả.
                 </p>
             </article>
-            <section className="relative flex-grow max-w-full xl:my-24 my-10 sm:max-w-[85rem] mx-auto px-2 sm:px-8 lg:px-12 pb-16">
+            <section className="relative flex-grow max-w-full xl:my-24 my-10 w-full mx-auto px-2 sm:px-8 lg:px-12 pb-16 overflow-x-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     {/* Left: 3 Phone Images */}
                     <div className="flex justify-center relative">
@@ -462,7 +462,7 @@ const ZaloMiniApp = () => {
                         <motion.img
                             src="https://miniapp.vn/wp-content/uploads/2024/01/banner-miniapp-2.png"
                             alt="Phone 1"
-                            className=" right-20 xl:right-36 max-h-[100%] relative z-10"
+                            className="top-4 right-20 xl:right-36 max-h-[100%] relative z-10"
                             animate={{ y: [0, -10, 5, -5, 0] }}
                             transition={{
                                 duration: 5,
@@ -476,7 +476,7 @@ const ZaloMiniApp = () => {
                         <motion.img
                             src="https://miniapp.vn/wp-content/uploads/2024/01/thetichdiem3.png"
                             alt="Phone 2"
-                            className="absolute top-36 left-40 max-h-[100%] z-20 drop-shadow-xl"
+                            className="absolute top-36 sm:left-60 md:left-28 xl:left-40 max-h-[100%] z-20 drop-shadow-xl"
                             animate={{ y: [0, 12, -8, 4, 0] }}
                             transition={{
                                 duration: 6,
@@ -490,7 +490,7 @@ const ZaloMiniApp = () => {
                         <motion.img
                             src="https://miniapp.vn/wp-content/uploads/2024/01/thetichdiem2.png"
                             alt="Phone 3"
-                            className="absolute top-24 left-72 max-h-[100%] z-30 drop-shadow-xl hidden md:block"
+                            className="absolute top-24 left-72 max-h-[100%] z-30 drop-shadow-xl hidden xl:block"
                             animate={{ y: [0, -15, 10, -5, 0] }}
                             transition={{
                                 duration: 7,

@@ -290,7 +290,7 @@ const HomePage = () => {
       </section>
 
       {/* Explore Services Section */}
-      <section className="relative md:my-24 my-8 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[70vh] bg-white overflow-hidden">
+      <section className="relative md:my-24 my-8 px-0 max-w-none w-full flex justify-center items-center min-h-[420px] h-[65vh] sm:h-[50vh] xl:h-[70vh] bg-white overflow-hidden">
         <div className="absolute inset-0 w-[0%] md:w-[18%]  bg-gradient-to-r from-[#bcaaff] via-[#a0c4ff] to-[#fff] opacity-10 pointer-events-none"></div>
         {/* Pattern bên trái */}
         <div className="absolute left-[-140px] hidden md:flex top-0 h-full w-0 sm:w-auto pointer-events-none select-none z-0 items-center">
@@ -344,11 +344,11 @@ const HomePage = () => {
 
       {/* Services Cards Section */}
       <section className="md:my-24 my-4 px-6 max-w-full mx-auto">
-        <div className="flex flex-col sm:flex-row 0.5xl:w-[77%] justify-between items-start sm:items-center mb-6 mx-auto min-h-[120px]">
+        <div className="flex flex-col md:flex-row 0.5xl:w-[77%] justify-between items-start md:items-center mb-6 mx-auto min-h-[120px]">
           <div className="flex flex-col flex-1 justify-center items-start w-full">
             <h3
               ref={h3Ref}
-              className="text-3xl  sm:text-4xl md:text-7xl font-light font-roboto flex"
+              className="text-4xl  sm:text-6xl md:text-7xl font-light font-roboto flex"
               style={{
                 overflow: 'visible',
                 lineHeight: '1.2',
@@ -614,7 +614,7 @@ const HomePage = () => {
         {/* Heading với hiệu ứng từng ký tự */}
         <h2
           ref={h2Ref}
-          className="text-3xl   sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+          className="text-4xl sm:text-6xl xl:text-7xl mb-8 md:mb-16  max-w-full bg-o leading-tight font-roboto text-gray-800 flex"
           style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
         >
           {"Ưu điểm của Zatify".split('').map((char, idx) => (
@@ -743,7 +743,7 @@ const HomePage = () => {
         </div>
         {/* right section  */}
         <div className="relative max-w-4xl w-full h-full flex-[0.7]">
-          <h2 className="text-3xl   0.5xl:text-6xl font-light mb-10 font-roboto leading-tight">
+          <h2 className="text-4xl sm:text-6xl xl:text-7xl font-light mb-10 font-roboto leading-tight">
             Bạn thắc mắc, <br />
             tôi giải đáp
           </h2>
@@ -927,7 +927,7 @@ const HomePage = () => {
         <div className="max-w-[80rem] mx-auto xl:mb-24">
           <h2
             ref={h2Refcus}
-            className="text-3xl  sm:text-6xl xl:text-7xl max-w-fullbg-o leading-tight mb-8 xl:mb-16 font-roboto text-gray-800 flex"
+            className="text-4xl  sm:text-6xl xl:text-7xl max-w-fullbg-o leading-tight mb-8 xl:mb-16 font-roboto text-gray-800 flex"
             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
             {"Khách hàng của Zatify".split('').map((char, idx) => (

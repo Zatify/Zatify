@@ -227,7 +227,7 @@ const ZaloNotificationService = () => {
             </section>
 
             {/* Main layout section */}
-            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6 gap-10">
+            <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-40 xl:mt-52 p-6 gap-10">
                 {/* Sidebar left */}
                 {/* Sidebar left */}
                 <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
@@ -310,7 +310,7 @@ const ZaloNotificationService = () => {
                     <article className="main-content w-full mx-auto max-w-[80rem] 2xl:max-w-[85rem] px-0 py-0 bg-transparent">
                         <h1
                             ref={titleRef}
-                            className="text-[2.5rem] leading-[1.1] font-roboto xl:text-7xl md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
+                            className="text-4xl sm:text-6xl leading-[1.1] font-roboto xl:text-7xl md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
                             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                         >
                             {"Giải pháp Chăm sóc Khách hàng Tiết kiệm & Hiệu quả trên Zalo".split(' ').map((word, wordIndex) => (
@@ -344,7 +344,7 @@ const ZaloNotificationService = () => {
                         <div className="flex flex-col px-0 py-0 bg-transparent">
                             <h2
                                 ref={h2Ref}
-                                className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                                className="text-4xl sm:text-6xl xl:text-7xl max-w-fullbg-o leading-tight mb-8 md:mb-16 font-roboto text-gray-800 flex"
                                 style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                             >
                                 {"Chọn loại mẫu ZNS".split('').map((char, idx) => (
@@ -434,7 +434,7 @@ const ZaloNotificationService = () => {
                 {/* Heading */}
                          <h2
                             ref={h2Refzns}
-                            className="text-[2.5rem] leading-[1.1] font-roboto text-center xl:text-7xl md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
+                            className="text-4xl sm:text-6xl xl:text-7xl leading-[1.1] font-roboto mb-8 md:mb-16 text-center md:pl-0 max-w-[600px] 0.5xl:max-w-[100%]"
                             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                         >
                             {"Tại sao doanh nghiệp dùng ZNS".split(' ').map((word, wordIndex) => (
@@ -460,7 +460,7 @@ const ZaloNotificationService = () => {
                 {/* Features grid */}
                 <div className="flex flex-col items-center">
                     {/* Top row - 3 features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 xl:gap-x-24 gap-y-8 mt-[-30px] sm:mt-0 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 xl:gap-x-24 gap-y-8 mt-[-30px] sm:mt-0 mb-12">
 
                         {/* Feature 1 */}
                         <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
@@ -503,7 +503,7 @@ const ZaloNotificationService = () => {
                     </div>
 
                     {/* Bottom row - 2 features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 xl:gap-x-24 gap-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 xl:gap-x-24 gap-y-8">
 
                         {/* Feature 4 */}
                         <article className="flex flex-col items-center text-center space-y-4 xl:space-y-6 max-w-xs">
@@ -540,7 +540,7 @@ const ZaloNotificationService = () => {
                 <div className="relative max-w-full h-full flex-1">
                     <h2
                         ref={h2Reffaq}
-                        className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                        className="text-4xl sm:text-6xl xl:text-7xl  max-w-fullbg-o leading-tight mb-8 md:mb-16 font-roboto text-gray-800 flex"
                         style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
                     >
                         {"Câu hỏi thường gặp".split('').map((char, idx) => (
@@ -610,7 +610,7 @@ const ZaloNotificationService = () => {
         <div className="max-w-[80rem] mx-auto xl:mb-24">
           <h2
             ref={h2Refcus}
-            className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+            className="text-4xl sm:text-6xl xl:text-7xl max-w-fullbg-o leading-tight mb-8 md:mb-16 font-roboto text-gray-800 flex"
             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
             {"Khách hàng của Zatify".split('').map((char, idx) => (
@@ -873,7 +873,7 @@ const ZaloNotificationService = () => {
         <div className="max-w-[85rem] mx-auto xl:mb-24">
           <h2
             ref={h2Refpart}
-            className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex"
+            className="text-3xl  sm:text-6xl xl:text-7xl max-w-full leading-tight mb-2 xl:mb-16 font-roboto text-gray-800 flex"
             style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
           >
             {"Đối tác của Zatify".split('').map((char, idx) => (
@@ -893,8 +893,8 @@ const ZaloNotificationService = () => {
             ))}
           </h2>
         </div>
-        <div className="grid grid-cols-4 gap-8 gap-x-20">
-          {[1,2,6,4,5,3,7,8].map(index => (
+        <div className="grid grid-cols-4 gap-8 md:gap-x-20 gap-2">
+          {[1, 2, 6, 4, 5, 3, 7, 8].map(index => (
             <div key={index} className="flex items-center justify-center">
               <img
                 src={`/images/logodoitac/partner-${index < 10 ? '0' + index : index}.png`}
