@@ -36,6 +36,7 @@ import Bai16 from "./components/Blog/Bai16";
 import Bai17 from "./components/Blog/Bai17";
 import Bai18 from "./components/Blog/Bai18";
 import Bai19 from "./components/Blog/Bai19";
+import Bai20 from "./components/Blog/Bai20";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
               <Route path="blog_17" element={<Bai17 />} />
               <Route path="blog_18" element={<Bai18 />} />
               <Route path="blog_19" element={<Bai19 />} />
+              <Route path="blog_20" element={<Bai20 />} />
             </Route>
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* Dịch vụ  */}
