@@ -1,8 +1,7 @@
-import React, { useState, useRef,useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from "swiper/modules";
-
 const useAnimateOnScroll = () => {
     const ref = useRef(null);
     const [animate, setAnimate] = useState(false);
@@ -36,6 +35,22 @@ const ZaloAds = () => {
     // State để lưu index của thẻ details đang mở
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]); // Ref array for content divs
+    // Detect mobile viewport to swap images
+    const [isMobile, setIsMobile] = useState(false);
+    React.useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const mq = window.matchMedia('(max-width: 768px)');
+        const handle = (e) => setIsMobile(e.matches);
+        // Set initial
+        setIsMobile(mq.matches);
+        // Add listener in a compatible way
+        if (mq.addEventListener) mq.addEventListener('change', handle);
+        else if (mq.addListener) mq.addListener(handle);
+        return () => {
+            if (mq.removeEventListener) mq.removeEventListener('change', handle);
+            else if (mq.removeListener) mq.removeListener(handle);
+        };
+    }, []);
     const [h2Reffaq, animateH2faq] = useAnimateOnScroll();
     const [h2Refcus, animateH2cus] = useAnimateOnScroll();
     const [h2Refpart, animateH2part] = useAnimateOnScroll();
@@ -75,7 +90,7 @@ const ZaloAds = () => {
             ],
             image1: "/imgzaloads/form.png",
             image2: null,
-      
+
         },
         "QC Tin Nhắn": {
             title: "Quảng cáo Tin Nhắn",
@@ -87,7 +102,7 @@ const ZaloAds = () => {
             ],
             image1: null,
             image2: "/imgzaloads/tinnhan.png",
- 
+
         },
         "QC Website": {
             title: "Quảng cáo Website",
@@ -109,8 +124,8 @@ const ZaloAds = () => {
             ],
             image1: null,
             image2: "/imgzaloads/ZOA.png",
-            
-            
+
+
         },
         "QC Video": {
             title: "Quảng cáo Video",
@@ -121,7 +136,7 @@ const ZaloAds = () => {
             ],
             image1: "/imgzaloads/video.png",
             image2: null,
-       
+
         },
         "QC Bài Viết OA": {
             title: "Quảng cáo Bài Viết OA",
@@ -132,10 +147,10 @@ const ZaloAds = () => {
             ],
             image1: null,
             image2: "/imgzaloads/baiviet.png",
-            
+
         }
     };
-    
+
     // Danh sách câu hỏi/đáp án FAQ
     const faqList = [
         {
@@ -162,7 +177,7 @@ const ZaloAds = () => {
         {
             question: "Làm sao để tôi nhìn thấy được quảng cáo của mình?",
             answer:
-               "Zalo Ads sẽ phân phối quảng cáo dựa theo nhóm đối tượng đã được thiết lập và luân phiên trên Nhật ký người dùng Zalo và các kênh network của Zalo như app Zing Mp3, Báo mới, Znews,…. Vì thế, nhà quảng cáo sẽ khó thấy được quảng cáo của mình hiển thị trực tiếp.",
+                "Zalo Ads sẽ phân phối quảng cáo dựa theo nhóm đối tượng đã được thiết lập và luân phiên trên Nhật ký người dùng Zalo và các kênh network của Zalo như app Zing Mp3, Báo mới, Znews,…. Vì thế, nhà quảng cáo sẽ khó thấy được quảng cáo của mình hiển thị trực tiếp.",
         },
         {
             question: "Zalo Ads tính phí như thế nào?",
@@ -184,7 +199,7 @@ const ZaloAds = () => {
         },
     ];
 
-    
+
 
     // Helper to get content height
     const getContentHeight = idx => {
@@ -274,7 +289,7 @@ const ZaloAds = () => {
             {/* Main layout section */}
             <section className="service-single-layout flex flex-col md:flex-row max-w-full 0.5xl:mx-14 mt-52 p-6  gap-10">
                 {/* Sidebar left */}
-               <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
+                <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
                     <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
@@ -303,43 +318,43 @@ const ZaloAds = () => {
 
                     {/* Brochure */}
                     <div
-        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
-        style={{
-            backgroundImage: 'url(/brochure/Brochure.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            minHeight: '340px',
-        }}
->
-    {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
-    {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
-    <div className="mb-4">
-        <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
-    </div>
-    {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
-    <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
-            <a
-                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
-                download
-                    className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
-            >
-                Download
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </a>
-    </div>
-</div>
+                        className="service-brochure p-6 rounded-xl text-white flex flex-col justify-center 0.5xl:h-[340px]"
+                        style={{
+                            backgroundImage: 'url(/brochure/Brochure.jpg)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            minHeight: '340px',
+                        }}
+                    >
+                        {/* Nếu vẫn không thấy ảnh, thử thêm một thẻ img để debug */}
+                        {/* <img src="/svg/projectgrid/2.jpg" alt="debug" style={{width: 100}} /> */}
+                        <div className="mb-4">
+                            <h3 className="text-[40px] leading-none my-4 font-roboto">Zatify Brochure</h3>
+                        </div>
+                        {/* Thay hình minh họa brochure bằng nền, giữ nguyên chữ và nút */}
+                        <div className="border hover:border-none rounded-xl w-[162px] inline-block p-[1px]">
+                            <a
+                                href="/files/[ZATIFY] Zalo Ecosystem Credential 2025.pdf"
+                                download
+                                className="justify-center text-sm rounded-[0.65rem] px-4 py-2 text-white transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-purple-600"
+                            >
+                                Download
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
                     {/* AI Consulting */}
-                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                    <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
                             <h3 className="text-3xl font-roboto mb-2">AI Strategy and Consulting</h3>
                             <p className="font-manrope">Provide expert guidance on developing an AI strategy</p>
@@ -356,170 +371,203 @@ const ZaloAds = () => {
                     </article>
 
                     {/* Section Video thay thế 3 phần */}
-                    <div className="sec_intro w-full xl:w-[calc(108%-8px)] h-[70vh] xl:h-[114vh] 2xl:h-[121vh] bg-[#000028] py-12 pb-24 md:pb-0 md:py-auto relative overflow-hidden flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 md:gap-0 rounded-3xl">
-                        <div className="relative left-[6%] section-video flex flex-col md:flex-row items-center justify-center w-full h-full relative">
-                            {/* Left: Video + cubes overlay */}
-                            <div className="relative left-[5%] w-full md:w-[1000px] h-[420px] md:h-[520px] flex items-center justify-center">
-                                {/* Dotted background image */}
-                                <div class="relative w-full max-w-[1800px] h-[500px] mx-auto">
+                    {/* Section Video thay thế 3 phần */}
+                    <div className="sec_intro w-full xl:w-[calc(108%-8px)] h-[120vh] md:h-auto xl:h-[114vh] 2xl:h-[121vh] bg-[#000028] py-12 pb-24 md:pb-0 relative overflow-hidden flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 md:gap-0 rounded-3xl">
 
-                                    <video src="/imgzaloads/videozaloads.mp4" autoPlay loop muted playsInline style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', borderRadius:'16px', zIndex:1}} />
+                        <div className="relative left-0 md:left-[6%] section-video flex flex-col md:flex-row items-center justify-center w-full h-auto md:h-full">
+
+                            {/* Left: Video + cubes overlay */}
+                            <div className="relative left-0 md:left-[5%] w-full md:w-[1000px] h-auto md:h-[520px] flex flex-col items-center justify-center">
+                                <div className="relative w-full max-w-[1800px] h-auto md:h-[500px] mx-auto">
+
+                                    {/* Title on mobile */}
+                                    <div className="-top-16 left-24 absolute md:hidden mb-8 flex flex-col items-center text-center text-white z-[3]">
+                                        <h1 className="text-4xl font-extrabold leading-tight">HỆ SINH THÁI</h1>
+                                        <span className="text-4xl font-extrabold leading-tight mt-2">ZALO ADS</span>
+                                    </div>
+
+                                    {/* Video */}
+                                    <video
+                                        src="/imgzaloads/videozaloads.mp4"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="relative md:absolute top-0 w-full h-auto object-cover rounded-2xl z-[1]"
+                                    />
+
                                     {/* Play button overlay */}
-                                    <button aria-label="Play video" style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'80px', height:'80px', display:'flex', alignItems:'center', justifyContent:'center', background:'transparent', zIndex:10}} onClick={() => popupPlayVideo('intro')}>
-                                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <button
+                                        aria-label="Play video"
+                                        onClick={() => popupPlayVideo('intro')}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                     w-20 h-20 flex items-center justify-center bg-transparent z-[10]"
+                                    >
+                                        <svg
+                                            width="64"
+                                            height="64"
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
                                             <circle cx="32" cy="32" r="31" stroke="#fff" strokeWidth="2" opacity="0.3" />
                                             <polygon points="26,22 48,32 26,42" fill="#fff" opacity="0.7" />
                                         </svg>
                                     </button>
+
                                     {/* Cube overlays */}
-                                    <img 
-                                        src="/imgzaloads/imgzaloads.png" 
-                                        alt="Zalo Ads overlay" 
-                                        style={{position:'absolute', top:'-40px', left:'-40px', width:'900px', height:'630px', objectFit:'contain', zIndex:2, animation: 'updown 2.5s ease-in-out infinite'}} 
+                                    <img
+                                        src={isMobile ? '/imgzaloads/mobile.png' : '/imgzaloads/imgzaloads.png'}
+                                        alt="Zalo Ads overlay"
+                                        className="absolute -top-20 md:-top-10  w-full h-auto object-contain z-[1000] animate-updown"
                                     />
+
                                     <style>{`
-                                        @keyframes updown {
-                                            0% { transform: translateY(0); }
-                                            50% { transform: translateY(-30px); }
-                                            100% { transform: translateY(0); }
-                                        }
-                                    `}</style>
+          @keyframes updown {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+          }
+          .animate-updown {
+            animation: updown 2.5s ease-in-out infinite;
+          }
+        `}</style>
                                 </div>
                             </div>
-                            {/* Right: Title + text */}
-                            <div className="relative right-[10%] flex flex-col justify-center md:pl-12 w-full md:w-[800px] mt-8 md:mt-0 text-right" style={{zIndex:3}}>
-                       <div className="flex w-full flex-col  ">  
 
-                                <h1 className="relative w-full right-[25%] text-white font-extrabold mb-2 text-[64px] leading-[2] tracking-[1px]">
-                                    HỆ SINH THÁI
-                                </h1>
-                                <span className="relative right-[15%] text-white font-extrabold mb-2 text-[64px] leading-[1.05]">
-                                    ZALO ADS
-                                </span>
+                            {/* Right: Title + text (ẩn khi mobile) */}
+                            <div className="flex relative right-[10%] flex-col justify-center md:pl-12 w-full md:w-[800px] mt-8 md:mt-0 text-right z-[3]">
+                                <div className="hidden md:flex w-full flex-col">
+                                    <h1 className="relative w-full right-[25%] text-white font-extrabold mb-2 text-[64px] leading-[2] tracking-[1px]">
+                                        HỆ SINH THÁI
+                                    </h1>
+                                    <span className="relative right-[15%] text-white font-extrabold mb-2 text-[64px] leading-[1.05]">
+                                        ZALO ADS
+                                    </span>
                                 </div>
 
-                                <p className="relative left-[30%] mt-20 w-[280px] text-base text-white md:text-lg font-semibold leading-tight mb-4 text-left">
-                                    <span className="text-[#2D7FFF] font-bold">Hơn 77 triệu người dùng</span> hoạt động hằng tháng và <span className="text-white font-extrabold">2 tỷ tin nhắn</span> mỗi ngày.
+                                <p className="relative md:text-left text-center md:px-0 px-8 left-[10%] md:left-[30%] md:mt-20 w-full md:w-[280px] text-base text-white md:text-lg font-semibold leading-tight mb-4 text-left">
+                                    <span className="text-[#2D7FFF] font-bold">Hơn 78 triệu người dùng</span> hoạt động hằng tháng và <span className="text-white font-extrabold">2 tỷ tin nhắn</span> mỗi ngày.
                                 </p>
-                                <a className="relative left-[30%]  text-[#2D7FFF] text-base font-semibold inline-flex items-center gap-1 hover:underline cursor-pointer " href="#" onClick={() => popupPlayVideo('intro')}>
-                                    Xem video
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                </a>
+
                             </div>
                         </div>
                     </div>
+
+
                 </main>
             </section>
-                      
-            {/* Header text */}
-            <div className="section-type-ads">
-                <h3 className="desktop-only text-center text-3xl font-semibold mb-8">
-                    <strong className="text-[#2d7fff]">Zalo Ads</strong> cung cấp nhiều hình thức quảng cáo đa dạng và hiệu quả.<br />Phù hợp với nhiều nhu cầu khác nhau trong mọi lĩnh vực.
-                </h3>
-              
-               
-                
-               
-                {/* Quảng cáo Commerce */}
-                <section className="relative w-full max-w-[1100px] bg-[#000000] rounded-lg p-6 shadow-md border border-gray-200 flex md:flex-row flex-col gap-8 items-start mt-12" style={{margin:'48px auto 0 auto' ,minHeight: '420px'  }}>
-                    {/* Sidebar menu */}
-                    <aside className="bg-[#000000] rounded-xl py-1 px-4 flex md:flex-col flex-row gap-2 text-left overflow-x-auto md:overflow-visible w-full md:w-[320px]">
-                        <ul className="flex md:flex-col flex-row md:space-y-2 space-x-2 md:space-x-0 whitespace-nowrap">
-                            {menuItems.map((item, index) => (
-                                <li
-                                    key={index}
-                                    className={`px-6 py-3 rounded-xl cursor-pointer ${selectedItem === item ? 'bg-gradient-to-r from-[#6c2c7f] to-[#2d1a3a] text-white font-semibold' : 'text-[#bdbdbd] hover:text-white hover:bg-[#23235a]'}`}
-                                    onClick={() => setSelectedItem(item)}
-                                >
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </aside>
 
-                    {/* Main content */}
-                    <div className="flex-1 flex md:flex-row flex-col-reverse gap-8 items-start">
-                        {/* Left: Nội dung quảng cáo */}
-                        {(() => {
-                            const content = contentMap[selectedItem];
-                            return (
-                                <div className="flex-1 flex flex-col justify-start items-start relative">
-                                    <h1 className="text-[#2d7fff] text-3xl md:text-3xl font-bold mb-6 whitespace-nowrap">{content.title}</h1>
-                                    <p className="text-[#e2e2e2] text-base md:text-lg mb-6 max-w-xl">{content.description}</p>
-                                    <div className="mb-8">
-                                        <span className="font-bold text-white">Với {content.title}, bạn có thể:</span>
-                                        <ul className="mt-4 space-y-4">
-                                            {content.benefits.map((benefit, idx) => (
-                                                <li key={idx} className="flex items-start gap-2">
-                                                    <span className="text-orange-600 font-bold text-xl">|</span>
-                                                    <span className="text-[#e2e2e2]">{benefit}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                  </div>
-                            );
-                        })()}
-                        {/* Right: Hình minh họa */}
-                        {(() => {
-                            const content = contentMap[selectedItem];
-                            return (
-                                <div className="w-full md:w-[320px] flex-shrink-0 flex flex-col items-center justify-center">
-                                    <div
-                                        className="relative overflow-hidden"
-                                        style={{
-                                            marginTop: '18px',
-                                            height: '420px',
-                                            width: '320px',
-                                        }}
+            {/* Header text */}
+
+            <div className="section-type-ads">
+                {/* Container canh giữa có cùng độ rộng với section */}
+                <div className="w-full max-w-[1100px] mx-auto">
+                    <h3 className="desktop-only ml-6 md:ml-12 text-left text-3xl font-semibold mb-8">
+                        <strong className="text-[#2d7fff]">Zalo Ads</strong> cung cấp nhiều hình thức quảng cáo đa dạng và hiệu quả.<br />
+                        Phù hợp với nhiều nhu cầu khác nhau trong mọi lĩnh vực.
+                    </h3>
+
+
+
+                    {/* Quảng cáo Commerce */}
+                    <section className="relative w-full max-w-[1100px] bg-[#000000] rounded-lg p-6 shadow-md border border-gray-200 flex md:flex-row flex-col gap-8 items-start mt-12" style={{ margin: '48px auto 0 auto', minHeight: '420px' }}>
+                        {/* Sidebar menu */}
+                        <aside className="bg-[#000000] rounded-xl py-1 px-4 flex md:flex-col flex-row gap-2 text-left overflow-x-auto md:overflow-visible w-full md:w-[320px]">
+                            <ul className="flex md:flex-col flex-row md:space-y-2 space-x-2 md:space-x-0 whitespace-nowrap">
+                                {menuItems.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className={`px-6 py-3 rounded-xl cursor-pointer ${selectedItem === item ? 'bg-gradient-to-r from-[#6c2c7f] to-[#2d1a3a] text-white font-semibold' : 'text-[#bdbdbd] hover:text-white hover:bg-[#23235a]'}`}
+                                        onClick={() => setSelectedItem(item)}
                                     >
-                                        <div
-                                            className="absolute inset-0 transition-transform duration-700 ease-in-out"
-                                            style={{
-                                                transform: `translateX(0)`,
-                                                animation: 'slideFromRight 0.7s ease-in-out',
-                                            }}
-                                            key={selectedItem} // Key ensures re-render for animation
-                                        >
-                                            {content.image1 && (
-                                                <img
-                                                    src={content.image1}
-                                                    alt={`${content.title} Overlay`}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        objectFit: 'contain',
-                                                        position: 'absolute',
-                                                        top: 0,
-                                                        left: 0,
-                                                    }}
-                                                />
-                                            )}
-                                            {content.image2 && (
-                                                <img
-                                                    src={content.image2}
-                                                    alt={content.title}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        objectFit: 'contain',
-                                                        position: 'absolute',
-                                                        top: 0,
-                                                        left: 0,
-                                                    }}
-                                                />
-                                            )}
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </aside>
+
+                        {/* Main content */}
+                        <div className="flex-1 flex md:flex-row flex-col-reverse gap-8 items-start">
+                            {/* Left: Nội dung quảng cáo */}
+                            {(() => {
+                                const content = contentMap[selectedItem];
+                                return (
+                                    <div className="flex-1 flex flex-col justify-start items-start relative">
+                                        <h1 className="text-[#2d7fff] text-3xl md:text-3xl font-bold mb-6 whitespace-nowrap">{content.title}</h1>
+                                        <p className="text-[#e2e2e2] text-base md:text-lg mb-6 max-w-xl">{content.description}</p>
+                                        <div className="mb-8">
+                                            <span className="font-bold text-white">Với {content.title}, bạn có thể:</span>
+                                            <ul className="mt-4 space-y-4">
+                                                {content.benefits.map((benefit, idx) => (
+                                                    <li key={idx} className="flex items-start gap-2">
+                                                        <span className="text-orange-600 font-bold text-xl">|</span>
+                                                        <span className="text-[#e2e2e2]">{benefit}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div className="absolute left-0 bottom-[-32px] w-full h-12 bg-gradient-to-r from-[#2d7fff] to-[#6c2c7f] blur-xl opacity-40 rounded-b-xl"></div>
-                                </div>
-                            );
-                        })()}
-                    </div>
+                                );
+                            })()}
+                            {/* Right: Hình minh họa */}
+                            {(() => {
+                                const content = contentMap[selectedItem];
+                                return (
+                                    <div className="w-full md:w-[320px] flex-shrink-0 flex flex-col items-center justify-center">
+                                        <div
+                                            className="relative overflow-hidden"
+                                            style={{
+                                                marginTop: '18px',
+                                                height: '420px',
+                                                width: '320px',
+                                            }}
+                                        >
+                                            <div
+                                                className="absolute inset-0 transition-transform duration-700 ease-in-out"
+                                                style={{
+                                                    transform: `translateX(0)`,
+                                                    animation: 'slideFromRight 0.7s ease-in-out',
+                                                }}
+                                                key={selectedItem} // Key ensures re-render for animation
+                                            >
+                                                {content.image1 && (
+                                                    <img
+                                                        src={content.image1}
+                                                        alt={`${content.title} Overlay`}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: '100%',
+                                                            objectFit: 'contain',
+                                                            position: 'absolute',
+                                                            top: 0,
+                                                            left: 0,
+                                                        }}
+                                                    />
+                                                )}
+                                                {content.image2 && (
+                                                    <img
+                                                        src={content.image2}
+                                                        alt={content.title}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: '100%',
+                                                            objectFit: 'contain',
+                                                            position: 'absolute',
+                                                            top: 0,
+                                                            left: 0,
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="absolute left-0 bottom-[-32px] w-full h-12 bg-gradient-to-r from-[#2d7fff] to-[#6c2c7f] blur-xl opacity-40 rounded-b-xl"></div>
+                                    </div>
+                                );
+                            })()}
+                        </div>
 
-                    <style>{`
+                        <style>{`
                         @keyframes slideFromRight {
                             from {
                                 transform: translateX(100%); /* Start from the right */
@@ -532,8 +580,8 @@ const ZaloAds = () => {
                         }
                     `}</style>
 
-                </section>
-                <style>{`
+                    </section>
+                    <style>{`
                     @keyframes pageSlide {
                         from {
                             transform: translateX(-100%);
@@ -565,12 +613,13 @@ const ZaloAds = () => {
                         }
                     }
                 `}</style>
+                </div>
             </div>
 
             {/* FAQ Section */}
             <section className=" relative xl:my-20 my-16 flex-grow max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 pb-16 overflow-hidden">
                 <div className="relative max-w-full h-full flex-1">
-                <h2
+                    <h2
                         ref={h2Reffaq}
                         className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
                         style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
@@ -635,128 +684,110 @@ const ZaloAds = () => {
                     </div>
                 </div>
             </section>
-      {/* Customer of Zatify */}
-      <section className="relative 0.5xl:mt-10 flex-grow xl:max-w-[90%] mx-auto px-6 sm:px-8 lg:px-12 py-16">
-        {/* Tiêu đề */}
-        <div className="max-w-[80rem] mx-auto xl:mb-24">
-          <h2
-            ref={h2Refcus}
-            className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
-            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-          >
-            {"Khách hàng của Zatify".split('').map((char, idx) => (
-              <span
-                key={idx}
-                className={`inline-block transition-all duration-500 ease-out
+            {/* Customer of Zatify */}
+            <section className="relative flex-grow max-w-[100%] mx-auto px-6 sm:px-8 lg:px-12 pb-16">
+                {/* Tiêu đề */}
+                <div className="max-w-[80rem] mx-auto xl:mb-24">
+                    <h2
+                        ref={h2Refcus}
+                        className="text-4xl sm:text-7xl max-w-fullbg-o leading-tight mb-16 font-roboto text-gray-800 flex"
+                        style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                    >
+                        {"Khách hàng của Zatify".split('').map((char, idx) => (
+                            <span
+                                key={idx}
+                                className={`inline-block transition-all duration-500 ease-out
           ${animateH2cus ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
-                style={{
-                  transitionDelay: `${idx * 50}ms`,
-                  display: 'inline-block',
-                  lineHeight: '1.2',
-                }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h2>
-        </div>
+                                style={{
+                                    transitionDelay: `${idx * 50}ms`,
+                                    display: 'inline-block',
+                                    lineHeight: '1.2',
+                                }}
+                            >
+                                {char === ' ' ? '\u00A0' : char}
+                            </span>
+                        ))}
+                    </h2>
+                </div>
+                {/* Desktop: Swiper layout */}
+                <div className="hidden lg:block">
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={1}
+                        pagination={{ clickable: true, el: ".custom-pagination-desktop" }}
+                        autoplay={{
+                            delay: 4000, // 4s giây
+                            disableOnInteraction: false,
+                        }}
+                        loop={true}
+                        className="my-swiper-desktop"
+                    >
+                        {/* Slide 1: 12 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-6 gap-8">
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-16 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/miniapp.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-        {/* Desktop: Swiper layout */}
-        <div className="hidden lg:block">
-          <Swiper
-            modules={[Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true, el: ".custom-pagination-desktop" }}
-            autoplay={{
-              delay: 4000, // 4s giây
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            className="my-swiper-desktop"
-          >
-            {/* Slide 1: 12 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-6 gap-8">
-                {[17, 26, 32, 22, 5, 36, 21, 38, 39, 40, 41, 37].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-24 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/miniapp.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 2: 12 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-6 gap-8">
+                                {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-16 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zaloaccout.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 2: 12 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-6 gap-8">
-                {[13, 14, 15, 16, 1, 18, 19, 20, 7, 4, 23, 24].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-24 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloaccout.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 3: 12 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-6 gap-8">
+                                {[25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-16 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zaloads.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
 
-            {/* Slide 3: 12 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-6 gap-8">
-                {[25, 2, 27, 28, 29, 30, 31, 3, 33, 34, 35, 6].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-24 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloads.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-            {/* Slide 4: a lot logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-6 gap-8">
-                {[8, 9, 10, 11, 12].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-24 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloads.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-          </Swiper>
+                    {/* Pagination dots for desktop */}
+                    <div className="custom-pagination-desktop mt-8 flex justify-center space-x-4">
+                        <div className="swiper-pagination-desktop"></div>
+                    </div>
+                </div>
 
-          {/* Pagination dots for desktop */}
-          <div className="custom-pagination-desktop mt-8 flex justify-center space-x-4">
-            <div className="swiper-pagination-desktop"></div>
-          </div>
-        </div>
-
-        {/* Mobile: Swiper layout */}
-        <div className="lg:hidden">
-          <Swiper
+                {/* Mobile: Swiper layout */}
+                <div className="lg:hidden">
+                    <Swiper
                         modules={[Pagination, Autoplay]}
                         spaceBetween={20}
                         slidesPerView={1}
@@ -767,176 +798,157 @@ const ZaloAds = () => {
                         }}
                         loop={true}
                         className="my-swiper"
-          >
-            {/* Slide 1: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[17, 26, 32, 22, 5, 36].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/miniapp.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                    >
+                        {/* Slide 1: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[1, 2, 3, 4, 5, 6].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/miniapp.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 2: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[21, 38, 39, 40, 41, 37].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloaccout.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 2: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[7, 8, 9, 10, 11, 12].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zaloaccout.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 3: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[13, 14, 15, 16, 1, 18].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloads.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 3: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[13, 14, 15, 16, 17, 18].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zaloads.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 4: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[19, 20, 7, 4, 23, 24].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zalozns.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 4: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[19, 20, 21, 22, 23, 24].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zalozns.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 5: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[25, 2, 27, 28, 29, 30].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/miniapp.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
+                        {/* Slide 5: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[25, 26, 27, 28, 29, 30].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/miniapp.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
 
-            {/* Slide 6: 6 logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[31, 3, 33, 34, 35, 6].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloaccout.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-            {/* Slide 7: a lot logos */}
-            <SwiperSlide>
-              <div className="grid grid-cols-3 gap-4">
-                {[8, 9, 10, 11, 12].map(index => (
-                  <div key={index} className="flex items-center justify-center">
-                    <img
-                      src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
-                      alt={`Khách hàng ${index}`}
-                      className="h-12 w-auto max-w-full object-contain"
-                      onError={(e) => {
-                        e.target.src = '/svg/logos/zaloaccout.jpg';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-          </Swiper>
+                        {/* Slide 6: 6 logos */}
+                        <SwiperSlide>
+                            <div className="grid grid-cols-3 gap-4">
+                                {[31, 32, 33, 34, 35, 36].map(index => (
+                                    <div key={index} className="flex items-center justify-center">
+                                        <img
+                                            src={`/images/logokhachhang/about/client-${index < 10 ? '0' + index : index}.png`}
+                                            alt={`Khách hàng ${index}`}
+                                            className="h-12 w-auto max-w-full object-contain"
+                                            onError={(e) => {
+                                                e.target.src = '/svg/logos/zaloaccout.jpg';
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
 
-          {/*  Pagination dots*/}
-          <div className="custom-pagination-mobile mt-6 flex justify-center"></div>
-        </div>
-      </section>
-
-      {/* Partner of Zatify */}
-      <section className="relative flex-grow xl:max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
-        <div className="max-w-[85rem] mx-auto xl:mb-24">
-          <h2
-            ref={h2Refpart}
-            className="text-4xl sm:text-7xl max-w-full leading-tight mb-16 font-roboto text-gray-800 flex"
-            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
-          >
-            {"Đối tác của Zatify".split('').map((char, idx) => (
-              <span
-                key={idx}
-                className={`inline-block transition-all duration-500 ease-out
+                    {/*  Pagination dots*/}
+                    <div className="custom-pagination-mobile mt-6 flex justify-center"></div>
+                </div>
+            </section>
+            {/* Partner of Zatify */}
+            <section className="relative flex-grow xl:max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+                <div className="max-w-[85rem] mx-auto xl:mb-24">
+                    <h2
+                        ref={h2Refpart}
+                        className="text-3xl  sm:text-6xl xl:text-7xl max-w-full leading-tight mb-2 xl:mb-16 font-roboto text-gray-800 flex"
+                        style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+                    >
+                        {"Đối tác của Zatify".split('').map((char, idx) => (
+                            <span
+                                key={idx}
+                                className={`inline-block transition-all duration-500 ease-out
           ${animateH2part ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
-                style={{
-                  transitionDelay: `${idx * 50}ms`,
-                  display: 'inline-block',
-                  lineHeight: '1.2',
-                }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h2>
-        </div>
-        <div className="grid grid-cols-4 gap-8 gap-x-20">
-          {[1,2,6,4,5,3,7,8].map(index => (
-            <div key={index} className="flex items-center justify-center">
-              <img
-                src={`/images/logodoitac/partner-${index < 10 ? '0' + index : index}.png`}
-                alt={`Đối tác ${index}`}
-                className="h-20 w-auto max-w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
+                                style={{
+                                    transitionDelay: `${idx * 50}ms`,
+                                    display: 'inline-block',
+                                    lineHeight: '1.2',
+                                }}
+                            >
+                                {char === ' ' ? '\u00A0' : char}
+                            </span>
+                        ))}
+                    </h2>
+                </div>
+                <div className="grid grid-cols-4 gap-8 md:gap-x-20 gap-2">
+                    {[1, 2, 6, 4, 5, 3, 7, 8].map(index => (
+                        <div key={index} className="flex items-center justify-center">
+                            <img
+                                src={`/images/logodoitac/partner-${index < 10 ? '0' + index : index}.png`}
+                                alt={`Đối tác ${index}`}
+                                className="h-20 w-auto max-w-full object-contain"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </section>
         </div>
     )
 }

@@ -75,7 +75,7 @@ const About = () => {
 
   // Hiệu ứng từng ký tự cho tiêu đề
   const [titleRef, animateTitle] = useAnimateOnScroll()
-  const [h2Ref, animateH2] = useAnimateOnScroll();
+  const [h2Refpart, animateH2part] = useAnimateOnScroll();
   const [h2Refcus, animateH2cus] = useAnimateOnScroll();
 
 
@@ -737,7 +737,43 @@ const About = () => {
         </div>
       </section>
 
-
+      {/* Partner of Zatify */}
+      <section className="relative flex-grow xl:max-w-[85rem] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <div className="max-w-[85rem] mx-auto xl:mb-24">
+          <h2
+            ref={h2Refpart}
+            className="text-3xl  sm:text-6xl xl:text-7xl max-w-full leading-tight mb-2 xl:mb-16 font-roboto text-gray-800 flex"
+            style={{ overflow: 'visible', lineHeight: '1.2', minHeight: '1em' }}
+          >
+            {"Đối tác của Zatify".split('').map((char, idx) => (
+              <span
+                key={idx}
+                className={`inline-block transition-all duration-500 ease-out
+          ${animateH2part ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+                style={{
+                  transitionDelay: `${idx * 50}ms`,
+                  display: 'inline-block',
+                  lineHeight: '1.2',
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h2>
+        </div>
+        <div className="grid grid-cols-4 gap-8 md:gap-x-20 gap-2">
+          {[1, 2, 6, 4, 5, 3, 7, 8].map(index => (
+            <div key={index} className="flex items-center justify-center">
+              <img
+                src={`/images/logodoitac/partner-${index < 10 ? '0' + index : index}.png`}
+                alt={`Đối tác ${index}`}
+                className="h-20 w-auto max-w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
