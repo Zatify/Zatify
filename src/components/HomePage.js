@@ -445,7 +445,7 @@ const HomePage = () => {
                 Tài khoản chính thức của doanh nghiệp trên nền tảng Zalo, giúp doanh nghiệp kết nối và tương tác với người dùng Zalo
               </p>
             </div>
-            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-0]">
+            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-0 z-50">
               {/* Circle div top-right */}
               <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
@@ -463,7 +463,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* Replace globe SVG with dotted circles and 3 X letters */}
-            <svg className="hidden md:block absolute bottom-0 left-2 w-full h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="hidden md:block absolute bottom-0 left-2 w-full z-0 h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g opacity="0.6" fill="#FFFFFF">
                 {[
                   6, 8, 10, 12, 12, 12, 12, 12, 12, 10, 8, 6
@@ -567,7 +567,8 @@ const HomePage = () => {
                 <h4
                   style={{ textDecorationThickness: '2px' }}
                   className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold md:mt-8 mt-2 mb-6"
-                  onClick={() => {
+                  onClick={e =>  {
+                    e.stopPropagation();
                     setActiveIndex(2);
                     window.scrollTo(0, 0);
                     navigate('/zalo-mini-app');
@@ -581,7 +582,8 @@ const HomePage = () => {
                 <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
                 {/* Circle div bottom-left */}
                 <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
-                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e =>  {
+                  e.stopPropagation();
                   setActiveIndex(2);
                   window.scrollTo(0, 0);
                   navigate('/zalo-mini-app');

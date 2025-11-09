@@ -149,214 +149,261 @@ const ServicePage = () => {
                 </div>
             </section>
 
-            {/* Services Cards Section */}
-            <section className="2xl:mt-56 md:mt-40 mt-20 px-6 max-w-full mx-auto mb-20">
-                <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
-                    {/* Card 1 */}
-                    <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] 
+      {/* Services Cards Section */}
+      <section className="md:my-24 my-4 px-6 max-w-full mx-auto">
+        <div className="flex flex-col md:flex-row 0.5xl:w-[77%] justify-between items-start md:items-center mb-6 mx-auto min-h-[120px]">
+          <div className="flex flex-col flex-1 justify-center items-start w-full">
+            <h3
+              ref={h3Ref}
+              className="text-4xl  sm:text-6xl md:text-7xl font-light font-roboto flex"
+              style={{
+                overflow: 'visible',
+                lineHeight: '1.2',
+                minHeight: '1em',
+              }}
+            >
+              {"Các dịch vụ của Zatify".split('').map((char, idx) => (
+                <span
+                  key={idx}
+                  className={`inline-block transition-all duration-500 ease-out
+                    ${animateH3
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'}
+                  `}
+                  style={{
+                    transitionDelay: `${idx * 50}ms`,
+                    display: 'inline-block',
+                    lineHeight: '1.2',
+                  }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+            </h3>
+            <div className="mt-2 text-base text-gray-700 font-manrope">
+              {/* Subtitle hoặc mô tả cho dịch vụ của Zatify */}
+            </div>
+          </div>
+          <div className="rounded-md p-[1px] flex items-center h-full mt-4 sm:mt-0">
+            <button className="justify-center text-sm bg-white border border-[#a689fa] rounded-[0.65rem] px-4 py-2 text-black transition flex items-center gap-1 w-[160px] h-[50px] hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white"
+              onClick={() => {
+                setActiveIndex(2);
+                navigate('/service');
+              }}
+            >
+              Khám phá thêm<span className="ml-1">→</span>
+            </button>
+          </div>
+        </div>
+        <div className=" flex flex-col sm:flex-row justify-center gap-6 ">
+          {/* Card 1 */}
+          <div className="md:col-span-2 rounded-3xl md:row-span-2 bg-gradient-to-br from-cyan-300 via-cyan-500 to-cyan-700 col-span-full relative 0.5xl:h-[568px] h-[378px] 
             w-full sm:w-[456px] ml-0 sm:ml-0">
-                        <div
-                            className="rounded-3xl overflow-hidden cursor-pointer group bg-cover bg-center h-full"
-                            style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
-                        >
-                            <div className="absolute inset-0 p-6 flex flex-col justify-end rounded-3xl">
-                                <h4
-                                    style={{ textDecorationThickness: '2px' }}
-                                    className="text-white text-xl md:text-2xl xl:text-3xl font-semibold mb-6 cursor-pointer hover:underline underline-offset-8 transition-all duration-300"
-                                    onClick={() => {
-                                        setActiveIndex(2);
-                                        window.scrollTo(0, 0);
-                                        navigate('/zalo-oficial-account');
-                                    }}>Zalo Official Account - ZOA</h4>
-                                <p className="text-white text-sm md:text-base xl:text-lg w-[90%] mb-8">
-                                    Dịch vụ gửi thông báo chăm sóc khách hàng đến số điện thoại khách hàng trên Zalo
-                                </p>
-                            </div>
-                        </div>
-                        <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-[16px]">
-                            {/* Circle div top-right */}
-                            <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
+            <div
+              className="rounded-3xl overflow-hidden cursor-pointer group bg-cover bg-center h-full"
+              style={{ backgroundImage: "url('https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/sphere_4-1-min.png ')" }}
+            >
+              <div className="absolute inset-0 p-6 flex flex-col justify-end rounded-3xl">
+                <h4
+                  style={{ textDecorationThickness: '2px' }}
+                  className="text-white text-xl md:text-2xl xl:text-3xl font-semibold mb-6 cursor-pointer hover:underline underline-offset-8 transition-all duration-300"
+                  onClick={() => {
+                    setActiveIndex(2);
+                    window.scrollTo(0, 0);
+                    navigate('/zalo-oficial-account');
+                  }}>Zalo Official Account - ZOA</h4>
+                <p className="text-white text-sm md:text-base xl:text-lg w-[90%] mb-8">
+                  Dịch vụ gửi thông báo chăm sóc khách hàng đến số điện thoại khách hàng trên Zalo
+                </p>
+              </div>
+            </div>
+            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-[16px]">
+              {/* Circle div top-right */}
+              <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            {/* Circle div bottom-left */}
-                            <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
+              {/* Circle div bottom-left */}
+              <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
-                                setActiveIndex(2);
-                                window.scrollTo(0, 0);
-                                navigate('/zalo-oficial-account');
-                            }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                setActiveIndex(2);
+                window.scrollTo(0, 0);
+                navigate('/zalo-oficial-account');
+              }}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
 
-                    {/* Card 2 */}
-                    <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between 0.5xl:h-[568px] h-[378px] 
+          {/* Card 2 */}
+          <div className="md:col-span-2 md:row-span-2 col-span-full rounded-3xl rounded-br-[0px]  overflow-hidden relative cursor-pointer group bg-[#ad8de0] p-6 flex flex-col justify-between md:h-[568px] h-[378px] 
             w-full sm:w-[456px] ml-0 sm:ml-0">
-                        <div>
-                            <h4
-                                style={{ textDecorationThickness: '2px' }}
-                                className="text-white text-xl md:text-2xl xl:text-3xl hover:underline  underline-offset-8 font-semibold mt-8 mb-6"
-                                onClick={() => {
-                                    setActiveIndex(2);
-                                    window.scrollTo(0, 0);
-                                    navigate('/zalo-notification-service');
-                                }}>Zalo Notification Service ZNS</h4>
-                            <p className="text-white text-sm md:text-base xl:text-lg mb-4">
-                                Tài khoản chính thức của doanh nghiệp trên nền tảng Zalo, giúp doanh nghiệp kết nối và tương tác với người dùng Zalo
-                            </p>
-                        </div>
-                        <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-0]">
-                            {/* Circle div top-right */}
-                            <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
+            <div>
+              <h4
+                style={{ textDecorationThickness: '2px' }}
+                className="text-white text-xl md:text-2xl xl:text-3xl hover:underline  underline-offset-8 font-semibold md:mt-8 mt-2 mb-6"
+                onClick={() => {
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-notification-service');
+                }}>Zalo Notification Service ZNS</h4>
+              <p className="text-white text-sm md:text-base xl:text-lg mb-4">
+                Tài khoản chính thức của doanh nghiệp trên nền tảng Zalo, giúp doanh nghiệp kết nối và tương tác với người dùng Zalo
+              </p>
+            </div>
+            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl rounded-br-0 z-50">
+              {/* Circle div top-right */}
+              <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            {/* Circle div bottom-left */}
-                            <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
+              {/* Circle div bottom-left */}
+              <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
 
-                            <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
-                                setActiveIndex(2);
-                                window.scrollTo(0, 0);
-                                navigate('/zalo-notification-service');
-                            }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
-                        {/* Replace globe SVG with dotted circles and 3 X letters */}
-                        <svg className="absolute bottom-0 left-2 w-full h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g opacity="0.6" fill="#FFFFFF">
-                                {[
-                                    6, 8, 10, 12, 12, 12, 12, 12, 12, 10, 8, 6
-                                ].map((dotsPerRow, rowIndex) => {
-                                    const spacing = 30;
-                                    const startX = 70 - (dotsPerRow * spacing) / 2;
-                                    const centerY = 70;
-                                    const radiusY = 55;
-                                    const y = centerY - 55 + (rowIndex * 30);
-                                    return Array.from({ length: dotsPerRow }).map((_, colIndex) => (
-                                        <circle
-                                            key={`${rowIndex}-${colIndex}`}
-                                            cx={startX + colIndex * spacing}
-                                            cy={y}
-                                            r="2"
-                                        />
-                                    ));
-                                })}
-                            </g>
-                            {/* Circular/diamond dotted pattern with equal spacing */}
-                            {/* 3 X letters replaced with image */}
-                            <image
-                                href="/svg/3x.png"
-                                x="-80"
-                                y="52"
-                                width="240"
-                                height="100"
-                            />
-                        </svg>
-                    </div>
+              <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
+                setActiveIndex(2);
+                window.scrollTo(0, 0);
+                navigate('/zalo-notification-service');
+              }}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            {/* Replace globe SVG with dotted circles and 3 X letters */}
+            <svg className="hidden md:block absolute bottom-0 left-2 w-full z-0 h-40 opacity-100" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.6" fill="#FFFFFF">
+                {[
+                  6, 8, 10, 12, 12, 12, 12, 12, 12, 10, 8, 6
+                ].map((dotsPerRow, rowIndex) => {
+                  const spacing = 30;
+                  const startX = 70 - (dotsPerRow * spacing) / 2;
+                  const centerY = 70;
+                  const radiusY = 55;
+                  const y = centerY - 55 + (rowIndex * 30);
+                  return Array.from({ length: dotsPerRow }).map((_, colIndex) => (
+                    <circle
+                      key={`${rowIndex}-${colIndex}`}
+                      cx={startX + colIndex * spacing}
+                      cy={y}
+                      r="2"
+                    />
+                  ));
+                })}
+              </g>
+              {/* Circular/diamond dotted pattern with equal spacing */}
+              {/* 3 X letters replaced with image */}
+              <image
+                href="/svg/3x.png"
+                x="-80"
+                y="52"
+                className="w-[240px] h-[100px]"
+              />
+            </svg>
+          </div>
 
-                    {/* Card 3 */}
-                    <div className="md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col h-[568px] 
-            w-full sm:w-[456px] ml-0 sm:ml-0"
-                        onClick={() => {
-                            setActiveIndex(2);
-                            window.scrollTo(0, 0);
-                            navigate('/zalo-ads');
-                        }}
-                        tabIndex={0}
-                        role="button"
-                        aria-label="Xem chi tiết Zalo Ads"
-                        onKeyUp={e => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                                e.preventDefault();
-                                setActiveIndex(2);
-                                window.scrollTo(0, 0);
-                                navigate('/zalo-ads');
-                            }
-                        }}
-                        style={{ outline: 'none' }}
-                    >
-                        {/* Top part */}
-                        <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.3] flex items-center justify-center">
-                            <h4
-                                style={{ textDecorationThickness: '2px' }}
-                                className=" text-black text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mb-2 mt-6 absolute left-20 top-4 -translate-x-1/2"
-                                onClick={() => {
-                                    setActiveIndex(2);
-                                    window.scrollTo(0, 0);
-                                    navigate('/zalo-ads');
-                                }}>Zalo Ads</h4>
-                            <img
-                                src="https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/Group-18418.png"
-                                alt="Zalo Ads"
-                                className="absolute top-0 right-0 max-h-32  w-auto object-contain "
-                            />
-                            {/* Button điều hướng thêm ở đây */}
-                            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
-                                {/* Circle div top-right */}
-                                <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
-                                {/* Circle div bottom-left */}
-                                <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
-                                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e => {
-                                    e.stopPropagation();
-                                    setActiveIndex(2);
-                                    window.scrollTo(0, 0);
-                                    navigate('/zalo-ads');
-                                }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Bottom part */}
-                        <div className=" rounded-3xl p-6 flex flex-col justify-between flex-[0.7] relative text-white">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-80 rounded-bl-3xl rounded-3xl pointer-events-none"></div>
-
-                            <div className="relative z-10">
-                                <h4
-                                    style={{ textDecorationThickness: '2px' }}
-                                    className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mt-8 mb-6"
-                                    onClick={() => {
-                                        setActiveIndex(2);
-                                        window.scrollTo(0, 0);
-                                        navigate('/zalo-mini-app');
-                                    }}>Zalo Mini App</h4>
-                                <p className="text-white text-sm md:text-base xl:text-lg mb-4">
-                                    Những App nhỏ chạy trực tiếp trên nền tảng Zalo, một giải pháp hiệu quả dành cho doanh nghiệp.
-                                </p>
-                            </div>
-                            <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
-                                {/* Circle div top-right */}
-                                <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
-                                {/* Circle div bottom-left */}
-                                <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
-
-                                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={() => {
-                                    setActiveIndex(2);
-                                    window.scrollTo(0, 0);
-                                    navigate('/zalo-mini-app');
-                                }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <img
-                            src="https://www.prulifeuk.com.ph/export/sites/prudential-ph/en/.galleries/images/communication-care-366x206.jpg"
-                            alt="Background"
-                            className="absolute bottom-[0px] w-full h-[367px] object-cover rounded-3xl -z-10"
-                        />
-                    </div>
+          {/* Card 3 */}
+          <div
+            className={`md:col-span-2 md:row-span-1 col-span-full gap-4 rounded-3xl rounded-br-[0px] overflow-hidden relative cursor-pointer group flex flex-col
+    ${window.innerWidth < 768 ? 'h-[378px]' : 'h-[568px]'}
+    w-full sm:w-[456px] ml-0 sm:ml-0`}
+            onClick={() => {
+              setActiveIndex(2);
+              window.scrollTo(0, 0);
+              navigate('/zalo-ads');
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Xem chi tiết Zalo Ads"
+            onKeyUp={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setActiveIndex(2);
+                window.scrollTo(0, 0);
+                navigate('/zalo-ads');
+              }
+            }}
+            style={{ outline: 'none' }}
+          >
+            {/* Top part */}
+            <div className="bg-blue-50 rounded-3xl p-6 relative flex-[0.4] flex items-center justify-center sm:flex-[0.3]">
+              <h4
+                style={{ textDecorationThickness: '2px' }}
+                className=" text-black text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold mb-2 mt-6 absolute left-20 top-4 -translate-x-1/2"
+                onClick={() => {
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-ads');
+                }}>Zalo Ads</h4>
+              <img
+                src="https://demo.artureanec.com/themes/aiero/wp-content/uploads/2024/12/Group-18418.png"
+                alt="Zalo Ads"
+                className="absolute top-0 right-0 max-h-32  w-auto object-contain "
+              />
+              {/* Button điều hướng thêm ở đây */}
+              <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
+                {/* Circle div top-right */}
+                <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
+                {/* Circle div bottom-left */}
+                <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
+                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e => {
+                  e.stopPropagation();
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-ads');
+                }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-            </section>
+              </div>
+            </div>
+            {/* Bottom part */}
+            <div className="rounded-3xl p-6 flex flex-col justify-between flex-[0.6] sm:flex-[0.7] relative text-white">
+              <div className="absolute inset-0 rounded-bl-3xl rounded-3xl pointer-events-none overflow-hidden">
+                {/* Gradient background */}
+                <div className="w-full h-full bg-gradient-to-r from-[#bcaaff] via-[#7ec8e3] to-[#a0c4ff] opacity-80 absolute inset-0"></div>
+                {/* Image inside gradient */}
+                <img
+                  src="https://www.prulifeuk.com.ph/export/sites/prudential-ph/en/.galleries/images/communication-care-366x206.jpg"
+                  alt="Background"
+                  className="w-full h-full object-cover opacity-50"
+                  style={{ mixBlendMode: 'multiply' }} // Nếu muốn hiệu ứng blend với gradient
+                />
+              </div>
+              <div className="relative z-10">
+                <h4
+                  style={{ textDecorationThickness: '2px' }}
+                  className="text-xl md:text-2xl xl:text-3xl hover:underline underline-offset-8 font-semibold md:mt-8 mt-2 mb-6"
+                  onClick={e =>  {
+                    e.stopPropagation();
+                    setActiveIndex(2);
+                    window.scrollTo(0, 0);
+                    navigate('/zalo-mini-app');
+                  }}>Zalo Mini App</h4>
+                <p className="text-white text-sm md:text-base xl:text-lg mb-4">
+                  Những App nhỏ chạy trực tiếp trên nền tảng Zalo, một giải pháp hiệu quả dành cho doanh nghiệp.
+                </p>
+              </div>
+              <div className="absolute bottom-0 right-0 bg-white p-2 pb-0 rounded-tl-3xl">
+                {/* Circle div top-right */}
+                <div className="absolute top-[-16px] right-0 w-4 h-4 bg-white mask-rounded-hole-card"></div>
+                {/* Circle div bottom-left */}
+                <div className="absolute bottom-0 left-[-16px] w-4 h-4 bg-white mask-rounded-hole-card"></div>
+                <div className="bg-black rounded-[18px] p-2 hover:bg-gray-700 transition cursor-pointer" onClick={e =>  {
+                  e.stopPropagation();
+                  setActiveIndex(2);
+                  window.scrollTo(0, 0);
+                  navigate('/zalo-mini-app');
+                }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
             <section className="labelrunning w-full h-[115px] overflow-hidden flex items-center relative">
                 <div className="marquee flex whitespace-nowrap" style={{ animation: 'marquee 15s linear infinite' }}>
                     <span className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl text-gray-800 font-roboto mx-8">

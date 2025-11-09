@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from "swiper/modules";
+import { useNavigate } from 'react-router-dom';
+
 const useAnimateOnScroll = () => {
     const ref = useRef(null);
     const [animate, setAnimate] = useState(false);
@@ -28,7 +30,9 @@ const useAnimateOnScroll = () => {
 
 
 const ZaloAds = () => {
-    // Hàm mở popup video (tạm thời dùng alert, bạn có thể thay bằng logic popup thật)
+    // Hàm mở popup video (t
+    const navigate = useNavigate();
+    // ạm thời dùng alert, bạn có thể thay bằng logic popup thật)
     const popupPlayVideo = (id) => {
         alert(`Play video: ${id}`);
     };
@@ -291,28 +295,40 @@ const ZaloAds = () => {
                 {/* Sidebar left */}
                 <aside className="service-single-sidebar w-full md:w-1/4 2xl:w-1/5 flex-col gap-8 hidden md:flex">
                     {/* Service list */}
-                    <div className="service-list bg-gray-100 p-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[340px]">
+                    <div className="service-list bg-gray-100 px-6 rounded-xl h-auto flex justify-start items-center 0.5xl:h-[300px]">
                         <ul className="space-y-6 text-gray-500 font-manrope text-[20px]">
                             {[
                                 "Zalo Official Account",
                                 "Zalo Mini App",
                                 "Zalo Notification Service",
                                 "Zalo Ads",
-                            ].map((item, index) => (
-                                <li
-                                    key={index}
-                                    className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
-                                >
-                                    {/* Icon mũi tên */}
-                                    <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
-                                        ↗
-                                    </span>
-                                    {/* Text */}
-                                    <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
+                            ].map((item, index) => {
+                                const links = [
+                                    "/zalo-oficial-account",
+                                    "/zalo-mini-app",
+                                    "/zalo-notification-service",
+                                    "/zalo-ads"
+                                ];
+                                return (
+                                    <li
+                                        key={index}
+                                        className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
+                                        onClick={() => {
+                                            navigate(links[index])
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        {/* Icon mũi tên */}
+                                        <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
+                                            ↗
+                                        </span>
+                                        {/* Text */}
+                                        <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
+                                            {item}
+                                        </span>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
@@ -353,11 +369,12 @@ const ZaloAds = () => {
                         </div>
                     </div>
 
+
                     {/* AI Consulting */}
                     <div className="flex items-end relative p-6 rounded-xl w-full text-white h-[340px]" style={{ backgroundImage: 'url(/svg/Testimonial.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="relative w-full z-10">
-                            <h3 className="text-3xl font-roboto mb-2">AI Strategy and Consulting</h3>
-                            <p className="font-manrope">Provide expert guidance on developing an AI strategy</p>
+                            <h3 className="text-3xl font-roboto mb-2">Tăng cường nhận diện thương hiệu</h3>
+                            <p className="font-manrope">Cho phép doanh nghiệp cải thiện đáng kể khả năng tương tác với khách hàng</p>
                         </div>
                     </div>
                 </aside>

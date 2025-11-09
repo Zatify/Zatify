@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion"
 import { FiUsers, FiCalendar, FiRepeat, FiDollarSign, FiShare2, FiHeart, FiCheck, FiDownload } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 const useAnimateOnScroll = () => {
     const ref = useRef(null);
@@ -30,6 +31,8 @@ const ZaloMiniApp = () => {
     // State để lưu index của thẻ details đang mở
     const [openDetail, setOpenDetail] = useState(null);
     const contentRefs = React.useRef([]); // Ref array for content divs
+    const navigate = useNavigate();
+
 
     // Hiệu ứng cho tiêu đề 
     const [titleRef, animateTitle] = useAnimateOnScroll();
@@ -154,21 +157,33 @@ const ZaloMiniApp = () => {
                                 "Zalo Mini App",
                                 "Zalo Notification Service",
                                 "Zalo Ads",
-                            ].map((item, index) => (
-                                <li
-                                    key={index}
-                                    className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
-                                >
-                                    {/* Icon mũi tên */}
-                                    <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
-                                        ↗
-                                    </span>
-                                    {/* Text */}
-                                    <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
+                            ].map((item, index) => {
+                                const links = [
+                                    "/zalo-oficial-account",
+                                    "/zalo-mini-app",
+                                    "/zalo-notification-service",
+                                    "/zalo-ads"
+                                ];
+                                return (
+                                    <li
+                                        key={index}
+                                        className="cursor-pointer flex items-center gap-2 group transition-all duration-300"
+                                        onClick={() => {
+                                            navigate(links[index])
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        {/* Icon mũi tên */}
+                                        <span className="opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[20px]">
+                                            ↗
+                                        </span>
+                                        {/* Text */}
+                                        <span className="transition-all duration-300 group-hover:text-black group-hover:font-semibold group-hover:translate-x-1">
+                                            {item}
+                                        </span>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
